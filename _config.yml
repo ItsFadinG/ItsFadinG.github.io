@@ -11,13 +11,13 @@ baseurl: ''
 lang: en-US
 
 # Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
-timezone: Asia/Shanghai
+timezone: Africa/Cairo
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # --------------------------
 title: Muhammad Adel                          # the main title
 
-tagline: A text-focused Jekyll theme   # it will display as the sub-title
+tagline: CyberSecurity geek, who wants to share his day-to-day knowledge   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   A minimal, portfolio, sidebar,
@@ -43,8 +43,8 @@ social:
     - https://twitter.com/ItsFadinG_      # change to your twitter homepage
     - https://github.com/ItsFadinG       # change to your github homepage
     # Uncomment below to add more social links
-    # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
+    - https://www.facebook.com/muhammad.adel.7186896/
+    - https://www.linkedin.com/in/muhammad-adel-424367182
 
 google_site_verification: google_meta_tag_verification # change to your verification string
 # --------------------------
@@ -77,7 +77,7 @@ theme_mode:   # [light|dark]
 img_cdn: ''
 
 # the avatar on sidebar, support local or CORS resources
-avatar: https://cdn.jsdelivr.net/gh/cotes2020/chirpy-images/commons/avatar.jpg
+avatar: assets/img/mine.jpeg
 
 # boolean type, the global switch for ToC in posts.
 toc: true
