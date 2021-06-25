@@ -5,26 +5,28 @@ date: 2021-06-25 17:20:00 +0200
 categories: [Active Directory 101]
 tags: [active directory, red team]
 ---
-## Active directory overview
-#### what is Active directory?
+
+## **Active directory overview**
+#### **what is Active directory?**
 Active Directory is a collection of machines and servers connected inside of domains, that are a collective part of a bigger forest of domains, that make up the Active Directory network.
-#### why using active directory?
+#### **why using active directory?**
 it allows for the control and monitoring of their user's computers through a single domain controller. It allows a single user to sign in to any computer on the active directory network and have access to his or her stored files and folders in the server, as well as the local storage on that machine.
 
-## Physical AD Components
+## **Physical AD Components**
 
 ![Physical AD Components](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLaxK2piSYZmrXIAN0o%2F-MLb7b35ZFHBHU6Gt4KJ%2Fphysicall.png?alt=media&token=a57f5c1b-d0cf-45f1-b579-ca3a3fcc227e)
 
-### Domain Controllers
+### **Domain Controllers**
 A domain controller is a Windows server that has Active Directory Domain Services (AD DS) installed and has been promoted to a domain controller in the forest. Domain controllers are the center of Active Directory -- they control the rest of the domain. 
 
-### Domain Controllers Functions: 
+Domain Controllers Functions: 
 
-- holds the AD DS data store 
-- handles authentication and authorization services 
-- replicate updates from other domain controllers in the forest
-- Allows admin access to manage domain resources
-### AD DS Data Store
+- holds the AD DS data store.
+- handles authentication and authorization services.
+- replicate updates from other domain controllers in the forest.
+- Allows admin access to manage domain resources.
+
+### **AD DS Data Store**
 The Active Directory Data Store holds the databases and processes needed to store and manage directory information such as users, groups, and services. 
 
 AD DS Data Store Functions:
@@ -33,7 +35,7 @@ AD DS Data Store Functions:
 - Stored by default in %SystemRoot%\NTDS.
 - accessible only by the domain controller.
 
-## Logical AD Components
+## **Logical AD Components**
 
 ![Logical AD Components](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLaxK2piSYZmrXIAN0o%2F-MLbAgpmd4B9doVtnp7o%2Fall.png?alt=media&token=67fd159e-3d7f-4afd-b6f5-ec08c0aa248c)
 
@@ -44,14 +46,14 @@ AD DS Data Store Functions:
 - **Objects** - users, groups, printers, computers, shares.
 - **Domain Schema** - Rules for object creation.
 
-### Domain Services
+### **Domain Services**
 services that the domain controller provides to the rest of the domain or tree. There is a wide range of various services that can be added to a domain controller; however, we'll only be going over the default services that come when you set up a Windows server as a domain controller. Outlined below are the default domain services: 
 
 - **LDAP** - Lightweight Directory Access Protocol; provides communication between applications and directory services.
 - **Certificate Services** - allows the domain controller to create, validate, and revoke public key certificates.
 - **DNS, LLMNR, NBT-NS** - Domain Name Services for identifying IP hostnames.
 
-### Domain Authentication
+### **Domain Authentication**
 The most important part of Active Directory -- as well as the most vulnerable part of Active Directory -- is the authentication protocols set in place. There are two main types:
 
 - **Kerberos** - The default authentication service for Active Directory uses ticket-granting tickets and service tickets to authenticate users and give users access to other resources across the domain.
@@ -59,7 +61,7 @@ The most important part of Active Directory -- as well as the most vulnerable pa
 
 
 
-## AD Users
+## **AD Users**
 
 ![AD Users](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLbJOwrqUsd9hIx-ztJ%2F-MLbL6t6OzFWKxiyatYY%2Fusers1.png?alt=media&token=d648d8bc-2d88-49f3-99e8-1971361681b0)
 
@@ -72,7 +74,7 @@ Users are the core to Active Directory; without users why have Active Directory 
 
 
 
-## AD Groups
+## **AD Groups**
  
 ![AD Groups](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLbJOwrqUsd9hIx-ztJ%2F-MLbL9zRXeA16VGwZ8Dc%2Fgroups.png?alt=media&token=f24e1370-4531-4e6b-800a-693e097b295d) 
 
@@ -81,7 +83,7 @@ Groups make it easier to give permissions to users and objects by organizing the
 - **Security Groups** - These groups are used to specify permissions for a large number of users
 - **Distribution Groups** - These groups are used to specify email distribution lists. As an attacker these groups are less beneficial to us but can still be beneficial in enumeration.
 
-### Default Security Groups
+### **Default Security Groups**
 
 - **Domain Controllers** - All domain controllers in the domain
 - **Domain Guests** - All domain guests
@@ -106,7 +108,7 @@ Groups make it easier to give permissions to users and objects by organizing the
 
 
 
-## AD Trusts
+## **AD Trusts**
 
 ![AD Trusts](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLbLDHeDsEhkuV9lE52%2F-MLbQ1Iwr2_aFHTPbyYO%2Ftrusts.jpg?alt=media&token=ff5c94ea-2f6a-4ec5-b8c7-cf9a3418a3ef)
 
@@ -119,19 +121,21 @@ There are two types of trusts that determine how the domains communicate:
 
 The type of trusts put in place determines how the domains and trees in a forest are able to communicate and send data to and from each other when attacking an Active Directory environment you can sometimes abuse these trusts in order to move laterally throughout the network.
 
-### Trust Direction
+### **Trust Direction**
 **One-way Trust - Unidirectional**
+
 Users in the trusted domain can access resources in the trusting domain but the revers is not true.
 
 ![One-way Trust](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLw1vyFzpX-zeRyZMaO%2F-MLwCJfIDstZ5zuvPfSS%2Fone%20way.png?alt=media&token=2be2632d-af52-479c-97e5-1fa8a294a141)
 
 
 **Two-way Trust - Bi-directional**
+
 Users of both domains can access resources in the other domain.
 
 ![Two-way Trust](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLw1vyFzpX-zeRyZMaO%2F-MLwC0Xi9F3_b4PoU63C%2Ftwo%20way.png?alt=media&token=a32125f9-9078-4a88-8b30-683ad88ec12f)
 
-### Trust Transitivity
+### **Trust Transitivity**
 **Transitive Trust**
 
 A two-way relationship automatically created between parent and child domains in a Microsoft Active Directory forest. When a new domain is created, it shares resources with its parent domain by default, enabling an authenticated user to access resources in both the child and parent. 
@@ -143,7 +147,7 @@ A two-way relationship automatically created between parent and child domains in
 A trust that will not extend past the domains it was created with. If domain A was connected to domain B and domain B connected to domain C using non-transitive trusts the following would occur. Domain A and domain B would be able to access each other. Domain B could access domain C. Domain A, however, could not access domain C. Even though the domains are indirectly connected, since the trust is non-transitive the connection will stop once it gets to domain B. In order for domain A and domain C to communicate using non-transitive trust you would need to create another trust between domain A and domain C.
 
 
-### Domain Trusts
+### **Domain Trusts**
 
 **Default/Automatic trust**
 
@@ -174,25 +178,25 @@ Forest trusts is established between forest root domains. it cannot be extended 
 
 
 
-## AD Polices
+## **AD Polices**
 
 Policies are a very big part of Active Directory, they dictate how the server operates and what rules it will and will not follow. You can think of domain policies like domain groups, except instead of permissions they contain rules, and instead of only applying to a group of users, the policies apply to a domain as a whole. They simply act as a rulebook for Active Directory that a domain admin can modify and alter as they deem necessary to keep the network running smoothly and securely. Along with the very long list of default domain policies, domain admins can choose to add in their own policies not already on the domain controller, for example: if you wanted to disable windows defender across all machines on the domain you could create a new group policy object to disable Windows Defender. The options for domain policies are almost endless and are a big factor for attackers when enumerating an Active Directory network.
 
 
--   **Disable Windows Defender** - Disables windows defender across all machine on the domain.
+-   **Disable Windows Defender:** - Disables windows defender across all machine on the domain.
 
--   **Digitally Sign Communication (Always)** - Can disable or enable SMB signing on the domain controller.
+-   **Digitally Sign Communication (Always):** - Can disable or enable SMB signing on the domain controller.
 
 
 
-## Access Control List (ACL)
+## **Access Control List (ACL)**
 
 **An access control list (ACL)** is a list of access control entries (**ACE**). Each **ACE** in an ACL identifies a trustee and specifies the access rights allowed, denied, or audited for that trustee. The security descriptor for a securable object can contain two types of ACLs: a DACL and a SACL.
 
-### DACL
+### **DACL**
 
-**A discretionary access control list (DACL)** identifies the trustees that are allowed or denied access to a securable object. When a process tries to access a securable object, the system checks the ACEs in the object's DACL to determine whether to grant access to it. If the object does not have a DACL, the system grants full access to everyone. If the object's DACL has no ACEs, the system denies all attempts to access the object because the DACL does not allow any access rights. The system checks the ACEs in sequence until it finds one or more ACEs that allow all the requested access rights, or until any of the requested access rights are denied. For more information, see How DACLs Control Access to an Object. For information about how to properly create a DACL, see Creating a DACL.
+**A discretionary access control list (DACL):** identifies the trustees that are allowed or denied access to a securable object. When a process tries to access a securable object, the system checks the ACEs in the object's DACL to determine whether to grant access to it. If the object does not have a DACL, the system grants full access to everyone. If the object's DACL has no ACEs, the system denies all attempts to access the object because the DACL does not allow any access rights. The system checks the ACEs in sequence until it finds one or more ACEs that allow all the requested access rights, or until any of the requested access rights are denied. For more information, see How DACLs Control Access to an Object. For information about how to properly create a DACL, see Creating a DACL.
 
-### SACL
+### **SACL**
 
-**A system access control list (SACL)** enables administrators to log attempts to access a secured object. Each ACE specifies the types of access attempts by a specified trustee that cause the system to generate a record in the security event log. An ACE in a SACL can generate audit records when an access attempt fails, when it succeeds, or both. For more information about SACLs, see Audit Generation and SACL Access Right.
+**A system access control list (SACL):** enables administrators to log attempts to access a secured object. Each ACE specifies the types of access attempts by a specified trustee that cause the system to generate a record in the security event log. An ACE in a SACL can generate audit records when an access attempt fails, when it succeeds, or both. For more information about SACLs, see Audit Generation and SACL Access Right.
