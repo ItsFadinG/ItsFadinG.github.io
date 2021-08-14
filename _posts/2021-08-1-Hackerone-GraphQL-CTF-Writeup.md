@@ -8,7 +8,8 @@ tags: [hackerone, graphql, ctf]
 
 Peace be upon all of you, on this writeup I am going to cover the solutions of three challenges on Hacekrone related to GraphQL, they have three parts under the name BugDB v1/3. 
 
-**Difficulty:** Easy and moderate 
+**Difficulty:** Easy and moderate
+
 **Challenge Link:**  <https://ctf.hacker101.com/ctf>
 
 
