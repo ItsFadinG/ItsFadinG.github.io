@@ -12,7 +12,7 @@ X corp made a new filtration for input data, prove it is secure enough.
 
 **‌Difficulty**: Easy
 
-[Challenge-Link](https://cybertalents.com/challenges/web/x-corp)
+**Challenge Link:** [https://cybertalents.com/challenges/web/x-corp](https://cybertalents.com/challenges/web/x-corp)
 
 ## **Solution**
 

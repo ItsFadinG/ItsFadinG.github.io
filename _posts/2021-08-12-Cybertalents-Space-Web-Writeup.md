@@ -8,8 +8,8 @@ tags: [cybertalents, ctf, web]
 ## **Description**
 
 you might need some space XD.
-**Difficulty:** Hard 
 
+**Difficulty:** Hard 
 
 **Challenge Link:**[ http://3.126.138.80/catch/http://ec2-35-158-236-11.eu-central-1.compute.amazonaws.com/space/](http://ec2-35-158-236-11.eu-central-1.compute.amazonaws.com/space/)
 

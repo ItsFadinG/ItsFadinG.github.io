@@ -12,7 +12,7 @@ Creative Thinking will make getting the flag so much easier
 
 **Difficulty**: Easy
 
-[Challenge-Link](https://cybertalents.com/challenges/web/skiddykill3r)
+**Challenge Link:** [https://cybertalents.com/challenges/web/skiddykill3r](https://cybertalents.com/challenges/web/skiddykill3r)
 
 
 ## **Solution**

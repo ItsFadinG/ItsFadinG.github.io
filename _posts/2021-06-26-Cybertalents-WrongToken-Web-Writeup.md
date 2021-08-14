@@ -9,9 +9,10 @@ tags: [cybertalents, ctf, web]
 ## **Description**
 
 Request to the flag is forbidden due to wrong CSRF token ... can you fix it and reveal the flag
+
 **Difficulty**: hard
 
-[Challenge-Link](https://cybertalents.com/challenges/web/wrong-token)
+**Challenge Link:** [https://cybertalents.com/challenges/web/wrong-token](https://cybertalents.com/challenges/web/wrong-token)
 
 ## **Solution**
 

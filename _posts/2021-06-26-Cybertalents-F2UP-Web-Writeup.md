@@ -9,9 +9,11 @@ tags: [cybertalents, ctf, web]
 ## **Description**
 
 this is the most secure way to file upload is it ?
+
+
 **Difficulty**: Medium
 
-[Challenge-Link](https://cybertalents.com/challenges/web/f2up)
+**Challenge Link:** [https://cybertalents.com/challenges/web/f2up](https://cybertalents.com/challenges/web/f2up)
 
 ## **Solution**
 

@@ -9,11 +9,14 @@ tags: [cybertalents, machines, box, ctf]
 ## **Description**
 
 Get The highest privilege on the machine and find the flag!
+
 **Difficulty**: Hard
+
 Target IP: **3.122.178.169**
+
 Target IP: **18.193.129.237**
 
-‌[Challenge-Link](https://cybertalents.com/challenges/machines/crashed)
+‌**Challenge Link:** [https://cybertalents.com/challenges/machines/crashed](https://cybertalents.com/challenges/machines/crashed)
 
 ## **Enumeration**
 

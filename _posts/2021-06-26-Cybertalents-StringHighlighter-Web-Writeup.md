@@ -9,9 +9,10 @@ tags: [cybertalents, ctf, web]
 ## **Description**
 
 Flag is hidden somewhere in the directory.
+
 **Difficulty**: Hard
 
-[Challenge-Link](https://cybertalents.com/challenges/web/string-highlighter)
+**Challenge Link:** [https://cybertalents.com/challenges/web/string-highlighter](https://cybertalents.com/challenges/web/string-highlighter)
 ‌
 ## **Solution**
 

@@ -8,8 +8,8 @@ tags: [cybertalents, ctf, web]
 ## **Description**
 
 Don't Try To 3scape From Your Destiny ! 
-**Difficulty:** Medium
 
+**Difficulty:** Medium
 
 **Challenge Link:**  <http://3.126.138.80/catch/>
 
