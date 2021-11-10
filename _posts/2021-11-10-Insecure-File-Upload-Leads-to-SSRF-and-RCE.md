@@ -9,10 +9,8 @@ tags: [bug hunting, web, writeups]
 Peace be upon you all, I am going to share with you a vulnerability which I have found almost a year ago and it is really remarkable for me because it was the first critical vulnerability for me any way let's jump in.
 
 ## **ImageMagick**
-It is a package commonly used by web services to process images. A number of image processing plugins depend on the ImageMagick library, including, but not limited to, PHP's imagick, Ruby's rmagick and paperclip, and nodejs's imagemagick.. it has been commonly exploited in 2016 when Nikolay Ermishkin from the Mail.Ru Security Team discovered several vulnerabilities in it under the CVEs (**CVE-2016-3714 - CVE-2016-3718 - CVE-2016-3715 - CVE-2016-3716 - CVE-2016-3717).** you can know more information about the vulnerability form here:
-
-![](https://imagetragick.com/)
-
+It is a package commonly used by web services to process images. A number of image processing plugins depend on the ImageMagick library, including, but not limited to, PHP's imagick, Ruby's rmagick and paperclip, and nodejs's imagemagick.. it has been commonly exploited in 2016 when Nikolay Ermishkin from the Mail.Ru Security Team discovered several vulnerabilities in it under the CVEs **(CVE-2016-3714 - CVE-2016-3718 - CVE-2016-3715 - CVE-2016-3716 - CVE-2016-3717).** you can know more information about the vulnerability form here:
+[https://imagetragick.com/](https://imagetragick.com/)
 ## **The Finding**
 I was testing the target for a couple of days and I was able to find multiple trivial XSS that's gave me an indication that this target didn't tested well before. Also, the target was running with PHP and I love it as Bug Hunter :). I looked for the file upload vulnerability and I started by sending it to burp plugin which test the file upload vulnerability. after some minutes I saw that red message that the target is vulnerable to CVE-2016-3714. great it is time for validating.
 
