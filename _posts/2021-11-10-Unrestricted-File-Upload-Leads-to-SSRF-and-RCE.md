@@ -1,5 +1,5 @@
 ---
-title: Insecure File Upload Leads to SSRF and RCE
+title: Unrestricted File Upload Leads to SSRF and RCE
 author: Muhammad Adel
 date: 2021-011-10 19:40:00 +0200
 categories: [Bug Hunting]
