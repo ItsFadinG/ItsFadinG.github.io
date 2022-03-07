@@ -9,6 +9,8 @@ Peace be upon all of you, on this writeup I am going to cover the solutions of a
 
 
 **Difficulty:** Easy and moderate
+
+
 **Challenge Link:** https://ctf.hacker101.com/ctf
 
 ## Thermostat
@@ -66,12 +68,17 @@ After doing the initial stuff as above let's try to understand what the applicat
 When is button is clicked it redirects us to the web browser giving the us following:
 
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2FraQzGem4RftyT2BgVZD2%2Fimage.png?alt=media&token=7e193b74-45d6-4d87-b884-88a813f2330f)
+
 Then click the hyper linked you will be redirected again to the application and returning an empty activity.
+
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2F4kVguDQzyzMyKAqr9xiu%2Fimage.png?alt=media&token=d3b37430-1a9b-4428-b2f6-ecb48c00bb4f)
+
 Let's look at the requests on burp suite:
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2F0jPPpEQb8OiSddJczaOM%2Fimage.png?alt=media&token=9f56a3db-e7ef-4b00-8a53-7698043ce219)
+
 Then
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2FJVrH83lFhdziZTgMgpkP%2Fimage.png?alt=media&token=059956fe-b51d-4c0a-8996-93c82cfbfc77)
+
 a very common misconfiguration on OAuth protocol is the ability to manipulate the redirect_url value to redirect the Auth token to a server that you own let's try it:
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2F3vKhU5GkZspq3jF0ceQD%2Fimage.png?alt=media&token=cab91883-1399-43ef-8419-15df6a5658fc)
 Great we got the first flag! Let's examine the application source code a bit deeper. In the AndroidManifiest.xml:
@@ -365,10 +372,7 @@ Voila!! it worked!
 
 ## References
 - <https://infosecwriteups.com/hacker101-ctf-android-challenge-writeups-f830a382c3ce>
-
 -   <https://pymotw.com/2/hmac/>
-
 -   <https://github.com/snyk/zip-slip-vulnerability>
-
 -   <https://www.tutorialspoint.com/compile_java_online.php>
 -   <https://hackerone.com/reports/328486>
