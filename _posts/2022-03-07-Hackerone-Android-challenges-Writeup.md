@@ -6,19 +6,20 @@ categories: [Hackerone CTF]
 tags: [android, writeups]
 ---
 Peace be upon all of you, on this writeup I am going to cover the solutions of all android challenges on Hackerone (Thermostat - Intentional Exercise - Oauthbreaker - Webdev).
-Difficulty: Easy and moderate
-Challenges Link: https://ctf.hacker101.com/ctf
+
+
+**Difficulty:** Easy and moderate
+**Challenge Link:** https://ctf.hacker101.com/ctf
 
 ## Thermostat
 Let's start by downloading the provided APK. and then install it in our emulator I am using Android Studio with Nexus 5 API 29. opening the application we find the following:
-
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2F2lxlBIt3u0VvxPx78ahi%2F1-App.png?alt=media&token=5d933176-1904-4543-8e20-a11d5abc7943)
 
 hmm! nothing to be interesting and only a plus and mins button to reduce the temperature. maybe there are some hidden requests. So we need to inspect the traffic through our proxy I will be using burp suite. the following will help to Configuring your Android to Work With Burp:
 [https://www.youtube.com/watch?v=lq4wprdLpbo](https://www.youtube.com/watch?v=lq4wprdLpbo)
 I configured burp and run the program and the first request was congaing the first flag:
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2F3QOH0xKB7Bl1vHQukHea%2F1-1_flag.png?alt=media&token=b018029d-3beb-4b7a-9c38-2338bfeaeb86)
-I looked for other requests to find the second flag but I found nothing. One of the hints were saying *"Access to the source code would help"*. Nice Let's pass our APK file to [JADx-GUI](https://github.com/skylot/jadx)  which is an application helps you to decompile and reverse APKs file to read the source code.
+I looked for other requests to find the second flag but I found nothing. One of the hints were saying *Access to the source code would help*. Nice Let's pass our APK file to [JADx-GUI](https://github.com/skylot/jadx) which is an application helps you to decompile and reverse APKs file to read the source code.
 By looking through the source code I found the following function which contains the first and second flag.
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2F6UsG6SLjd70o31A0EJrL%2F1-2_flag.png?alt=media&token=8965f489-2d01-4fca-a2a8-9a7819851616)
 
@@ -29,23 +30,23 @@ But after clicking the flag link it returns an invalid request. Let's examine th
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2FU0QKGHKsFyqTteuA9bVq%2F2-code.png?alt=media&token=bebe230f-611a-458d-a099-eca3491a5e95)
 After examining the source code it is very important to track the value of each variable to be able to form the correct URL and retrieve the flag.
 ```java
-Uri data = getIntent().getData(); // data = retrive the application URI
-String str = "http://35.227.24.107/2b8b8cfd16/appRoot";
-String str2 = BuildConfig.FLAVOR; // str = ""
+ Uri data = getIntent().getData(); // data = retrive the application URI
+ String str = "http://35.227.24.107/2b8b8cfd16/appRoot";
+ String str2 = BuildConfig.FLAVOR;  // str = ""
 if (data != null) {
-str2 = data.toString().substring(28); // truncate the first 28 character from the URI
-str = str + str2; // if data = "http://35.227.24.107/2b8b8cfd16/appRoot/flagBearer"
-// So str2 = "/flagBearer"
-// str = "http://35.227.24.107/2b8b8cfd16/appRoot/flagBearer"
-}
+  str2 = data.toString().substring(28);  // truncate the first 28 character from the URI
+  str = str + str2; // if data = "http://35.227.24.107/2b8b8cfd16/appRoot/flagBearer"
+                    // So str2 = "/flagBearer"
+                    // str = "http://35.227.24.107/2b8b8cfd16/appRoot/flagBearer"
+}              
 if (!str.contains("?")) {
-str = str + "?"; // appeand ? to the str Value
+  str = str + "?"; // appeand ? to the str Value
 }
 try {
-MessageDigest instance = MessageDigest.getInstance("SHA-256");
-instance.update("s00p3rs3cr3tk3y".getBytes(StandardCharsets.UTF_8));
-instance.update(str2.getBytes(StandardCharsets.UTF_8)); // SHA256(s00p3rs3cr3tk3y + str2)
-webView.loadUrl(str + "&hash=" + String.format("%064x", new BigInteger(1, instance.digest())));
+  MessageDigest instance = MessageDigest.getInstance("SHA-256");
+  instance.update("s00p3rs3cr3tk3y".getBytes(StandardCharsets.UTF_8)); 
+  instance.update(str2.getBytes(StandardCharsets.UTF_8)); // SHA256(s00p3rs3cr3tk3y + str2)
+  webView.loadUrl(str + "&hash=" + String.format("%064x", new BigInteger(1, instance.digest())));
 }
 ```
 So the Full URL will be:
@@ -59,8 +60,11 @@ Let's send the request:
 
 ## Oauthbreaker
 After doing the initial stuff as above let's try to understand what the application is doing. First, you open the application and you see one button as the following:
+
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2F534KcIhKpLXfuiMGy1dC%2Fimage.png?alt=media&token=84143e9a-d8db-4637-bb47-7ccf034ac897)
+
 When is button is clicked it redirects us to the web browser giving the us following:
+
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2FraQzGem4RftyT2BgVZD2%2Fimage.png?alt=media&token=7e193b74-45d6-4d87-b884-88a813f2330f)
 Then click the hyper linked you will be redirected again to the application and returning an empty activity.
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2F4kVguDQzyzMyKAqr9xiu%2Fimage.png?alt=media&token=d3b37430-1a9b-4428-b2f6-ecb48c00bb4f)
@@ -237,7 +241,7 @@ the code below this appears to perform a variety of operations that result in a 
 </html>
 ```
 Then leveraging the second activity which as we said above isn't protected and doesn't contain the `exported=false` flag which could allow us to access it directly. we will access it via the host final and the scheme `oauth://` and adding the `uri` parameter for redirection. Using the following command:
-```
+```bash
 adb shell am start -W -a android.intent.action.VIEW -d "oauth://final/?uri=EXPLOIT-LINK" com.hacker101.oauth
 ```
 And we will get the path for the second flag:
@@ -250,14 +254,19 @@ Anther simple way to get the path of the flag is by running the `getFlagPath()` 
 ## Webdev
 Getting everything ready for testing and start browsing the application. first the APK start with following page:
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2FCWRnM2NnBaX7olCJY9jK%2Fwebdev-1.png?alt=media&token=68d70d42-f3ba-473a-9ff2-6fca5d141828)
+
 If we click on Edit we will have the ability to edit an index.html file:
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2FXhBYLTengcS35FeS6oDS%2Fimage.png?alt=media&token=3a1be9d2-14ca-4238-9d39-725f8a4a37ff)
+
 I tried to put XSS code in the html file but nothing happens. at this point I didn't know what I should do and what is the idea of the challenge. So I decided to enumerate more by looking at burp traffic I found this request:
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2FjL5eIoNr9ANC4IIbIYD4%2Fimage.png?alt=media&token=d189806b-954f-4a05-b5f8-471d8a759eb5)
+
 So there is a file upload functionality under upload.php:
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2Fl0dx7lK9zDCTZhEeUvUw%2Fwebdev-upload.png?alt=media&token=1d755710-546c-4860-8a76-1949b88aa63b)
+
 It only accepts zip file so I uploaded one but an error occurred
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2FgECWKoy8e6t9NWje9u2f%2Fwebdev-HMAC.png?alt=media&token=be280895-0554-44d5-b9dc-711a04b1003e)
+
 Hmm! let's examine the source code to see what is happening. in AndroidManifest.xml:
 ```xml
 <activity android:name="com.hacker101.webdev.MainActivity">
@@ -354,7 +363,7 @@ So let's pick any POC for the vulnerability from the internet and then signed ag
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2FH6PYWxfgvK26GlX0nWlG%2Fwebdev-flag2.png?alt=media&token=314e3e7b-9964-4af1-bdfd-2dadd12abdde)
 Voila!! it worked!
 
-## References:
+## References
 - <https://infosecwriteups.com/hacker101-ctf-android-challenge-writeups-f830a382c3ce>
 
 -   <https://pymotw.com/2/hmac/>
