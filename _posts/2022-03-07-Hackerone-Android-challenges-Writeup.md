@@ -21,7 +21,7 @@ hmm! nothing to be interesting and only a plus and mins button to reduce the tem
 [https://www.youtube.com/watch?v=lq4wprdLpbo](https://www.youtube.com/watch?v=lq4wprdLpbo)
 I configured burp and run the program and the first request was congaing the first flag:
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2F3QOH0xKB7Bl1vHQukHea%2F1-1_flag.png?alt=media&token=b018029d-3beb-4b7a-9c38-2338bfeaeb86)
-I looked for other requests to find the second flag but I found nothing. One of the hints were saying *Access to the source code would help*. Nice Let's pass our APK file to [JADx-GUI](https://github.com/skylot/jadx) which is an application helps you to decompile and reverse APKs file to read the source code.
+I looked for other requests to find the second flag but I found nothing. One of the hints were saying `Access to the source code would help`. Nice Let's pass our APK file to [JADx-GUI](https://github.com/skylot/jadx) which is an application helps you to decompile and reverse APKs file to read the source code.
 By looking through the source code I found the following function which contains the first and second flag.
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2F6UsG6SLjd70o31A0EJrL%2F1-2_flag.png?alt=media&token=8965f489-2d01-4fca-a2a8-9a7819851616)
 
