@@ -25,7 +25,7 @@ I looked for other requests to find the second flag but I found nothing. One of 
 By looking through the source code I found the following function which contains the first and second flag.
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2F6UsG6SLjd70o31A0EJrL%2F1-2_flag.png?alt=media&token=8965f489-2d01-4fca-a2a8-9a7819851616)
 
-## Intentional Exercise
+## Intentional **Exercise**
 First, Let's download and install the APK in our emulator. Once, we open the application the following request will be made from the application request:
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FzhnspC86QpTMcEsuZLGz%2Fuploads%2F6Yg8SYoCVjCEu6jRnetj%2F2-burp-request.png?alt=media&token=075df2d2-ee66-4201-96fb-388cc8ffbc8c)
 But after clicking the flag link it returns an invalid request. Let's examine the source code using jadx-gui to see what is happening:
