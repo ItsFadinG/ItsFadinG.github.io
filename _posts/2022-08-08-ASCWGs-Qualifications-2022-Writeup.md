@@ -106,6 +106,6 @@ This payload retrieved all the data from database, and we found the flag is asso
 
 **Description:** captcha is not that secure
 
-One of the players on my team wrote a writeup for this, you can find it here:
+My team mate **0xMesbaha** have written a writeup for it got check it out from the following link:
 
-https://hussienmisbah.github.io/post/kenzy/
+[https://hussienmisbah.github.io/post/kenzy/](https://hussienmisbah.github.io/post/kenzy/)
