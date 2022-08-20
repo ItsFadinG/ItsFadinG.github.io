@@ -5,7 +5,9 @@ date: 2022-08-08 07:40:00 +0200
 categories: [CTF]
 tags: [web, writeups]
 ---
-Peace be upon all of you, on this writeup I am going to cover the solutions of all web challenges for Arab Security Cyber Wargames 2022 qualification phase. My team [0xCha0s](https://ctftime.org/team/168238) achieved the 6 place between more than 700 teams.
+Peace be upon all of you, on this writeup I am going to cover the solutions of all web challenges for Arab Security Cyber Wargames 2022 qualification phase. My team [0xCha0s](https://ctftime.org/team/168238) achieved the 5 place between more than 700 teams.
+
+![](https://pbs.twimg.com/media/FZoxLw4WAAAmfkg?format=jpg&name=large)
 
 ## **Drunken Developer**
 **Difficulty:** Warmup
@@ -83,6 +85,7 @@ As other challenges, we login and register functionalities let's create an accou
 We have nothing except a welcome message and in the security tab it is only responsible for changing passwords.
 
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-MeU8PSC8pJwv8a582oA%2Fuploads%2Fngzaoc1Twk7I8AMkcFPz%2Fimage.png?alt=media&token=c242c431-7762-47d9-9ff2-3de590894892)
+
 Let's go one step back and examine the login request:
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-MeU8PSC8pJwv8a582oA%2Fuploads%2FkaWqFJAg6Mx8KuKcewSy%2Fimage.png?alt=media&token=17f58779-b1fb-42c0-a87d-e337f48a0871)
 What is interesting here is a JWT token, but I have tried to crack it or change the ID value to 1 but nothing worked. Guess what worked for me, Response Manipulation Again?!! I really didn't except this to work at all. But when I have changed the ID on the response to 1 I became logged in as admin.
