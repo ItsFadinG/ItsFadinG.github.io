@@ -5,7 +5,7 @@ date: 2022-10-01 18:52:00 +0200
 categories: [CTF]
 tags: [web, writeups ,ctf]
 ---
-Peace be upon all of you, on this writeup I am going to cover the solutions of some web challenges from [BlackHatMEA](https://ctf.sa) CTF.
+Peace be upon all of you, on this writeup I am going to cover the solutions of some web challenges from [BlackHatMEA](https://ctf.sa) CTF. We have participated under the team **0xCha0s**.
 
 ## **Jimmy's Blog**
 
@@ -265,3 +265,9 @@ let's decode this value and Voila!
 My team mate **0xMesbaha** have written a writeup for it got check it out from the following link:
 
 [https://hussienmisbah.github.io/post/black-notes/](https://hussienmisbah.github.io/post/black-notes/)
+
+## **Meme Generator**
+
+**Difficulty:** Medium
+
+[https://hussienmisbah.github.io/post/meme-generator/](https://hussienmisbah.github.io/post/meme-generator/)
