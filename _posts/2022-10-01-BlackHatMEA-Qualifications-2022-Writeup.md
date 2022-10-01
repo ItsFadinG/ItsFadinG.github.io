@@ -1,7 +1,7 @@
 ---
 title: BlackHatMEA Qualifications 2022 CTF Web Challenges Writeup
 author: Muhammad Adel
-date: 2022-10-01 17:52:00 +0200
+date: 2022-10-01 23:52:00 +0200
 categories: [CTF]
 tags: [web, writeups ,ctf]
 ---
@@ -246,7 +246,8 @@ global.process.mainModule.require('child_process').execSync('env').toString()
 ```
 ![](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-MeU8PSC8pJwv8a582oA%2Fuploads%2F3RFVnvelNxosAvKj1tFX%2Fimage.png?alt=media&token=e204d22d-f57f-4de7-9284-86c5378d570b)
 
-The Flag is there but why we are getting the *"oof, that was close, glad i was here to save the day"* instead of the real flag? do you remember the nginx.conf file behavior. every time you the real flag will be printed in the web page it will be replaced by the previous dummy sentence. let's get around this behavior by base64 encode the output of the ```env``` command.
+The Flag is there but why we are getting the *"oof, that was close, glad i was here to save the day"* instead of the real flag? do you remember the nginx.conf file behavior. every time the real flag  
+printed in the web page it will be replaced by the previous dummy sentence. let's get around this behavior by base64 encode the output of the ```env``` command.
 ```javascript
 global.process.mainModule.require('child_process').execSync('env | base64').toString()
 ```
