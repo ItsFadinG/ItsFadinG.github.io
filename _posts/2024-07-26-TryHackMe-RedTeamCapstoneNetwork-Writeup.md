@@ -1405,11 +1405,14 @@ SourceName          TargetName       TrustType TrustDirection
 ----------          ----------       --------- --------------
 bank.thereserve.loc thereserve.loc ParentChild  Bidirectional
 ```
+
 **Parent Child Trust:** When new child domains are added, a two-way transitive trust is automatically established by Active Directory between the child domain and its parent.
 **Transitive Trust:** A two-way relationship is automatically created between parent and child domains in a Microsoft Active Directory forest. When a new domain is created, it shares resources with its parent domain by default, enabling an authenticated user to access resources in both the child and parent domains.
 **Bidirectional:** Users of both domains can access resources in the other domain.
-Let’s simplify it with the following diagram: 
+Let’s simplify it with the following diagram:
+
 ![Untitled](..\assets\N-RedTeamCC/Untitled%2017.png)
+
 As the CORP child trusts the ROOT domain and the BANK domain also trusts the ROOT domain also, then both the CORP and BANK domains will trust each other as the trust type is transitive. Therefore, if we compromise a child domain, we can access the other child domain.
 
 ### Exploiting Transitive Trust
