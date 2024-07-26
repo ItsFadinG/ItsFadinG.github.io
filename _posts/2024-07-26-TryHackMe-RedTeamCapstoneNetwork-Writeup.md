@@ -1,7 +1,7 @@
 ---
 title: I Hacked The Bank | TryHackMe RedTeam Capstone Challenge Walkthrough
 author: Muhammad Adel
-date: 2024-26-07 18:52:00 +0200
+date: 2024-07-27 18:52:00 +0200
 categories: [TryHackMe Network]
 tags: [tryhackme, redteam , active directory, windows, writeups]
 ---
