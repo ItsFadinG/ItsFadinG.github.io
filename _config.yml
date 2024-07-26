@@ -20,7 +20,7 @@ title: Muhammad Adel                          # the main title
 tagline: CyberSecurity geek, who wants to share his day-to-day knowledge   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you'll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you're an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and mastering the latest in security and threat management.
+  Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you'll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you're an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and mastering the latest in security and threat management.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://itsfading.github.io'
