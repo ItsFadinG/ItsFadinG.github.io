@@ -1368,12 +1368,14 @@ The command completed successfully.
 Woo! Now we can RDP to the DC machine, and we are now Domain Admins and OWN the whole Domain. We are now able to obtain the following flag:
 ***- Flag-7: Foothold on Corporate Division Tier 0 Infrastructure***
 ***- Flag-8: Administrative access to Corporate Division Tier 0 Infrastructure***
+
 ![Untitled](/assets/N-RedTeamCC/d9ab914b-c1ac-4de2-a2f7-8efa8b2c5ede.png)
 
 # Full Compromise of ROOTDC
 ## CORPDC Machine
 ### Enumeration
 Now we are part of the domain admins group and we own a child domain inside the whole forest. So let’s enumerate some information about the forest and the domain trust.
+
 ```powershell
 # Forest: thereserve.loc
 # ChildDomain1: bank.thereserve.loc
@@ -1405,6 +1407,7 @@ SourceName          TargetName       TrustType TrustDirection
 ----------          ----------       --------- --------------
 bank.thereserve.loc thereserve.loc ParentChild  Bidirectional
 ```
+
 **Parent Child Trust:** When new child domains are added, a two-way transitive trust is automatically established by Active Directory between the child domain and its parent.
 
 **Transitive Trust:** A two-way relationship is automatically created between parent and child domains in a Microsoft Active Directory forest. When a new domain is created, it shares resources with its parent domain by default, enabling an authenticated user to access resources in both the child and parent domains.
@@ -1419,6 +1422,7 @@ As the CORP child trusts the ROOT domain and the BANK domain also trusts the ROO
 
 ### Exploiting Transitive Trust
 A Golden Ticket attack is a way of creating a forged TGT with a stolen KDC key, which enables us to gain access to any service on the domain, essentially becoming our own Ticket Granting Server (TGS). In order to perform a Golden Ticket attack, we will need the following information:
+
 - The Full Qualified Domain Name (FQDN) of the Domain
 - The Security Identified (SID) of the Domain
 - The username of the account that we want to impersonate
@@ -1426,8 +1430,10 @@ A Golden Ticket attack is a way of creating a forged TGT with a stolen KDC key, 
 
 This allows us to forge Golden Tickets and access any resource in the CORP domain. However, we need to be able to forge an Inter-Realm TGT in order to become Enterprise Admins (EA) and access any resource in the ROOT domain. We need to exploit the trust between the parent domain and the child domain by adding the SID of the Enterprise Admins (EA) group as an extra SID to our forged ticket, allowing us to have Administrative privileges over the entire forest.
 So, we also need the following information in order to craft our Golden Ticket:
+
 - The SID of the child Domain Controller (CORPDC)
 - The SID of the Enterprise Admins (EA) from the parent domain (ROOTDC)
+
 ```powershell
 # Getting KRBTGT Hash 
 $ proxychains -q impacket-secretsdump corp.thereserve.loc/svcScanning:'Password1!'@10.200.89.102
@@ -1525,7 +1531,7 @@ hostname
 ROOTDC
 ```
 We are now able to obtain the following flags:
-***- Flag 15, Foothold on Parent Domain ***
+***- Flag 15, Foothold on Parent Domain***
 ***- Flag 16, Administrative access to Parent Domain***
 
 # Full Compromise of BANK Domain
