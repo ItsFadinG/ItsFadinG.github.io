@@ -2,7 +2,7 @@
 title: I Hacked The Bank | TryHackMe RedTeam Capstone Challenge Walkthrough
 author: Muhammad Adel
 date: 2024-07-27 18:52:00 +0200
-categories: [TryHackMe Network]
+categories: [RedTeaming]
 tags: [tryhackme, redteam , active directory, windows, writeups]
 ---
 TryHackMe’s RedTeam Capstone Challenge provides an unparalleled, hands-on experience that simulates real-world hacking scenarios. This challenge tests your skills in network infiltration, vulnerability exploitation, and navigating complex defenses.
