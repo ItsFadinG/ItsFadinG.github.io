@@ -715,11 +715,11 @@ Well done! Check your email!
 ![Untitled](/assets/N-RedTeamCC/Untitled%2013.png)
 
 We are now able to obtain the following flags:
-***- Flag 1, Breaching the Perimeter***
+- ***Flag 1, Breaching the Perimeter***
 
-***- Flag 2, Breaching Active Directory***
+- ***Flag 2, Breaching Active Directory***
 
-***- Flag 3, Foothold on Corporate Division Tier 2 Infrastructure***
+- ***Flag 3, Foothold on Corporate Division Tier 2 Infrastructure***
 
 ![Untitled](/assets/N-RedTeamCC/Untitled%2014.png)
 
@@ -1325,9 +1325,10 @@ Info: Establishing connection to remote endpoint
 SERVER2
 ```
 We are now able to obtain the following flags:
-***- Flag 5, Foothold on Corporate Division Tier 1 Infrastructure***
 
-***- Flag 6, Administrative access to Corporate Division Tier 1 Infrastructure***
+- ***Flag 5, Foothold on Corporate Division Tier 1 Infrastructure***
+
+- ***Flag 6, Administrative access to Corporate Division Tier 1 Infrastructure***
 
 # **Full Compromise of CORP Domain**
 ## **SERVER2 Machine**
@@ -1546,9 +1547,9 @@ hostname
 ROOTDC
 ```
 We are now able to obtain the following flags:
-***- Flag 15, Foothold on Parent Domain***
+- ***Flag 15, Foothold on Parent Domain***
 
-***- Flag 16, Administrative access to Parent Domain***
+- ***Flag 16, Administrative access to Parent Domain***
 
 # **Full Compromise of BANK Domain**
 ## **ROOTDC Machine**
@@ -1641,17 +1642,17 @@ Connecting again with the administrator user:
 ![Untitled](/assets/N-RedTeamCC/Untitled%2018.png)
 
 Since we have an administrator account then all child domains are owned now and their flags can be submitted.
-***- Flag 9, Foothold on Bank Division Tier 2 Infrastructure***
+- ***Flag 9, Foothold on Bank Division Tier 2 Infrastructure***
 
-***- Flag 10, Administrative access to Bank Division Tier 2 Infrastructure***
+- ***Flag 10, Administrative access to Bank Division Tier 2 Infrastructure***
 
-***- Flag 11, Foothold on Bank Division Tier 1 Infrastructure***
+- ***Flag 11, Foothold on Bank Division Tier 1 Infrastructure***
 
-***- Flag 12, Administrative access to Bank Division Tier 1 Infrastructure***
+- ***Flag 12, Administrative access to Bank Division Tier 1 Infrastructure***
 
-***- Flag 13, Foothold on Bank Division Tier 0 Infrastructure***
+- ***Flag 13, Foothold on Bank Division Tier 0 Infrastructure***
 
-***- Flag 14, Administrative access to Bank Division Tier 0 Infrastructure***
+- ***Flag 14, Administrative access to Bank Division Tier 0 Infrastructure***
 ![Untitled](/assets/N-RedTeamCC/Untitled%2019.png)
 
 # **Compromise of SWIFT and Payment Transfer**
