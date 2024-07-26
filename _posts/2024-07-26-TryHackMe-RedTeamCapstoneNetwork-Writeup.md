@@ -1413,7 +1413,7 @@ bank.thereserve.loc thereserve.loc ParentChild  Bidirectional
 
 Let’s simplify it with the following diagram:
 
-![Untitled](..\assets\N-RedTeamCC/Untitled%2017.png)
+![Untitled](/assets/N-RedTeamCC/trustissue.png)
 
 As the CORP child trusts the ROOT domain and the BANK domain also trusts the ROOT domain also, then both the CORP and BANK domains will trust each other as the trust type is transitive. Therefore, if we compromise a child domain, we can access the other child domain.
 
