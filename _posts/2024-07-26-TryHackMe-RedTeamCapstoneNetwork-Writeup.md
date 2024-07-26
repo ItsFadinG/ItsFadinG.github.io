@@ -7,6 +7,7 @@ tags: [tryhackme, redteam , active directory, windows, writeups]
 ---
 TryHackMe’s RedTeam Capstone Challenge provides an unparalleled, hands-on experience that simulates real-world hacking scenarios. This challenge tests your skills in network infiltration, vulnerability exploitation, and navigating complex defenses.
 ![Untitled](/assets/N-RedTeamCC/badge.png)
+
 Peace be upon all of you, In this writeup, I won't just be sharing the direct solutions. Instead, I'll take you on a journey through my own experiences, including the failed attempts and the lessons learned. Together, we'll navigate the twists and turns of this capstone challenge, making it feel as if you're solving it yourself. Get ready to dive deep into the world of red teaming, and let's hack the bank.
 
 # **Introduction**
@@ -193,6 +194,7 @@ Target: http://10.200.113.13/
 [14:23:39] 200 -   24KB - /info.php                                        
 ```
 ![Untitled](/assets/N-RedTeamCC/Untitled%201.png)
+
 Great! There is an exposed PHP info file that is leaking so much info about this web server. Using a plugin for the browser called Wappalyzer, we can check on the technologies used by the server, including their versions. October CMS is being used, so let's brute force its directory.
 ```bash
 ┌──(root㉿kali)-[/opt/dirsearch]
