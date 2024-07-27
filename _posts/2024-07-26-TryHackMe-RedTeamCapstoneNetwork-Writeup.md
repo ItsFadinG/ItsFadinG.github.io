@@ -650,7 +650,7 @@ Hmm! Since there are no emails in their inbox, let’s try to spray those valid 
 
 1 of 1 target successfully completed, 2 valid passwords found
 ```
-# **Foothold on The Corporate Division Tier 2 Infrastructure**
+## **Foothold on The Corporate Division Tier 2 Infrastructure**
 let’s access them and see what is inside.
 ```bash
 $ xfreerdp /u:mohammad.ahmed /p:'Password1!' +clipboard /dynamic-resolution /cert:ignore /v:10.200.113.21 /drive:share,/opt/
@@ -736,7 +736,7 @@ We are now able to obtain the following flags:
 
 ![Untitled](/assets/N-RedTeamCC/Untitled%2014.png)
 
-# **Administrative access to Corporate Division Tier 2 Infrastructure**
+## **Administrative access to Corporate Division Tier 2 Infrastructure**
 ## **WRK1 Machine**
 ### **Enumeration**
 **NMAP**
@@ -1077,7 +1077,7 @@ The command completed successfully.
 We are now able to obtain the following flag:
 - ***Administrative access to Corporate Division Tier 2 Infrastructure***
 
-# **Corporate Division Tier 1 Infrastructure**
+## **Corporate Division Tier 1 Infrastructure**
 ## **WRK1 Machine**
 ### **Enumeration**
 We have achieved local administrator access on the machine. However, to fully compromise the Active Directory, we need to obtain a Domain Administrator account. I have dived deep into enumeration, and I couldn’t find something interesting except this service account.
@@ -1343,7 +1343,7 @@ We are now able to obtain the following flags:
 
 - ***Flag 6, Administrative access to Corporate Division Tier 1 Infrastructure***
 
-# **Full Compromise of CORP Domain**
+## **Full Compromise of CORP Domain**
 ## **SERVER2 Machine**
 ### **Exploiting GPO GenericWrite**
 Since we got access to SERVER1 and SERVER2, let’s execute the attack vector that was suggested by Bloodhound.
@@ -1400,7 +1400,7 @@ Woo! Now we can RDP to the DC machine, and we are now Domain Admins and OWN the 
 
 ![Untitled](/assets/N-RedTeamCC/d9ab914b-c1ac-4de2-a2f7-8efa8b2c5ede.png)
 
-# **Full Compromise of ROOTDC**
+## **Full Compromise of ROOTDC**
 ## **CORPDC Machine**
 ### **Enumeration**
 Now we are part of the domain admins group and we own a child domain inside the whole forest. So let’s enumerate some information about the forest and the domain trust.
@@ -1564,7 +1564,7 @@ We are now able to obtain the following flags:
 
 - ***Flag 16, Administrative access to Parent Domain***
 
-# **Full Compromise of BANK Domain**
+## **Full Compromise of BANK Domain**
 ## **ROOTDC Machine**
 ### **Persistence**
 Great, we have a fully interactive shell, let’s create our own user and add it to the enterprise admin group.
@@ -1668,7 +1668,7 @@ Since we have an administrator account then all child domains are owned now and 
 - ***Flag 14, Administrative access to Bank Division Tier 0 Infrastructure***
 ![Untitled](/assets/N-RedTeamCC/Untitled%2019.png)
 
-# **Compromise of SWIFT and Payment Transfer**
+## **Compromise of SWIFT and Payment Transfer**
 ## **BANKDC Machine**
 ### **Enumeration**
 Let’s create our own user and enumerate the groups:
@@ -1924,9 +1924,9 @@ And We Hacked the Bank!!
 ![Untitled](/assets/N-RedTeamCC/Untitled%2034.png)
 ![Untitled](/assets/N-RedTeamCC/Untitled%2035.png)
 
-# **Summary**
+## **Summary**
 As Pivoting is a crucial step in any red team engagements, and it is a bit hard to follow. I decided to create a summary of my port forwarding methodology, which exclusively utilized Dynamic SSH Port Forwarding. This approach enabled secure, flexible access to internal network resources, playing a pivotal role in my overall strategy.
 ![Untitled](/assets/N-RedTeamCC/PF-Summary.png)
 
-# **Conclusion**
+## **Conclusion**
 Completing the RedTeam Capstone Challenge was a journey that took me over two months, balanced alongside my military service. By sharing not only the direct solutions but also my failed attempts, I aimed to provide a more immersive experience. I hope you enjoyed it. Thank you for following along with my writeup. I welcome any feedback you may have. Until next time, Peace!!
