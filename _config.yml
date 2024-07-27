@@ -78,7 +78,16 @@ img_cdn: ''
 avatar: /assets/img/Me.jpg
 
 # boolean type, the global switch for ToC in posts.
-toc: true
+toc:
+  min_level: 1
+  max_level: 6
+  ordered_list: false
+  no_toc_section_class: no_toc_section
+  list_id: toc
+  list_class: section-nav
+  sublist_class: ''
+  item_class: toc-entry
+  item_prefix: toc-
 
 disqus:
   comments: false  # boolean type, the global switch for posts comments.
