@@ -70,7 +70,7 @@
       <a href="{{ url }}" aria-label="{{ entry.type }}"
         {% unless site.theme_mode %}class="order-{{ forloop.index | plus: 2 }}"{% endunless %}
         {% unless entry.noblank %}target="_blank" rel="noopener"{% endunless %}>
-        <i class="{{ entry.icon }}"></i>
+        <!-- <i class="{{ entry.icon }}"></i> -->
       </a>
       {% endif %}
 
