@@ -10,8 +10,8 @@ TryHackMe’s RedTeam Capstone Challenge provides an unparalleled, hands-on expe
 
 Peace be upon all of you, In this writeup, I won't just be sharing the direct solutions. Instead, I'll take you on a journey through my own experiences, including the failed attempts and the lessons learned. Together, we'll navigate the twists and turns of this capstone challenge, making it feel as if you're solving it yourself. Get ready to dive deep into the world of red teaming, and let's hack the bank.
 
-# **Introduction**
-## **Project Overview**
+## **Introduction**
+### **Project Overview**
 TryHackMe, a cybersecurity consultancy firm, has been approached by the government of Trimento to perform a red team engagement against their Reserve Bank (TheReserve).
 
 Trimento is an island country situated in the Pacific. While they may be small in size, they are by no means not wealthy due to foreign investment. Their reserve bank has two main divisions:
@@ -21,7 +21,7 @@ Trimento is an island country situated in the Pacific. While they may be small i
 
 The Trimento government has stated that the assessment will cover the entire reserve bank, including both its perimeter and internal networks. They are concerned that the corporate division while boosting the economy, may be endangering the core banking system due to insufficient segregation. The outcome of this red team engagement will determine whether the corporate division should be spun off into its own company.
 
-## **Project Goal**
+### **Project Goal**
 The purpose of this assessment is to evaluate whether the corporate division can be compromised and, if so, determine if it could compromise the bank division. A simulated fraudulent money transfer must be performed to fully demonstrate the compromise.
 
 To do this safely, TheReserve will create two new core banking accounts for you. You will need to demonstrate that it's possible to transfer funds between these two accounts. The only way this is possible is by gaining access to SWIFT, the core backend banking system.
@@ -40,7 +40,7 @@ However, the SWIFT backend exposes an internal web application at [http://swift
 
 Separation of duties is performed to ensure that no single employee can both capture and approve the same transfer.
 
-## **Project Scope**
+### **Project Scope**
 This section details the project scope.
 **In-Scope**
 - Security testing of TheReserve's internal and external networks, including all IP ranges accessible through your VPN connection.
@@ -55,12 +55,12 @@ This section details the project scope.
 - External (internet) OSINT gathering.
 - Attacking any hosts outside of the provided subnet range. Once you have completed the questions below, your subnet will be displayed in the network diagram. This 10.200.X.0/24 network is the only in-scope network for this challenge.
 
-## **Project Tools**
+### **Project Tools**
 In order to perform the project, the government of Trimento has decided to disclose some information and provide some tools that might be useful for the exercise. You do not have to use these tools and are free to use whatever you prefer. If you wish to use this information and tools, you can either find them on the AttackBox under **`/root/Rooms/CapstoneChallenge`** or download them as a task file using the blue button at the top of this task above the video. If you download them as a task file, use the password of **`Capstone`** to extract the zip. Note that these tools will be flagged as malware on Windows machines.
 
 **Note**: For the provided password policy that requires a special character, the characters can be restricted to the following: **`!@#$%^`**
 
-## **Project Registration**
+### **Project Registration**
 The Trimento government mandates that all red teamers from TryHackMe participating in the challenge must register to allow their **single point of contact** for the engagement to track activities. As the island's network is segregated, this will also provide the testers access to an email account for communication with the government and an **approved phishing email address**, should phishing be performed.
 
 To register, you need to get in touch with the government through its e-Citizen communication portal that uses SSH for communication. Here are the SSH details provided:
@@ -80,7 +80,7 @@ As you make your way through the network, you will need to prove your compromise
 
 **Note: If the network has been reset or if you have joined a new subnet after your time in the network expired, your e-Citizen account will remain active. However, you will need to request that the system recreates your mailbox for you. This can be done by authenticating to e-Citizen and then selecting option 3.**
 
-## **Summary**
+### **Summary**
 Please make sure you understand the points below before starting. If any point is unclear, please reread this task.
 
 - The purpose of this assessment is to evaluate whether the corporate division can be compromised and, if so, determine if it could result in the compromise of the bank division.
@@ -93,11 +93,11 @@ Please make sure you understand the points below before starting. If any point i
 - You will need to prove compromises by performing specific steps on the host that you have compromised. These steps will be provided to you through the e-Citizen portal.
 ![Untitled](/assets/N-RedTeamCC/08d12c36-9c71-4668-8f59-1d9adf1d5725.png)
 
-# **Preparations**
-## **Capstone Challenge Resources**
+## **Preparations**
+### **Capstone Challenge Resources**
 Downloading the Capstone Challenge resources, we receive two files detailing the current password policies and a base list of passwords. Additionally, we get a list of common tools to use throughout the challenge.
 
-## **Updating the hosts file**
+### **Updating the hosts file**
 We start by adding the IP addresses in our hosts file, so that we can resolve hostname even if we change subnets.
 ```txt
 10.200.89.11 MAIL.thereserve.loc
@@ -105,7 +105,7 @@ We start by adding the IP addresses in our hosts file, so that we can resolve ho
 10.200.89.13 WEB.thereserve.loc
 ```
 
-## **SSH Registration**
+### **SSH Registration**
 We accessed the e-citizen communication portal via SSH using the provided credentials and registered our account. This portal will be crucial for proving the compromises, as it requires us to perform specific steps on the compromised hosts.
 ```bash
 $ ssh e-citizen@10.200.113.250
@@ -139,9 +139,9 @@ Any attempts made against this machine will result in a ban from the challenge.
 Best of luck and may you hack the bank!
 ```
 
-# **Exploring The Network**
-## **WEB Machine**
-### **Nmap**
+## **Exploring The Network**
+### **WEB Machine**
+#### **Nmap**
 We will start by doing Nmap to know the available ports on the WEB machine.
 ```bash
 nmap -p- 10.200.113.13           
@@ -152,7 +152,7 @@ PORT   STATE SERVICE
 80/tcp open  http
 ```
 
-### **The Web Page**
+#### **The Web Page**
 This IP is hosting a web page that gives us an overview about the company and its team. As this simulates real red team engagements, knowing company workers is a critical part of any redteam engagements.
 ```bash
 Aimee Walker -- Lead Developers
@@ -176,7 +176,7 @@ mohammad ahmed
 Also, looking at the image name gave us hints about the email creation rules that are being used by the organization: `firstname.lastname@domain.com`
 ![Untitled](/assets/N-RedTeamCC/Untitled.png)
 
-### **Directory Brute forcing**
+#### **Directory Brute forcing**
 ```bash
 ┌──(root㉿kali)-[/opt/dirsearch]
 └─$ python3 dirsearch.py -u 10.200.113.13 -e php --random-agent
@@ -263,8 +263,8 @@ Target: http://10.200.113.13/
 
 Hmm! But what could be the username and the password for this? Let’s resume our enumeration for other exposed IPs, such as the VPN and Mail Server.
 
-## **VPN Machine**
-### **Nmap**
+### **VPN Machine**
+#### **Nmap**
 ```bash
 # Nmap 7.93 scan initiated Sat May 13 14:29:54 2023 as: nmap -p- --min-rate 5000 -oN
 scans/nmap_alltcp.md 10.200.103.12
@@ -278,11 +278,11 @@ PORT STATE SERVICE
 # Nmap done at Sat May 13 14:30:05 2023 -- 1 IP address (1 host up) scanned in 11.71 
 ```
 
-### **The Web Page**
+#### **The Web Page**
 a normal login page, but if we got any creds we will get access to the Internal Network.
 ![Untitled](/assets/N-RedTeamCC/Untitled%205.png)
 
-### **Directory Brute forcing**
+#### **Directory Brute forcing**
 ```bash
 ┌──(root㉿kali)-[/opt/dirsearch]
 └─$ python3 dirsearch.py -u http://10.200.113.12/ --random-agent
@@ -347,8 +347,8 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 ```
 Who are those **10.200.x.21/22** ?? Let’s put them aside for now and resume our enumeration phase on the MAIL machine.
 
-## **Mail Machine**
-### **Nmap**
+### **Mail Machine**
+#### **Nmap**
 ```bash
 # Nmap 7.93 scan initiated Sat May 13 12:22:57 2023 as: nmap -p- --min-rate 5000 -oN
 scans/nmap_alltcp 10.200.103.11
@@ -457,10 +457,10 @@ PORT      STATE  SERVICE       VERSION
 
 ```
 
-### **The Web Page**
+#### **The Web Page**
 ![Untitled](/assets/N-RedTeamCC/Untitled%206.png)
 
-### **Directory Brute forcing**
+#### **Directory Brute forcing**
 ```bash
 ──(root㉿kali)-[~]
 └─$ ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.200.89.11//october/index.php/FUZZ
@@ -489,7 +489,7 @@ ________________________________________________
 ```
 It seems nothing there!
 
-### **Accessing Our MailBox**
+#### **Accessing Our MailBox**
 As the SSH Server instructions suggest, it gave us creds for an email, so let’s download any mail service like **thunderbird** to get access to our inbox.
 ```bash
 $ tar xjf thunderbird-*.tar.bz2 
@@ -506,7 +506,7 @@ Once connected, we will find the following message:
 I have tried to send emails to others members to see If I could phish other users and get access, but it gives me the following error:
 ![Untitled](/assets/N-RedTeamCC/Untitled%209.png)
 
-### **Password Mangling**
+#### **Password Mangling**
 It seems that we are running out of options. The last thing that I can think of is brute forcing. At the beginning of the challenge, we have been provided with `password_base_list.txt` that contains some sample passwords:
 ```txt
 TheReserve
@@ -531,7 +531,7 @@ The password policy for TheReserve is the following:
 * special character !@#$%^
 ```
 So we could expand our wordlist using the mangling technique.
-### **Mangler Script**
+#### **Mangler Script**
 With the help of ChatGPT "he" has created the following script:
 ```python
 import itertools
@@ -570,7 +570,7 @@ with open('generated_passwords.txt2', 'w') as f:
 
 Running the script will expand our wordlist with, 1440 new passwords. We have multiple choices for using this wordlist as we have *( The Admin Panel for October CMS - The VPN Portal -  SSH Services and others - SMTP Mail Server ).* 
 
-### **Brute forcing the Mail Server**
+#### **Brute forcing the Mail Server**
 We have already collected some info about the team working for the Reserve company and already know the email format that is being used. Let’s create our email wordlist and start the attack.
 ```txt
 aimee.walker@corp.thereserve.loc
@@ -614,7 +614,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2024-05-21 14:31:
 Yess!! We have a valid creds. I thought of accessing their mailbox might lead to sensitive information, but it is EMPTY :)
 ![Untitled](/assets/N-RedTeamCC/Untitled%2010.png)
 
-### **Password Spraying**
+#### **Password Spraying**
 Hmm! Since there are no emails in their inbox, let’s try to spray those valid creds on the available services. I have tried those creds against the following: 
 - **10.200.113.11** — MailBox - SSH - RDP
 - **10.200.113.12** — SSH - VPN Portal Login
