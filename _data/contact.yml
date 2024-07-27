@@ -3,9 +3,8 @@
 - type: twitter
   icon: 'fab fa-twitter'
 
-#- type: linkedin
-#  icon: 'fab fa-linkedin'
-#  url: 'https://www.linkedin.com/in/muhammadadel14'
+- type: linkedin
+  icon: 'fab fa-linkedin'
 
 - type: github
   icon: 'fab fa-github-alt'
