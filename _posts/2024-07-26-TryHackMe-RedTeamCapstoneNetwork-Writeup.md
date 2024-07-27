@@ -58,13 +58,13 @@ This section details the project scope.
 - External (internet) OSINT gathering.
 - Attacking any hosts outside of the provided subnet range. Once you have completed the questions below, your subnet will be displayed in the network diagram. This 10.200.X.0/24 network is the only in-scope network for this challenge.
 
-### **Project Tools**
+#### **Project Tools**
 
 In order to perform the project, the government of Trimento has decided to disclose some information and provide some tools that might be useful for the exercise. You do not have to use these tools and are free to use whatever you prefer. If you wish to use this information and tools, you can either find them on the AttackBox under **`/root/Rooms/CapstoneChallenge`** or download them as a task file using the blue button at the top of this task above the video. If you download them as a task file, use the password of **`Capstone`** to extract the zip. Note that these tools will be flagged as malware on Windows machines.
 
 **Note**: For the provided password policy that requires a special character, the characters can be restricted to the following: **`!@#$%^`**
 
-### **Project Registration**
+#### **Project Registration**
 
 The Trimento government mandates that all red teamers from TryHackMe participating in the challenge must register to allow their **single point of contact** for the engagement to track activities. As the island's network is segregated, this will also provide the testers access to an email account for communication with the government and an **approved phishing email address**, should phishing be performed.
 
@@ -85,7 +85,7 @@ As you make your way through the network, you will need to prove your compromise
 
 **Note: If the network has been reset or if you have joined a new subnet after your time in the network expired, your e-Citizen account will remain active. However, you will need to request that the system recreates your mailbox for you. This can be done by authenticating to e-Citizen and then selecting option 3.**
 
-### **Summary**
+#### **Summary**
 
 Please make sure you understand the points below before starting. If any point is unclear, please reread this task.
 
@@ -101,11 +101,11 @@ Please make sure you understand the points below before starting. If any point i
 
 ## **Preparations**
 
-### **Capstone Challenge Resources**
+#### **Capstone Challenge Resources**
 
 Downloading the Capstone Challenge resources, we receive two files detailing the current password policies and a base list of passwords. Additionally, we get a list of common tools to use throughout the challenge.
 
-### **Updating the hosts file**
+#### **Updating the hosts file**
 
 We start by adding the IP addresses in our hosts file, so that we can resolve hostname even if we change subnets.
 ```txt
@@ -114,7 +114,7 @@ We start by adding the IP addresses in our hosts file, so that we can resolve ho
 10.200.89.13 WEB.thereserve.loc
 ```
 
-### **SSH Registration**
+#### **SSH Registration**
 
 We accessed the e-citizen communication portal via SSH using the provided credentials and registered our account. This portal will be crucial for proving the compromises, as it requires us to perform specific steps on the compromised hosts.
 ```bash
