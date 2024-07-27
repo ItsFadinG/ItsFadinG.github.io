@@ -744,6 +744,7 @@ We are now able to obtain the following flags:
 ### **Enumeration**
 
 **From WRK1 Machine**
+
 **NMAP**
 
 Let's check the open ports and available services for the WRK1 and WRK2 machines.
@@ -1810,6 +1811,7 @@ As stated, we need to have a capturer and approver account to be able to create 
 
 ### **SWIFT Capturer and Capturer Access**
 If you remember from our previous enumeration, we have found two interesting groups and added our users to them **( Payment Approvers - Payment Capturers ).** Let’s try to log in to the application using our domain username:
+
 ![Untitled](/assets/N-RedTeamCC/Untitled%2024.png)
 
 Unfortunately, it didn’t work. Let’s check the other user, then change his password and try to login again.
@@ -1909,7 +1911,9 @@ Click forward, and we have received our flag! Now we need to get access to an Ap
 Surprise! It seems that Alison Turner has a bad memory, he has saved his password and has an open session on the JMP machine.
 ![Untitled](/assets/N-RedTeamCC/Untitled%2028.png)
 
-let’s submit ***Flag-19: Access to SWIFT application as approver***
+let’s submit
+
+- ***Flag-19: Access to SWIFT application as approver***
 
 ```bash
 In order to proof that you have approver access to the SWIFT system, a dummy transaction has been created for you.
@@ -1924,7 +1928,10 @@ Look for this transfer and approve (forward) the transaction.
 ![Untitled](/assets/N-RedTeamCC/Untitled%2029.png)
 
 ### **SWIFT Simulated Fraudulent Transfer**
-We are one step away from our final goal and the last flag, ***Flag-20: Simulated fraudulent transfer made***.
+We are one step away from our final goal and the last flag
+
+- ***Flag-20: Simulated fraudulent transfer made***
+
 ```bash
 This is the final check! Please do not attempt this if you haven't completed all of the other flags.
 Once done, follow these steps:
