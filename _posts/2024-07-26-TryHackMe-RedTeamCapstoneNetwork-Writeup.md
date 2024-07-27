@@ -11,6 +11,7 @@ TryHackMe’s RedTeam Capstone Challenge provides an unparalleled, hands-on expe
 Peace be upon all of you, In this writeup, I won't just be sharing the direct solutions. Instead, I'll take you on a journey through my own experiences, including the failed attempts and the lessons learned. Together, we'll navigate the twists and turns of this capstone challenge, making it feel as if you're solving it yourself. Get ready to dive deep into the world of red teaming, and let's hack the bank.
 
 ## **Introduction**
+
 ### **Project Overview**
 TryHackMe, a cybersecurity consultancy firm, has been approached by the government of Trimento to perform a red team engagement against their Reserve Bank (TheReserve).
 
@@ -22,6 +23,7 @@ Trimento is an island country situated in the Pacific. While they may be small i
 The Trimento government has stated that the assessment will cover the entire reserve bank, including both its perimeter and internal networks. They are concerned that the corporate division while boosting the economy, may be endangering the core banking system due to insufficient segregation. The outcome of this red team engagement will determine whether the corporate division should be spun off into its own company.
 
 ### **Project Goal**
+
 The purpose of this assessment is to evaluate whether the corporate division can be compromised and, if so, determine if it could compromise the bank division. A simulated fraudulent money transfer must be performed to fully demonstrate the compromise.
 
 To do this safely, TheReserve will create two new core banking accounts for you. You will need to demonstrate that it's possible to transfer funds between these two accounts. The only way this is possible is by gaining access to SWIFT, the core backend banking system.
@@ -41,6 +43,7 @@ However, the SWIFT backend exposes an internal web application at [http://swift
 Separation of duties is performed to ensure that no single employee can both capture and approve the same transfer.
 
 ### **Project Scope**
+
 This section details the project scope.
 **In-Scope**
 - Security testing of TheReserve's internal and external networks, including all IP ranges accessible through your VPN connection.
@@ -56,11 +59,13 @@ This section details the project scope.
 - Attacking any hosts outside of the provided subnet range. Once you have completed the questions below, your subnet will be displayed in the network diagram. This 10.200.X.0/24 network is the only in-scope network for this challenge.
 
 ### **Project Tools**
+
 In order to perform the project, the government of Trimento has decided to disclose some information and provide some tools that might be useful for the exercise. You do not have to use these tools and are free to use whatever you prefer. If you wish to use this information and tools, you can either find them on the AttackBox under **`/root/Rooms/CapstoneChallenge`** or download them as a task file using the blue button at the top of this task above the video. If you download them as a task file, use the password of **`Capstone`** to extract the zip. Note that these tools will be flagged as malware on Windows machines.
 
 **Note**: For the provided password policy that requires a special character, the characters can be restricted to the following: **`!@#$%^`**
 
 ### **Project Registration**
+
 The Trimento government mandates that all red teamers from TryHackMe participating in the challenge must register to allow their **single point of contact** for the engagement to track activities. As the island's network is segregated, this will also provide the testers access to an email account for communication with the government and an **approved phishing email address**, should phishing be performed.
 
 To register, you need to get in touch with the government through its e-Citizen communication portal that uses SSH for communication. Here are the SSH details provided:
@@ -81,6 +86,7 @@ As you make your way through the network, you will need to prove your compromise
 **Note: If the network has been reset or if you have joined a new subnet after your time in the network expired, your e-Citizen account will remain active. However, you will need to request that the system recreates your mailbox for you. This can be done by authenticating to e-Citizen and then selecting option 3.**
 
 ### **Summary**
+
 Please make sure you understand the points below before starting. If any point is unclear, please reread this task.
 
 - The purpose of this assessment is to evaluate whether the corporate division can be compromised and, if so, determine if it could result in the compromise of the bank division.
@@ -94,10 +100,13 @@ Please make sure you understand the points below before starting. If any point i
 ![Untitled](/assets/N-RedTeamCC/08d12c36-9c71-4668-8f59-1d9adf1d5725.png)
 
 ## **Preparations**
+
 ### **Capstone Challenge Resources**
+
 Downloading the Capstone Challenge resources, we receive two files detailing the current password policies and a base list of passwords. Additionally, we get a list of common tools to use throughout the challenge.
 
 ### **Updating the hosts file**
+
 We start by adding the IP addresses in our hosts file, so that we can resolve hostname even if we change subnets.
 ```txt
 10.200.89.11 MAIL.thereserve.loc
@@ -106,6 +115,7 @@ We start by adding the IP addresses in our hosts file, so that we can resolve ho
 ```
 
 ### **SSH Registration**
+
 We accessed the e-citizen communication portal via SSH using the provided credentials and registered our account. This portal will be crucial for proving the compromises, as it requires us to perform specific steps on the compromised hosts.
 ```bash
 $ ssh e-citizen@10.200.113.250
@@ -140,8 +150,11 @@ Best of luck and may you hack the bank!
 ```
 
 ## **Exploring The Network**
+
 ### **WEB Machine**
+
 #### **Nmap**
+
 We will start by doing Nmap to know the available ports on the WEB machine.
 ```bash
 nmap -p- 10.200.113.13           
