@@ -6,8 +6,8 @@
 
 -
   type: linkedin
-  icon: 'fab fa-linkedin'                                            # icons powered by <https://fontawesome.com/>
-  url:  'https://eg.linkedin.com/in/muhammadadel14'                  # Fill with your Linkedin homepage
+  icon: 'fab fa-linkedin'
+  url:  'https://eg.linkedin.com/in/muhammadadel14'
 
 -
   type: github
