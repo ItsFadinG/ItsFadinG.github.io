@@ -3,7 +3,7 @@ title: Cybertalents Shadower Machine Writeup
 author: Muhammad Adel
 date: 2021-06-26 18:45:00 +0200
 categories: [Cybertalents Writeups]
-tags: [cybertalents, machines, box, ctf]
+tags: [cybertalents, machines, box, ctf, network exploitation]
 ---
 
 ## **Description**

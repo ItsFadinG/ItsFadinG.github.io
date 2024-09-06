@@ -3,7 +3,7 @@ title: Active Directory Basics
 author: Muhammad Adel
 date: 2021-06-25 17:20:00 +0200
 categories: [Active Directory 101]
-tags: [active directory, red team]
+tags: [active directory, redteaming]
 ---
 
 ## **Active directory overview**

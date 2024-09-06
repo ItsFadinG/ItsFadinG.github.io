@@ -3,7 +3,7 @@ title: Active Directory Authentication
 author: Muhammad Adel
 date: 2021-06-25 18:30:00 +0200
 categories: [Active Directory 101]
-tags: [active directory, red team]
+tags: [active directory, Android Security]
 ---
 
 ## Kerberos Overview

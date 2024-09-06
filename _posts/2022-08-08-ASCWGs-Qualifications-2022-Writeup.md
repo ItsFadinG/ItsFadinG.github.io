@@ -2,7 +2,7 @@
 title: ASCWGs Qualifications 2022 CTF Web Challenges Writeup
 author: Muhammad Adel
 date: 2022-08-08 07:40:00 +0200
-categories: [CTF]
+categories: [CTFs]
 tags: [web, writeups, ctf]
 ---
 Peace be upon all of you, on this writeup I am going to cover the solutions of all web challenges for Arab Security Cyber Wargames 2022 qualification phase. My team [0xCha0s](https://ctftime.org/team/168238) achieved the 5 place between more than 700 teams.

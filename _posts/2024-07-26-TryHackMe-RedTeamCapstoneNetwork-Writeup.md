@@ -2,8 +2,8 @@
 title: Breaking the Vault | A Detailed Walkthrough of The RedTeam Capstone Challenge
 author: Muhammad Adel
 date: 2024-07-26 18:52:00 +0200
-categories: [RedTeaming]
-tags: [tryhackme, redteam , active directory, windows, writeups]
+categories: [TryHackMe]
+tags: [tryhackme, redteaming , active directory, windows, writeups, networks]
 ---
 TryHackMe’s RedTeam Capstone Challenge provides an unparalleled, hands-on experience that simulates real-world hacking scenarios. This challenge tests your skills in network infiltration, vulnerability exploitation, and navigating complex defenses.
 ![Untitled](/assets/N-RedTeamCC/badge.png)
@@ -855,6 +855,7 @@ Host script results:
 |_    Message signing enabled but not required
 ```
 **Manual Enumeration**
+
 Doing some manual enumeration have a better view about our pwned machines and users:
 ```powershell
 PS C:\Users\mohammad.ahmed> hostname

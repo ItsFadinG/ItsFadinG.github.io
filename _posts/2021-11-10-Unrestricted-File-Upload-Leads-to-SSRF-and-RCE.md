@@ -3,7 +3,7 @@ title: Unrestricted File Upload Leads to SSRF and RCE
 author: Muhammad Adel
 date: 2021-011-10 19:40:00 +0200
 categories: [Bug Hunting]
-tags: [bug hunting, web, writeups]
+tags: [bug hunting, web, insecure file upload, SSRF, RCE, writeups]
 ---
 ## **Introduction**
 Peace be upon you all, I am going to share with you a vulnerability that I have found almost a year ago and it is remarkable for me because it was the first critical one for me anyway let's jump in.

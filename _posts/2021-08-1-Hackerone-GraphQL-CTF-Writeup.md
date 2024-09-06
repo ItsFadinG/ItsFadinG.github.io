@@ -3,7 +3,7 @@ title: Hackerone BugDB challenge Writeup
 author: Muhammad Adel
 date: 2021-08-1 14:40:00 +0200
 categories: [Hackerone CTF]
-tags: [hackerone, graphql, ctf]
+tags: [hackerone, graphql, ctf, web]
 ---
 
 Peace be upon all of you, on this writeup I am going to cover the solutions of three challenges on Hacekrone related to GraphQL, they have three parts under the name BugDB v1/3. 
