@@ -6,9 +6,11 @@ categories: [Android Security]
 tags: [android security, writeups]
 ---
 
-## Introduction
+## **Introduction**
 
 InsecureShop is an Android application that is designed to be intentionally vulnerable. The application serves as a platform to test your Android pentesting skills. The vulnerabilities present in this app are real and have been found during mobile pentests.
+
+![image.png](/assets/InsecureShop/intro.png)
 
 Peace be upon all of you, on this writeup I am going to cover all the solutions for all the InsecureShop challenges. Each vulnerability is dissected step by step, with detailed explanations providing insights into both the security flaws and the thought processes behind each exploit.
 
@@ -705,7 +707,7 @@ And here, the username and password have been stolen.
 
 Actually, I thought that the challenge was repetitive, as we have already exploited the same scenario to load an arbitrary URL in WebView. So I had to seek the challenge hints to know exactly what it meant.
 
-[Intercepting Implicit intent to load arbitrary URL | Challenges](https://docs.insecureshopapp.com/insecureshop-challenges/intercepting-implicit-intent-to-load-arbitrary-url)
+[Intercepting Implicit intent to load arbitrary URL](https://docs.insecureshopapp.com/insecureshop-challenges/intercepting-implicit-intent-to-load-arbitrary-url)
 
 It refers to the `com.insecureshop.ProductListActivity` it creates an object from the `ProductDetailBroadCast` class:
 
