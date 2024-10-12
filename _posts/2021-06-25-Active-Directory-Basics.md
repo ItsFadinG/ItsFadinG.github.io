@@ -126,26 +126,25 @@ The type of trusts put in place determines how the domains and trees in a forest
 
 Users in the trusted domain can access resources in the trusting domain but the revers is not true.
 
-![One-way Trust](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLw1vyFzpX-zeRyZMaO%2F-MLwCJfIDstZ5zuvPfSS%2Fone%20way.png?alt=media&token=2be2632d-af52-479c-97e5-1fa8a294a141)
+![One-way Trust](/assets/AD-Bascis/trust_direction_one_way.png)
 
 
 **Two-way Trust - Bi-directional**
 
 Users of both domains can access resources in the other domain.
 
-![Two-way Trust](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLw1vyFzpX-zeRyZMaO%2F-MLwC0Xi9F3_b4PoU63C%2Ftwo%20way.png?alt=media&token=a32125f9-9078-4a88-8b30-683ad88ec12f)
-
 ### **Trust Transitivity**
 **Transitive Trust**
 
 A two-way relationship automatically created between parent and child domains in a Microsoft Active Directory forest. When a new domain is created, it shares resources with its parent domain by default, enabling an authenticated user to access resources in both the child and parent. 
 
-![Transitive Trust](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLw1vyFzpX-zeRyZMaO%2F-MLwDib4-3ymOFBo-DyO%2F2020-11-12%2013_30_54-Active%20Directory%20Basics%20-%20Intro%20to%20Active%20Directory%20Attacks.png?alt=media&token=067efd93-78da-43fa-90a9-110b0e67a1fd)
+![Transitive Trust](/assets/AD-Bascis/tt.jpg)
 
 **Non-transitive Trust**
 
 A trust that will not extend past the domains it was created with. If domain A was connected to domain B and domain B connected to domain C using non-transitive trusts the following would occur. Domain A and domain B would be able to access each other. Domain B could access domain C. Domain A, however, could not access domain C. Even though the domains are indirectly connected, since the trust is non-transitive the connection will stop once it gets to domain B. In order for domain A and domain C to communicate using non-transitive trust you would need to create another trust between domain A and domain C.
 
+![Non Transitive Trust](/assets/AD-Bascis/ntt.jpg)
 
 ### **Domain Trusts**
 
@@ -155,27 +154,19 @@ A trust that will not extend past the domains it was created with. If domain A w
 
 2.  **Tree-Root Trust:** This type of trust is created when new root domains are added to an Active Directory forest. These are two-way transitive trusts and only domains at the top of each tree are part of this trust type.
 
-![Tree-root Trust](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLw1vyFzpX-zeRyZMaO%2F-MLwGYuP2N3wU4ou1OBz%2Ftree-root%20trust.png?alt=media&token=d7c93c7b-3e52-4532-b490-18fff30f2d78)
 
 **Shortcut Trusts**
 
 A shortcut trust manually establishes a trust relationship between domains in large Active Directory forests that allows authentication times to improve by shortening the trust path between domains.
-
-![Shortcut Trust](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLw1vyFzpX-zeRyZMaO%2F-MLwHEJTSxGOpruwhyX4%2Fshortcut%20trust.png?alt=media&token=55b6f3ad-d473-44cf-b38f-495437a10f53)
 
 
 **External Trust**
 
 External trusts are non-transitive trusts created between Active Directory domains and those located in a different forest, or between an AD forest and a pre-Windows Server 2000 domain such as Windows NT.
 
-![External Trust](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLw1vyFzpX-zeRyZMaO%2F-MLwHvmDKWDuO4AxXOQv%2Fexternal%20trust.png?alt=media&token=3bfd57a5-5580-42da-9656-7ce027c28f51)
-
 **Forest Trust**
 
 Forest trusts is established between forest root domains. it cannot be extended to a third forest. it can be two-way or one-way etc.
-
-![Forest Trust](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLw1vyFzpX-zeRyZMaO%2F-MLwJ1aphwuFJK1Hx16b%2FForest%20trust.png?alt=media&token=9990df10-87cf-455e-bce4-1ddc9cc9975d)
-
 
 
 ## **AD Polices**
