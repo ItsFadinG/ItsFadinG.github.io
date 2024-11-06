@@ -24,7 +24,7 @@ Course Link: [https://app.hextree.io/map/android](https://app.hextree.io/map/and
 adb shell am start-activity -n io.hextree.attacksurface/io.hextree.attacksurface.activities.Flag1Activity
 ```
 
-### Flag2
+### **Flag2**
 
 > Intent with extras
 
@@ -312,7 +312,7 @@ try {
 }
 ```
 
-# **DeepLinks**
+## **DeepLinks**
 
 ### **Flag13**
 
@@ -371,7 +371,7 @@ Via the link builder:
 intent:#Intent;package=io.hextree.attacksurface;action=io.hextree.action.GIVE_FLAG;S.action=flag;S.open=flag;B.flag=true;end;
 ```
 
-# **Broadcast Receivers**
+## **Broadcast Receivers**
 
 ### **Flag16**
 
