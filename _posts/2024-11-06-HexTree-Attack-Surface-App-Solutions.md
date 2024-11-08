@@ -8,13 +8,13 @@ tags: [android security, writeups]
 
 ## **Introduction**
 
-Peace be upon all of you. In this post I am going to share all the solutions for the Attack Surface Android app, which is part of the amazing Hextree Android Application Security course and also sponsored by Google. This app is packed with hands-on challenges to practice many real-world Android vulnerabilities.
+Peace be upon all of you. In this post I am going to share all the solutions for the Attack Surface Android app, which is part of the amazing Hextree Android Application Security course. This app is packed with hands-on challenges to practice many real-world Android vulnerabilities.
 
 Course Link: [https://app.hextree.io/map/android](https://app.hextree.io/map/android)
 
 ![image.png](/assets/HexTree/1.jpeg)
 
-## **Intents**
+## **Intents Attacks**
 
 ### **Flag1**
 
