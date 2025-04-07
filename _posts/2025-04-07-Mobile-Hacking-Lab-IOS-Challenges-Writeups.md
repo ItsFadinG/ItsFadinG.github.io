@@ -393,4 +393,4 @@ MHL{H00k_1n_Y0ur_D3bUgg3r}
 ```
 
 ## **Conclusion**
-I found those challenges very interesting, and I wanted to resume them, but unfortunately there was an error on the rest of them. Maybe because my iPhone testing device is very old, even though I have contacted the MobileHackingLab team, but with no response any way, I hope you enjoyed it PEACE!
+I found those challenges very interesting, and I wanted to resume the others, but unfortunately there was an error on the rest of them. Maybe because my iPhone testing device is very old, even though I have contacted the MobileHackingLab team, but with no response. Any way, I hope you enjoyed it PEACE!
