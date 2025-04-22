@@ -251,11 +251,7 @@ Examples:
 
 ![image.png](/assets/AD-Bascis/acl.png)
 
-**DACL**
-
 **A discretionary access control list (DACL):** identifies the trustees that are allowed or denied access to a securable object. When a process tries to access a securable object, the system checks the ACEs in the object’s DACL to determine whether to grant access to it. If the object does not have a DACL, the system grants full access to everyone. If the object’s DACL has no ACEs, the system denies all attempts to access the object because the DACL does not allow any access rights. The system checks the ACEs in sequence until it finds one or more ACEs that allow all the requested access rights, or until any of the requested access rights are denied.
-
-**SACL**
 
 **A system access control list (SACL):** enables administrators to log attempts to access a secured object. Each ACE specifies the types of access attempts by a specified trustee that cause the system to generate a record in the security event log. An ACE in a SACL can generate audit records when an access attempt fails, when it succeeds, or both. 
 

@@ -14,7 +14,7 @@ Course Link: [https://www.mobilehackinglab.com/course/free-ios-application-secur
 
 Challenges Link: [https://www.mobilehackinglab.com/free-mobile-hacking-labs](https://www.mobilehackinglab.com/free-mobile-hacking-labs)
 
-![image.png](/assets/MHL/main.png){ height=450 }
+![image.png](/assets/MHL/main.png){: height="450" }
 
 ## **FlipCoin Wallet**
 
@@ -51,15 +51,15 @@ Install: Complete
 
 Let’s familiarize ourselves with the app logic:
 
-![home.png](/assets/MHL/home.png){ height=400 }
+![home.png](/assets/MHL/home.png){: height="400" }
 
 It seems that we have some a crypto coins wallet with some balance and the ability to send and receive money.
 
-![send.PNG](/assets/MHL/send.png){ height=400 }
+![send.PNG](/assets/MHL/send.png){: height="400" }
 
 The receive function is giving us a QR code to share with the senders.
 
-![2.png](/assets/MHL/2.png){ height=400 }
+![2.png](/assets/MHL/2.png){: height="400" }
 
 Hamm! So where can we inject our SQL payload? Maybe the `sendTo` or the Amount fields are vulnerable? But I had an issue in my iPhone 6s testing device after typing; the keyboard didn’t disappear, so I wasn’t able to click the send button.
 
@@ -121,7 +121,7 @@ uiopen "flipcoin://0x252B2Fff0d264d946n1004E581bb0a46175DC009?amount=0.0003"
 
 Executing this command will open the following screen on the iPhone device.
 
-![1.png](/assets/MHL/1.png){ height=400 }
+![1.png](/assets/MHL/1.png){: height="400" }
 
 I thought the amount might be the vulnerable parameter, but where will the results come back? Getting back to Burp Suite I found this interesting request:
 
@@ -189,7 +189,7 @@ App package Name: `com.mobilehackinglab.No-Escape`
 
 Let’s open our app, and we got the following message as expected:
 
-![IMG_0026.PNG](/assets/MHL/IMG_0026.png){ height=400 }
+![IMG_0026.PNG](/assets/MHL/IMG_0026.png){: height="400" }
 
 Let’s try to find the classes responsible for Jailbreak Detection:
 
@@ -277,7 +277,7 @@ Spawned `com.mobilehackinglab.No-Escape`. Resuming main thread!
 Modefied Return Swift value TO:  0x0
 ```
 
-![IMG_0027.PNG](/assets/MHL/IMG_0027.png){ height=400 }
+![IMG_0027.PNG](/assets/MHL/IMG_0027.png){: height="400" }
 
 ## **Captain Nohook**
 
@@ -293,11 +293,11 @@ App package Name: `com.mobilehackinglab.Captain-Nohook`
 
 Let’s examine the application:
 
-![IMG_0028.PNG](/assets/MHL/IMG_0028.png){ height=400 }
+![IMG_0028.PNG](/assets/MHL/IMG_0028.png){: height="400" }
 
 Once the flag button is clicked, the app displays the following message and closes:
 
-![IMG_0029.PNG](/assets/MHL/IMG_0029.png){ height=400 }
+![IMG_0029.PNG](/assets/MHL/IMG_0029.png){: height="400" }
 
 Let’s analyze the applications function with Ghidra and Search for the encountered string:
 
@@ -356,7 +356,7 @@ if (myMethod) {
 
 And the application opens, but without giving the flag? Hmm!
 
-![IMG_0030.PNG](/assets/MHL/IMG_0030.png){ height=400 }
+![IMG_0030.PNG](/assets/MHL/IMG_0030.png){: height="400" }
 
 Searching for the new string appeared, but it doesn’t lead to anything.
 

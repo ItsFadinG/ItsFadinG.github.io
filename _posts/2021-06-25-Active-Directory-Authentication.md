@@ -72,7 +72,7 @@ While the **krbtgt** account appears as a user account, it cannot be used for re
 
 ![Untitled](/assets/AD-Auth/Untitled%203.png)
 
-### **Authentication Server Request ( AS-REQ )**
+### **Authentication Server Request (AS-REQ)**
 
  **1.** The user requests a Ticket-Granting Ticket (TGT) from the Key Distribution Center (KDC)
 
@@ -85,7 +85,7 @@ the client can send the AS-REQ **without first encrypting a timestamp**. The KDC
 
 ![Untitled](/assets/AD-Auth/Untitled%204.png)
 
-### **Authentication Server Response ( AS-REP )**
+### **Authentication Server Response (AS-REP)**
 
 **2.** The **Authentication Server (AS)** as part of the **Key Distribution Center (KDC)** checks if the provided user is in the database.
 
@@ -95,7 +95,7 @@ the client can send the AS-REQ **without first encrypting a timestamp**. The KDC
 
 ![Untitled](/assets/AD-Auth/Untitled%206.png)
 
-### **Ticket Granting Server Request ( TGS-REQ )**
+### **Ticket Granting Server Request (TGS-REQ)**
 
 **4.** the user decrypt the first message by authenticating with his password to obtain the TGS session key.
 
@@ -106,7 +106,7 @@ the client can send the AS-REQ **without first encrypting a timestamp**. The KDC
 ![Untitled](/assets/AD-Auth/Untitled%208.png)
 
 
-### **Ticket Granting Server Response ( TGS-REP )**
+### **Ticket Granting Server Response (TGS-REP)**
 
 **6**. The TGS first checks the service ID if it is available in their database or not. then the TGS will grab a copy of the service secret key to encrypt the Service ticket with it.
 
