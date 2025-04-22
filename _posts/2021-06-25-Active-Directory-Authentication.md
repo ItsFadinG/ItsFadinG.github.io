@@ -6,7 +6,37 @@ categories: [Active Directory 101]
 tags: [active directory, Android Security]
 ---
 
-## Kerberos Overview
+## **Local Windows Authentication**
+
+![Untitled](/assets/AD-Auth/Untitled.png)
+
+![Untitled](/assets/AD-Auth/Untitled%201.png)
+
+This graphical representation should help you to make more sense in terms of how authentication flows on Windows based systems. 
+
+1. The user starts their computer. Depending on the system configuration, they may also need to press `Ctrl+Alt+Del`.
+2. In the background, the `winlogon.exe` process runs under the SYSTEM context and waits for user credentials.
+3. `winlogon.exe` communicates with credential providers (such as LSASS) to gather information like which users are already logged in or who last logged in. This improves user experience by pre-selecting the account, so users often only need to enter their password.
+4. The gathered information is passed to the Logon UI, which is then presented to the user.
+5. The user selects his/her profile or chooses 'different user' and provides their credentials to the UI. 
+6. The logon UI sends the credentials back to `CredUI.DLL` 
+7. `CredUI.DLL` is a proxy at this point, simply forwarding the credentials back to the credential provider. 
+8. And the `Winlogon.exe` process, which ultimately: 
+9. Initializes LSA on the user's behalf and authenticates the user.
+
+## **NTLM Authentication**
+
+when Kerberos authentication is not possible, Windows will fall back to NTLM authentication. This can even happen between machines that are members of the same domain, but when all necessary conditions to use Kerberos are not in place. For example, Kerberos works with so-called service names. If we don't have a name, Kerberos cannot be used. This is the case when we access a share on a file server by using the IP address of the server instead of its server name. NTLM authentication is a two-party authentication: the client and the server. It takes three steps:
+
+![Untitled](/assets/AD-Auth/ntlm.png)
+
+1. **Negotiate:** the client sends a negotiate packet to the server to request the authentication. There are different parameters and versions for NTLM, and the client has to inform the server what it is capable of. This is done with a negotiate packet.
+2. **Challenge:** the server sends a challenge packet to the client. This challenge includes a so-called "nonce". A **nonce** is a random number of 16 bytes.
+3. **Response:** the client sends the response to the server: it calculates a response by hasing the nonce with the NT hash of the user’s passwrod and sends that to the server. Using a nonce allows the two parties to perform authentication without having to send the password (cleartext or encrypted) over the network. The server checks the credentials of the client by performing the same calculation as the client for the response, and if the response calculated by the server is the same as the response calculated by the client, then the client is authenticated to the server.
+
+## **Kerberos Authentication**
+
+**Overview**: 
 
 -   **Ticket Granting Ticket (TGT)** - A ticket-granting ticket is an authentication ticket used to request service tickets from the TGS for specific resources from the domain.
 
@@ -28,72 +58,80 @@ tags: [active directory, Android Security]
 
 -   **Privilege Attribute Certificate (PAC)** - The PAC holds all of the user's relevant information, it is sent along with the TGT to the KDC to be signed by the Target LT Key and the KDC LT Key in order to validate the user. The authorization step depends on it.
 
-‌
+**KRBTGT Account**
 
-## **Kerberos in details**
+Every active directory domain has something called krbtgt account. By default, the **krbtgt** account is not visible in the user’s container. However, you can reveal it by accessing “View” and then selecting “Advanced Features” in the menu. After doing this, you will see the **krbtgt** account listed. This account is referred to as the key distribution center service account, which plays a significant role in Kerberos.
 
-![](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLleHggLGDNZw31DXUz%2F-MLlr1TRs1djcaI6suf7%2F1.png?alt=media&token=a150d190-c360-4fe3-be91-c70e819ab9ce)
+![](https://miro.medium.com/v2/resize:fit:624/1*3HZ5F-rNxUcx505YH6mAtA.png)
+
+The term **“key distribution center” (KDC)** is commonly used to describe the central database that stores user credentials and manages incoming ticket requests. ***In the context of Active Directory, each domain controller essentially functions as a KDC.*** Therefore, when you encounter the term DC (domain controller) or KDC in Kerberos language, you can equate it to the key distribution center.
+
+While the **krbtgt** account appears as a user account, it cannot be used for regular logins. By default, it is disabled and cannot be enabled. Its password is set by the system and is highly complex. You need not be concerned about the specifics of this password, as you will never need to use this account for login purposes. The system keeps the password secure, and no other entity should ever be aware of it.
+
+**Kerberos Deep Drive**
+
+![Untitled](/assets/AD-Auth/Untitled%203.png)
+
+### **Authentication Server Request ( AS-REQ )**
+
+ **1.** The user requests a Ticket-Granting Ticket (TGT) from the Key Distribution Center (KDC)
+
+**IF Pre-authenticaion Enabled**
+
+he sends encrypted data known as “pre-authentication data”. **The user sends the current time encrypted with their password to the domain controller**. Since the domain controller can access everyone’s passwords, it decrypts the timestamp using the user’s password to verify its accuracy.
+
+**IF Pre-authenticaion Disabled**
+the client can send the AS-REQ **without first encrypting a timestamp**. The KDC responds directly with an encrypted TGT and a message encrypted with the user password. ( The following images assume that pre-auth is disabled )
+
+![Untitled](/assets/AD-Auth/Untitled%204.png)
+
+### **Authentication Server Response ( AS-REP )**
+
+**2.** The **Authentication Server (AS)** as part of the **Key Distribution Center (KDC)** checks if the provided user is in the database.
+
+![Untitled](/assets/AD-Auth/Untitled%205.png)
+
+**3.** If the user is a valid domain user**,** The **Authentication Server (AS)** will generate the user secret key by hashing the user’s password. Then, the **Authentication Server (AS)** sends two messages to the User. **The First Message** is encrypted by the client secret key and contains the ID of the **Ticket Granting Server (TGS)** and **TGS** session key which is a randomly generated session key. **The Second Message** is the **Ticket Granting Ticket (TGT)** encrypted by TGS secret key, so it’s content can only be deciphered by the TGS. it contains *user ID*, *user network address*, *lifetime*, *timestamp* and the *TGS session key*.
+
+![Untitled](/assets/AD-Auth/Untitled%206.png)
+
+### **Ticket Granting Server Request ( TGS-REQ )**
+
+**4.** the user decrypt the first message by authenticating with his password to obtain the TGS session key.
+
+![Untitled](/assets/AD-Auth/Untitled%207.png)
+
+**5**. the user create two new messages. **The First One** contains the service that the user want to access. **The Second One** is the **User Authenticator** encrypted by the TGS Session key which contains the user’s username. Finally, the server sends these two messages along with the TGT to the **Ticket Granting Server (TGS)**.
+
+![Untitled](/assets/AD-Auth/Untitled%208.png)
 
 
-### **AS-REQ**
+### **Ticket Granting Server Response ( TGS-REP )**
 
-**1**.A Kerberos client sends its user ID in a clear-text message to the AS. The message does not include the client's password, nor its secret key based on the password.
+**6**. The TGS first checks the service ID if it is available in their database or not. then the TGS will grab a copy of the service secret key to encrypt the Service ticket with it.
 
-![User's Message](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLleHggLGDNZw31DXUz%2F-MLlsLFgJYfer90yh6ef%2FUsers%20Message%201%20to%20the%20kdc.png?alt=media&token=0739bccb-98e0-4cec-a085-54ca10e66576)
+![Untitled](/assets/AD-Auth/Untitled%209.png)
 
+**7**. The TGS will decrypt the TGT with *the TGS secret key* which contains the TGS Session key. Then the User Authenticator will be decrypted by the TGS Session Key. Finally, the TGS will check if the information in TGT matches with the User Authenticator if it match the TGS will add it to its cache.
 
+![Untitled](/assets/AD-Auth/Untitled%2010.png)
 
-![From User to AS](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLleHggLGDNZw31DXUz%2F-MLm5jn9Hbpj1VtgNnWU%2F1%20-%20Users%20Message%20kdc%202.png?alt=media&token=a8b259b6-25f7-4b31-b832-a3f99de04f78)
+**8**. The TGS will create its own messages and send it back to the user. **The First Message** contains the service ID *(that the user want to access)* and the **Service Session Key** the message will be encrypted by TGS Session Key. **The Second Message** is the **Service Ticket** **(TGS Tickets)** which will be encrypted by Service Secret Key. It contains the *user’s ID, service name and the service session key.*
 
-**2**.The AS checks if the client is in the user database.
+![Untitled](/assets/AD-Auth/Untitled%2011.png)
 
-![](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLleHggLGDNZw31DXUz%2F-MLlt_gfHgAOdGPQA7l7%2F2%20-%20AS%20Checks.png?alt=media&token=aed3a457-837e-4f1f-9337-6e83155b64d2)
+### **The 2nd part User<-> Service**
 
+**9**. Since the user has the TGS session key from the **AS-REP** phase, he will decrypt the first message. Now the user has access to the Service Session key. So he will create a **User Authenticator Message** and encrypt it with the Service Session Key. Then he will send both the User Authenticator and the Service Ticket to the Service.
 
-### **AS-REP**
+![Untitled](/assets/AD-Auth/Untitled%2012.png)
 
+**10**. Now the steps will happen again. the Service will decrypt the Service Ticket using its secret key. As a result, it will have access to the Service Session Key to decrypt the User Authenticator. Lastly The Service will **check** the matching between the two messages, if they are matched it will **add** the User Authenticator to the its cache and then **create** a Service Authenticator Message encrypted by the Service Session Key and send it to the user.
 
-**3**. The AS generates the client secret key for the client by hashing the client's password. Then, the AS sends two messages to the User. **the first message**, encrypted by the client secret key, contains the ID of the TGS and TGS session key which a randomly generated session key. **the second message** is the TGT ticket encrypted by TGS secret key, so it's contents can only be deciphered by the TGS. it contains client ID, client network address, lifetime, timestamp and the TGS session key.
-
-![From AS to User](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLleHggLGDNZw31DXUz%2F-MLm5spkt9V2vlC9l0KM%2F3%20-%20AS%20to%20the%20user.png?alt=media&token=b0b518a5-102b-49d9-91ad-f3bc17306afc)
-
-**4**. the client decrypt the first message by authentication with his password to obtain the TGS session key.
-
-![the user decrypt the AS first message](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLleHggLGDNZw31DXUz%2F-MLmAAEPkWB9QOGvNpVK%2F4%20-%20decrypt%20the%20message.png?alt=media&token=2e07eabb-c365-4618-8fac-45353237d0c2)
-
-
-### **TGS-REQ**
-
-**5**. the user create two new messages. **the first one** contains the service that the user want to access. **the second** is the User Authenticator **encrypted** by the TGS Session key which contains the user/id. then the server send these two messages along with TGT to the TGS.
-
-![From User to TGT](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLleHggLGDNZw31DXUz%2F-MLmBfOvr7TahzDKtIgq%2F5%20-%20USER%20to%20TGT.png?alt=media&token=620beda8-59f3-4bb0-9253-9a8172937455)
-
-**6**. The TGS first checks the service ID if it is available in their database or not. then the TGS will grab a copy of the service secret key.
-
-![TGS Database](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLleHggLGDNZw31DXUz%2F-MLmS-olkx8n9iOW9w51%2FTGS%20secret%20key.png?alt=media&token=f9c7c690-3e8e-49e0-8e5c-69be17bcd60e)
-
-**7**. The TGS will decrypt the TGT which contains the TGS Session key with the TGS secret key. Then the User Authenticator will be decrypted by the TGS Session Key. finally, the TGS will check if the information in TGT matches with the User Authenticator if it match the TGS will add it to its cache.
-
-![TGS Functions](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLleHggLGDNZw31DXUz%2F-MLmTi04B_Xu32LhVqJb%2F7%20-%20TGS%20Function.png?alt=media&token=11216091-8215-4a97-aba7-8443f92d1ed6)
-
-
-### **TGS-REP**
-
-**8**. Then, The TGS will create it own messages and send it back to the user. **The first message** contains the service ID that the user want to access and the message will be encrypted by TGS Session Key. **The second message** is the service ticket which will be encrypted by Service Secret Key. it contains the id and name of the service and the user name. Also both messages will contain Service Session Key.
-
-![From TGS to User](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLleHggLGDNZw31DXUz%2F-MLmX1-9Wa7aNS9QS_i_%2F8%20-%20TGS%20to%20User.png?alt=media&token=bfc57c13-d383-40aa-a54a-e1384b8c3468)
-
-**The 2nd part Client <-> Service**
-
-**9**. Since the user has the TGS session key before from the AS, he will **decrypt** the first message using its key. Now the user has access to the Service Session key. So he will create a User Authenticator Message and **encrypted** with the Service Session Key. Then he will send both the User Authenticator and the Service Ticket to the Service.
-
-![From User to Service](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLleHggLGDNZw31DXUz%2F-MLmYiQ3MvFE4GNjUH2m%2F9%20-%20From%20User%20to%20Serivce.png?alt=media&token=c246217c-d3b4-454f-8505-4aaad3e678a5)
-
-**10**. Now the steps will happen again. the Service will **decrypt** the Service Ticket with its key. The it will have access to the Service Session Key to use it to **decrypt** the User Authenticator. lastly The Service will **check** the matching between the two messages, if they are it will **add** the User Authenticator to the its cache and then **create** a Service Authenticator Message **encrypted** by the Service Session Key and **send** it to the user.
-
-![From Service to User](https://gblobscdn.gitbook.com/assets%2F-MGT2pXneep03jo0FJjo%2F-MLleHggLGDNZw31DXUz%2F-MLma9R18_l8bSo6hff0%2F10%20-%20From%20Service%20to%20User.png?alt=media&token=3e6cf7d0-12e4-41ba-b303-47ca90a0a8da)
+![Untitled](/assets/AD-Auth/Untitled%2013.png)
 
 **11**. Finally, the User will decrypt the Service Authenticator using the Service Session Key and validate the service name. The mutual authentication is now complete. The Kerberos client can now start issuing service requests, and the Kerberos service can provide the requested services for the client.
+
 
 
 Now, you can see the whole walk-through in one image thanks to [DestCert](https://drive.google.com/file/d/1Lc9IzvvB4ZharVIqWMOaXjngXro0c6hd/view).
