@@ -76,12 +76,13 @@ While the **krbtgt** account appears as a user account, it cannot be used for re
 
  **1.** The user requests a Ticket-Granting Ticket (TGT) from the Key Distribution Center (KDC)
 
+ **IF Pre-authenticaion Disabled**
+
+the client can send the AS-REQ **without first encrypting a timestamp**. The KDC responds directly with an encrypted TGT and a message encrypted with the user password. ( The following images assume that pre-auth is disabled )
+
 **IF Pre-authenticaion Enabled**
 
-he sends encrypted data known as “pre-authentication data”. **The user sends the current time encrypted with their password to the domain controller**. Since the domain controller can access everyone’s passwords, it decrypts the timestamp using the user’s password to verify its accuracy.
-
-**IF Pre-authenticaion Disabled**
-the client can send the AS-REQ **without first encrypting a timestamp**. The KDC responds directly with an encrypted TGT and a message encrypted with the user password. ( The following images assume that pre-auth is disabled )
+User sends encrypted data known as “pre-authentication data”. **The user sends the current time encrypted with their password to the domain controller**. Since the domain controller can access everyone’s passwords, it decrypts the timestamp using the user’s password to verify its accuracy.
 
 ![Untitled](/assets/AD-Auth/Untitled%204.png)
 
@@ -91,7 +92,10 @@ the client can send the AS-REQ **without first encrypting a timestamp**. The KDC
 
 ![Untitled](/assets/AD-Auth/Untitled%205.png)
 
-**3.** If the user is a valid domain user**,** The **Authentication Server (AS)** will generate the user secret key by hashing the user’s password. Then, the **Authentication Server (AS)** sends two messages to the User. **The First Message** is encrypted by the client secret key and contains the ID of the **Ticket Granting Server (TGS)** and **TGS** session key which is a randomly generated session key. **The Second Message** is the **Ticket Granting Ticket (TGT)** encrypted by TGS secret key, so it’s content can only be deciphered by the TGS. it contains *user ID*, *user network address*, *lifetime*, *timestamp* and the *TGS session key*.
+**3.** If the user is a valid domain user, The **Authentication Server (AS)** will generate the user secret key by hashing the user’s password. Then, the **Authentication Server (AS)** sends two messages to the User:
+
+**The First Message:** is encrypted by the user/client secret key and contains the ID of the **Ticket Granting Server (TGS)** and **TGS** session key which is a randomly generated session key.
+**The Second Message:** is the **Ticket Granting Ticket (TGT)** encrypted by TGS secret key, so it’s content can only be deciphered by the TGS. it contains *user ID*, *user network address*, *lifetime*, *timestamp* and the *TGS session key*.
 
 ![Untitled](/assets/AD-Auth/Untitled%206.png)
 
@@ -101,14 +105,18 @@ the client can send the AS-REQ **without first encrypting a timestamp**. The KDC
 
 ![Untitled](/assets/AD-Auth/Untitled%207.png)
 
-**5**. the user create two new messages. **The First One** contains the service that the user want to access. **The Second One** is the **User Authenticator** encrypted by the TGS Session key which contains the user’s username. Finally, the server sends these two messages along with the TGT to the **Ticket Granting Server (TGS)**.
+**5**. the user create two new messages:
+
+- **The First One:** contains the service that the user want to access.
+- **The Second One** is the **User Authenticator** encrypted by the TGS Session key which contains the user’s username. 
+- Finally, the server sends these two messages along with the TGT to the **Ticket Granting Server (TGS)**.
 
 ![Untitled](/assets/AD-Auth/Untitled%208.png)
 
 
 ### **Ticket Granting Server Response (TGS-REP)**
 
-**6**. The TGS first checks the service ID if it is available in their database or not. then the TGS will grab a copy of the service secret key to encrypt the Service ticket with it.
+**6**. The TGS first checks the service ID if it is available in their database or not. then the TGS will grab a copy of the service secret key to encrypt the service ticket with it.
 
 ![Untitled](/assets/AD-Auth/Untitled%209.png)
 
@@ -116,7 +124,10 @@ the client can send the AS-REQ **without first encrypting a timestamp**. The KDC
 
 ![Untitled](/assets/AD-Auth/Untitled%2010.png)
 
-**8**. The TGS will create its own messages and send it back to the user. **The First Message** contains the service ID *(that the user want to access)* and the **Service Session Key** the message will be encrypted by TGS Session Key. **The Second Message** is the **Service Ticket** **(TGS Tickets)** which will be encrypted by Service Secret Key. It contains the *user’s ID, service name and the service session key.*
+**8**. The TGS will create its own messages and send it back to the user:
+
+- **The First Message:** contains the service ID *(that the user want to access)* and the **Service Session Key** the message will be encrypted by TGS Session Key.
+- **The Second Message:** is the **Service Ticket** **(TGS Tickets)** which will be encrypted by Service Secret Key. It contains the *user’s ID, service name and the service session key.*
 
 ![Untitled](/assets/AD-Auth/Untitled%2011.png)
 
@@ -126,7 +137,7 @@ the client can send the AS-REQ **without first encrypting a timestamp**. The KDC
 
 ![Untitled](/assets/AD-Auth/Untitled%2012.png)
 
-**10**. Now the steps will happen again. the Service will decrypt the Service Ticket using its secret key. As a result, it will have access to the Service Session Key to decrypt the User Authenticator. Lastly The Service will **check** the matching between the two messages, if they are matched it will **add** the User Authenticator to the its cache and then **create** a Service Authenticator Message encrypted by the Service Session Key and send it to the user.
+**10**. Now the steps will happen again. The service will decrypt the Service Ticket using its secret key. As a result, it will have access to the Service Session Key to decrypt the User Authenticator. Lastly The service will **check** the matching between the two messages, if they are matched it will **add** the User Authenticator to the its cache and then **create** a Service Authenticator Message encrypted by the Service Session Key and send it to the user.
 
 ![Untitled](/assets/AD-Auth/Untitled%2013.png)
 
