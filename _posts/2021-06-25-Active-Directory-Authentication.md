@@ -26,7 +26,7 @@ This graphical representation should help you to make more sense in terms of how
 
 ## **NTLM Authentication**
 
-when Kerberos authentication is not possible, Windows will fall back to NTLM authentication. This can even happen between machines that are members of the same domain, but when all necessary conditions to use Kerberos are not in place. For example, Kerberos works with so-called service names. If we don't have a name, Kerberos cannot be used. This is the case when we access a share on a file server by using the IP address of the server instead of its server name. NTLM authentication is a two-party authentication: the client and the server. It takes three steps:
+When Kerberos authentication is not possible, Windows will fall back to NTLM authentication. This can even happen between machines that are members of the same domain, but when all necessary conditions to use Kerberos are not in place. For example, Kerberos works with so-called service names. If we don't have a name, Kerberos cannot be used. This is the case when we access a share on a file server by using the IP address of the server instead of its server name. NTLM authentication is a two-party authentication: the client and the server. It takes three steps:
 
 ![Untitled](/assets/AD-Auth/ntlm.png)
 
@@ -74,15 +74,48 @@ While the **krbtgt** account appears as a user account, it cannot be used for re
 
 ### **Authentication Server Request (AS-REQ)**
 
- **1.** The user requests a Ticket-Granting Ticket (TGT) from the Key Distribution Center (KDC)
+ **1.** The user requests a Ticket-Granting Ticket (TGT) from the Key Distribution Center (KDC) without including any pre-authentication data. This initial request is sent in plaintext and contains no encrypted components.
 
- **IF Pre-authenticaion Disabled**
+![AS-REQ-wire2.png](/assets/AD-Auth/AS-REQ-wire2.png)
 
-the client can send the AS-REQ **without first encrypting a timestamp**. The KDC responds directly with an encrypted TGT and a message encrypted with the user password. ( The following images assume that pre-auth is disabled )
+1. **Protocol and Message Type:**
+- **`pvno: 5` :** Kerberos Protocol Version 5.
+- **`msg-type: krb-as-req (10)` :** Indicates this is an AS-REQ (Authentication Server Request), the first step in Kerberos auth.
+1. **Pre-Authentication Data**
+    - **`padata-type: pA-REQ-ENC-PA-REP (149)` :** The client is attempting **pre-authentication** (proving identity before getting a TGT).
+    - **`padata-value: <MISSING>` :** The encrypted timestamp (proof of identity) is missing.
+2. **Client Principal**
+    - **`name-type: kRB5-NT-PRINCIPAL (1)` :** Standard user principal (not a service account).
+    - **`cname-string: Administrator` :** The client is requesting a TGT for the user **`Administrator`**.
+3. **Service Principal**
+    - **`name-type: kRB5-NT-SRV-INST (2)` :** Indicates a **service principal** (e.g., **`krbtgt/SAMBA.EXAMPLE.COM`**).
+    - **`sname-string: 2 items` :** Typically contains:
+        - **Service name**  **`krbtgt`.**
+        - **Realm** **`SAMBA.EXAMPLE.COM`.**
 
-**IF Pre-authenticaion Enabled**
+**IF Pre-authentication Enabled (default)**
 
-User sends encrypted data known as “pre-authentication data”. **The user sends the current time encrypted with their password to the domain controller**. Since the domain controller can access everyone’s passwords, it decrypts the timestamp using the user’s password to verify its accuracy.
+It will return an error **`KRB5KDC_ERR_PREAUTH_REQUIRED`** to the client to indicate that pre-authentication is required before sending the TGT ticket.
+
+![err-kerb2.png](/assets/AD-Auth/err-kerb2.png)
+
+Then, the user sends the current time stamp encrypted with their password to the KDC. Since the KDC can access everyone’s passwords, it decrypts the timestamp using the user’s password to verify its accuracy.
+
+![AS-REQ-Valid2.png](/assets/AD-Auth/AS-REQ-Valid2.png)
+
+**Pre-Authentication Data: `PA-ENC-TIMESTAMP` :** 
+
+- A **client timestamp** (to prevent replay attacks).
+- Encrypted with the **user’s password hash** (AES-256 here). The KDC decrypts using Administrator “User in the **`CNameString`**” password hash it to verify the client’s identity.
+
+Finally, The AS-REP packet will be sent with the **TGT `ticket`** and the **`enc-part`** that holds the **TGS session key encrypted with the user secret key.**
+
+![AS-REP-wire2.png](/assets/AD-Auth/AS-REP-wire2.png)
+
+**IF Pre-authentication Disabled**
+
+The client can send the AS-REQ **without first encrypting a timestamp**. The KDC will respond directly with an encrypted TGT and a message encrypted with the user password. 
+(The following image assume that pre-authentication is disabled).
 
 ![Untitled](/assets/AD-Auth/Untitled%204.png)
 
@@ -92,31 +125,38 @@ User sends encrypted data known as “pre-authentication data”. **The user sen
 
 ![Untitled](/assets/AD-Auth/Untitled%205.png)
 
-**3.** If the user is a valid domain user, The **Authentication Server (AS)** will generate the user secret key by hashing the user’s password. Then, the **Authentication Server (AS)** sends two messages to the User:
+**3.** If the user is a valid domain user, The **Authentication Server (AS)** will generate the user secret key by hashing the user’s password. Then, the **Authentication Server (AS)** sends two messages to the User. 
 
-**The First Message:** is encrypted by the user/client secret key and contains the ID of the **Ticket Granting Server (TGS)** and **TGS** session key which is a randomly generated session key.
-**The Second Message:** is the **Ticket Granting Ticket (TGT)** encrypted by TGS secret key, so it’s content can only be deciphered by the TGS. it contains *user ID*, *user network address*, *lifetime*, *timestamp* and the *TGS session key*.
+- **The First Message:** is encrypted by the user secret key *(user’s password → hash it = user secret key)* and contains the ID of the **Ticket Granting Server (TGS)** and **TGS** session key which is a randomly generated session key.
+- **The Second Message:** is the **Ticket Granting Ticket (TGT)** encrypted by TGS secret key *(**`krbtgt`** account password → hash it = **`krbtgt`** secret key)*., so it’s content can only be deciphered by the TGS. it contains *user ID*, *user network address*, *lifetime*, *timestamp* and the *TGS session key*.
 
 ![Untitled](/assets/AD-Auth/Untitled%206.png)
 
 ### **Ticket Granting Server Request (TGS-REQ)**
 
-**4.** the user decrypt the first message by authenticating with his password to obtain the TGS session key.
+**4.** The user decrypt the first message by authenticating with his password to obtain the TGS session key.
 
 ![Untitled](/assets/AD-Auth/Untitled%207.png)
 
-**5**. the user create two new messages:
+**5**. Then, the user create two new messages:
 
-- **The First One:** contains the service that the user want to access.
-- **The Second One** is the **User Authenticator** encrypted by the TGS Session key which contains the user’s username. 
-- Finally, the server sends these two messages along with the TGT to the **Ticket Granting Server (TGS)**.
+- **The First Message:** contains the service that the user want to access.
+- **The Second Message:** is the **User Authenticator** encrypted by the TGS Session key which contains the user’s username.
+
+Finally, the server sends these two messages along with the TGT to the **Ticket Granting Server (TGS)**.
 
 ![Untitled](/assets/AD-Auth/Untitled%208.png)
 
+Below is a Wireshark packet capture for a more detailed view:
+
+![image.png](/assets/AD-Auth/tgs-req.png)
+
+> **Why there is an AP-REQ inside the TGS-REQ?**
+AP-REQ stands for Authentication Protocol Request, This is required by the Kerberos protocol (RFC 4120) to prove the client/user’s identity to the Ticket-Granting Server (TGS) in case of the TGS-REQ or to the Service in case of the AP-REQ (in the final mutual authentication part between the user and the service).
 
 ### **Ticket Granting Server Response (TGS-REP)**
 
-**6**. The TGS first checks the service ID if it is available in their database or not. then the TGS will grab a copy of the service secret key to encrypt the service ticket with it.
+**6**. The TGS first checks the service ID if it is available in their database or not. then the TGS will grab a copy of the service secret key (service password *→ hash it =* service *secret key)* to encrypt the Service ticket with it..
 
 ![Untitled](/assets/AD-Auth/Untitled%209.png)
 
@@ -124,25 +164,41 @@ User sends encrypted data known as “pre-authentication data”. **The user sen
 
 ![Untitled](/assets/AD-Auth/Untitled%2010.png)
 
-**8**. The TGS will create its own messages and send it back to the user:
+**8**. The TGS will create its own messages and send it back to the user. 
 
-- **The First Message:** contains the service ID *(that the user want to access)* and the **Service Session Key** the message will be encrypted by TGS Session Key.
-- **The Second Message:** is the **Service Ticket** **(TGS Tickets)** which will be encrypted by Service Secret Key. It contains the *user’s ID, service name and the service session key.*
+- **The First Message:** contains the service ID *(that the user want to access)* and the **Service Session Key** the message will be encrypted by TGS Session Key *(which was extracted from the TGT)*.
+- **The Second Message:** is the **Service Ticket** **(TGS Tickets)** which will be encrypted by Service Secret Key. It contains the *user’s ID, service name and the service session key.*
 
 ![Untitled](/assets/AD-Auth/Untitled%2011.png)
 
-### **The 2nd part User<-> Service**
+Below is a Wireshark packet capture for a more detailed view:
+
+![image.png](/assets/AD-Auth/tgs-rep.png)
+
+### **Authentication Protocol Request (AP-REQ)**
 
 **9**. Since the user has the TGS session key from the **AS-REP** phase, he will decrypt the first message. Now the user has access to the Service Session key. So he will create a **User Authenticator Message** and encrypt it with the Service Session Key. Then he will send both the User Authenticator and the Service Ticket to the Service.
 
 ![Untitled](/assets/AD-Auth/Untitled%2012.png)
 
+Below is a Wireshark packet capture for a more detailed view:
+
+![image.png](/assets/AD-Auth/ap-req.png)
+
+### **Authentication Protocol Response (AP-REP)**
+
 **10**. Now the steps will happen again. The service will decrypt the Service Ticket using its secret key. As a result, it will have access to the Service Session Key to decrypt the User Authenticator. Lastly The service will **check** the matching between the two messages, if they are matched it will **add** the User Authenticator to the its cache and then **create** a Service Authenticator Message encrypted by the Service Session Key and send it to the user.
 
 ![Untitled](/assets/AD-Auth/Untitled%2013.png)
 
+Below is a Wireshark packet capture for a more detailed view:
+
+![image.png](/assets/AD-Auth/ap-rep.png)
+
 **11**. Finally, the User will decrypt the Service Authenticator using the Service Session Key and validate the service name. The mutual authentication is now complete. The Kerberos client can now start issuing service requests, and the Kerberos service can provide the requested services for the client.
 
+### **References**
 
-
-Now, you can see the whole walk-through in one image thanks to [DestCert](https://drive.google.com/file/d/1Lc9IzvvB4ZharVIqWMOaXjngXro0c6hd/view).
+- [DestCert](https://drive.google.com/file/d/1Lc9IzvvB4ZharVIqWMOaXjngXro0c6hd/view): Now, you can see the whole walk-through in one image.
+- [https://blog.redforce.io/windows-authentication-attacks-part-2-kerberos/](https://blog.redforce.io/windows-authentication-attacks-part-2-kerberos/)
+- [https://labs.lares.com/fear-kerberos-pt1/](https://labs.lares.com/fear-kerberos-pt1/)
