@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://itsfading.github.io/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/categories/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/archives/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/about/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/Mobile-Hacking-Lab-IOS-Challenges-Writeups/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/HexTree-Attack-Surface-App-Solutions/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/Insecureshop-Android-Vulnerable-Application-Writeup/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/TryHackMe-RedTeamCapstoneNetwork-Writeup/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/BlackHatMEA-Qualifications-2022-Writeup/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/ASCWGs-Qualifications-2022-Writeup/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/Hackerone-Android-challenges-Writeup/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/Unrestricted-File-Upload-Leads-to-SSRF-and-RCE/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/I-owe-your-Request-HTTP-Request-Smuggling-leads-to-Full-Accounts-takeover/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/Cybertalents-Space-Web-Writeup/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/page2/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/page3/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/Cybertalents-Shadower-Machine-Writeup/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/Cybertalents-Crashed-Machine-Writeup/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/ctf/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/web/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/cybertalents/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/writeups/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/active-directory/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/redteaming/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/android-security/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/bug-hunting/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/machines/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/categories/active-directory-101/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/categories/android-security/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/categories/bug-hunting/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/categories/ctfs/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/categories/cybertalents-writeups/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/categories/hackerone-ctf/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/categories/ios-security/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/categories/tryhackme/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/bufferoverflow/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/exploitation/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/graphql/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/hackerone/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/http-request-smuggling/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/insecure-file-upload/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/ios-security/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/network-exploitation/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/networks/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/rce/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/ssrf/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/tryhackme/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/tags/windows/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/Cybertalents-CatchMomen-Web-Writeup/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/Hackerone-GraphQL-CTF-Writeup/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/Cybertalents-StringHighlighter-Web-Writeup/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/Cybertalents-WrongToken-Web-Writeup/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/Cybertalents-F2UP-Web-Writeup/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/Cybertalents-SkiddyKill3r-Web-Writeup/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/Cybertalents-xCorp-Web-Writeup/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/Active-Directory-Attacks/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/Active-Directory-Enumeration/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/Active-Directory-Authentication/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://itsfading.github.io/posts/Active-Directory-Basics/</loc>
+  <lastmod>2025-04-07T12:21:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
