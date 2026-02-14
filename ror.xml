@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:ror="http://rorweb.com/0.1/" >
+<channel>
+  <title>ROR Sitemap for https://itsfading.github.io/</title>
+  <link>https://itsfading.github.io/</link>
+
+<item>
+     <link>https://itsfading.github.io/</link>
+     <title>וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>0</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/categories/</link>
+     <title>Categories | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/</link>
+     <title>Tags | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/archives/</link>
+     <title>Archives | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/about/</link>
+     <title>About | וֹtsƒα∂ιη𝔊</title>
+     <description>Note: Add Markdown syntax content to file _tabs/about.md and it will show up on this page.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/CRTO-Commands-CheatSheet/</link>
+     <title>CRTO Commands CheatSheet | וֹtsƒα∂ιη𝔊</title>
+     <description>Introduction</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/CRTP-Commands-CheatSheet/</link>
+     <title>CRTP Commands CheatSheet | וֹtsƒα∂ιη𝔊</title>
+     <description>Enumeration</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/Mobile-Hacking-Lab-IOS-Challenges-Writeups/</link>
+     <title>MobileHackingLab IOS Challenges Writeups | וֹtsƒα∂ιη𝔊</title>
+     <description>Introduction</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/HexTree-Attack-Surface-App-Solutions/</link>
+     <title>HexTree Attack Surface Android App Solutions | וֹtsƒα∂ιη𝔊</title>
+     <description>Introduction</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/Insecureshop-Android-Vulnerable-Application-Writeup/</link>
+     <title>Walkthrough of The InsecureShop Android Vulnerable Application | וֹtsƒα∂ιη𝔊</title>
+     <description>Introduction</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/TryHackMe-RedTeamCapstoneNetwork-Writeup/</link>
+     <title>Breaking the Vault | A Detailed Walkthrough of The RedTeam Capstone Challenge | וֹtsƒα∂ιη𝔊</title>
+     <description>TryHackMe’s RedTeam Capstone Challenge provides an unparalleled, hands-on experience that simulates real-world hacking scenarios. This challenge tests your skills in network infiltration, vulnerability exploitation, and navigating complex defenses.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/BlackHatMEA-Qualifications-2022-Writeup/</link>
+     <title>BlackHatMEA Qualifications 2022 CTF Web Challenges Writeup | וֹtsƒα∂ιη𝔊</title>
+     <description>Peace be upon all of you, on this writeup I am going to cover the solutions of some web challenges from BlackHatMEA CTF. We have participated under the team 0xCha0s.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/ASCWGs-Qualifications-2022-Writeup/</link>
+     <title>ASCWGs Qualifications 2022 CTF Web Challenges Writeup | וֹtsƒα∂ιη𝔊</title>
+     <description>Peace be upon all of you, on this writeup I am going to cover the solutions of all web challenges for Arab Security Cyber Wargames 2022 qualification phase. My team 0xCha0s achieved the 5 place between more than 700 teams.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/Hackerone-Android-challenges-Writeup/</link>
+     <title>Hackerone Android Challenges Writeups | וֹtsƒα∂ιη𝔊</title>
+     <description>Peace be upon all of you, on this writeup I am going to cover the solutions of all android challenges on Hackerone (Thermostat - Intentional Exercise - Oauthbreaker - Webdev).</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/Unrestricted-File-Upload-Leads-to-SSRF-and-RCE/</link>
+     <title>Unrestricted File Upload Leads to SSRF and RCE | וֹtsƒα∂ιη𝔊</title>
+     <description>Introduction Peace be upon you all, I am going to share with you a vulnerability that I have found almost a year ago and it is remarkable for me because it was the first critical one for me anyway let’s jump in.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/page2/</link>
+     <title>וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/page3/</link>
+     <title>וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/Active-Directory-Authentication/</link>
+     <title>Active Directory Authentication | וֹtsƒα∂ιη𝔊</title>
+     <description>Local Windows Authentication</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/Active-Directory-Basics/</link>
+     <title>Active Directory Basics | וֹtsƒα∂ιη𝔊</title>
+     <description>Active directory overview what is Active directory? Active Directory is a collection of machines and servers connected inside of domains, that are a collective part of a bigger forest of domains, that make up the Active Directory network. why using active directory? it allows for the control and monitoring of their user’s computers through a single domain controller. It allows a single user to sign in to any computer on the active directory network and have access to his or her stored files an</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/ctf/</link>
+     <title>ctf | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/web/</link>
+     <title>web | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/cybertalents/</link>
+     <title>cybertalents | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/writeups/</link>
+     <title>writeups | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/active-directory/</link>
+     <title>active directory | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/redteaming/</link>
+     <title>redteaming | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/android-security/</link>
+     <title>android security | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/bug-hunting/</link>
+     <title>bug hunting | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/certs/</link>
+     <title>certs | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/machines/</link>
+     <title>machines | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/categories/active-directory-101/</link>
+     <title>Active Directory 101 | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/categories/android-security/</link>
+     <title>Android Security | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/categories/bug-hunting/</link>
+     <title>Bug Hunting | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/categories/ctfs/</link>
+     <title>CTFs | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/categories/certs/</link>
+     <title>Certs | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/categories/cybertalents-writeups/</link>
+     <title>Cybertalents Writeups | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/categories/hackerone-ctf/</link>
+     <title>Hackerone CTF | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/categories/ios-security/</link>
+     <title>IOS Security | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/categories/tryhackme/</link>
+     <title>TryHackMe | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/bufferoverflow/</link>
+     <title>bufferoverflow | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/c2/</link>
+     <title>c2 | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/cobalt-strike/</link>
+     <title>cobalt strike | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/exploitation/</link>
+     <title>exploitation | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/graphql/</link>
+     <title>graphql | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/hackerone/</link>
+     <title>hackerone | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/http-request-smuggling/</link>
+     <title>http request smuggling | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/insecure-file-upload/</link>
+     <title>insecure file upload | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/ios-security/</link>
+     <title>ios security | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/network-exploitation/</link>
+     <title>network exploitation | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/networks/</link>
+     <title>networks | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/rce/</link>
+     <title>RCE | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/ssrf/</link>
+     <title>SSRF | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/tryhackme/</link>
+     <title>tryhackme | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/tags/windows/</link>
+     <title>windows | וֹtsƒα∂ιη𝔊</title>
+     <description>Welcome to my blog, where I dive deep into the world of cybersecurity with detailed guides, tutorials, and insights. Here, you’ll find comprehensive writeups on various cybersecurity challenges, red teaming techniques, and general security practices. Whether you’re an experienced professional or just starting out, my content is designed to provide valuable knowledge and practical advice to help you navigate and excel in the ever-evolving field of cybersecurity. Join me in exploring and maste</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/I-owe-your-Request-HTTP-Request-Smuggling-leads-to-Full-Accounts-takeover/</link>
+     <title>I owe your Request | HTTP Request Smuggling leads to Full Accounts takeover | וֹtsƒα∂ιη𝔊</title>
+     <description>Introduction Peace be upon you all, this is actually my first writeup which is going to be about a very interesting vulnerability, HTTP Request Smuggling, which I found in a private program, which I was able to escalate it to full account takeover. I am going to share with you how to search for this vulnerability on a large scale and what the best tool and resource to utilize when testing for this vulnerability.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/Cybertalents-Space-Web-Writeup/</link>
+     <title>Cybertalents Space Web Challenge Writeup | וֹtsƒα∂ιη𝔊</title>
+     <description>Description</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/Cybertalents-CatchMomen-Web-Writeup/</link>
+     <title>Cybertalents catchMomen Web Challenge Writeup | וֹtsƒα∂ιη𝔊</title>
+     <description>Description</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/Hackerone-GraphQL-CTF-Writeup/</link>
+     <title>Hackerone BugDB challenge Writeup | וֹtsƒα∂ιη𝔊</title>
+     <description>Peace be upon all of you, on this writeup I am going to cover the solutions of three challenges on Hacekrone related to GraphQL, they have three parts under the name BugDB v1/3.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/Cybertalents-Crashed-Machine-Writeup/</link>
+     <title>Cybertalents Crashed Machine Writeup | וֹtsƒα∂ιη𝔊</title>
+     <description>Description</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/Cybertalents-Shadower-Machine-Writeup/</link>
+     <title>Cybertalents Shadower Machine Writeup | וֹtsƒα∂ιη𝔊</title>
+     <description>Description</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/Cybertalents-StringHighlighter-Web-Writeup/</link>
+     <title>Cybertalents String highlighter Web Challenge Writeup | וֹtsƒα∂ιη𝔊</title>
+     <description>Description</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/Cybertalents-WrongToken-Web-Writeup/</link>
+     <title>Cybertalents Wrong Token Web Challenge Writeup | וֹtsƒα∂ιη𝔊</title>
+     <description>Description</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/Cybertalents-F2UP-Web-Writeup/</link>
+     <title>Cybertalents F2UP Web Challenge Writeup | וֹtsƒα∂ιη𝔊</title>
+     <description>Description</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/Cybertalents-SkiddyKill3r-Web-Writeup/</link>
+     <title>Cybertalents SkiddyKill3r Web Challenge Writeup | וֹtsƒα∂ιη𝔊</title>
+     <description>Description</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/Cybertalents-xCorp-Web-Writeup/</link>
+     <title>Cybertalents xCorp Web Challenge Writeup | וֹtsƒα∂ιη𝔊</title>
+     <description>Description</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/Active-Directory-Attacks/</link>
+     <title>Active Directory Attacks | וֹtsƒα∂ιη𝔊</title>
+     <description>LLMNR Poisoning</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://itsfading.github.io/posts/Active-Directory-Enumeration/</link>
+     <title>Active Directory Enumeration | וֹtsƒα∂ιη𝔊</title>
+     <description>Using PowerView</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+</channel>
+</rss>
+  
