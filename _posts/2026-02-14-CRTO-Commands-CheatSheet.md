@@ -953,6 +953,7 @@ execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe asktgt /user:PART
 
 ## **References**
 
+- [https://www.zeropointsecurity.co.uk/course/red-team-ops](https://www.zeropointsecurity.co.uk/course/red-team-ops)
 - [https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/appendix-a_beacon-opsec-considerations.htm](https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/appendix-a_beacon-opsec-considerations.htm)
 - [https://www.cobaltstrike.com/blog/why-is-rundll32-exe-connecting-to-the-internet](https://www.cobaltstrike.com/blog/why-is-rundll32-exe-connecting-to-the-internet)
 - [https://www.cobaltstrike.com/blog/cobalt-strike-3-8-whos-your-daddy](https://www.cobaltstrike.com/blog/cobalt-strike-3-8-whos-your-daddy)
