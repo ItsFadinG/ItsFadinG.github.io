@@ -8,7 +8,7 @@ tags: [active directory, redteaming, certs, c2, cobalt strike]
 
 ## **Introduction**
 
-Peace be upon all of you. I recently completed the Red Team Operator course (CRTO) from Zero-Point Security, created by Daniel Duggan, and honestly, I truly loved this certificate content. The course is extremely well-structured, very informative, and clearly designed with a focus on the OPSEC considerations behind every step. Most of the material is delivered in written format, which I personally found excellent for deep understanding and note-taking, and each module is followed by video walkthroughs for the lab solutions.
+Peace be upon all of you. I recently completed the Red Team Operator course (CRTO) from Zero-Point Security, created by Daniel Duggan, and honestly, I truly loved the whole experience. The course is extremely well-structured, very informative, and clearly designed with a focus on the OPSEC considerations behind every step. Most of the material is delivered in written format, which I personally found excellent for deep understanding and note-taking, and each module is followed by video walkthroughs for the lab solutions.
 
 The exam itself was very challenging at least for me — I failed my first two attempts. But Alhamdulillah, on the third attempt, I finally passed with full points. It was a tough journey, but definitely worth it.
 
@@ -99,16 +99,16 @@ cd /opt/cobaltstrike/profiles;rm default.profile;nano default.profile
 
 # Sample of Profile Optioons
 stage {
-	 ## Prevents Beacon from allocating memory pages that are both writable and executable at the same time
-   set userwx "false";
-   ## Module stomping loads a legitimate DLL into memory and then overwrites its code with Beacon’s payload, so execution appears to be from a trusted Windows module
-   set module_x64 "Hydrogen.dll";
-   ## Avoids copying the PE header into memory, which helps evade memory scanners that look for recognizable PE structures
-   set copy_pe_header "false";
-   ## Free memory associated with reflective loader after it has been loaded
-	 set cleanup "true"; 
-	 ## Load Beacon into memory without its DLL headers
-	 set obfuscate "true"; 
+    ## Prevents Beacon from allocating memory pages that are both writable and executable at the same time
+    set userwx "false";
+    ## Module stomping loads a legitimate DLL into memory and then overwrites its code with Beacon’s payload, so execution appears to be from a trusted Windows module
+    set module_x64 "Hydrogen.dll";
+    ## Avoids copying the PE header into memory, which helps evade memory scanners that look for recognizable PE structures
+    set copy_pe_header "false";
+    ## Free memory associated with reflective loader after it has been loaded
+    set cleanup "true"; 
+    ## Load Beacon into memory without its DLL headers
+    set obfuscate "true"; 
 }
 
 # Post-Exploitation Fork & Run
@@ -119,7 +119,7 @@ process-inject {
       NtQueueApcThread;
       SetThreadContext;
       RtlCreateUserThread;
-			CreateThread;
+      CreateThread;
   }
 }
 ## post-ex Change pipe name - Parent-Child Process - AMSI - - Replace Strings in DLL  
