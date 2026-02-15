@@ -1,5 +1,5 @@
 ---
-title: CRTO Commands CheatSheet
+title: Red Team Operator (CRTO) Commands CheatSheet
 author: Muhammad Adel
 date: 2026-02-14 13:40:00 +0200
 categories: [Certs]
