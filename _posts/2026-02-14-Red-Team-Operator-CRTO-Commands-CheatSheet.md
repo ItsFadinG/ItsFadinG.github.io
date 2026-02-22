@@ -90,7 +90,7 @@ portscan 172.16.48.0/24 1-2048,3000,8080
 
 ### **C2 Profile**
 
-```profile
+```bash
 # Team Server
 ssh attacker@10.0.0.5
 
