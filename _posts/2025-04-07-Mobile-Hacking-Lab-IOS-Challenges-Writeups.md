@@ -1,6 +1,6 @@
 ---
 title: MobileHackingLab IOS Challenges Writeups 
-author: Muhammad Adel
+author: ItsFadinG
 date: 2025-04-07 13:40:00 +0200
 categories: [IOS Security]
 tags: [ios security, writeups]

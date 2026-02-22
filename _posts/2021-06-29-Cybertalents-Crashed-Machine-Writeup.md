@@ -1,6 +1,6 @@
 ---
 title: Cybertalents Crashed Machine Writeup
-author: Muhammad Adel
+author: ItsFadinG
 date: 2021-06-29 16:40:00 +0200
 categories: [Cybertalents Writeups]
 tags: [cybertalents, machines, ctf, bufferoverflow, exploitation]

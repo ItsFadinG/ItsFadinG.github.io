@@ -1,6 +1,6 @@
 ---
 title: Active Directory Enumeration
-author: Muhammad Adel
+author: ItsFadinG
 date: 2021-06-25 18:35:00 +0200
 categories: [Active Directory 101]
 tags: [active directory, redteaming]

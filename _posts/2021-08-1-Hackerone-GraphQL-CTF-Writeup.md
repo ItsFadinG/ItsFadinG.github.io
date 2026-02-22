@@ -1,6 +1,6 @@
 ---
 title: Hackerone BugDB challenge Writeup
-author: Muhammad Adel
+author: ItsFadinG
 date: 2021-08-1 14:40:00 +0200
 categories: [Hackerone CTF]
 tags: [hackerone, graphql, ctf, web]

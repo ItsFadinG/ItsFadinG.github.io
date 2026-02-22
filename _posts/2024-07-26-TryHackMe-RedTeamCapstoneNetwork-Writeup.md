@@ -1,6 +1,6 @@
 ---
 title: Breaking the Vault | A Detailed Walkthrough of The RedTeam Capstone Challenge
-author: Muhammad Adel
+author: ItsFadinG
 date: 2024-07-26 18:52:00 +0200
 categories: [TryHackMe]
 tags: [tryhackme, redteaming , active directory, windows, writeups, networks]

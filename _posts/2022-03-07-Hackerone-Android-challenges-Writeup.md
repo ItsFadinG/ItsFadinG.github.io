@@ -1,6 +1,6 @@
 ---
 title: Hackerone Android Challenges Writeups
-author: Muhammad Adel
+author: ItsFadinG
 date: 2022-03-07 16:40:00 +0200
 categories: [Hackerone CTF]
 tags: [android security, writeups]

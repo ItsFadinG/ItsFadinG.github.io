@@ -1,6 +1,6 @@
 ---
 title: Cybertalents Space Web Challenge Writeup
-author: Muhammad Adel
+author: ItsFadinG
 date: 2021-08-12 18:20:00 +0200
 categories: [Cybertalents Writeups]
 tags: [cybertalents, ctf, web]

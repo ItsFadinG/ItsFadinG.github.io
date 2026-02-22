@@ -1,6 +1,6 @@
 ---
 title: Walkthrough of The InsecureShop Android Vulnerable Application 
-author: Muhammad Adel
+author: ItsFadinG
 date: 2024-09-06 16:40:00 +0200
 categories: [Android Security]
 tags: [android security, writeups]

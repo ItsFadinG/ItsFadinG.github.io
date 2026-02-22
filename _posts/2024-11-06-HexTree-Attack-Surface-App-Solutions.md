@@ -1,6 +1,6 @@
 ---
 title: HexTree Attack Surface Android App Solutions 
-author: Muhammad Adel
+author: ItsFadinG
 date: 2024-11-06 13:40:00 +0200
 categories: [Android Security]
 tags: [android security, writeups]

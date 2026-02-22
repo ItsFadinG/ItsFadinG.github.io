@@ -1,6 +1,6 @@
 ---
 title: I owe your Request | HTTP Request Smuggling leads to Full Accounts takeover
-author: Muhammad Adel
+author: ItsFadinG
 date: 2021-08-29 19:40:00 +0200
 categories: [Bug Hunting]
 tags: [bug hunting, web, http request smuggling, writeups]

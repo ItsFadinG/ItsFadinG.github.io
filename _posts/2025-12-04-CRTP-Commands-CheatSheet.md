@@ -1,6 +1,6 @@
 ---
 title: CRTP Commands CheatSheet
-author: Muhammad Adel
+author: ItsFadinG
 date: 2025-12-04 13:40:00 +0200
 categories: [Certs]
 tags: [active directory, redteaming, certs]

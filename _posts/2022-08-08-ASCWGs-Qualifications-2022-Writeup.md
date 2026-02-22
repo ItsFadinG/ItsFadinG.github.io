@@ -1,6 +1,6 @@
 ---
 title: ASCWGs Qualifications 2022 CTF Web Challenges Writeup
-author: Muhammad Adel
+author: ItsFadinG
 date: 2022-08-08 07:40:00 +0200
 categories: [CTFs]
 tags: [web, writeups, ctf]

@@ -1,6 +1,6 @@
 ---
 title: BlackHatMEA Qualifications 2022 CTF Web Challenges Writeup
-author: Muhammad Adel
+author: ItsFadinG
 date: 2022-10-01 18:52:00 +0200
 categories: [CTFs]
 tags: [web, writeups ,ctf]

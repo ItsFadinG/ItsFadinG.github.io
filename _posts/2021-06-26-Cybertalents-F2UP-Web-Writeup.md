@@ -1,6 +1,6 @@
 ---
 title: Cybertalents F2UP Web Challenge Writeup
-author: Muhammad Adel
+author: ItsFadinG
 date: 2021-06-26 18:05:00 +0200
 categories: [Cybertalents Writeups]
 tags: [cybertalents, ctf, web]
