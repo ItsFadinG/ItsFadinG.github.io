@@ -6,6 +6,10 @@ categories: [Certs]
 tags: [active directory, redteaming, certs]
 ---
 
+> **Disclaimer**
+This Cheatsheet is simply a quick reference for the commands and techniques covered throughout the course. All the information shared here is directly related to the course material and is not my own original content.
+>
+ 
 ## Enumeration
 
 ```powershell

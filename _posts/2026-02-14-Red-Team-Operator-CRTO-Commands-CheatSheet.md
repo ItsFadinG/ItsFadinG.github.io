@@ -12,6 +12,8 @@ Peace be upon all of you. I recently completed the Red Team Operator course (CRT
 
 The exam itself was very challenging at least for me — I failed my first two attempts. But Alhamdulillah, on the third attempt, I finally passed with full points. It was a tough journey, but definitely worth it.
 
+![image.png](/assets/crto/results.png)
+
 > **Disclaimer**
 This Cheatsheet is simply a quick reference for the commands and techniques covered throughout the course. All the information shared here is directly related to the course material and is not my own original content.
 > 
