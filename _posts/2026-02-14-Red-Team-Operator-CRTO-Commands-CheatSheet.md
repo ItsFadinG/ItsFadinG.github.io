@@ -12,7 +12,7 @@ Peace be upon all of you. I recently completed the Red Team Operator course (CRT
 
 The exam itself was very challenging at least for me — I failed my first two attempts. But Alhamdulillah, on the third attempt, I finally passed with full points. It was a tough journey, but definitely worth it.
 
-![image.png](/assets/crto/results.png)
+![CRTO Exam Results](/assets/crto/results.png)
 
 > **Disclaimer**
 This Cheatsheet is simply a quick reference for the commands and techniques covered throughout the course. All the information shared here is directly related to the course material and is not my own original content.
@@ -743,7 +743,7 @@ rportfwd 4444 windows/beacon_reverse_tcp
 ```
 Sample graph demonstrating the use of a pivot listener to obtain a Beacon shell on an unreachable machine
 
-![image.png](/assets/crto/image.png)
+![Pivot Listners Graph](/assets/crto/image.png)
 
 ## **Kerberos Delegation Attacks**
 
@@ -932,7 +932,7 @@ Simple diagram summarizing the ESC8 NTLM relaying via C2:
 6. The certificate comes back through the same SOCKS tunnel to ntlmrelayx, which saves it as `LON-DC-1.pfx`. 
 7. Finally you can use that cert to get a TGT for the DC machine account, and from there S4U2self to impersonate a domain admin.
 
-![image.png](/assets/crto/adcs.png)
+![ESC8 NTLM relaying via C2](/assets/crto/cs.png)
 
 ## **OPSEC Notes**
 
@@ -960,18 +960,18 @@ Simple diagram summarizing the ESC8 NTLM relaying via C2:
     - **Fork & Run Commands**
         - Before executing any fork-and-run commands, consider modifying the sacrificial process spawned by Cobalt Strike using the `spawnto` command, to reduce OPSEC risk.
         
-        ![image.png](/assets/crto/image%201.png)
+        ![Process Injection](/assets/crto/image%201.png)
         
     - **Spawning Process**
         - After gaining an initial shell such as `cmd.exe` or `powershell.exe`, it is recommended to quickly migrate the beacon to a benign, legitimate process to blend in and minimize detection, then terminate the original noisy process.
         - Ensure injected or spawned processes align with expected parent-child relationships and user context use `PPID` to change that.
         
-        ![image.png](/assets/crto/image%202.png)
+        ![Before Spawning Process](/assets/crto/image%202.png)
         
     - Beacon provides many **API-only commands** that aim to replace the need to run these types of commands `shell dir` `run dir`.  For instance, use `ls` over dir and `getuid` over whoami.
     - Keep an eye for the following before executing beacon commands.
         
-        ![image.png](/assets/crto/image%203.png)
+        ![Instrumentation and Telemetry](/assets/crto/image%203.png)
         
     - **Lateral Movement**
         - Avoid using PsExec, as it creates a service on the remote host that may persist and leave artifacts. Consider alternatives such as `scshell` or other lateral movement techniques that do not rely on service creation.
