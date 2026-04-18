@@ -1,5 +1,5 @@
 ---
-title: Red Team Operator (CRTO) Commands CheatSheet
+title: Zero-Point Security | Red Team Operator CRTO Commands CheatSheet
 author: ItsFadinG
 date: 2026-02-14 13:40:00 +0200
 categories: [Certs]
@@ -12,7 +12,7 @@ Peace be upon all of you. I recently completed the Red Team Operator course (CRT
 
 The exam itself was very challenging at least for me — I failed my first two attempts. But Alhamdulillah, on the third attempt, I finally passed with full points. It was a tough journey, but definitely worth it.
 
-![CRTO Exam Results](/assets/crto/results.png)
+![CRTO Exam Result](/assets/crto/results.png)
 
 > **Disclaimer**
 This Cheatsheet is simply a quick reference for the commands and techniques covered throughout the course. All the information shared here is directly related to the course material and is not my own original content.
