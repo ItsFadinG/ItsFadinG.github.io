@@ -173,3 +173,8 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+# --- Sitemap (if not already there) ---
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap 
