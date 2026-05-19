@@ -177,4 +177,4 @@ jekyll-archives:
 # --- Sitemap (if not already there) ---
 plugins:
   - jekyll-seo-tag
-  - jekyll-sitemap 
+  - jekyll-sitemap
