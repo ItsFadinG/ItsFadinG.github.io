@@ -35,13 +35,13 @@ The server rejected it with a validation error as well.
 
 After the previous attempts, I started thinking about how different number representations might be interpreted by the backend. That's when scientific notation came to mind.
 
-> Scientific notation is a way to express very large or very small numbers in a compact form. Instead of writing `100` you can write `1e2` which means `1 × 10^2`. The `e` here stands for "exponent".
+> Scientific notation is a way to express very large or very small numbers in a compact form. Instead of writing `1000` you can write `1e3` which means `1 × 10^3`. The `e` here stands for "exponent".
 > 
 
 This representation is completely valid in most programming languages and many parsers — including JSON parsers. 
 The interesting question here is: does the validation layer understand scientific notation the same way the processing layer does?
 
-So let’s try with the value of `1e3 = 1000`
+So let’s try with the value of `1e3`
 
 ![30.4 requesting with min loan value.png](/assets/loan/5.png)
 
