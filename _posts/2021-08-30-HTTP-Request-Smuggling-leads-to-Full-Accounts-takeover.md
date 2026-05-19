@@ -9,7 +9,7 @@ tags: [bug hunting, web, http request smuggling, writeups]
 ## **Introduction**
 Peace be upon you all, this is actually my first writeup which is going to be about a very interesting vulnerability, HTTP Request Smuggling, which I found in a private program, which I was able to escalate it to full account takeover. I am going to share with you how to search for this vulnerability on a large scale and what the best tool and resource to utilize when testing for this vulnerability.
 
-It begins almost when the amazing researcher [James kettle](https://twitter.com/albinowax) announce his new research at DEFCON, which addresses a new era of the HTTP request smuggling but this time for HTTP/2. I watched the video, and I couldn't understand anything, So I went back and studied the previous version of this attack, and I thought what about testing this "rare attack" as some people think, before moving to the new one. I ended up finding this critical vulnerability in two different private programs.
+It begins almost when the amazing researcher [James kettle](https://x.com/albinowax) announce his new research at DEFCON, which addresses a new era of the HTTP request smuggling but this time for HTTP/2. I watched the video, and I couldn't understand anything, So I went back and studied the previous version of this attack, and I thought what about testing this "rare attack" as some people think, before moving to the new one. I ended up finding this critical vulnerability in two different private programs.
 
 ![](https://gblobscdn.gitbook.com/assets%2F-MR5KvOL_gXbwMWP6Z6m%2F-MiH8QkhdKu6BciITe6D%2F-MiHFxfVj0C3vf_kr-u0%2Ftwitter.png?alt=media&token=76b7e577-2df0-4f4c-96f1-c7624ad3a351)
 

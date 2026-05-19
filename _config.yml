@@ -29,7 +29,7 @@ github:
   username: ItsFadinG             # change to your github username
 
 twitter:
-  username: ItsFadinG_            # change to your twitter username
+  username: ItsFadinG_            # change to your X username
 
 linkedin:
   username: muhammadadel14         # change to your linkedin username
@@ -41,7 +41,7 @@ social:
   email: Muhammad.adel.tr@gmail.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/ItsFadinG_      # change to your twitter homepage
+    - https://x.com/ItsFadinG_      # change to your X homepage
     - https://github.com/ItsFadinG       # change to your github homepage
     # Uncomment below to add more social links
     - https://eg.linkedin.com/in/muhammadadel14
