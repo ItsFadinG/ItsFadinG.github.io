@@ -1,5 +1,5 @@
 ---
-title: One Billion Riyal Loan | Bypassing Maximum Loan Amount Using Scientific Notation
+title: The One Billion Loan | Bypassing Maximum Loan Amount Using Scientific Notation
 author: ItsFadinG
 date: 2026-05-17 19:40:00 +0200
 categories: [Bug Hunting]
