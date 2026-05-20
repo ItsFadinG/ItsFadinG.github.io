@@ -3,7 +3,7 @@ title: Hackerone Android Challenges Writeups
 author: ItsFadinG
 date: 2022-03-07 16:40:00 +0200
 categories: [Hackerone CTF]
-tags: [android security, writeups]
+tags: [android, writeups]
 ---
 Peace be upon all of you, on this writeup I am going to cover the solutions of all android challenges on Hackerone (Thermostat - Intentional Exercise - Oauthbreaker - Webdev).
 

@@ -3,7 +3,7 @@ title: Breaking the Vault | A Detailed Walkthrough of The RedTeam Capstone Chall
 author: ItsFadinG
 date: 2024-07-26 18:52:00 +0200
 categories: [TryHackMe]
-tags: [tryhackme, redteaming , active directory, windows, writeups, networks]
+tags: [tryhackme, redteaming , active directory, windows, writeups]
 ---
 TryHackMe’s RedTeam Capstone Challenge provides an unparalleled, hands-on experience that simulates real-world hacking scenarios. This challenge tests your skills in network infiltration, vulnerability exploitation, and navigating complex defenses.
 ![Untitled](/assets/N-RedTeamCC/badge.png)
