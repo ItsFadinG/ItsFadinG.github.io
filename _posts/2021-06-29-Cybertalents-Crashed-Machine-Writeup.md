@@ -2,7 +2,7 @@
 title: Cybertalents Crashed Machine Writeup
 author: ItsFadinG
 date: 2021-06-29 16:40:00 +0200
-categories: [Cybertalents Writeups]
+categories: [CTFs]
 tags: [cybertalents, machines, ctf, bufferoverflow]
 ---
 

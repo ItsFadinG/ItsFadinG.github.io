@@ -2,7 +2,7 @@
 title: Cybertalents SkiddyKill3r Web Challenge Writeup
 author: ItsFadinG
 date: 2021-06-26 18:00:00 +0200
-categories: [Cybertalents Writeups]
+categories: [CTFs]
 tags: [cybertalents, ctf, web]
 ---
 

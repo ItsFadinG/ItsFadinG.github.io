@@ -2,7 +2,7 @@
 title: Hackerone BugDB challenge Writeup
 author: ItsFadinG
 date: 2021-08-1 14:40:00 +0200
-categories: [Hackerone CTF]
+categories: [CTFs]
 tags: [hackerone, graphql, ctf, web]
 ---
 

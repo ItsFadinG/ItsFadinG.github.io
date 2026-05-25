@@ -2,7 +2,7 @@
 title: Cybertalents Shadower Machine Writeup
 author: ItsFadinG
 date: 2021-06-26 18:45:00 +0200
-categories: [Cybertalents Writeups]
+categories: [CTFs]
 tags: [cybertalents, machines, ctf]
 ---
 

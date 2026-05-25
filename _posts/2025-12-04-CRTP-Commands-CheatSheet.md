@@ -2,7 +2,7 @@
 title: Altered Security | CRTP Commands CheatSheet
 author: ItsFadinG
 date: 2025-12-04 13:40:00 +0200
-categories: [Certs]
+categories: [Certificates]
 tags: [active directory, redteaming, certs]
 ---
 

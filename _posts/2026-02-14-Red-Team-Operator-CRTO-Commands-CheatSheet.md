@@ -2,7 +2,7 @@
 title: Zero-Point Security | Red Team Operator CRTO Commands CheatSheet
 author: ItsFadinG
 date: 2026-02-14 13:40:00 +0200
-categories: [Certs]
+categories: [Certificates]
 tags: [active directory, redteaming, certs, c2, cobalt strike]
 ---
 

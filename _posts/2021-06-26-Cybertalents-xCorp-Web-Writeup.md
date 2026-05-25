@@ -2,7 +2,7 @@
 title: Cybertalents xCorp Web Challenge Writeup
 author: ItsFadinG
 date: 2021-06-26 17:45:00 +0200
-categories: [Cybertalents Writeups]
+categories: [CTFs]
 tags: [cybertalents, ctf, web]
 ---
 
