@@ -1,7 +1,7 @@
 ---
 title: The One Billion Loan | Bypassing Maximum Loan Amount Using Scientific Notation
 author: ItsFadinG
-date: 2026-05-17 19:40:00 +0200
+date: 2026-04-01 19:40:00 +0200
 categories: [Bug Hunting]
 tags: [bug hunting, web, writeups]
 ---
