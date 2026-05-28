@@ -1,5 +1,5 @@
 ---
-title: A Tale of My First Red Team Engagement | Evading Symantec SEP 14.3 to Domain Admin
+title: My First Red Team Engagement | Evading Symantec SEP 14.3 to Domain Admin
 author: ItsFadinG
 date: 2026-05-23 19:40:00 +0200
 categories: [Red Team]
@@ -183,12 +183,12 @@ This account also had DCSync rights over the entire domain, meaning I could remo
 
 ## **The Complete Chain**
 
-1. **Phishing:** Compromised domain user account
-2. **ACL Enumeration:** Discovered Write Account Restrictions + All Extended Rights over 50+ computers
-3. **RBCD Abuse:** Created fake computer, configured delegation, obtained admin access to target machines
-4. **Defense Evasion:** Patched AmsiScanBuffer in memory to disable scanning
-5. **Credential Dumping:**: Loaded Mimikatz, extracted Domain Admin credentials
-6. **DCSync:**: Full domain compromise
+1. **Phishing:** Compromised domain user account.
+2. **ACL Enumeration:** Discovered Write Account Restrictions + All Extended Rights over 50+ computers.
+3. **RBCD Abuse:** Created fake computer, configured delegation, obtained admin access to target machines.
+4. **Defense Evasion:** Patched AmsiScanBuffer in memory to disable scanning.
+5. **Credential Dumping:** Loaded Mimikatz, extracted Domain Admin credentials.
+6. **DCSync:** Full domain compromise.
 
 Here is a simplified summary of the attack path from bloodhound:
 
