@@ -1,5 +1,5 @@
 ---
-title: My First Red Team Engagement | Evading Symantec SEP 14.3 to Domain Admin
+title: My First Red Team Engagement | Evading Symantec Endpoint Protection to Achieve Domain Admin
 author: ItsFadinG
 date: 2026-05-23 19:40:00 +0200
 categories: [Red Team]
